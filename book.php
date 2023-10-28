@@ -22,9 +22,9 @@ include_once './includes/header.php';
         </div>
         <div class="row">
 
-            <div class="col-md-10 offset-md-1">
+            
 
-                <div id="step-1" class="row">
+                <div id="step-1" >
                     
 
 
@@ -268,32 +268,31 @@ include_once './includes/header.php';
                                 </div>
                             </div>
 
-
+<div id="success_message" class='success'>
+                    Your message has been sent successfully. Refresh this page if you want to send more messages.
+                </div>
+                <div id="error_message" class='error'>
+                    Sorry there was an error sending your form.
+                </div>
                         </form>
                     </div>
 
 
 
 
+
                 </div>
 
 
 
-                <div id="success_message" class='success'>
-                    Your message has been sent successfully. Refresh this page if you want to send more messages.
-                </div>
-                <div id="error_message" class='error'>
-                    Sorry there was an error sending your form.
-                </div>
-
+                
             </div>
 
         </div>
-    </div>
 </section>
 
 
-<section class="cta_section padding">
+<section class="cta_section padding d-none">
     <div class="container">
         <div class="display-table">
             <div class="table-cel">
