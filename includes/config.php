@@ -8,7 +8,7 @@ define('WHATSAPP_URL','https://wa.link/ks2xy9');
 define('EMAIL','empiresalonagra@gmail.com');
 define('ADMIN_EMAIL','mb.consulting.031220@gmail.com');
 define('PHONE','+91-98970 33321');
-define('ADDRESS','2nd Floor, Shanti Emporio, Ramnagar Colony,<br/> Civil Lines, Agra,<br/> Uttar Pradesh <br/>282002');
+define('ADDRESS','2nd Floor, Shanti Emporio, <br>Ramnagar Colony,<br/> Civil Lines, Agra,<br/> Uttar Pradesh <br/>282002');
 
 define('INSTA_SOCIAL','https://www.instagram.com/empiresalonofficial/?hl=en');
 define('FB_SOCIAL','https://www.facebook.com/empireagraindia/');
