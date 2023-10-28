@@ -113,7 +113,7 @@
     
     
     <div class="html-code overlay">
-        
+        <span id="close_sms_popup" onclick="this.parentNode.remove(); return false;">x</span>
         <div id="test-popup" class="login_popup_ white-popup mfp-hide " style="display: none;">
    <div id="sms-popup"  >
 

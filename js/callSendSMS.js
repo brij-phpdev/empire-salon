@@ -30,6 +30,12 @@ jQuery(document).ready(function ($) {
         $("#popupLogin").stop().slideToggle('slow');
 
     });
+    $("#close_sms_popup").on("click", function () {
+        $("#test-popup").hide();
+        $("#sms-popup").hide();
+        $(".html-code").hide();
+
+    });
 
     $("#sent-otp-fastsms").on("click", function () {
         sendFastSMSOTP($smsLinkHref);
