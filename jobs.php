@@ -56,8 +56,8 @@ include_once './includes/header.php';
                                 <p class="lead text-center">
                                 Apply with your updated Resume
                                 </p>
-
-                                <form name="jobForm" id="job_form" class="form-border position-relative z1000" method="post" action="#">
+                                <div class="contact-form">
+                                <form name="jobForm" id="job_form" class="form-border form-horizontal position-relative z1000" method="post" action="#">
                                     <div class="row">
                                         <div class="col-lg-12 mb10">
                                             <div class="field-set">
@@ -127,7 +127,7 @@ include_once './includes/header.php';
                                         Sorry there was an error sending your form.
                                     </div>
                                 </form>
-
+                                </div>
                                 <div class="d-deco"></div>
                             </div>
                             </div>
