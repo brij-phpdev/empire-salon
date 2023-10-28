@@ -21,7 +21,7 @@ include_once './includes/header.php';
 		</section><!--/. page_header -->
     
 
-    <section aria-label="section" class="padding">
+    <section aria-label="section" class="padding-15">
 
         <div class="container">
             <div class="row">
@@ -35,27 +35,8 @@ include_once './includes/header.php';
         </div>
     </section>
 
-<!--<section class="book_section padding">
-    <div class="book_bg"></div>
-    <div class="map_pattern"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-8">
-                <form action="appointment.php" method="post" id="appointment_form" class="form-horizontal appointment_form">
-                    <div class="book_content">
-                        <h2>Make an appointment</h2>
-                        <p class="text-justify">We take pride in providing top-notch grooming services that blend classic techniques with modern trends. Step into our warm and inviting space, where you'll find a team of skilled barbers dedicated to enhancing your style and confidence.</p>
-                    </div>
-                    <a class="default_btn" href="book.php">Make Appointment</a>
-                    <div id="msg-status" class="alert" role="alert"></div>
-            </div>
-
-            </form>
-        </div>
-    </div>
-</section>/. book_section -->
     
-    <section id="section-trending" class="about_section padding">
+    <section id="section-trending" class="about_section padding-15">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2 text-center">
