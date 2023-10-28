@@ -39,13 +39,13 @@
     // MySQL settings. You need to get this info from your web host.
     // 4.
     // Name of the database
-    define( 'K_DB_NAME', 'u963541063_empire_cms' );
+    define( 'K_DB_NAME', 'the_empire_salon' );
     // 5.
     // Database username
-    define( 'K_DB_USER', 'u963541063_empire_cms' );
+    define( 'K_DB_USER', 'root' );
     // 6.
     // Database password
-    define( 'K_DB_PASSWORD', '=2DcW8H3' );
+    define( 'K_DB_PASSWORD', '' );
     // 7.
     // MySQL hostname (it will usually be 'localhost')
     define( 'K_DB_HOST', '127.0.0.1' );

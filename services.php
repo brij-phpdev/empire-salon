@@ -241,17 +241,17 @@ include_once './includes/header.php';
             <div class="row">
                 <div class="col-4">
                     <img src="img/hairstyles/3.jpg" class="lazy img-fluid" alt="">
-                    <h5><span class="service_item-title text-medium">Barbering</h2>
+                    <h2>Barbering</h2>
                     <p class="lead">For a swift, customized EMPIRE signature barbered cut, trust our experts. A quick and simple finish, perfectly suited to you, enriched with the finesse of our professional label. haircare products.</p>
                 </div>   
                 <div class="col-4">
                     <img src="img/hairstyles/4.jpg" class="lazy img-fluid" alt="">
-                    <h5><span class="service_item-title text-medium">Afro Textured</h2>
+                    <h2>Afro Textured</h2>
                     <p class="lead">Celebrate your unique natural textures or opt for a relaxing transformation. Our artistry creates exquisite, edgy yet practical shapes, enriched with colors that nourish, fortify, and enhance those beautiful curls.</p>
                 </div>   
                 <div class="col-4">
                     <img src="img/hairstyles/5.jpg" class="lazy img-fluid" alt="">
-                    <h5><span class="service_item-title text-medium">COLORING</h2>
+                    <h2>COLORING</h2>
                     <p class="lead">Our color specialist will tune in to your color aspirations and requirements, all while evaluating your skin tone, eye shade, and hair texture. This personalized approach leads to the ideal EMPIRE signature hue for you in Agra.</p>
                 </div>   
                 
@@ -338,7 +338,7 @@ include_once './includes/header.php';
                     <img src="img/hairstyles/7.jpg" class="lazy img-fluid" alt="">
                 </div>   
 
-                <div class="col-6">
+                <div class="col-6 mt-auto mb-auto text-justify">
                                                 <h2>Signature Balayage</h2>
                     <p class="lead">Indulge in an EMPIRE custom, full head application of freehand balayage. Achieve the natural, sun-kissed look or opt for striking, face-framing highlights to suit your style.</p>
                     <a class="default_btn" href="book.php">Book Service</a>
