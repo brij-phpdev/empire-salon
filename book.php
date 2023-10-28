@@ -20,7 +20,7 @@ include_once './includes/header.php';
             <h2>Book our Services</h2>
             <div class="heading-line"></div>
         </div>
-        <div class="row">
+
 
             
 
@@ -35,7 +35,7 @@ include_once './includes/header.php';
 <div class="row">
                                     <div class="col-md-12">
                                 
-                                    <div class="sc-group">
+                                    <div class="sc-group padding">
                                         <h5 class="s1">Haircuts</h5>
                                         <div class="form-group">
                                             <input type="checkbox" name="Services Haircuts" id="s_a1" value="Regular Haircut">
@@ -53,7 +53,7 @@ include_once './includes/header.php';
                                 
 
                                 
-                                    <div class="sc-group">
+                                    <div class="sc-group padding">
                                         <h5>Shave</h5>
                                         <div class="form-group">
                                             <input type="checkbox" name="Services Shave" id="s_b1" value="Head Shave">
@@ -83,7 +83,7 @@ include_once './includes/header.php';
                                 
 
                                 
-                                    <div class="sc-group">
+                                    <div class="sc-group padding">
                                         <h5>Facial</h5>
                                         <div class="form-group">
                                             <input type="checkbox" name="Services Facial" id="s_c1" value="Deep Pore Cleansing">
@@ -109,7 +109,7 @@ include_once './includes/header.php';
                                 
 
 
-                                    <div class="sc-group">
+                                    <div class="sc-group padding">
                                         <h5>Package</h5>
                                         <div class="form-group">
                                             <input type="checkbox" name="Services Package" id="s_d1" value="Haircut + Shave">
@@ -285,7 +285,7 @@ include_once './includes/header.php';
 
 
                 
-            </div>
+            
 
         </div>
 </section>
