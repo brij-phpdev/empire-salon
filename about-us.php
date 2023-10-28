@@ -24,9 +24,9 @@
                     </div>
                     <div class="col-md-6 d-none d-md-block">
                         <div class="about_img">
-                            <img src="img/about/3.jpg" alt="idea-images" class="about_img_1 wow fadeInLeft" data-wow-delay="200ms">
-                            <img src="img/about/2.jpg" alt="idea-images" class="about_img_2 wow fadeInRight" data-wow-delay="400ms">
-                            <img src="img/about/1.jpg" alt="idea-images" class="about_img_3 wow fadeInLeft" data-wow-delay="600ms">
+                            <img src="img/about/3.JPG" alt="idea-images" class="about_img_1 wow fadeInLeft" data-wow-delay="200ms">
+                            <img src="img/about/2.JPG" alt="idea-images" class="about_img_2 wow fadeInRight" data-wow-delay="400ms">
+                            <img src="img/about/1.JPG" alt="idea-images" class="about_img_3 wow fadeInLeft" data-wow-delay="600ms">
                         </div>
                     </div>
                </div>
