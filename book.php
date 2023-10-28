@@ -11,28 +11,7 @@ include_once './includes/header.php';
 		    </div>
 		</section><!--/. page_header -->
         
-        <section id="about" class="about_section bd-bottom padding d-none">
-            <div class="container">
-               <div class="row">
-                   <div class="col-md-6">
-                        <div class="about_content align-center">
-                            <h3 class="wow fadeInUp" data-wow-delay="100ms">Introducing</h3>
-                            <h2 class="wow fadeInUp" data-wow-delay="200ms">The Empire Salon <br>Science 1929</h2>
-                            <img class="wow fadeInUp" data-wow-delay="500ms" src="img/about/about-logo.png" alt="logo">
-                            <p class="wow fadeInUp" data-wow-delay="600ms">At Empire Salon, we pride ourselves on embracing the latest trends in the industry. We're not just a salon; we're a trendsetter. Step into our eco-conscious world where sustainability meets style. Experience the magic of hybrid hair coloring that's tailor-made to accentuate your individuality. Allow us to transport you to the past with vintage-inspired styles that have found their way back into the limelight. Or let your imagination run wild with fantasy colors that paint your hair like a canvas.</p>
-                            <!--<a href="#" class="default_btn wow fadeInUp" data-wow-delay="600ms">More About Us</a>-->
-                        </div>        
-                    </div>
-                    <div class="col-md-6 d-none d-md-block">
-                        <div class="about_img">
-                            <img src="img/about/3.jpg" alt="idea-images" class="about_img_1 wow fadeInLeft" data-wow-delay="200ms">
-                            <img src="img/about/2.jpg" alt="idea-images" class="about_img_2 wow fadeInRight" data-wow-delay="400ms">
-                            <img src="img/about/1.jpg" alt="idea-images" class="about_img_3 wow fadeInLeft" data-wow-delay="600ms">
-                        </div>
-                    </div>
-               </div>
-            </div>
-        </section> <!--/.about_section -->
+        
         
         <section class="service_section bg-grey padding">
             <div class="container">
@@ -44,11 +23,16 @@ include_once './includes/header.php';
                     <div class="row">
 
                         <div class="col-md-10 offset-md-1">
-                            <form name="bookForm" id='book_form' class="form-border" method="post" action="booking_post.php">
+                            
                                 <div id="step-1" class="row">
                                     <h3 class="s2">Choose Services</h3>
 
-                                    <div class="row">
+                                    
+                                    <div class="contact-form">
+                                        <form name="bookForm" id='book_form' class="form-border" method="post" action="booking_post.php">
+                                            
+                                            
+                                            <div class="row">
                                         <div class="col-xl-3 col-lg-6">
                                             <div class="sc-group">
                                                 <h5 class="s1">Haircuts</h5>
@@ -272,10 +256,16 @@ include_once './includes/header.php';
                                             </p>
                                         </div>
                                     </div>
+                                            
+                                        </form>
+                                    </div>
+                                    
+                                    
+                                    
 
                                 </div>
                                 
-                            </form>
+
 
                             <div id="success_message" class='success'>
                                 Your message has been sent successfully. Refresh this page if you want to send more messages.
