@@ -281,10 +281,10 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
 
 
 
-<section class="shop_section bg-grey bd-bottom padding">
+<section class="shop_section bd-bottom padding">
     <!--<div class="map_pattern"></div>-->
     <div class="shop_pattern"></div>
-    <div class="container">
+    <div class="container padding">
         <div class="row">
             
             <div class="col-md-6">
