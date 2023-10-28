@@ -1,4 +1,7 @@
-<?php include_once( './includes/header.php' ); ?>
+<?php 
+include_once( './includes/header.php' );
+include_once( './includes/database.php' );
+?>
 
 		<section class="page_header d-flex align-items-center">
 		    <div class="container">
