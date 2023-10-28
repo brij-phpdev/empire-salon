@@ -160,7 +160,7 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
                    <div class="table-cel">
                        <div class="cta_content align-center wow fadeInUp" data-wow-delay="300ms">
                            <h2>Making You Look Good <br> Is In Our Haritage.</h2>
-                           <p>Barber is a person whose occupation is mainly to cut dress groom <br>style and shave men's and boys hair.</p>
+                           <p>Elevate your allure with Empire salon's magic touch. Reserve your appointment now for a radiant transformation and newfound confidence!</p>
                            <a href="book.php" class="default_btn">Make Appointment</a>
                        </div>
                    </div>

@@ -25,7 +25,7 @@ include_once './includes/header.php';
                 <!--                        <div class="col-lg-6 offset-lg-3 text-center">
                                             <img src="images/misc/man-3-b.png" class="img-fluid wow fadeInUp" alt="">
                                         </div>-->
-                <div class="col-lg-6 offset-lg-3 text-center" data-jarallax-element="-20">
+                <div class="col-lg-8 offset-lg-2 text-center" data-jarallax-element="-20">
 
                     <h2 class="wow fadeInUp">Become a <span class="id-color">Partner Salon</span></h2>
                     <p class="lead wow fadeInUp">Our objective is to facilitate the growth of your business and assist you in shaping the salons of tomorrow.
@@ -48,7 +48,7 @@ include_once './includes/header.php';
         <div class="container position-relative z1000">
             <div class="row gx-5">
 
-                <div class="col-lg-6 offset-lg-3">
+                <div class="col-lg-8 offset-lg-2">
 
                     <div class="d-sch-table">
                         <h2 class="wow fadeIn text-center" style="font-size: 22px!important;">Benefits of Joining as a Partner Salon</h2>

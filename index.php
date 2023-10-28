@@ -258,7 +258,7 @@ include_once './includes/database.php';
         <div class="row">
             <div class="col-lg-4 col-sm-6">
                 <div class="content_wrap">
-                    <img src="img/promo-1.jpg" alt="img">
+                    <img src="img/promo/1.png" alt="img">
                     <div class="content_info">
                         <div class="content_inner">
                             <h2>Haircuts</h2>
@@ -270,7 +270,7 @@ include_once './includes/database.php';
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="content_wrap">
-                    <img src="img/promo-2.jpg" alt="img">
+                    <img src="img/promo/2.png" alt="img">
                     <div class="content_info">
                         <div class="content_inner">
                             <h2>Facials</h2>
@@ -282,7 +282,7 @@ include_once './includes/database.php';
             </div>
             <div class="col-lg-4 col-sm-12">
                 <div class="content_wrap">
-                    <img src="img/promo-3.jpg" alt="img">
+                    <img src="img/promo/3.png" alt="img">
                     <div class="content_info">
                         <div class="content_inner">
                             <h2>Makeups</h2>
