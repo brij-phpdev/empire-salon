@@ -1,7 +1,7 @@
 <?php
 //error_reporting(E_ALL);
-include_once './common/inc/config.php';
-include_once './common/inc/database.php';
+include_once './includes/config.php';
+include_once './includes/database.php';
 
 //print_r($_POST);
 //die;
@@ -78,7 +78,8 @@ mysqli_free_result($res);
                                 .mysqli_error($link); 
     }
     if($bookingId){
-        echo json_encode(['result'=>'success']);
+        echo "An appointment is fixed";
+//        echo json_encode(['result'=>'success']);
         die;
     }
 

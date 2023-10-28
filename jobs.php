@@ -57,7 +57,7 @@ include_once './includes/header.php';
                                 Apply with your updated Resume
                                 </p>
                                 <div class="contact-form">
-                                <form name="jobForm" id="job_form" class="form-border form-horizontal position-relative z1000" method="post" action="#">
+                                <form name="jobForm" id="ajax_form" class="form-border form-horizontal position-relative z1000" method="post" action="#">
                                     <div class="form-group row">
                                     <div class="col-md-12">
                                                 <input type='text' name='name' id='name' class="form-control" placeholder="Candidate Name" required="">

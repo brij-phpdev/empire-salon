@@ -29,7 +29,7 @@ include_once './includes/header.php';
 
 
                     <div class="contact-form">
-                        <form name="bookForm" id='book_form' class="form-border" method="post" action="booking_post.php">
+                        <form name="bookForm" id="ajax_form" class="form-horizontal" method="post" action="booking_post.php">
 
 <h3 class="s2">Choose Services</h3>
 <div class="row">
@@ -258,6 +258,9 @@ include_once './includes/header.php';
                                         <textarea name='message' id='message' class="form-control" placeholder="Your Message"></textarea>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group row">
+                                <div id="form-messages" class="alert" role="alert"></div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
