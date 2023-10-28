@@ -2254,11 +2254,11 @@ blockquote span{
 .shop_pattern{
     background-image: url(../img/background/shop-products.JPG);
     background-size: contain;
-    background-position: left center;
-    opacity: 0.09;
+    background-position: right center;
+    opacity: 0.05;
     position: absolute;
-/*    width: 100%;
-    height: 70%;*/
+    width: 100%;
+    height: 100%;
     right: 0;
     top: 0;
 }
@@ -2297,11 +2297,11 @@ blockquote span{
 .hair_style_1{
     background-image: url('../img/hairstyles/1.JPG');
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
+    background-position: right center;
+    opacity: 0.05;
     position: absolute;
     width: 100%;
-    height: 450px;
-    left: 0;
+    height: 100%;
+    right: 0;
     top: 0;
 }
