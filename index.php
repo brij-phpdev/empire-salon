@@ -11,7 +11,7 @@ include_once './includes/database.php';
         <div class="hero_content align-center">
             <div class="col-12">
             <h3>Its Not Just a Haircut, Its an Experience.</h3>
-            <div class="col-lg-6 offset-lg-3" style="background-size: 100%; background-repeat: no-repeat;">
+            <div class="col-lg-6 offset-lg-3">
             </div>
             <a href="book.php" class="default_btn ">Make Appointment</a>
         </div>
@@ -198,56 +198,6 @@ include_once './includes/database.php';
     </div>
 </section><!-- /. gallery_section -->
 
-<?php
-$agent_array = array();
-$agenttable_sql = "SELECT * FROM `agents` limit 4";
-if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
-    if (mysqli_num_rows($agenttable_res) > 0) {
-        while ($agenttable_row = mysqli_fetch_assoc($agenttable_res)) {
-            $agent_array[] = $agenttable_row;
-        }
-    }
-}
-?>
-
-<section id="team" class="team_section bd-bottom padding d-none">
-    <div class="container">
-        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-            <h3>Trendy Salon &amp; Spa</h3>
-            <h2>Our Top Stylists</h2>
-            <div class="heading-line"></div>
-        </div>
-        <ul class="team_members row">
-            <?php
-            if ($agent_array):
-                $data_wow_delay = 2;
-                ?>
-                <?php
-                foreach ($agent_array as $agent):
-
-                    $path = SITE_BOOK_URL . '/application/uploads/img/agents/' . $agent['agentImage'];
-                    $type = pathinfo($path, PATHINFO_EXTENSION);
-                    $data = file_get_contents($path);
-                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                    ?>
-                    <li class="col-lg-3 col-md-6 sm-padding wow fadeInUp" data-wow-delay="<?php echo $data_wow_delay ?>00ms">
-                        <div class="team_member">
-                            <img src="<?php echo $base64 ?>" alt="Stylist <?php echo $agent['agentName'] ?>">
-                            <div class="overlay">
-                                <h3><?php echo $agent['agentName'] ?></h3>
-                                <p><?php echo substr(html_entity_decode($agent['agentDetail']), 0, 30) ?>...</p>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                    $data_wow_delay++;
-                endforeach;
-            endif;
-            ?>
-
-        </ul><!-- /.team_members -->
-    </div>
-</section><!-- /.team_section -->
 
 <section id="reviews" class="testimonial_section padding">
     <div class="container">
@@ -282,103 +232,26 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
 
 
 
-<section class="shop_section bd-bottom padding">
-    <!--<div class="map_pattern"></div>-->
-    <div class="shop_pattern"></div>
-    <div class="container padding">
-        <div class="row">
-            
-            <div class="col-md-6">
-                
-                    <div class="book_content">
-                        <h2>Shop Now</h2>
-                        <p class="text-justify">We take pride in providing top-notch grooming services that blend classic techniques with modern trends. Step into our warm and inviting space, where you'll find a team of skilled barbers dedicated to enhancing your style and confidence.</p>
-                    </div>
-                <a class="default_btn" href="<?php echo SHOP_URL ?>">Shop Now</a>
-                    <div id="msg-status" class="alert" role="alert"></div>
-            </div>
-            <div class="col-md-6">&nbsp;</div>
-        </div>
-    </div>
-   
-</section>
-<section class="pricing_section bg-grey bd-bottom padding d-none">
-    <div class="container">
-        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-            <h3>Save 20% On Beauty Spa</h3>
-            <h2>Our Barber Pricing</h2>
-            <div class="heading-line"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 sm-padding">
-                <div class="price_wrap">
-                    <h3>Hair Styling</h3>
-                    <ul class="price_list">
-                        <li>
-                            <h4>Hair Cut</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$8</span>
-                        </li>
-                        <li>
-                            <h4>Hair Styling</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$9</span>
-                        </li>
-                        <li>
-                            <h4>Hair Triming</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$10</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 sm-padding">
-                <div class="price_wrap">
-                    <h3>Shaving</h3>
-                    <ul class="price_list">
-                        <li>
-                            <h4>Clean Shaving</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$8</span>
-                        </li>
-                        <li>
-                            <h4>Beard Triming</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$9</span>
-                        </li>
-                        <li>
-                            <h4>Smooth Shave</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$10</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 sm-padding">
-                <div class="price_wrap">
-                    <h3>Face Masking</h3>
-                    <ul class="price_list">
-                        <li>
-                            <h4>White Facial</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$8</span>
-                        </li>
-                        <li>
-                            <h4>Face Cleaning</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$9</span>
-                        </li>
-                        <li>
-                            <h4>Bright Tuning</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$10</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!-- /.pricing_section -->
+
+<section class="product_cta padding">
+           <div class="container">
+               <div class="row d-flex align-items-center">
+                   <div class="col-md-6 xs-padding wow fadeInLeft" data-wow-delay="300ms">
+                       <div class="pro_cta_content">
+                           <h2>Fashions fade, <br>style is eternal.</h2>
+                           <p>product content goes here</p>
+                           
+                           <a class="default_btn" href="<?php echo SHOP_URL ?>">Purchase Now</a>
+                       </div>
+                   </div>
+                   <div class="col-md-6 xs-padding wow fadeInRight" data-wow-delay="300ms">
+                       <img src="img/product.png" alt="img">
+                   </div>
+               </div>
+           </div>
+       </section><!--/. product_cta -->
+
+
 
 <section class="content_section">
     <div class="container-fluid">
