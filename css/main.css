@@ -2248,14 +2248,13 @@ blockquote span{
 .shop_pattern{
     background-image: url(../img/background/shop-products.JPG);
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right center;
-    opacity: 0.5;
+    background-position: left center;
+    opacity: 0.09;
     position: absolute;
-    width: 100%;
-    height: 100%;
+/*    width: 100%;
+    height: 70%;*/
     right: 0;
-    /*top: 0;*/
+    top: 0;
 }
 
 .white-popup-block {
