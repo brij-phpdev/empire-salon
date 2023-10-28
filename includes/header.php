@@ -67,11 +67,6 @@ require_once( './couch-admin/cms.php' );
                        <div id="mainmenu" class="mainmenu">
                            <ul class="nav">
                                <li><a data-scroll class="nav-link active" href="index.php">Home</a>
-<!--                                    <ul>
-                                       <li><a href="index.php">Home Default</a></li>
-                                       <li><a href="index-2.php">Home Modern</a></li>
-                                       <li><a href="index-3.php">Home Classic</a></li>
-                                    </ul>-->
                                 </li>
                                 <li><a href="about-us.php">About</a>
                                     <ul>
@@ -79,7 +74,7 @@ require_once( './couch-admin/cms.php' );
                                        <li><a href="franchise.php">Franchise</a></li>
                                     </ul>
                                 </li>
-                                <li><a class="verifyOTP open-popup-link" href="#" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>
+                                <li><a data-scroll href="#header" class="verifyOTP open-popup-link" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>
                                 <li><a href="services.php">Services</a>
                                 </li>
                                 <li><a href="#">Blog</a>
