@@ -1,6 +1,6 @@
 <?php 
 require_once( 'config.php' );
-require_once( './couch-admin/cms.php' );
+//require_once( './couch-admin/cms.php' );
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->

@@ -5,18 +5,19 @@ include_once './includes/database.php';
 
 
 <section class="hero_section d-flex align-items-center">
-    <!--<div class="video_bg" data-property="{videoURL:'3pFH7FQu5so',containment:'self',autoPlay:true, mute:true, startAt:0, opacity:1, showControls:false, ratio:'16/9', quality: 'hd720', showYTLogo: false }"></div>-->
-    <div class="wm wm-carousel">
-        <div class="wow fadeInRight">CUT & STYLE <span class="s1">Signature Cut</span> Afro Textured Hair <span class="s1">Signature Colour</span></div>
-    </div>
+    <div class="video_bg" data-property="{videoURL:'3pFH7FQu5so',containment:'self',autoPlay:true, mute:true, startAt:0, opacity:1, showControls:false, ratio:'16/9', quality: 'hd720', showYTLogo: false }"></div>
     <div class="container">
         
         <div class="hero_content align-center">
+            <div class="col-12">
             <h3>Its Not Just a Haircut, Its an Experience.</h3>
-<!--            <h1>Being a barber is about <br>taking care of the people.</h1>
-            <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>-->
-            <a href="book.php" class="default_btn">Make Appointment</a>
+            <div class="col-lg-6 offset-lg-3" style="background-size: 100%; background-repeat: no-repeat;">
+            </div>
+            <a href="book.php" class="default_btn ">Make Appointment</a>
         </div>
+    </div>
+    <div class="wm wm-carousel">
+        <div class="wow fadeInRight">CUT & STYLE <span class="s1">Signature Cut</span> Afro Textured Hair <span class="s1">Signature Colour</span></div>
     </div>
 </section><!-- hero_Section -->
 
@@ -33,7 +34,7 @@ include_once './includes/database.php';
             </div>
             <div class="col-md-6 xs-padding">
                 <div class="about_video">
-                    <video width="540" height="394" controls>
+                    <video width="500" height="290"  loop="loop" autoplay="autoplay">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.mp4" type="video/mp4">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.webm" type="video/webm">
                         <source src="movie.ogg" type="video/ogg">

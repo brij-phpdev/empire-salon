@@ -81,7 +81,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 xs-padding">
-                        <div class="copyright">&copy; <script type="text/javascript"> document.write(new Date().getFullYear())</script> Barber Shop Powered by TheRoyal</div>
+                        <div class="copyright">&copy; <script type="text/javascript"> document.write(new Date().getFullYear())</script> The Empire Salon Powered by TheRoyal</div>
                     </div>
                     <div class="col-md-6 xs-padding d-none">
                         <ul class="footer_social">
@@ -202,7 +202,7 @@
 		<!--Nice Select-->
 		<script src="js/vendor/jquery.nice-select.min.js"></script>
         <!-- YTPlayer JS -->
-	    <!--<script src="js/vendor/jquery.mb.YTPlayer.min.js"></script>-->
+	    <script src="js/vendor/jquery.mb.YTPlayer.min.js"></script>
 	    <!-- Wow JS -->
 	    <script src="js/vendor/wow.min.js"></script>
 		<!-- Contact JS -->
@@ -220,4 +220,4 @@
 
     </body>
 </html>
-<?php COUCH::invoke(); ?>
+<?php // COUCH::invoke(); ?>

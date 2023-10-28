@@ -117,7 +117,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   left: 0;
   z-index: 0;
   text-align: center;
-  font-family: var(--title-font);
+/*  font-family: var(--title-font);*/
   line-height: 70px;
   letter-spacing: .15em;
   margin-left: .15em;
@@ -143,3 +143,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .wm.invert{
   color:rgba(0,0,0,.1);
 }
+
+.hero_content h3{text-transform: uppercase;}
