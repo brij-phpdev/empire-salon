@@ -28,11 +28,11 @@ include_once './includes/header.php';
                 <div class="col-lg-8 offset-lg-2 text-center" data-jarallax-element="-20">
 
                     <h2 class="wow fadeInUp">Become a <span class="id-color">Partner Salon</span></h2>
-                    <p class="lead wow fadeInUp">Our objective is to facilitate the growth of your business and assist you in shaping the salons of tomorrow.
+                    <p class="text-justify wow fadeInUp">Our objective is to facilitate the growth of your business and assist you in shaping the salons of tomorrow.
                     </p>
-                    <p class="lead wow fadeInUp">Empire Salon Partner is characterized by their independence, ambition, and forward-thinking approach, all underpinned by a commitment to excellence in both cutting and coloring techniques. Our primary aim is to support these salons in expanding their enterprises and crafting the salons of the future.
+                    <p class="text-justify wow fadeInUp">Empire Salon Partner is characterized by their independence, ambition, and forward-thinking approach, all underpinned by a commitment to excellence in both cutting and coloring techniques. Our primary aim is to support these salons in expanding their enterprises and crafting the salons of the future.
                     </p>
-                    <p class="lead wow fadeInUp">Through our exclusive product line, Empire Salon Professional, which seamlessly combines color, care, and finishing elements with exceptional educational resources, we empower our partner salons to captivate their clientele with effortlessly elegant and manageable hairstyles.
+                    <p class="text-justify wow fadeInUp">Through our exclusive product line, Empire Salon Professional, which seamlessly combines color, care, and finishing elements with exceptional educational resources, we empower our partner salons to captivate their clientele with effortlessly elegant and manageable hairstyles.
                     </p>
                 </div>
             </div>
@@ -53,16 +53,16 @@ include_once './includes/header.php';
                     <div class="d-sch-table">
                         <h2 class="wow fadeIn text-center" style="font-size: 22px!important;">Benefits of Joining as a Partner Salon</h2>
                         <div class="de-separator"></div>
-                        <p class="lead">
+                        <p class="text-justify">
                             By becoming an Empire Salon Partner, you gain access to:
 
-                        <ul>
+                        <ul style="list-style-type:circle">
                             <li>Unrivaled Educational Support: Our program continually challenges hairdressers to achieve the highest technical proficiency.</li>
                             <li>20% Discount on All Empire Salon Academy Courses: Avail yourself of a 20% discount on all courses offered by Empire Salon Academy.</li>
                             <li>A Select Range of Performance Products: We provide a concise and precise selection of performance products, enabling you to offer top-tier services to even the most discerning clients.</li>
                         </ul>
                         </p>
-                        <p class="lead text-center">
+                        <p class="text-justify text-center">
                             Subscribe Online to Become a Partner Salon
                             Ready to embark on this journey with us?
                         </p>
