@@ -935,7 +935,7 @@ why_section ul.list li:before{
     position: relative;
 }
 .book_bg{
-    background-image: url(../img/misc/hello.jpg);
+    background-image: url(../img/misc/hello.JPG);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left center;
@@ -2288,7 +2288,7 @@ blockquote span{
 .hero_section{overflow: hidden;}
 
 .hair_style_1{
-    background-image: url('../img/hairstyles/1.jpg');
+    background-image: url('../img/hairstyles/1.JPG');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left center;
