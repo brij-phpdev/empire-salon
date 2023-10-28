@@ -44,56 +44,56 @@ include_once( './includes/database.php' );
                    <div class="heading-line"></div>
                 </div>
                 <div id="trending_cuts_carousel" class="row ">
-            <div class="col-lg-4 col-md-6 sm-padding">
+            <div class="col-lg-12 col-md-8 sm-padding">
                 <div class="service_content align-center wow fadeInUp" data-wow-delay="200ms">
                     <img src="img/hairstyles/1.jpg" alt="Services">
                     <h3>Cut & Style</h3>
                     <P class="text-justify">Experience the uniqueness of hair cutting & styling in Agra. Our expert team uses signature techniques to craft a personalized style that perfectly matches your personality, lifestyle, and hair type.</P>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="300ms">
+            <div class="col-lg-12 col-md-8 sm-padding wow fadeInUp" data-wow-delay="300ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/2.jpg" alt="Services">
                     <h3>Signature Cut</h3>
                     <P class="text-justify">Elevate your style with our skilled hair artisans, crafting the flawless EMPIRE signature cut, tailored just for you. Indulge in a stunning blow-dry, enriched by our premium label. haircare range.</P>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="400ms">
+            <div class="col-lg-12 col-md-8 sm-padding wow fadeInUp" data-wow-delay="400ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/3.jpg" alt="Services">
                     <h3>Barbering</h3>
                     <P class="text-justify">For a swift, customized EMPIRE signature barbered cut, trust our experts. A quick and simple finish, perfectly suited to you, enriched with the finesse of our professional label. haircare products.</P>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="500ms">
+            <div class="col-lg-12 col-md-8 sm-padding wow fadeInUp" data-wow-delay="500ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/4.jpg" alt="Services">
                     <h3>Afro Textured Hair</h3>
                     <P class="text-justify">Celebrate your unique natural textures or opt for a relaxing transformation. Our artistry creates exquisite, edgy yet practical shapes, enriched with colors that nourish, fortify, and enhance those beautiful curls.</P>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="500ms">
+            <div class="col-lg-12 col-md-8 sm-padding wow fadeInUp" data-wow-delay="500ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/5.jpg" alt="Services">
                     <h3>COLORING</h3>
                     <P class="text-justify">Our color specialist will tune in to your color aspirations and requirements, all while evaluating your skin tone, eye shade, and hair texture. This personalized approach leads to the ideal EMPIRE signature hue for you in Agra.</P>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="500ms">
+            <div class="col-lg-12 col-md-8 sm-padding wow fadeInUp" data-wow-delay="500ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/6.jpg" alt="Services">
                     <h3>Signature Colour</h3>
                     <P class="text-justify">Experience an EMPIRE full head color transformation, spanning from roots to ends. Whether you desire enhanced shine, lightening, darkening, tone alteration, or white hair coverage, our color experts have the perfect solution for you.</P>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="500ms">
+            <div class="col-lg-12 col-md-8 sm-padding wow fadeInUp" data-wow-delay="500ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/7.jpg" alt="Services">
                     <h3>Signature Balayage</h3>
                     <P class="text-justify">Indulge in an EMPIRE custom, full head application of freehand balayage. Achieve the natural, sun-kissed look or opt for striking, face-framing highlights to suit your style.</P>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="500ms">
+            <div class="col-lg-12 col-md-8 sm-padding wow fadeInUp" data-wow-delay="500ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/8.jpeg" alt="Services">
                     <h3>Signature Highlights</h3>
