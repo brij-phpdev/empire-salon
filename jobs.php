@@ -58,26 +58,24 @@ include_once './includes/header.php';
                                 </p>
                                 <div class="contact-form">
                                 <form name="jobForm" id="job_form" class="form-border form-horizontal position-relative z1000" method="post" action="#">
-                                    <div class="row">
-                                        <div class="col-lg-12 mb10">
-                                            <div class="field-set">
+                                    <div class="form-group row">
+                                    <div class="col-md-12">
                                                 <input type='text' name='name' id='name' class="form-control" placeholder="Candidate Name" required="">
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 mb10">
-                                            <div class="field-set">
+                                        <div class="form-group row">
+                                    <div class="col-md-12">
                                                 <input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 mb10">
-                                            <div class="field-set">
+                                        <div class="form-group row">
+                                    <div class="col-md-12">
                                                 <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
                                             </div>
                                         </div>
                                         
-                                    </div>
-                                    <div class="row">
-                                        
+                                    <div class="form-group row">
+                                    
                                         <div class="col-md-6">
                             <select name='experience_year' id='experience_year' class="form-control" placeholder="Years of experience">
                                 <?php foreach ($experience_years as $experience_year): ?>
@@ -92,17 +90,22 @@ include_once './includes/header.php';
                                 <?php endforeach; ?>
                             </select> Months
                         </div>
+                                        
                         Leave blank in case you are fresher
                                         
                                     </div>
-                                        
-                                    <div class="field-set mb20">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         <input type='text' name='expertise' id='expertise' class="form-control" placeholder="Candidate Expertise">
                                     </div>
-                                    <div class="field-set mb20">
+                                </div>
+                                    <div class="form-group row">
+                                    <div class="col-md-12">
                                         <input type='text' name='reference' id='reference' class="form-control" placeholder="Candidate Reference">
                                     </div>
-                                    <div class="field-set mb20">
+                                    </div>
+                                    <div class="form-group row">
+                                    <div class="col-md-12">
                                         <select name='source' id='source' class="form-control" placeholder="Career Source, such as ">
                                     <option value="0">--Select One--</option>
                                     <?php foreach ($career_source_references as $k => $career_source_reference): ?>
@@ -110,11 +113,14 @@ include_once './includes/header.php';
                                     <?php endforeach; ?>
                                 </select>
                                     </div>
-                                    <div class="field-set mb20">
-                                        <input type="file" name="cadidate_resume" />
                                     </div>
-                                    <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>
-                                    <div id='submit' class="mt20">
+                                    <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="file" name="cadidate_resume" />
+                                    </div>
+                                    </div>
+                                    <!--<div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>-->
+                                    <div id='submit' class="mt-5">
                                         <input type='submit' id='send_message' value='Apply' class="default_btn">
                                     </div>
                                     

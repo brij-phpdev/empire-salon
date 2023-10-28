@@ -160,7 +160,7 @@
             </div>                
             </div>                
             </div>  
-            <span class="btn-danger" id="close_sms_popup" onclick="this.parentNode.remove(); return false;">x</span>
+            <span class="align-bottom align-right btn-danger" id="close_sms_popup">x</span>
         <div class="clearfix"></div>
     </div>
 </div>

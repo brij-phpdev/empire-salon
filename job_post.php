@@ -54,7 +54,8 @@ include_once './common/inc/database.php';
                                 .mysqli_error($link); 
     }
     if($bookingId){
-        echo json_encode(['result'=>'success']);
+        echo "Successfully applied for the job";
+//        echo json_encode(['result'=>'success']);
         die;
     }
 
