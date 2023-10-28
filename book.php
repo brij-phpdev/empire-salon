@@ -32,7 +32,7 @@ include_once './includes/header.php';
                         <form name="bookForm" id='book_form' class="form-border" method="post" action="booking_post.php">
 
 <h3 class="s2">Choose Services</h3>
-<div class="form-group row">
+<div class="row">
                                     <div class="col-md-12">
                                 <div class="col-xl-3 col-lg-6">
                                     <div class="sc-group">
