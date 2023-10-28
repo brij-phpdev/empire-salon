@@ -39,20 +39,20 @@
     // MySQL settings. You need to get this info from your web host.
     // 4.
     // Name of the database
-    define( 'K_DB_NAME', 'the_empire_salon' );
+    define( 'K_DB_NAME', 'u963541063_empire_cms' );
     // 5.
     // Database username
-    define( 'K_DB_USER', 'root' );
+    define( 'K_DB_USER', 'u963541063_empire_cms' );
     // 6.
     // Database password
-    define( 'K_DB_PASSWORD', '' );
+    define( 'K_DB_PASSWORD', '=2DcW8H3' );
     // 7.
     // MySQL hostname (it will usually be 'localhost')
     define( 'K_DB_HOST', '127.0.0.1' );
     // 7b.
     // Needed only if multiple instances of this CMS are to be installed in the same database
     // (please use only alphanumeric characters or underscore (NO hyphen))
-    define( 'K_DB_TABLES_PREFIX', '_' );
+    define( 'K_DB_TABLES_PREFIX', 'empire3ms_' );
 
     // 8.
     // Set the following to '1' if you wish to enable Pretty URLS.
