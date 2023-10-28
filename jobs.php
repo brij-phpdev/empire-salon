@@ -134,6 +134,11 @@ include_once './includes/functions.php';
                                     <div id="error_message" class='error'>
                                         Sorry there was an error sending your form.
                                     </div>
+                                    
+                                    <div class="form-group row">
+                                <div id="form-messages" class="alert" role="alert"></div>
+                            </div>
+                                    
                                 </form>
                                 </div>
                                 <div class="d-deco"></div>
