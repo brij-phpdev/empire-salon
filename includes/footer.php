@@ -37,7 +37,7 @@
                     <div class="col-lg-3 col-md-6 sm-padding">
                         <div class="footer_widget">
                             <img class="mb-15" src="img/logo.png" class="footer_logo" alt="Brand">
-                            <p class="text-justify">As one of the main and expert Salons in Agra since 1928, Empire Salon and Spa has everything to keep you looking and feeling stunning. We are likely ensure you get the great treatment so you can leave as the best version of yourself. Reach us today and treat yourself to our pampering package!</p>
+                            <p class="text-justify">With a legacy since 1928, Empire Salon, Agra, is your go-to for timeless beauty. Experience our exceptional services to emerge as your best self. Contact us now for a pampering transformation!</p>
                             <ul class="widget_social">
                                 <li><a href="<?php echo FB_SOCIAL ?>"><i class="social_facebook"></i></a></li>
                                 <!--<li><a href="#"><i class="social_twitter"></i></a></li>-->
@@ -49,8 +49,8 @@
                     </div>
                     <div class="col-lg-3 col-md-6 sm-padding">
                         <div class="footer_widget">
-                            <h3>Headquaters</h3>
-                            <p class="text-justify"><?php echo html_entity_decode(ADDRESS) ?></p>
+                            <h3>Headquater</h3>
+                            <p class="text-justify mt-5"><?php echo html_entity_decode(ADDRESS) ?></p>
                             <p><?php echo EMAIL ?> <br><?php echo PHONE ?></p>
                         </div>
                     </div>
@@ -58,18 +58,18 @@
                         <div class="footer_widget">
                             <h3>Opening Hours</h3>
                             <ul class="opening_time mt-5">
-                                <li>Monday - Friday 11:30am - 2:008pm</li>
-                                <li>Saturday – Monday: 9am – 8pm</li>
-                                <li>Monday - Friday 5:30am - 11:008pm</li>
-                                <li>Saturday - Sunday 4:30am - 1:00pm</li>
+                                <li>Monday - Friday <br/>11:30am - 2:008pm</li>
+                                <li>Saturday – Monday:<br/> 9am – 8pm</li>
+                                <li>Monday - Friday<br/> 5:30am - 11:008pm</li>
+                                <li>Saturday - Sunday <br/>4:30am - 1:00pm</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-12 sm-padding">
                         <div class="footer_widget">
                             <h3>Connect on WhatsApp</h3>
-                            <div class="subscribe_form">
-                                <a target="_blank" href="<?php echo WHATSAPP_URL ?>"><img src="img/wa.link.png" class="img-fluid img-responsive"></a>
+                            <div class="subscribe_form mt-5">
+                                <a target="_blank" href="<?php echo WHATSAPP_URL ?>"><img src="img/wa.link.png" class="img-fluid img-responsive" width="60%"></a>
                             </div><!-- Subscribe Form -->
                         </div>
                     </div>

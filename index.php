@@ -262,7 +262,7 @@ include_once './includes/database.php';
                     <div class="content_info">
                         <div class="content_inner">
                             <h2>Haircuts</h2>
-                            <h3>Trendy Salon & Spa</h3>
+                            <h3>Revamp Your Look Today!</h3>
                             <a href="book.php">Make Appointment</a>
                         </div>
                     </div>
@@ -274,7 +274,7 @@ include_once './includes/database.php';
                     <div class="content_info">
                         <div class="content_inner">
                             <h2>Facials</h2>
-                            <h3>Trendy Salon & Spa</h3>
+                            <h3>Glow with Us Today!</h3>
                             <a href="book.php">Make Appointment</a>
                         </div>
                     </div>
@@ -286,7 +286,7 @@ include_once './includes/database.php';
                     <div class="content_info">
                         <div class="content_inner">
                             <h2>Makeups</h2>
-                            <h3>Trendy Salon & Spa</h3>
+                            <h3>Glam Up Your Look!</h3>
                             <a href="book.php">Make Appointment</a>
                         </div>
                     </div>
