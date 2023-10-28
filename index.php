@@ -282,8 +282,8 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
 
 
 <section class="shop_section bg-grey bd-bottom padding">
-    <div class="shop_bg"></div>
-    <!--<div class="shop_pattern"></div>-->
+    <!--<div class="map_pattern"></div>-->
+    <div class="shop_pattern"></div>
     <div class="container">
         <div class="row">
             
@@ -296,7 +296,7 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
                 <a class="default_btn" href="<?php echo SHOP_URL ?>">Shop Now</a>
                     <div id="msg-status" class="alert" role="alert"></div>
             </div>
-            <div class="col-md-6 shop_bg_"></div>
+            <div class="col-md-6">&nbsp;</div>
         </div>
     </div>
    

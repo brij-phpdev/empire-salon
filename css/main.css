@@ -2245,7 +2245,7 @@ blockquote span{
     top: 0;
 }
 .shop_pattern{
-    background-image: url(../img/satellite-map.png);
+    background-image: url(../img/background/shop-products.JPG);
     background-size: contain;
     background-position: right center;
     opacity: 0.05;
