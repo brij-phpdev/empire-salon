@@ -4,6 +4,7 @@ include_once './includes/header.php';
 
 
 <!-- content begin -->
+
 <div class="no-bottom no-top" id="content">
     <div id="top"></div>
 
@@ -17,14 +18,14 @@ include_once './includes/header.php';
 		    </div>
 		</section><!--/. page_header -->
 
-    <section aria-label="section" class="no-top no-bottom">
+    <section aria-label="section" class="padding">
 
         <div class="container">
             <div class="row align-items-center">
                 <!--                        <div class="col-lg-6 offset-lg-3 text-center">
                                             <img src="images/misc/man-3-b.png" class="img-fluid wow fadeInUp" alt="">
                                         </div>-->
-                <div class="col-lg-8 offset-lg-2 text-center" data-jarallax-element="-20">
+                <div class="col-lg-6 offset-lg-3 text-center" data-jarallax-element="-20">
 
                     <h2 class="wow fadeInUp">Become a <span class="id-color">Partner Salon</span></h2>
                     <p class="lead wow fadeInUp">Our objective is to facilitate the growth of your business and assist you in shaping the salons of tomorrow.
@@ -41,7 +42,7 @@ include_once './includes/header.php';
 
 
 
-    <section class="no-top jarallax">
+    <section class="padding">
         <div class="de-gradient-edge-top"></div>
         <img src="images/background/7-1.jpg" class="jarallax-img" alt="">
         <div class="container position-relative z1000">
@@ -190,8 +191,7 @@ include_once './includes/header.php';
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="de-gradient-edge-bottom"></div>
+        
     </section>
 
 
