@@ -146,50 +146,50 @@ include_once './includes/database.php';
 
             <li class="col-lg-6 col-sm-6 padding-15 single_item branding">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/1.jpg" alt="Portfolio Item">
+                    <img src="img/portfolio/1.JPG" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/1.jpg" class="img_popup"></a>
+                        <a href="img/portfolio/1.JPG" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
 
             <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/2.jpg" alt="Portfolio Item">
+                    <img src="img/portfolio/2.JPG" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/2.jpg" class="img_popup"></a>
+                        <a href="img/portfolio/2.JPG" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
             <li class="col-lg-3 col-sm-6 padding-15 single_item print branding">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/3.jpg" alt="Portfolio Item">
+                    <img src="img/portfolio/3.JPG" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/3.jpg" class="img_popup"></a>
+                        <a href="img/portfolio/3.JPG" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
             <li class="col-lg-3 col-sm-6 padding-15 single_item website photo">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/4.jpg" alt="Portfolio Item">
+                    <img src="img/portfolio/4.JPG" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/4.jpg" class="img_popup"></a>
+                        <a href="img/portfolio/4.JPG" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
             <li class="col-lg-3 col-sm-6 padding-15 single_item print photo">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/5.jpg" alt="Portfolio Item">
+                    <img src="img/portfolio/5.JPG" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/5.jpg" class="img_popup"></a>
+                        <a href="img/portfolio/5.JPG" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
             <li class="col-lg-6 col-sm-6 padding-15 single_item branding website">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/6.jpg" alt="Portfolio Item">
+                    <img src="img/portfolio/6.JPG" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/6.jpg" class="img_popup"></a>
+                        <a href="img/portfolio/6.JPG" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
