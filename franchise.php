@@ -18,7 +18,7 @@ include_once './includes/header.php';
 		    </div>
 		</section><!--/. page_header -->
 
-    <section aria-label="section" class="padding">
+    <section aria-label="section" class="padding-15">
 
         <div class="container">
             <div class="row align-items-center">
@@ -42,7 +42,7 @@ include_once './includes/header.php';
 
 
 
-    <section class="padding">
+    <section class="padding-15">
         <div class="de-gradient-edge-top"></div>
         <img src="images/background/7-1.jpg" class="jarallax-img" alt="">
         <div class="container position-relative z1000">
@@ -62,7 +62,7 @@ include_once './includes/header.php';
                             <li>A Select Range of Performance Products: We provide a concise and precise selection of performance products, enabling you to offer top-tier services to even the most discerning clients.</li>
                         </ul>
                         </p>
-                        <p class="text-justify text-center">
+                        <p class="text-justify">
                             Subscribe Online to Become a Partner Salon
                             Ready to embark on this journey with us?
                         </p>
