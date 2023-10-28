@@ -67,9 +67,8 @@ include_once './includes/header.php';
                         </p>
 
                         <form name="franchiseForm" id="franchise_form" class="form-border position-relative z1000" method="post" action="#">
-                            <div class="row">
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                            <div class="form-group row">
+                                    <div class="col-md-12">
                                         <select name='type' id='type' class="form-control" required="">
                                             <option value="Company">Company</option>
                                             <option value="Individual">Individual</option>
@@ -77,34 +76,34 @@ include_once './includes/header.php';
                                         
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         
                                         <input type='text' name='name' id='name' class="form-control" placeholder="Applicant Name" required="">
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         <input type="text" name="Email" id="email" class="form-control" placeholder="Your Email" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         <input type="number" name="team_size" id="team_size" class="form-control" placeholder="Team Size" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         <input type="number" name="area" id="area" class="form-control" placeholder="Area (sq feet)" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         Property type
                                         <select name='property_type' id='property_type' class="form-control" required="">
                                             <option value="Owned">Owned</option>
@@ -113,8 +112,8 @@ include_once './includes/header.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         Experience in Salon & Beauty
                                         <select name='experience' id='experience' class="form-control" required="">
                                             <option value="Yes">Yes</option>
@@ -122,8 +121,8 @@ include_once './includes/header.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         Other ventures/companies?
                                         <select name='other_business' id='other_business' class="form-control" required="">
                                             <option value="Yes">Yes</option>
@@ -131,8 +130,8 @@ include_once './includes/header.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         Need products?
                                         <select name='need_products' id='need_products' class="form-control" required="">
                                             <option value="Yes">Yes</option>
@@ -140,8 +139,8 @@ include_once './includes/header.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                         Required training
                                         <select name='required_training' id='required_training' class="form-control" required="">
                                             <option value="Yes">Yes</option>
@@ -149,8 +148,8 @@ include_once './includes/header.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                        Help in hiring the stylist
                                         <select name='hiring_stylist' id='hiring_stylist' class="form-control" required="">
                                             <option value="Yes">Yes</option>
@@ -159,18 +158,20 @@ include_once './includes/header.php';
                                     </div>
                                 </div>
                                 
-                                 <div class="col-lg-12 mb10">
-                                    <div class="field-set">
+                                 <div class="form-group row">
+                                    <div class="col-md-12">
                                         <input type='text' name='your_budget' id='your_budget' class="form-control" placeholder="Your Budget?" required="">
                                     </div>
                                 </div>
 
-                            </div>
-                            <div class="field-set mb20">
+                            
+                            <div class="form-group row">
+                                    <div class="col-md-12">
                                 <textarea name="message" id="message" class="form-control" placeholder="Your Message" required></textarea>
                             </div>
-                            <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>
-                            <div id='submit' class="mt20">
+                            </div>
+                            <!--<div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>-->
+                            <div id='submit' class="mt-10">
                                 <input type='submit' id='send_message' value='Apply' class="default_btn">
                             </div>
 
@@ -183,6 +184,7 @@ include_once './includes/header.php';
                                 Sorry there was an error sending your form.
                             </div>
                         </form>
+                </div>
 
                         <div class="d-deco"></div>
                     </div>
