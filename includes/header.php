@@ -75,33 +75,16 @@ require_once( './couch-admin/cms.php' );
                                 </li>
                                 <li><a href="about-us.php">About</a>
                                     <ul>
-                                       <li><a href="about-us.php">About Us</a></li>
-                                       <li><a href="about-company.php">About Company</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="verifyOTP open-popup-link" href="#" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>
-                                <li><a href="services.php">Services</a>
-                                    <ul>
-                                       <li><a href="services.php">Services 01</a></li>
-                                       <li><a href="services-2.php">Services 02</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Pages</a>
-                                    <ul>
-                                       <li><a href="appointment.php">Appointment</a></li>
-                                       <li><a href="gallery.php">Gallery</a></li>
-                                       <li><a href="team.php">Our Team</a></li>
-                                       <li><a href="pricing.php">Our Pricing</a></li>
-                                       <li><a href="404.php">404 Error</a></li>
                                        <li><a href="jobs.php">Jobs</a></li>
                                        <li><a href="franchise.php">Franchise</a></li>
                                     </ul>
                                 </li>
+                                <li><a class="verifyOTP open-popup-link" href="#" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>
+                                <li><a href="services.php">Services</a>
+                                </li>
                                 <li><a href="#">Blog</a>
                                     <ul>
                                        <li><a href="blog-grid.php">Blog Grid</a></li>
-                                       <li><a href="blog-classic.php">Blog Classic</a></li>
-                                       <li><a href="blog-single.php">Blog Single</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="contact.php">Contact</a></li>
