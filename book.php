@@ -35,7 +35,7 @@ include_once './includes/header.php';
 <div class="row">
                                     <div class="col-md-12">
                                 
-                                    <div class="sc-group padding">
+                                    <div class="sc-group padding float-left">
                                         <h5 class="s1">Haircuts</h5>
                                         <div class="form-group">
                                             <input type="checkbox" name="Services Haircuts" id="s_a1" value="Regular Haircut">
