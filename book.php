@@ -34,7 +34,7 @@ include_once './includes/header.php';
 <h3 class="s2">Choose Services</h3>
 <div class="row">
                                     <div class="col-md-12">
-                                <div class="col-xl-3 col-lg-6">
+                                
                                     <div class="sc-group">
                                         <h5 class="s1">Haircuts</h5>
                                         <div class="form-group">
@@ -50,9 +50,9 @@ include_once './includes/header.php';
                                             <label for="s_a3">Kids Haircut</label>
                                         </div>
                                     </div>
-                                </div>
+                                
 
-                                <div class="col-xl-3 col-lg-6">
+                                
                                     <div class="sc-group">
                                         <h5>Shave</h5>
                                         <div class="form-group">
@@ -80,9 +80,9 @@ include_once './includes/header.php';
                                             <label for="s_b6">Beard Shave Up</label>
                                         </div>
                                     </div>
-                                </div>
+                                
 
-                                <div class="col-xl-3 col-lg-6">
+                                
                                     <div class="sc-group">
                                         <h5>Facial</h5>
                                         <div class="form-group">
@@ -106,9 +106,9 @@ include_once './includes/header.php';
                                             <label for="s_c5">Glycolic Peel Facial</label>
                                         </div>
                                     </div>
-                                </div>
+                                
 
-                                <div class="col-xl-3 col-lg-6">
+
                                     <div class="sc-group">
                                         <h5>Package</h5>
                                         <div class="form-group">
@@ -128,7 +128,6 @@ include_once './includes/header.php';
                                             <label for="s_d4">Haircut + Beard Shape Up</label>
                                         </div>
                                     </div>
-                                </div>
                                 
                                 <input type="hidden" name="serviceId" value="1" />
                                 <input type="hidden" name="agentId" value="1" />
