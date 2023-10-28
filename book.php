@@ -33,7 +33,7 @@ include_once './includes/header.php';
 
 <h3 class="s2">Choose Services</h3>
 <div class="row">
-                                    <div class="col-md-12">
+                                    <!--<div class="col-md-12">-->
                                 
                                     <div class="col-3">
                                         <h5 class="s1">Haircuts</h5>
@@ -134,7 +134,8 @@ include_once './includes/header.php';
                                 <input type="hidden" name="serviceAdult" value="1" />
                                 <input type="hidden" name="serviceChildren" value="1" />
 
-                            </div>
+                            <!--</div>-->
+                            <div class="clearfix"></div>
                             </div>
 
                             <div class="spacer-single"></div>
