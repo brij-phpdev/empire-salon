@@ -25,14 +25,15 @@ include_once './includes/header.php';
             <div class="col-md-10 offset-md-1">
 
                 <div id="step-1" class="row">
-                    <h3 class="s2">Choose Services</h3>
+                    
 
 
                     <div class="contact-form">
                         <form name="bookForm" id='book_form' class="form-border" method="post" action="booking_post.php">
 
-
-                            <div class="row">
+<h3 class="s2">Choose Services</h3>
+<div class="form-group row">
+                                    <div class="col-md-12">
                                 <div class="col-xl-3 col-lg-6">
                                     <div class="sc-group">
                                         <h5 class="s1">Haircuts</h5>
@@ -128,18 +129,20 @@ include_once './includes/header.php';
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <input type="hidden" name="serviceId" value="1" />
                                 <input type="hidden" name="agentId" value="1" />
                                 <input type="hidden" name="serviceAdult" value="1" />
                                 <input type="hidden" name="serviceChildren" value="1" />
 
                             </div>
+                            </div>
 
                             <div class="spacer-single"></div>
 
                             <!-- step 2 -->
 
-                            <div class="row" >
+                            <!--<div class="row" >-->
                                 <!--                                        <div class="col-lg-6 ">
                                                                             <h3 class="s2">Choose Staff</h3>
                                 
@@ -173,9 +176,6 @@ include_once './includes/header.php';
                                         <input type="date" name="date" id="date" class="form-control" min="<?php echo date('Y-m-d') ?>" required />
                                         <div class="spacer-single"></div>
                                     </div>
-                                </div>
-
-                                <div class="form-group row">
 
                                     <div class="col-lg-6">
                                         <h3 class="s2">Select Time</h3>
@@ -227,7 +227,7 @@ include_once './includes/header.php';
 
                                     </div>
                                 </div>
-                            </div>
+                            <!--</div>-->
 
                             <div class="spacer-single"></div>
 
