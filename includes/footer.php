@@ -202,7 +202,7 @@
 		<!--Nice Select-->
 		<script src="js/vendor/jquery.nice-select.min.js"></script>
         <!-- YTPlayer JS -->
-	    <script src="js/vendor/jquery.mb.YTPlayer.min.js"></script>
+	    <!--<script src="js/vendor/jquery.mb.YTPlayer.min.js"></script>-->
 	    <!-- Wow JS -->
 	    <script src="js/vendor/wow.min.js"></script>
 		<!-- Contact JS -->
