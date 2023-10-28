@@ -29,8 +29,6 @@ include_once './includes/header.php';
                     
                     <p class="lead big wow fadeInUp">Schedule a free pre-appointment consultation with our salon's beauty experts to discuss your specific requirements and tailor your beauty services for a personalized experience.
 
-
-
                     </p>
                 </div>
             </div>
@@ -242,17 +240,17 @@ include_once './includes/header.php';
                 <div class="col-4">
                     <img src="img/hairstyles/3.jpg" class="lazy img-fluid" alt="">
                     <h2>Barbering</h2>
-                    <p class="lead">For a swift, customized EMPIRE signature barbered cut, trust our experts. A quick and simple finish, perfectly suited to you, enriched with the finesse of our professional label. haircare products.</p>
+                    <p class="lead text-justify">For a swift, customized EMPIRE signature barbered cut, trust our experts. A quick and simple finish, perfectly suited to you, enriched with the finesse of our professional label. haircare products.</p>
                 </div>   
                 <div class="col-4">
                     <img src="img/hairstyles/4.jpg" class="lazy img-fluid" alt="">
                     <h2>Afro Textured</h2>
-                    <p class="lead">Celebrate your unique natural textures or opt for a relaxing transformation. Our artistry creates exquisite, edgy yet practical shapes, enriched with colors that nourish, fortify, and enhance those beautiful curls.</p>
+                    <p class="lead text-justify">Celebrate your unique natural textures or opt for a relaxing transformation. Our artistry creates exquisite, edgy yet practical shapes, enriched with colors that nourish, fortify, and enhance those beautiful curls.</p>
                 </div>   
                 <div class="col-4">
                     <img src="img/hairstyles/5.jpg" class="lazy img-fluid" alt="">
                     <h2>COLORING</h2>
-                    <p class="lead">Our color specialist will tune in to your color aspirations and requirements, all while evaluating your skin tone, eye shade, and hair texture. This personalized approach leads to the ideal EMPIRE signature hue for you in Agra.</p>
+                    <p class="lead text-justify">Our color specialist will tune in to your color aspirations and requirements, all while evaluating your skin tone, eye shade, and hair texture. This personalized approach leads to the ideal EMPIRE signature hue for you in Agra.</p>
                 </div>   
                 
 <!--                <div class="col-6">
