@@ -67,6 +67,7 @@ include_once './includes/header.php';
                             Ready to embark on this journey with us?
                         </p>
 
+                        <div class="contact-form">
                         <form name="franchiseForm" id="franchise_form" class="form-border position-relative z1000" method="post" action="#">
                             <div class="form-group row">
                                     <div class="col-md-12">
@@ -185,6 +186,7 @@ include_once './includes/header.php';
                                 Sorry there was an error sending your form.
                             </div>
                         </form>
+                </div>
                 </div>
 
                         <div class="d-deco"></div>
