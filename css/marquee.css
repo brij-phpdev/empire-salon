@@ -1,0 +1,145 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 28-Oct-2023, 3:31:21 pm
+    Author     : brijrajsingh
+*/
+
+/* marquee */
+
+
+.d-flex {
+  display: flex;
+  white-space: nowrap;
+}
+
+.de-marquee-list {
+  display: flex;
+  align-items: top;
+  -webkit-animation: loop 40s infinite linear;
+  animation: loop 40s infinite linear;
+}
+
+.de-marquee-list .d-item-txt {
+  font-size: 150px;
+  line-height: 100px;
+  letter-spacing: .2em;
+  padding-right: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-family: var(--title-font);
+  color: var(--primary-color);
+  user-select: none;
+}
+
+.de-marquee-list .d-item-txt:nth-child(odd){
+  color:#ffffff;
+}
+
+.de-marquee-list .d-item-display {
+  display: inline;
+}
+
+.de-marquee-list .d-item-block {
+  width: 80px;
+  height: 3px;
+  margin: 0 20px;
+  margin-right: 60px;
+  padding: 0px;
+  border-radius: 50%;
+  display: inline-block;
+  transform: translateY(-50px);
+  background: var(--primary-color);
+}
+
+.de-marquee-list .d-item-block{
+  border-radius: 0;
+}
+
+.text-light .de-marquee-list .d-item-dot {
+  background: rgba(255, 255, 255, .3);
+}
+
+.de-marquee-list.style-2 .d-item-txt {
+  font-size: 160px;
+  background: rgba(255, 255, 255, .2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.de-marquee-list.style-2 .d-item-dot {
+  transform: translateY(-40px);
+  background: rgba(255, 255, 255, .2);
+}
+
+/* marquee */
+
+.de-step-s1 {
+  overflow: ;
+  position: relative;
+  padding: 45px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  height: 100%;
+  background: -moz-linear-gradient(45deg, rgba(var(--primary-color-rgb), 0.1) 0%, rgba(var(--secondary-color-rgb), 0.3) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(var(--primary-color-rgb), 0.1) 0%, rgba(var(--secondary-color-rgb), 0.3) 100%);
+  background: linear-gradient(45deg, rgba(var(--primary-color-rgb), 0.1) 0%, rgba(var(--secondary-color-rgb), 0.3) 100%);
+}
+
+.de-step-s1 p {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+.de-step-s1 h4 {
+  position: relative;
+  z-index: 1;
+}
+
+.de-step-s1 .d-number {
+  font-size: 150px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 70px;
+  color: rgba(var(--secondary-color-rgb), 0.5);
+}
+.wm {
+  width:100%;
+  color: transparent;
+  -webkit-text-stroke: 1px #BD9F5F;
+  font-size: 300px;
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  text-align: center;
+  font-family: var(--title-font);
+  line-height: 70px;
+  letter-spacing: .15em;
+  margin-left: .15em;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.wm .s1{
+   /*width: 100%;*/
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    text-align: center;
+    color: #ffffff;
+    /*font-family: var(--title-font);*/
+    color: #af9c74;
+    -webkit-text-stroke: 2px #BD9F5F;
+        transition: .5s;
+    outline: none;
+}
+
+.wm.invert{
+  color:rgba(0,0,0,.1);
+}
