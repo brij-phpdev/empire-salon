@@ -16,10 +16,10 @@ include_once './includes/header.php';
 			<div class="container">
                 <ul class="gallery_filter mb-30">
                     <li class="active" data-filter="*">All</li>
-                    <li data-filter=".branding">Haircut</li>
-                    <li data-filter=".website">Face Masking</li>
-                    <li data-filter=".print">Shaving</li>
-                    <li data-filter=".photo">Hair Color</li>
+                    <li data-filter=".branding">Pre Wedding</li>
+                    <li data-filter=".website">Face Treatment</li>
+                    <li data-filter=".print">Threading Eyebrows</li>
+                    <li data-filter=".photo">Make UP</li>
                 </ul><!-- /.portfolio_filter -->
                 <ul class="portfolio_items row">
                 	<li class="col-lg-6 col-md-6 padding-15 single_item branding">
