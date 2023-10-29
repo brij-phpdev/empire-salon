@@ -50,7 +50,7 @@ require_once( 'config.php' );
     </head>
     <body>
 
-        <div id='preloader' >
+        <div id='preloader' class="d-none">
             <div class='loader' >
                 <img src="img/loading.gif" width="80" alt="">
             </div>
