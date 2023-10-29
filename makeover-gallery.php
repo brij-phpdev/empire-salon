@@ -56,9 +56,9 @@ include_once './includes/header.php';
                 	</li>
                 	<li class="col-lg-3 col-md-6 padding-15 single_item print photo">
                 		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/5.jpg" alt="Portfolio Item">
+                			<img src="img/bridal-makeover/5-small.jpg" alt="Portfolio Item">
                 			<figcaption class="overlay">
-                                            <a href="img/bridal-makeover/5-small.jpg" class="img_popup"></a>
+                                            <a href="img/bridal-makeover/5.jpg" class="img_popup"></a>
                 			</figcaption>
                 		</figure>
                 	</li>
