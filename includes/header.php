@@ -68,7 +68,7 @@ require_once( 'config.php' );
                                 </li>
                                 <li><a href="about-us.php">About</a>
                                     <ul>
-                                       <li><a href="bridal-gallery.php">Bridal Makeover</a></li>
+                                       <li><a href="makeover-gallery.php">Makeover</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="<?php echo SHOP_URL ?>" target="_blank">Shop</a></li>

@@ -24,9 +24,9 @@ include_once './includes/header.php';
                 <ul class="portfolio_items row">
                 	<li class="col-lg-6 col-md-6 padding-15 single_item branding">
                 		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/3.jpg" alt="Portfolio Item">
+                			<img src="img/bridal-makeover/1.jpg" alt="Portfolio Item">
                 			<figcaption class="overlay">
-                				<a href="img/bridal-makeover/3.jpg" class="img_popup"></a>
+                				<a href="img/bridal-makeover/1.jpg" class="img_popup"></a>
                 			</figcaption>
                 		</figure>
                 	</li>
@@ -34,7 +34,7 @@ include_once './includes/header.php';
                 		<figure class="portfolio_item">
                 			<img src="img/bridal-makeover/2.jpg" alt="Portfolio Item">
                 			<figcaption class="overlay">
-                				<a href="img/bridal-makeover/2.jpg" class="img_popup"></a>
+                                            <a href="img/bridal-makeover/2-small.jpg" class="img_popup"></a>
                 			</figcaption>
                 		</figure>
                 	</li>
@@ -42,7 +42,7 @@ include_once './includes/header.php';
                 		<figure class="portfolio_item">
                 			<img src="img/bridal-makeover/3.jpg" alt="Portfolio Item">
                 			<figcaption class="overlay">
-                				<a href="img/bridal-makeover/3.jpg" class="img_popup"></a>
+                                            <a href="img/bridal-makeover/3-small.jpg" class="img_popup"></a>
                 			</figcaption>
                 		</figure>
                 	</li>
@@ -50,7 +50,7 @@ include_once './includes/header.php';
                 		<figure class="portfolio_item">
                 			<img src="img/bridal-makeover/4.jpg" alt="Portfolio Item">
                 			<figcaption class="overlay">
-                				<a href="img/bridal-makeover/4.jpg" class="img_popup"></a>
+                                            <a href="img/bridal-makeover/4-small.jpg" class="img_popup"></a>
                 			</figcaption>
                 		</figure>
                 	</li>
@@ -58,7 +58,7 @@ include_once './includes/header.php';
                 		<figure class="portfolio_item">
                 			<img src="img/bridal-makeover/5.jpg" alt="Portfolio Item">
                 			<figcaption class="overlay">
-                				<a href="img/bridal-makeover/5.jpg" class="img_popup"></a>
+                                            <a href="img/bridal-makeover/5-small.jpg" class="img_popup"></a>
                 			</figcaption>
                 		</figure>
                 	</li>
@@ -66,7 +66,7 @@ include_once './includes/header.php';
                 		<figure class="portfolio_item">
                 			<img src="img/bridal-makeover/6.jpg" alt="Portfolio Item">
                 			<figcaption class="overlay">
-                				<a href="img/bridal-makeover/6.jpg" class="img_popup"></a>
+                                            <a href="img/bridal-makeover/6-small.jpg" class="img_popup"></a>
                 			</figcaption>
                 		</figure>
                 	</li>
