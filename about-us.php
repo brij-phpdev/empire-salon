@@ -20,7 +20,7 @@ include_once( './includes/database.php' );
                         <div class="about_content align-center">
                             <h3 class="wow fadeInUp" data-wow-delay="100ms">Introducing</h3>
                             <h2 class="wow fadeInUp" data-wow-delay="200ms">The Empire Salon <br>Since 1928</h2>
-                            <img class="wow fadeInUp" data-wow-delay="500ms" src="img/about/about-logo.png" alt="logo">
+                            <img class="wow fadeInUp img-fluid " data-wow-delay="500ms" src="img/about/our_experts.jpeg" alt="about">
                             <p class="wow fadeInUp" data-wow-delay="600ms">At Empire Salon, we pride ourselves on embracing the latest trends in the industry. We're not just a salon; we're a trendsetter. Step into our eco-conscious world where sustainability meets style. Experience the magic of hybrid hair coloring that's tailor-made to accentuate your individuality. Allow us to transport you to the past with vintage-inspired styles that have found their way back into the limelight. Or let your imagination run wild with fantasy colors that paint your hair like a canvas.</p>
                             <!--<a href="#" class="default_btn wow fadeInUp" data-wow-delay="600ms">More About Us</a>-->
                         </div>        
