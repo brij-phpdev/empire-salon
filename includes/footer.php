@@ -212,7 +212,7 @@
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
                 
-		<script src="js/custom-marquee.js"></script>
+		<!--<script src="js/custom-marquee.js"></script>-->
 		
                 <script src="js/plugins.js"></script>
                 
