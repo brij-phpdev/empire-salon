@@ -23,7 +23,7 @@ include_once './includes/database.php';
                         </div>
                     </div>
                 </li>
-                <li class="main_slide d-flex align-items-center" style="background-image: url(img/slide-2.jpg);">
+                <li class="main_slide d-flex align-items-center" style="background-image: url(img/headers/the-makeup-artist-works-in-her-salon-applies-prof.jpg);">
                     <div class="container">
                         <div class="slider_content">
                             <h3>Classic Salon Services.</h3>
@@ -33,7 +33,7 @@ include_once './includes/database.php';
                         </div>
                     </div>
                 </li>
-                <li class="main_slide d-flex align-items-center" style="background-image: url(img/slide-3.jpg);">
+                <li class="main_slide d-flex align-items-center" style="background-image: url(img/headers/the-makeup-artist-works-in-her-salon-applies-prof.jpg);">
                     <div class="container">
                         <div class="slider_content">
                             <h3>Its Not Just a Salon, Its an Experience.</h3>
