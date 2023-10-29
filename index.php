@@ -4,27 +4,17 @@ include_once './includes/database.php';
 ?>
 
 
-<section class="hero_section d-flex align-items-center d-none">
-    <div class="video_bg" data-property="{videoURL:'3pFH7FQu5so',containment:'self',autoPlay:true, mute:true, startAt:0, opacity:1, showControls:false, ratio:'16/9', quality: 'hd720', showYTLogo: false }"></div>
-    <div class="container">
-        
-        <div class="hero_content align-center">
-            <div class="col-12">
-            <h3>Its Not Just a Haircut, Its an Experience</h3>
-            <div class="col-lg-6 offset-lg-3">
-            </div>
-            <a href="book.php" class="default_btn ">Make Appointment</a>
-        </div>
-    </div>
-<!--    <div class="wm wm-carousel">
-        <div class="wow fadeInRight">CUT & STYLE <span class="s1">Signature Cut</span> Afro Textured Hair <span class="s1">Signature Colour</span></div>
-    </div>-->
-</section><!-- hero_Section -->
-
 <section class="slider_section">
             <ul id="main-slider" class="owl-carousel main_slider">
-                <li class="main_slide d-flex align-items-center" style="background-image: url(img/slide-1.jpg);">
+                <li class="main_slide d-flex align-items-center">
+                    <video width="1500" muted loop="loop" autoplay="autoplay">
+                        <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.mp4" type="video/mp4">
+                        <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.webm" type="video/webm">
+                        <source src="movie.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="container">
+                        
                         <div class="slider_content">
                             <h3>Its Not Just a Salon, Its an Experience.</h3>
                             <h1>Being a barber is about <br>taking care of the people.</h1>
