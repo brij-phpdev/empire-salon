@@ -7,7 +7,7 @@ include_once './includes/database.php';
 <section class="slider_section">
             <ul id="main-slider" class="owl-carousel main_slider">
                 <li class="main_slide d-flex align-items-center">
-                    <video width="1500" muted loop="loop" autoplay="autoplay">
+                    <video id="background-video" width="1500" muted loop="loop" autoplay="autoplay">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.mp4" type="video/mp4">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.webm" type="video/webm">
                         <source src="movie.ogg" type="video/ogg">

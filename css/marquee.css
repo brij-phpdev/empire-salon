@@ -148,3 +148,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
                 font-size: 72px;font-weight: 400; letter-spacing: 14.4px!important;line-height: 75px!important;
                 transition: .5s;letter-spacing: .2em;word-spacing: 0px;
 }
+
+#background-video {
+  width: 1600px;
+  height: 800px;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
