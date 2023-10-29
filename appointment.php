@@ -109,7 +109,7 @@
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>The Empire Salon</h3>
                    <h2>Make Appointment</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
 		    </div>
 		</section><!--/. page_header -->
@@ -119,7 +119,7 @@
                 <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>The Empire Salon</h3>
                    <h2>Our Services</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 sm-padding wow fadeInUp" data-wow-delay="200ms">
@@ -215,7 +215,7 @@
                 <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>The Empire Salon</h3>
                    <h2>Our Barbers</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
                 <ul class="team_members row">
                     <li class="col-lg-3 col-md-6 sm-padding wow fadeInUp" data-wow-delay="200ms">

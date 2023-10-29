@@ -7,7 +7,7 @@ include_once './includes/header.php';
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>The Empire Salon</h3>
                    <h2>Trending News</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
 		    </div>
 		</section><!--/. page_header -->

@@ -6,8 +6,8 @@ include_once './includes/header.php';
 		    <div class="container">
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>The Empire Salon</h3>
-                   <h2>Bridal Makeover Gallery</h2>
-                   <div class="heading-line"></div>
+                   <h2>Makeover Gallery</h2>
+                   
                 </div>
 		    </div>
 		</section><!--/. page_header -->

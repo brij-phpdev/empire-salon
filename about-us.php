@@ -8,7 +8,7 @@ include_once( './includes/database.php' );
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>Glamour Awaits You Here!</h3>
                    <h2>The Empire Salon</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
 		    </div>
 		</section><!--/. page_header -->
@@ -41,7 +41,7 @@ include_once( './includes/database.php' );
                 <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>Enhance Your Natural Beauty Today</h3>
                    <h2>Our Services</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
                 <div id="trending_cuts_carousel" class="row ">
             <div class="col-lg-12 col-md-8 sm-padding">
@@ -121,7 +121,7 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
                 <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>Glamour Unleashed: Meet Our Stylists</h3>
                    <h2>Our Stylists</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
                 <ul class="team_members row">
                     <?php

@@ -14,7 +14,7 @@ include_once './includes/functions.php';
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>Jobs</h3>
                    <h2>Career at Empire</h2>
-                   <div class="heading-line"></div>
+                   
                 </div>
 		    </div>
 		</section><!--/. page_header -->

@@ -77,7 +77,7 @@ include_once './includes/database.php';
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h3>Save 10% On your Next</h3>
             <h2>Our Trending Services</h2>
-            <div class="heading-line"></div>
+            
         </div>
         <div id="trending_cuts_carousel" class="row ">
             <div class="col-lg-12 col-md-8 sm-padding">
@@ -165,7 +165,7 @@ include_once './includes/database.php';
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Portfolio Gallery</h2>
-            <div class="heading-line"></div>
+            
         </div>
         <ul class="portfolio_items row">
 
