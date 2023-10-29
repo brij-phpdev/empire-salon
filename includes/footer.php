@@ -87,7 +87,7 @@
                         <ul class="footer_social">
                             <li><a href="jobs.php">Careers</a></li>
                             <li><a href="#">Terms</a></li>
-                            <li><a href="#">Report Problem</a></li>
+                            <li><a href="#">Become a Brand Ambassador</a></li>
                         </ul>
                     </div>
                 </div>

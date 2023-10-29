@@ -4,7 +4,7 @@ include_once './includes/database.php';
 ?>
 
 
-<section class="hero_section d-flex align-items-center">
+<section class="hero_section d-flex align-items-center d-none">
     <div class="video_bg" data-property="{videoURL:'3pFH7FQu5so',containment:'self',autoPlay:true, mute:true, startAt:0, opacity:1, showControls:false, ratio:'16/9', quality: 'hd720', showYTLogo: false }"></div>
     <div class="container">
         
@@ -20,6 +20,41 @@ include_once './includes/database.php';
         <div class="wow fadeInRight">CUT & STYLE <span class="s1">Signature Cut</span> Afro Textured Hair <span class="s1">Signature Colour</span></div>
     </div>-->
 </section><!-- hero_Section -->
+
+<section class="slider_section">
+            <ul id="main-slider" class="owl-carousel main_slider">
+                <li class="main_slide d-flex align-items-center" style="background-image: url(img/slide-1.jpg);">
+                    <div class="container">
+                        <div class="slider_content">
+                            <h3>Its Not Just a Salon, Its an Experience.</h3>
+                            <h1>Being a barber is about <br>taking care of the people.</h1>
+                            <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
+                            <a href="#" class="default_btn">Make Appointment</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="main_slide d-flex align-items-center" style="background-image: url(img/slide-2.jpg);">
+                    <div class="container">
+                        <div class="slider_content">
+                            <h3>Classic Salon Services.</h3>
+                            <h1>Our hair styles<br>enhances your smile.</h1>
+                            <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
+                            <a href="#" class="default_btn">Make Appointment</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="main_slide d-flex align-items-center" style="background-image: url(img/slide-3.jpg);">
+                    <div class="container">
+                        <div class="slider_content">
+                            <h3>Its Not Just a Salon, Its an Experience.</h3>
+                            <h1>Where mens want  <br>to look there very best.</h1>
+                            <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
+                            <a href="#" class="default_btn">Make Appointment</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section><!-- /.slider_section -->
 
 <section class="about_section bd-bottom padding">
     <div class="container">
