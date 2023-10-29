@@ -6,8 +6,8 @@ include_once './includes/database.php';
 
 <section class="slider_section">
             <ul id="main-slider" class="owl-carousel main_slider">
-                <li class="main_slide d-flex align-items-center" style="background-image: url(img/headers/the-makeup-artist-works-in-her-salon-applies-prof.jpg)">
-                    <video id="background-video" muted loop="loop" autoplay="autoplay">
+                <li class="main_slide d-flex align-items-center">
+                    <video id="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/the-makeup-artist-works-in-her-salon-applies-prof.jpg">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.mp4" type="video/mp4">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.webm" type="video/webm">
 <!--                        <source src="movie.ogg" type="video/ogg">-->
