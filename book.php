@@ -236,6 +236,16 @@ include_once './includes/header.php';
 
                     <div class="spacer-single"></div>
 
+                    <div class="form-group row">
+                            <div class="col-md-6">
+                                <label for="adultsVal">Adults</label>
+                                <input id="adultsVal" class="form-control" type="number" value="0" min="1" step="1" name="serviceAdult" >
+                            </div>
+                            <div class="col-md-6">
+                                    <label for="childVal">Childrens</label>
+                                    <input id="childVal" class="form-control" type="number" value="0" min="0" step="1" name="serviceChildren" >
+                            </div>
+                        </div>
 
                     <h3 class="s2">Your details</h3>
 
