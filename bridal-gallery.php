@@ -14,7 +14,7 @@ include_once './includes/header.php';
         
         <section id="gallery" class="gallery_section bg-grey bd-bottom padding">
 			<div class="container">
-                <ul class="gallery_filter mb-30">
+                <ul class="gallery_filter mb-30 d-none">
                     <li class="active" data-filter="*">All</li>
                     <li data-filter=".branding">Pre Wedding</li>
                     <li data-filter=".website">Face Treatment</li>
