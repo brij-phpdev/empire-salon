@@ -83,9 +83,9 @@
                     <div class="col-md-6 xs-padding">
                         <div class="copyright">&copy; <script type="text/javascript"> document.write(new Date().getFullYear())</script> The Empire Salon Powered by TheRoyal</div>
                     </div>
-                    <div class="col-md-6 xs-padding d-none">
+                    <div class="col-md-6 xs-padding">
                         <ul class="footer_social">
-                            <li><a href="#">Orders</a></li>
+                            <li><a href="jobs.php">Careers</a></li>
                             <li><a href="#">Terms</a></li>
                             <li><a href="#">Report Problem</a></li>
                         </ul>

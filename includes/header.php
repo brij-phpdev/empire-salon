@@ -67,14 +67,15 @@ require_once( 'config.php' );
                                <li><a data-scroll class="nav-link active" href="index.php">Home</a>
                                 </li>
                                 <li><a href="about-us.php">About</a>
-                                    <ul>
+<!--                                    <ul>
                                        <li><a href="jobs.php">Jobs</a></li>
-                                       <li><a href="franchise.php">Franchise</a></li>
-                                    </ul>
+                                       
+                                    </ul>-->
                                 </li>
                                 <li><a data-scroll href="#header" class="verifyOTP open-popup-link" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>
                                 <li><a href="services.php">Services</a>
                                 </li>
+                                <li><a href="franchise.php">Franchise</a></li>
                                 <li><a href="blog-grid.php">Blog</a>
                                 </li>
                                 <li><a href="contact.php">Contact</a></li>
