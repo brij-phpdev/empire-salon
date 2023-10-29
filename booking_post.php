@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 include_once './includes/config.php';
 include_once './includes/database.php';
 
@@ -12,12 +12,13 @@ $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $phone = trim($_POST['phone']);
 $serviceId = trim($_POST['serviceId']);
-$other_services = implode(",",trim($_POST['other_services']));
+$other_services = serialize($_POST['other_services']);
 $agentId = trim($_POST['agentId']);
 $adults = trim($_POST['serviceAdult']);
 $childrens = trim($_POST['serviceChildren']);
 $date = date('m-d-Y',strtotime(trim($_POST['date'])));
 $timing = trim($_POST['select_time']);
+$message = trim($_POST['message']);
 $serviceBill = '0';
 $paymentStatus = '0';
 $orderId = '';
@@ -30,7 +31,7 @@ $upload_date = date('Y-m-d H:i:s');
 //$phone = '+923335754716';
 
 
-$check_user_sql = "SELECT * FROM `logintbl` WHERE `fullName`='$name' AND `email`='$email' AND `phone`='$phone' ORDER BY `id` DESC";
+$check_user_sql = "SELECT * FROM `logintbl` WHERE `email`='$email' AND `phone`='$phone' ORDER BY `id` DESC"; // `fullName`='$name' AND  removed name as it may be changed later
 //$res = mysqli_query($link, $check_user_sql);
 //var_dump($res);die;
 if ($res = mysqli_query($link, $check_user_sql)) {
@@ -64,9 +65,9 @@ mysqli_free_result($res);
 
 // now insert into booking table..
      $insert_booking_sql = "INSERT INTO `bookingtbl` "
-             . "(`id`,`serviceId`,`agentId`,`adults`,`childrens`,`date`,`timing`,`serviceBill`,`paymentStatus`,"
+             . "(`id`,`serviceId`,`agentId`,`adults`,`childrens`,`date`,`timing`,`message`,`serviceBill`,`paymentStatus`,"
              . "`orderId`,`serviceStatus`,`userId`,`upload_date`) "
-             . " VALUES (NULL,'$serviceId','$agentId','$adults','$childrens','$date','$timing','$serviceBill','$paymentStatus',"
+             . " VALUES (NULL,'$serviceId','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','$paymentStatus',"
              . "'$orderId','$serviceStatus','$userId','$upload_date') "
              . " ";       
         

@@ -254,12 +254,12 @@ include_once './includes/header.php';
                         <div class="col-lg-6">
                             <div id='name_error' class='error'>Please enter your name.</div>
                             <div class="mb25">
-                                <input type='text' name='Name' id='name' class="form-control" placeholder="Your Name" required>
+                                <input type='text' name='name' id='name' class="form-control" placeholder="Your Name" required>
                             </div>
 
                             <div id='email_error' class='error'>Please enter your valid E-mail ID.</div>
                             <div class="mb25">
-                                <input type='email' name='Email' id='email' class="form-control" placeholder="Your Email" required>
+                                <input type='email' name='email' id='email' class="form-control" placeholder="Your Email" required>
                             </div>
 
                             <div id='phone_error' class='error'>Please enter your phone number.</div>
