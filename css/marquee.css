@@ -159,4 +159,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   top: 0;
   bottom: 0;
   z-index: -1;
+  position: absolute;
 }
