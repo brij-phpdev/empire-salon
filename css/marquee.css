@@ -161,3 +161,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   z-index: -1;
   position: absolute;
 }
+
+.slider_content{
+    position: relative;
+}

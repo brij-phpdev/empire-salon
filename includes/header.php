@@ -71,7 +71,8 @@ require_once( 'config.php' );
                                        <li><a href="bridal-gallery.php">Bridal Makeover</a></li>
                                     </ul>
                                 </li>
-                                <li><a data-scroll href="#header" class="verifyOTP open-popup-link" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>
+                                <li><a href="<?php echo SHOP_URL ?>" target="_blank">Shop</a></li>
+                                <!--<li><a data-scroll href="#header" class="verifyOTP open-popup-link" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>-->
                                 <li><a href="services.php">Services</a>
                                 </li>
                                 <li><a href="franchise.php">Franchise</a></li>
