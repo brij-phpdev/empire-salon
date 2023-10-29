@@ -16,9 +16,9 @@ include_once './includes/database.php';
             <a href="book.php" class="default_btn ">Make Appointment</a>
         </div>
     </div>
-    <div class="wm wm-carousel">
+<!--    <div class="wm wm-carousel">
         <div class="wow fadeInRight">CUT & STYLE <span class="s1">Signature Cut</span> Afro Textured Hair <span class="s1">Signature Colour</span></div>
-    </div>
+    </div>-->
 </section><!-- hero_Section -->
 
 <section class="about_section bd-bottom padding">
