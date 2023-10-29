@@ -144,4 +144,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   color:rgba(0,0,0,.1);
 }
 
-.hero_content h3{text-transform: uppercase; z-index: 1; font-family: "Bebas Neue", Helvetica, Arial, sans-serif;font-size: 72px;font-weight: 400; letter-spacing: 14.4px!important;line-height: 75px!important;}
+.hero_content h3{text-transform: uppercase; z-index: 1; font-family: "Bebas Neue", Helvetica, Arial, sans-serif;
+                font-size: 72px;font-weight: 400; letter-spacing: 14.4px!important;line-height: 75px!important;
+                transition: .5s;letter-spacing: .2em;word-spacing: 0px;
+}

@@ -10,7 +10,7 @@ include_once './includes/database.php';
         
         <div class="hero_content align-center">
             <div class="col-12">
-            <h3>Its Not Just a Haircut, Its an Experience.</h3>
+            <h3>Its Not Just a Haircut, Its an Experience</h3>
             <div class="col-lg-6 offset-lg-3">
             </div>
             <a href="book.php" class="default_btn ">Make Appointment</a>
