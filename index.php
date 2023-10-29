@@ -59,7 +59,7 @@ include_once './includes/database.php';
             </div>
             <div class="col-md-6 xs-padding">
                 <div class="about_video">
-                    <video width="500" height="290"  loop="loop" autoplay="autoplay">
+                    <video loop="loop" class="img-fluid" autoplay="autoplay" style="width: 100%;height: auto;">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.mp4" type="video/mp4">
                         <source src="videos/close-up-of-female-hairdresser-makes-hairstyle.webm" type="video/webm">
                         <source src="movie.ogg" type="video/ogg">
