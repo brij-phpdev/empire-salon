@@ -2,25 +2,25 @@
             <div class="container">
                 <ul id="sponsor_carousel" class="sponsor_items owl-carousel">
                     <li class="sponsor_item">
-                        <img src="img/sponsors/1.png" alt="sponsor-image">
+                        <img src="img/sponsors/NATURICA.png" alt="sponsor-image">
                     </li>
                     <li class="sponsor_item">
-                        <img src="img/sponsors/2.jpg" alt="sponsor-image">
+                        <img src="img/sponsors/RICA-wax.jpeg" alt="sponsor-image">
                     </li>
                     <li class="sponsor_item">
-                        <img src="img/sponsors/3.jpg" alt="sponsor-image">
+                        <img src="img/sponsors/sebastian.png" alt="sponsor-image">
                     </li>
                     <li class="sponsor_item">
-                        <img src="img/sponsors/4.jpg" alt="sponsor-image">
+                        <img src="img/sponsors/system.jpeg" alt="sponsor-image">
                     </li>
                     <li class="sponsor_item">
-                        <img src="img/sponsors/5.jpg" alt="sponsor-image">
+                        <img src="img/sponsors/janssen.png" alt="sponsor-image">
                     </li>
                     <li class="sponsor_item">
-                        <img src="img/sponsors/1.png" alt="sponsor-image">
+                        <img src="img/sponsors/skeyndor.jpeg" alt="sponsor-image">
                     </li>
                     <li class="sponsor_item">
-                        <img src="img/sponsors/2.jpg" alt="sponsor-image">
+                        <img src="img/sponsors/wella.png" alt="sponsor-image">
                     </li>
                     <li class="sponsor_item">
                         <img src="img/sponsors/3.jpg" alt="sponsor-image">
