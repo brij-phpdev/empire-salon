@@ -6,8 +6,8 @@ include_once( './includes/database.php' );
 		<section class="page_header d-flex align-items-center">
 		    <div class="container">
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-                   <h3>Trendy Salon &amp; Spa</h3>
-                   <h2>Our Barbershop</h2>
+                   <h3>Glamour Awaits You Here!</h3>
+                   <h2>The Empire Salon</h2>
                    <div class="heading-line"></div>
                 </div>
 		    </div>
@@ -19,7 +19,7 @@ include_once( './includes/database.php' );
                    <div class="col-md-6">
                         <div class="about_content align-center">
                             <h3 class="wow fadeInUp" data-wow-delay="100ms">Introducing</h3>
-                            <h2 class="wow fadeInUp" data-wow-delay="200ms">The Empire Salon <br>Science 1929</h2>
+                            <h2 class="wow fadeInUp" data-wow-delay="200ms">The Empire Salon <br>Since 1928</h2>
                             <img class="wow fadeInUp" data-wow-delay="500ms" src="img/about/about-logo.png" alt="logo">
                             <p class="wow fadeInUp" data-wow-delay="600ms">At Empire Salon, we pride ourselves on embracing the latest trends in the industry. We're not just a salon; we're a trendsetter. Step into our eco-conscious world where sustainability meets style. Experience the magic of hybrid hair coloring that's tailor-made to accentuate your individuality. Allow us to transport you to the past with vintage-inspired styles that have found their way back into the limelight. Or let your imagination run wild with fantasy colors that paint your hair like a canvas.</p>
                             <!--<a href="#" class="default_btn wow fadeInUp" data-wow-delay="600ms">More About Us</a>-->
@@ -39,7 +39,7 @@ include_once( './includes/database.php' );
         <section class="service_section bg-grey padding">
             <div class="container">
                 <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-                   <h3>Trendy Salon &amp; Spa</h3>
+                   <h3>Enhance Your Natural Beauty Today</h3>
                    <h2>Our Services</h2>
                    <div class="heading-line"></div>
                 </div>
@@ -119,7 +119,7 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
         <section id="team" class="team_section bd-bottom padding">
             <div class="container">
                 <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-                   <h3>Trendy Salon &amp; Spa</h3>
+                   <h3>Glamour Unleashed: Meet Our Stylists</h3>
                    <h2>Our Stylists</h2>
                    <div class="heading-line"></div>
                 </div>
@@ -159,7 +159,7 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
                <div class="display-table">
                    <div class="table-cel">
                        <div class="cta_content align-center wow fadeInUp" data-wow-delay="300ms">
-                           <h2>Making You Look Good <br> Is In Our Haritage.</h2>
+                           <h2>Experience Empire Salon's Magic;<br>Transform with Confidence</h2>
                            <p>Elevate your allure with Empire salon's magic touch. Reserve your appointment now for a radiant transformation and newfound confidence!</p>
                            <a href="book.php" class="default_btn">Make Appointment</a>
                        </div>

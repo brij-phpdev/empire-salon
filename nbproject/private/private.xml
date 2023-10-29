@@ -4,14 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/callSendSMS.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/config.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/services.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/franchise.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/responsive.css</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/header.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/marquee.css</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/footer.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/process.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/index.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/vendor/jquery.mb.YTPlayer.min.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/index.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/booking_post.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/contact.js</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/couch-admin/theme/_system/includes/admin/main.js</file>

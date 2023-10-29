@@ -13,7 +13,7 @@ include_once './includes/functions.php';
 		    <div class="container">
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>Jobs</h3>
-                   <h2>Jobs at EMpire</h2>
+                   <h2>Career at Empire</h2>
                    <div class="heading-line"></div>
                 </div>
 		    </div>
@@ -22,12 +22,12 @@ include_once './includes/functions.php';
     <section aria-label="section" class="">
 
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center padding-15">
                 <!--                        <div class="col-lg-6 offset-lg-3 text-center">
                                             <img src="images/misc/man-3-b.png" class="img-fluid wow fadeInUp" alt="">
                                         </div>-->
                 <div class="col-lg-8 offset-lg-2 text-center" data-jarallax-element="-20">
-                    <h2 class="wow fadeInUp">WE DON'T JUST <span class="id-color">SHAPE HAIR</span>, WE SHAPE FUTURES</h2>
+                    <h2 class="wow fadeInUp">WE DON'T JUST <span class="id-color">SHAPE HAIR</span>,<br> WE SHAPE FUTURES</h2>
 <!--                    <p class="lead wow fadeInUp">WHY CHOOSE EMPIRE SALON
                     </p>-->
                     <p class="lead wow fadeInUp">Empire Salon training is globally recognised as the ultimate in hairdressing education, providing you with a passport to a successful career in the international hair world. We celebrate people with a passion for hair, and once you become a member of the Empire Salon Team there are some incredible career paths that are open to you.
@@ -59,7 +59,7 @@ include_once './includes/functions.php';
                                 Apply with your updated Resume
                                 </p>
                                 <div class="contact-form">
-                                <form name="jobForm" id="ajax_form" class="form-border form-horizontal position-relative z1000" method="post" action="#">
+                                    <form name="jobForm" id="ajax_form" class="form-border form-horizontal position-relative z1000" method="post" action="job_post.php">
                                     <div class="form-group row">
                                     <div class="col-md-12">
                                                 <input type='text' name='name' id='name' class="form-control" placeholder="Candidate Name" required="">

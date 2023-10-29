@@ -139,7 +139,6 @@ include_once './includes/database.php';
 <section id="gallery" class="gallery_section bg-grey bd-bottom padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-            <h3>Trendy Salon &amp; Spa</h3>
             <h2>Portfolio Gallery</h2>
             <div class="heading-line"></div>
         </div>

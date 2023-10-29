@@ -1309,7 +1309,7 @@ select.form-control:not([size]):not([multiple]){
    ========================================================================== */
 .cta_section{
     /*background-image: url(../img/cta.jpg);*/
-    background-image: url(../img/headers/about-header-1.JPG);
+    background-image: url(../img/background/about-footer.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 0 0;

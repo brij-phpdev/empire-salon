@@ -19,7 +19,7 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
 		<section class="page_header d-flex align-items-center">
 		    <div class="container">
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-                   <h3>Trendy Salon &amp; Spa</h3>
+                   <h3>The Empire Salon</h3>
                    <h2>Our Stylists</h2>
                    <div class="heading-line"></div>
                 </div>

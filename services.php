@@ -13,8 +13,8 @@ include_once './includes/header.php';
     <section class="page_header d-flex align-items-center">
 		    <div class="container">
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-                   <h3>Trendy Salon &amp; Spa</h3>
-                   <h2>Our Barbershop</h2>
+                   <h3>The Empire Salon</h3>
+                   <h2>Modern & Trending Services</h2>
                    <div class="heading-line"></div>
                 </div>
 		    </div>
@@ -27,9 +27,7 @@ include_once './includes/header.php';
             <div class="row">
                 <div class="col-lg-12" data-jarallax-element="-20">
                     
-                    <p class="lead big wow fadeInUp">Schedule a free pre-appointment consultation with our salon's beauty experts to discuss your specific requirements and tailor your beauty services for a personalized experience.
-
-                    </p>
+                    <p class=" big wow text-justify fadeInUp">Schedule a free pre-appointment consultation with our salon's beauty experts to discuss your specific requirements and tailor your beauty services for a personalized experience.                    </p>
                 </div>
             </div>
         </div>
