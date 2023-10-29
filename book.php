@@ -37,15 +37,15 @@ include_once './includes/header.php';
                         <div class="col-3">
                             <h5 class="s1">Haircuts</h5>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Haircuts" id="s_a1" value="Regular Haircut">
+                                <input type="checkbox" name="other_services[]" id="s_a1" value="Regular Haircut">
                                 <label for="s_a1">Regular Haircut</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Haircuts" id="s_a2" value="Scissors Haircut">
+                                <input type="checkbox" name="other_services[]" id="s_a2" value="Scissors Haircut">
                                 <label for="s_a2">Scissors Haircut</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Haircuts" id="s_a3" value="Kids Haircut">
+                                <input type="checkbox" name="other_services[]" id="s_a3" value="Kids Haircut">
                                 <label for="s_a3">Kids Haircut</label>
                             </div>
                         </div>
@@ -55,27 +55,27 @@ include_once './includes/header.php';
                         <div class="col-3">
                             <h5>Shave</h5>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Shave" id="s_b1" value="Head Shave">
+                                <input type="checkbox" name="other_services[]" id="s_b1" value="Head Shave">
                                 <label for="s_b1">Head Shave</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Shave" id="s_b2" value="Royal Shave">
+                                <input type="checkbox" name="other_services[]" id="s_b2" value="Royal Shave">
                                 <label for="s_b2">Royal Shave</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Shave" id="s_b3" value="Royal Head Shave">
+                                <input type="checkbox" name="other_services[]" id="s_b3" value="Royal Head Shave">
                                 <label for="s_b3">Royal Head Shave</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Shave" id="s_b4" value="Beard Trim No Shave">
+                                <input type="checkbox" name="other_services[]" id="s_b4" value="Beard Trim No Shave">
                                 <label for="s_b4">Beard Trim No Shave</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Shave" id="s_b5" value="Beard Trim Shave">
+                                <input type="checkbox" name="other_services[]" id="s_b5" value="Beard Trim Shave">
                                 <label for="s_b5">Beard Trim Shave</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services" id="s_b6" value="Beard Shave Up">
+                                <input type="checkbox" name="other_services[]" id="s_b6" value="Beard Shave Up">
                                 <label for="s_b6">Beard Shave Up</label>
                             </div>
                         </div>
@@ -85,23 +85,23 @@ include_once './includes/header.php';
                         <div class="col-3">
                             <h5>Facial</h5>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Facial" id="s_c1" value="Deep Pore Cleansing">
+                                <input type="checkbox" name="other_services[]" id="s_c1" value="Deep Pore Cleansing">
                                 <label for="s_c1">Deep Pore Cleansing</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Facial" id="s_c2" value="Aromatherapy Facial">
+                                <input type="checkbox" name="other_services[]" id="s_c2" value="Aromatherapy Facial">
                                 <label for="s_c2">Aromatherapy Facial</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Facial" id="s_c3" value="Acne Problem Facial">
+                                <input type="checkbox" name="other_services[]" id="s_c3" value="Acne Problem Facial">
                                 <label for="s_c3">Acne Problem Facial</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Facial" id="s_c4" value="European Facial">
+                                <input type="checkbox" name="other_services[]" id="s_c4" value="European Facial">
                                 <label for="s_c4">European Facial</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Facial" id="s_c5" value="Glycolic Peel Facial">
+                                <input type="checkbox" name="other_services[]" id="s_c5" value="Glycolic Peel Facial">
                                 <label for="s_c5">Glycolic Peel Facial</label>
                             </div>
                         </div>
@@ -111,19 +111,19 @@ include_once './includes/header.php';
                         <div class="col-3">
                             <h5>Package</h5>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Package" id="s_d1" value="Haircut + Shave">
+                                <input type="checkbox" name="other_services[]" id="s_d1" value="Haircut + Shave">
                                 <label for="s_d1">Haircut + Shave</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Package" id="s_d2" value="Haircut + Beard Trim">
+                                <input type="checkbox" name="other_services[]" id="s_d2" value="Haircut + Beard Trim">
                                 <label for="s_d2">Haircut + Beard Trim</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Package" id="s_d3" value="Haircut + Beard Trim Shave">
+                                <input type="checkbox" name="other_services[]" id="s_d3" value="Haircut + Beard Trim Shave">
                                 <label for="s_d3">Haircut + Beard Trim Shave</label>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="Services Package" id="s_d4" value="Haircut + Beard Shape Up">
+                                <input type="checkbox" name="other_services[]" id="s_d4" value="Haircut + Beard Shape Up">
                                 <label for="s_d4">Haircut + Beard Shape Up</label>
                             </div>
                         </div>

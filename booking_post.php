@@ -12,6 +12,7 @@ $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $phone = trim($_POST['phone']);
 $serviceId = trim($_POST['serviceId']);
+$other_services = implode(",",trim($_POST['other_services']));
 $agentId = trim($_POST['agentId']);
 $adults = trim($_POST['serviceAdult']);
 $childrens = trim($_POST['serviceChildren']);
