@@ -54,7 +54,7 @@
     $('#main-slider').owlCarousel({
         loop:true,
         autoplay: true,
-        smartSpeed: 500,
+        smartSpeed: 5000,
         items: 1,
         nav:true,
         navText: ['<i class="arrow_carrot-left"></i>', '<i class="arrow_carrot-right"></i>']
