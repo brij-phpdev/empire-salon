@@ -42,7 +42,14 @@ include_once( './includes/database.php' );
             </div>
         </div>
         <div class="row d-flex align-items-center">
-            <div class="col-md-6 xs-padding wow fadeInLeft" data-wow-delay="300ms">
+            <div class="col-md-6 d-none d-md-block">
+                <div class="about_img">
+                    <img src="img/about/1.JPG" alt="idea-images" class="about_img_1 wow fadeInLeft" data-wow-delay="200ms">
+                    <img src="img/about/IMG_5373.JPG" alt="idea-images" class="about_img_2 wow fadeInRight" data-wow-delay="400ms">
+                    <img src="img/about/reception-with-staff.JPG" alt="idea-images" class="about_img_3 wow fadeInLeft" data-wow-delay="600ms">
+                </div>
+            </div>
+            <div class="col-md-6 xs-padding wow fadeInLeft text-justify" data-wow-delay="300ms">
 
                 <p>Over the years, Empire salon has been a pioneer in providing customers with luxurious experience for Hair, Skin, Hands & Feet, Barber Shop and Makeup with best-in-class products, finest amenities and professionally trained staff. With sophisticated establishments at all prime locations, tailored to meet diversified customers.</p>
 
@@ -53,16 +60,10 @@ include_once( './includes/database.php' );
                 <p>At Empire Salon, we understand that every client is unique, and we strive to provide a personalized experience that meets their individual needs. Whether you are looking for a quick touch-up or a full day of pampering, our team will work with you to create a customized plan that addresses your specific needs and preferences.</p>
 
             </div>
-            <div class="col-md-6 d-none d-md-block">
-                <div class="about_img">
-                    <img src="img/about/1.JPG" alt="idea-images" class="about_img_1 wow fadeInLeft" data-wow-delay="200ms">
-                    <img src="img/about/IMG_5373.JPG" alt="idea-images" class="about_img_2 wow fadeInRight" data-wow-delay="400ms">
-                    <img src="img/about/reception-with-staff.JPG" alt="idea-images" class="about_img_3 wow fadeInLeft" data-wow-delay="600ms">
-                </div>
-            </div>
+            
         </div>
         <div class="row d-flex align-items-center">
-            <div class="col-9 xs-padding wow fadeInLeft" data-wow-delay="300ms">
+            <div class="col-9 xs-padding wow fadeInLeft text-justify" data-wow-delay="300ms">
 
 
                 <p>We are committed to providing a safe and comfortable environment for our clients, and we follow strict protocols to ensure that our salon is clean and hygienic at all times. Our goal is to provide a relaxing and rejuvenating experience that leaves you feeling refreshed and renewed. Thank you for considering Empire Salon for your beauty and wellness needs. We look forward to welcoming you to our salon and helping you look and feel your best.</p>
