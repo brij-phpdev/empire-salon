@@ -44,6 +44,7 @@ require_once( 'functions.php' );
         <link rel="stylesheet" href="css/responsive.css">
         
         <link rel="stylesheet" href="css/marquee.css">
+        <!--<link rel="stylesheet" href="css/calendar.css">-->
         
         <link rel="stylesheet" href="css/book.css">
 
@@ -51,9 +52,9 @@ require_once( 'functions.php' );
     </head>
     <body>
 
-        <div id='preloader' class="d-none">
+        <div id='preloader' class="d-none-">
             <div class='loader' >
-                <img src="img/loading.gif" width="80" alt="">
+                <img src="img/logo.jpg" width="180" alt="">
             </div>
         </div> 
         <!--        Preloader -->
