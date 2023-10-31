@@ -34,7 +34,7 @@ include_once './includes/database.php';
                             <h3>Classic Salon Services.</h3>
                             <h1>Our hair styles<br>enhances your smile.</h1>
                             <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
-                            <a href="book.php" class="default_btn">View Groom Packages</a>
+                            <a href="book.php" class="default_btn">View Grooming Packages</a>
                         </div>
                     </div>
                 </li>
