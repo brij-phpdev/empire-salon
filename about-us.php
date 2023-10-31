@@ -74,8 +74,8 @@ include_once( './includes/database.php' );
             <div class="col-3 offset-9 d-none d-md-block">
                 <div class="about_img_">
                     <div class="director-info">
-                       <h6>Shadab Ahmed</h6>
                     <img src="img/about/sign.png" alt="idea-images" class="img-fluid wow fadeInLeft" data-wow-delay="200ms">
+                    <h3>Shadab Ahmed</h3>
                     </div>
                 </div>
             </div>
