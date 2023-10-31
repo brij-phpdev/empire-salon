@@ -222,7 +222,7 @@
                 <script>
 $(document).ready(function(){
 	$('#main-video-slider').owlCarousel({
-		items:3,
+		items:1,
 		merge:true,
 		loop:true,
                 nav:true,
@@ -243,13 +243,13 @@ $(document).ready(function(){
 			}
 		}
 	});
-//        $('.play').on('click',function(){
-//		owl.trigger('play.owl.autoplay',[1000])
-//	});
-//
-//	$('.stop').on('click',function(){
-//		owl.trigger('stop.owl.autoplay')
-//	});
+        $('.play').on('click',function(){
+		owl.trigger('play.owl.autoplay',[1000])
+	});
+
+	$('.stop').on('click',function(){
+		owl.trigger('stop.owl.autoplay')
+	});
 })
 </script>
                 

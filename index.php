@@ -3,7 +3,6 @@ include_once( './includes/header.php' );
 include_once './includes/database.php';
 ?>
 
-
 <section class="slider_section">
             <ul id="main-video-slider" class="owl-carousel main_slider">
                 <li class="main_slide d-flex align-items-center">
@@ -56,8 +55,8 @@ include_once './includes/database.php';
                 </li>
             </ul>
         </section><!-- /.slider_section -->
-
-<section class="about_section bd-bottom padding">
+        
+        <section class="about_section bd-bottom padding">
     <div class="container">
         <div class="row d-flex align-items-center">
             <div class="col-md-6 xs-padding">
@@ -171,64 +170,64 @@ include_once './includes/database.php';
 </section><!--/. book_section -->
 
 
-
 <section id="gallery" class="gallery_section bg-grey bd-bottom padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-            <h2>Portfolio Gallery</h2>
+            <h2>Gallery</h2>
             
         </div>
+        
         <ul class="portfolio_items row">
 
             <li class="col-lg-6 col-sm-6 padding-15 single_item branding">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/1.JPG" alt="Portfolio Item">
+                    <img src="img/bridal-makeover/1-small.png" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/1.JPG" class="img_popup"></a>
+                        <a href="img/bridal-makeover/1.png" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
 
             <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/2.JPG" alt="Portfolio Item">
+                    <img src="img/bridal-makeover/6-small.jpg" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/2.JPG" class="img_popup"></a>
+                        <a href="img/bridal-makeover/6.jpg" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
-            <li class="col-lg-3 col-sm-6 padding-15 single_item print branding">
+            <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/3.JPG" alt="Portfolio Item">
+                    <img src="img/bridal-makeover/3-small.jpg" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/3.JPG" class="img_popup"></a>
+                        <a href="img/bridal-makeover/3.jpg" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
-            <li class="col-lg-3 col-sm-6 padding-15 single_item website photo">
+            <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/4.JPG" alt="Portfolio Item">
+                    <img src="img/bridal-makeover/4-small.jpg" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/4.JPG" class="img_popup"></a>
+                        <a href="img/bridal-makeover/4.jpg" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
-            <li class="col-lg-3 col-sm-6 padding-15 single_item print photo">
+            <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
                 <figure class="portfolio_item">
-                    <img src="img/portfolio/5.JPG" alt="Portfolio Item">
+                    <img src="img/bridal-makeover/5-small.jpg" alt="Portfolio Item">
                     <figcaption class="overlay">
-                        <a href="img/portfolio/5.JPG" class="img_popup"></a>
+                        <a href="img/bridal-makeover/5.jpg" class="img_popup"></a>
                     </figcaption>
                 </figure>
             </li>
             <li class="col-lg-6 col-sm-6 padding-15 single_item branding website">
-                <figure class="portfolio_item">
-                    <img src="img/portfolio/6.JPG" alt="Portfolio Item">
-                    <figcaption class="overlay">
-                        <a href="img/portfolio/6.JPG" class="img_popup"></a>
-                    </figcaption>
-                </figure>
-            </li>
+                		<figure class="portfolio_item">
+                			<img src="img/bridal-makeover/7-small.jpg" class="img-fluid" alt="Portfolio Item">
+                			<figcaption class="overlay">
+                				<a href="img/bridal-makeover/7.jpg" class="img_popup"></a>
+                			</figcaption>
+                		</figure>
+                	</li>
         </ul><!-- /.portfolio_items -->
     </div>
 </section><!-- /. gallery_section -->
@@ -266,9 +265,7 @@ include_once './includes/database.php';
 </section><!-- /.testimonial_section -->
 
 
-
-
-<section class="product_cta padding">
+<!--<section class="product_cta padding">
            <div class="container">
                <div class="row d-flex align-items-center">
                    <div class="col-md-6 xs-padding wow fadeInLeft" data-wow-delay="300ms">
@@ -284,8 +281,7 @@ include_once './includes/database.php';
                    </div>
                </div>
            </div>
-       </section><!--/. product_cta -->
-
+       </section>/. product_cta -->
 
 
 <section class="content_section">
@@ -380,7 +376,5 @@ include_once './includes/database.php';
         </div>
     </div>
 </section><!--/.blog-section-->
-
-
 
 <?php include_once( './includes/footer.php' ); ?>
