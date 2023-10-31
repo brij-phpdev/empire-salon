@@ -156,7 +156,7 @@ $(document).ready(function(){
 		merge:true,
 		loop:true,
                 nav:false,
-                navText: ['<i class="arrow_carrot-left"></i>', '<i class="arrow_carrot-right"></i>'],
+//                navText: ['<i class="arrow_carrot-left"></i>', '<i class="arrow_carrot-right"></i>'],
 //		margin:10,
                 autoplay:true,
                 autoplayTimeout:10000,
