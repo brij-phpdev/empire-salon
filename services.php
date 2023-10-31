@@ -21,7 +21,7 @@ include_once './includes/header.php';
 		</section><!--/. page_header -->
     
 
-    <section aria-label="section" class="padding-15">
+    <section aria-label="section" class="padding-15 mt-40">
 
         <div class="container">
             <div class="row">
