@@ -24,9 +24,9 @@ include_once './includes/header.php';
                                         <span class="category"><a href="#">interior</a></span>
                                     </div>
                                     <div class="blog-content">
-                                        <h3><a href="#">Minimalist trending in modern architecture 2019</a></h3>
+                                        <h3><a href="blog-single.php">Minimalist trending in modern architecture 2019</a></h3>
                                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                                        <a href="#" class="read-more">Read More</a>
+                                        <a href="blog-single.php" class="read-more">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -37,9 +37,9 @@ include_once './includes/header.php';
                                         <span class="category"><a href="#">Architecture</a></span>
                                     </div>
                                     <div class="blog-content">
-                                       <h3><a href="#">Terrace in the town yamazaki kentaro design workshop.</a></h3>
+                                       <h3><a href="blog-single.php">Terrace in the town yamazaki kentaro design workshop.</a></h3>
                                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                                        <a href="#" class="read-more">Read More</a>
+                                        <a href="blog-single.php" class="read-more">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -50,9 +50,9 @@ include_once './includes/header.php';
                                         <span class="category"><a href="#">Design</a></span>
                                     </div>
                                     <div class="blog-content">
-                                        <h3><a href="#">W270 house são paulo arquitetos fabio jorge architeqture.</a></h3>
+                                        <h3><a href="blog-single.php">W270 house são paulo arquitetos fabio jorge architeqture.</a></h3>
                                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                                        <a href="#" class="read-more">Read More</a>
+                                        <a href="blog-single.php" class="read-more">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -63,9 +63,9 @@ include_once './includes/header.php';
                                         <span class="category"><a href="#">Design</a></span>
                                     </div>
                                     <div class="blog-content">
-                                        <h3><a href="#">Lascaux IV  snøhetta duncan lewis scape architecture.</a></h3>
+                                        <h3><a href="blog-single.php">Lascaux IV  snøhetta duncan lewis scape architecture.</a></h3>
                                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                                        <a href="#" class="read-more">Read More</a>
+                                        <a href="blog-single.php" class="read-more">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -76,9 +76,9 @@ include_once './includes/header.php';
                                         <span class="category"><a href="#">Design</a></span>
                                     </div>
                                     <div class="blog-content">
-                                        <h3><a href="#">Tai kwun centre for heritage de national meuron.</a></h3>
+                                        <h3><a href="blog-single.php">Tai kwun centre for heritage de national meuron.</a></h3>
                                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                                        <a href="#" class="read-more">Read More</a>
+                                        <a href="blog-single.php" class="read-more">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -89,9 +89,9 @@ include_once './includes/header.php';
                                         <span class="category"><a href="#">Design</a></span>
                                     </div>
                                     <div class="blog-content">
-                                        <h3><a href="#">National memorial buildings for peace and justice.</a></h3>
+                                        <h3><a href="blog-single.php">National memorial buildings for peace and justice.</a></h3>
                                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                                        <a href="#" class="read-more">Read More</a>
+                                        <a href="blog-single.php" class="read-more">Read More</a>
                                     </div>
                                 </div>
                             </div>

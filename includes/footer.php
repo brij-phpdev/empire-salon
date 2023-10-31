@@ -218,6 +218,40 @@
                 
 		<script src="js/callSendSMS.js"></script>
 
+                <script>
+$(document).ready(function(){
+	$('#main-video-slider').owlCarousel({
+		items:1,
+		merge:true,
+		loop:true,
+                nav:true,
+                navText: ['<i class="arrow_carrot-left"></i>', '<i class="arrow_carrot-right"></i>'],
+//		margin:10,
+                autoplay:true,
+                autoplayTimeout:10000,
+                autoplayHoverPause:true,
+		video:true,
+		lazyLoad:true,
+		center:true,
+		responsive:{
+			480:{
+				items:1
+			},
+			600:{
+				items:1
+			}
+		}
+	});
+//        $('.play').on('click',function(){
+//		owl.trigger('play.owl.autoplay',[1000])
+//	});
+//
+//	$('.stop').on('click',function(){
+//		owl.trigger('stop.owl.autoplay')
+//	});
+})
+</script>
+                
     </body>
 </html>
 <?php // COUCH::invoke(); ?>
