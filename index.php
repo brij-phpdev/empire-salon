@@ -7,7 +7,7 @@ include_once './includes/database.php';
 <section class="slider_section">
             <ul id="main-video-slider" class="owl-carousel main_slider">
                 <li class="main_slide d-flex align-items-center">
-                    <video id="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/the-makeup-artist-works-in-her-salon-applies-prof.jpg">
+                    <video id="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/bride-makeup.jpg">
                         <source src="videos/Bride-Getting-Ready.mp4" type="video/mp4">
                         <source src="videos/Bride-Getting-Ready.webm" type="video/webm">
                         Your browser does not support the video tag.

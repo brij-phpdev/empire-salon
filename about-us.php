@@ -20,7 +20,7 @@ include_once( './includes/database.php' );
                         <div class="section_heading">
                             <h3>Introducing The Empire Salon</h3>
                             <h2 style="font-size: 26px;">Pamper yourself with our diverse selection<br> of hair, beauty, and grooming treatments</h2>
-                            <div class="text-justify float-left" style="width: 100%;">At Empire Salon, we pride ourselves on embracing the latest trends in the industry. We're not just a salon; we're a trendsetter. Step into our eco-conscious world where sustainability meets style. Experience the magic of hybrid hair coloring that's tailor-made to accentuate your individuality. Allow us to transport you to the past with vintage-inspired styles that have found their way back into the limelight. Or let your imagination run wild with fantasy colors that paint your hair like a canvas.</div>
+                            <div class="text-justify" style="width: 100%;text-wrap: balance;">At Empire Salon, we pride ourselves on embracing the latest trends in the industry. We're not just a salon; we're a trendsetter. Step into our eco-conscious world where sustainability meets style. Experience the magic of hybrid hair coloring that's tailor-made to accentuate your individuality. Allow us to transport you to the past with vintage-inspired styles that have found their way back into the limelight. Or let your imagination run wild with fantasy colors that paint your hair like a canvas.</div>
                         </div>
                     </div>
                     <div class="col-md-6 xs-padding wow fadeInRight" data-wow-delay="300ms">
