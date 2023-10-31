@@ -64,21 +64,24 @@ include_once( './includes/database.php' );
             </div>
         </div>
         <div class="row d-flex align-items-center">
-            <div class="col-3 d-none d-md-block">
-                <div class="about_img_">
-                    <img src="img/about/sign.png" alt="idea-images" class="img-fluid wow fadeInLeft" data-wow-delay="200ms">
-                </div>
-            </div>
-            <div class="col-9 xs-padding wow fadeInLeft text-justify" data-wow-delay="300ms">
+            <div class="col-12 xs-padding wow fadeInLeft text-justify" data-wow-delay="300ms">
 
 
                 <p>We are committed to providing a safe and comfortable environment for our clients, and we follow strict protocols to ensure that our salon is clean and hygienic at all times. Our goal is to provide a relaxing and rejuvenating experience that leaves you feeling refreshed and renewed. Thank you for considering Empire Salon for your beauty and wellness needs. We look forward to welcoming you to our salon and helping you look and feel your best.</p>
             </div>
+            </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-3 offset-9 d-none d-md-block">
+                <div class="about_img_">
+                    <div class="director-info">
+                       <h6>Shadab Ahmed</h6>
+                    <img src="img/about/sign.png" alt="idea-images" class="img-fluid wow fadeInLeft" data-wow-delay="200ms">
+                    </div>
+                </div>
+            </div>
+        </div>
             
         </div>
-
-    </div>
-</div>
 
 </section><!--/. about_section -->
 
