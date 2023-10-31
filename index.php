@@ -18,7 +18,7 @@ include_once './includes/database.php';
                             <h3>Not merely a salon, but a sanctuary of bridal beauty transformations.</h3>
                             <h1>Elevating Elegance: <br>Where Bridal Beauty Blossoms</h1>
                             <p>Indulge in the epitome of bridal beauty at our salon. From radiant makeup to exquisite hair styling, we're dedicated to making your special day simply perfect.</p>
-                            <a href="book.php" class="default_btn">Book Bridal Package</a>
+                            <a href="book.php" class="default_btn">View Bridal Packages</a>
                         </div>
                     </div>
                 </li>
@@ -34,7 +34,7 @@ include_once './includes/database.php';
                             <h3>Classic Salon Services.</h3>
                             <h1>Our hair styles<br>enhances your smile.</h1>
                             <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
-                            <a href="#" class="default_btn">Make Appointment</a>
+                            <a href="book.php" class="default_btn">View Groom Packages</a>
                         </div>
                     </div>
                 </li>
@@ -50,7 +50,7 @@ include_once './includes/database.php';
                             <h3>Its Not Just a Salon, Its an Experience.</h3>
                             <h1>Where mens want  <br>to look there very best.</h1>
                             <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
-                            <a href="#" class="default_btn">Make Appointment</a>
+                            <a href="book.php" class="default_btn">Book an Appointment</a>
                         </div>
                     </div>
                 </li>
