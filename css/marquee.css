@@ -149,7 +149,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
                 transition: .5s;letter-spacing: .2em;word-spacing: 0px;
 }*/
 
-#background-video {
+.background-video {
   width: 1600px;
   height: 800px;
   object-fit: cover;
