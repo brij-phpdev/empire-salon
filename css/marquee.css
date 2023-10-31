@@ -150,8 +150,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }*/
 
 .background-video {
-  width: 1600px;
-  height: 800px;
+  width: 100%;/*1600px;*/
+  min-height: 400px;
+  max-height: 800px;
   object-fit: cover;
   position: fixed;
   left: 0;

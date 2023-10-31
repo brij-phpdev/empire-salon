@@ -155,7 +155,7 @@ $(document).ready(function(){
 		items:1,
 		merge:true,
 		loop:true,
-                nav:true,
+                nav:false,
                 navText: ['<i class="arrow_carrot-left"></i>', '<i class="arrow_carrot-right"></i>'],
 //		margin:10,
                 autoplay:true,
@@ -172,13 +172,6 @@ $(document).ready(function(){
 				items:1
 			}
 		}
-	});
-        $('.play').on('click',function(){
-		owl.trigger('play.owl.autoplay',[1000])
-	});
-
-	$('.stop').on('click',function(){
-		owl.trigger('stop.owl.autoplay')
 	});
 })
 </script>
