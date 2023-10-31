@@ -178,3 +178,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     position: relative;
 }
 .product_cta{overflow: hidden;}
+.appointment_form .book_content h2{
+    font-size: 160%;
+}

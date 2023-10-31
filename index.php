@@ -169,7 +169,7 @@ include_once './includes/database.php';
     </div>
 </section><!--/. book_section -->
 
-
+                
 <section id="gallery" class="gallery_section bg-grey bd-bottom padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
@@ -251,11 +251,18 @@ include_once './includes/database.php';
        </section><!--/. product_cta -->
 
 
-<section id="reviews" class="testimonial_section padding">
+       <section id="reviews_head" class="testimonial_section_heading padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Customer Stories: Experiences Shared</h2>
         </div>
+    </div>
+       </section>
+<section id="reviews" class="testimonial_section padding">
+    <div class="container">
+<!--        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
+            <h2>Customer Stories: Experiences Shared</h2>
+        </div>-->
         <ul id="testimonial_carousel" class="testimonial_items owl-carousel">
             <li class="testimonial_item">
                 <p>"It was amazing visiting Empire salon in my home town. all the services were amazing. Shama was superb in massage , manicure, pedicure, foot massage in all ways . can’t wait to come again . amazing team of people so coordinated together to make your experience worth."</p>
