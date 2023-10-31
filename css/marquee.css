@@ -161,6 +161,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   z-index: -1;
   position: absolute;
 }
+#background-video_groom,#background-video_salon_serv {
+  width: 1600px;
+  height: 800px;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  position: absolute;
+}
 
 .slider_content{
     position: relative;

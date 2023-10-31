@@ -23,7 +23,7 @@ include_once './includes/database.php';
                     </div>
                 </li>
                 <li class="main_slide d-flex align-items-center" style="background-image: url(img/headers/bride-makeup.jpg);">
-                    <video id="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/bride-makeup.jpg">
+                    <video id="background-video_groom" muted loop="loop" autoplay="autoplay" poster="img/headers/bride-makeup.jpg">
                         <source src="videos/groom.mp4" type="video/mp4">
                         <source src="videos/groom.webm" type="video/webm">
 <!--                        <source src="movie.ogg" type="video/ogg">-->
@@ -39,7 +39,7 @@ include_once './includes/database.php';
                     </div>
                 </li>
                 <li class="main_slide d-flex align-items-center" style="background-image: url(img/headers/service.jpg);">
-                    <video id="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/service.jpg">
+                    <video id="background-video_salon_serv" muted loop="loop" autoplay="autoplay" poster="img/headers/service.jpg">
                         <source src="videos/salon-services.mp4" type="video/mp4">
                         <source src="videos/salon-services.webm" type="video/webm">
 <!--                        <source src="movie.ogg" type="video/ogg">-->
