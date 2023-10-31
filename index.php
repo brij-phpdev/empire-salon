@@ -17,11 +17,11 @@ include_once './includes/database.php';
                             <h3>Not merely a salon, but a sanctuary of bridal beauty transformations.</h3>
                             <h1>Elevating Elegance: <br>Where Bridal Beauty Blossoms</h1>
                             <p>Indulge in the epitome of bridal beauty at our salon. From radiant makeup to exquisite hair styling, we're dedicated to making your special day simply perfect.</p>
-                            <a href="book.php" class="default_btn">View Bridal Packages</a>
+                            <a href="bride-gallery.php" class="default_btn">Explore Bridal Packages</a>
                         </div>
                     </div>
                 </li>
-                <li class="main_slide d-flex align-items-center" style="background-image: url(img/headers/bride-makeup.jpg);">
+                <li class="main_slide d-flex align-items-center">
                     <video class="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/bride-makeup.jpg">
                         <source src="videos/groom.mp4" type="video/mp4">
                         <source src="videos/groom.webm" type="video/webm">
@@ -33,11 +33,11 @@ include_once './includes/database.php';
                             <h3>Classic Salon Services.</h3>
                             <h1>Our hair styles<br>enhances your smile.</h1>
                             <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
-                            <a href="book.php" class="default_btn">View Grooming Packages</a>
+                            <a href="book.php" class="default_btn">Explore Grooming Packages</a>
                         </div>
                     </div>
                 </li>
-                <li class="main_slide d-flex align-items-center" style="background-image: url(img/headers/service.jpg);">
+                <li class="main_slide d-flex align-items-center">
                     <video class="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/service.jpg">
                         <source src="videos/salon-services.mp4" type="video/mp4">
                         <source src="videos/salon-services.webm" type="video/webm">
@@ -181,7 +181,7 @@ include_once './includes/database.php';
 
             <li class="col-lg-6 col-sm-6 padding-15 single_item branding">
                 <figure class="portfolio_item">
-                    <img src="img/bridal-makeover/1-small.png" alt="Portfolio Item">
+                    <img src="<?php echo convertImgToBase64('img/bridal-makeover/1-small.png') ?>" alt="Portfolio Item">
                     <figcaption class="overlay">
                         <a href="img/bridal-makeover/1.png" class="img_popup"></a>
                     </figcaption>
@@ -232,9 +232,30 @@ include_once './includes/database.php';
     </div>
 </section><!-- /. gallery_section -->
 
+<section class="product_cta padding">
+           <div class="container">
+               <div class="row d-flex align-items-center">
+                   <div class="col-md-6 xs-padding wow fadeInLeft" data-wow-delay="300ms">
+                       <div class="pro_cta_content">
+                           <h2>Fashions fade, <br>style is eternal.</h2>
+                           <p>product content goes here</p>
+                           
+                           <a class="default_btn" href="<?php echo SHOP_URL ?>">Purchase Now</a>
+                       </div>
+                   </div>
+                   <div class="col-md-6 xs-padding wow fadeInRight" data-wow-delay="300ms">
+                       <img src="img/product.png" alt="img">
+                   </div>
+               </div>
+           </div>
+       </section><!--/. product_cta -->
+
 
 <section id="reviews" class="testimonial_section padding">
     <div class="container">
+        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
+            <h2>Client Testimonials</h2>
+        </div>
         <ul id="testimonial_carousel" class="testimonial_items owl-carousel">
             <li class="testimonial_item">
                 <p>"It was amazing visiting Empire salon in my home town. all the services were amazing. Shama was superb in massage , manicure, pedicure, foot massage in all ways . can’t wait to come again . amazing team of people so coordinated together to make your experience worth."</p>
@@ -343,7 +364,7 @@ include_once './includes/database.php';
                     <div class="blog-content">
                         <h3><a href="#">Minimalist trending in modern architecture 2019</a></h3>
                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="blog-single.php" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
@@ -356,7 +377,7 @@ include_once './includes/database.php';
                     <div class="blog-content">
                         <h3><a href="#">Terrace in the town yamazaki kentaro design workshop.</a></h3>
                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="blog-single.php" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
@@ -369,7 +390,7 @@ include_once './includes/database.php';
                     <div class="blog-content">
                         <h3><a href="#">W270 house são paulo arquitetos fabio jorge architeqture.</a></h3>
                         <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="blog-single.php" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>

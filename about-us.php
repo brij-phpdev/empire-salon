@@ -31,6 +31,43 @@ include_once( './includes/database.php' );
                 </div>
             </div>
         </section><!--/. about_section -->
+        <section class="about_section bd-bottom padding">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-12 xs-padding wow fadeInLeft" data-wow-delay="300ms">
+                        <div class="text-justify">
+                            <p>Empire Salon & Spa is one of Agra's premier and go-to destination for contemporary cutting, coloring, beauty, body and impeccable customer service. Started in year 1928 by the Ahmad family, it is perhaps one of the oldest salons in Agra and existed longer than most of us. Today, this 'empire' of beauty services is one of the grandest, most prestigious salons and spa chain in Agra. At Empire, each client is recognized differently for their individual needs. Each client is delivered with service which is totally tailored to their personal requirements. The handpicked team of talented professional hairdresser, beautician and therapists offers and extensive and exceptional choice of services devoted to the guest satisfaction at the affordable pricing.</p>
+
+                            <p>Over the years, Empire salon has been a pioneer in providing customers with luxurious experience for Hair, Skin, Hands & Feet, Barber Shop and Makeup with best-in-class products, finest amenities and professionally trained staff. With sophisticated establishments at all prime locations, tailored to meet diversified customers.</p>
+
+                            <p>He is an Artist looked-up-to by Hair Stylists across the world for his knowledge of hair, creative cuts, usage of tools and color techniques. Nonetheless, he is a businessman looked-up-to for his vehemence for Empire Salon, making it the most stable and fastest growing high street salon chain in India with world-class amenities.</p>
+                            
+                    </div>
+                    </div>
+                </div>
+                      <div class="row d-flex align-items-center">
+                    <div class="col-md-6 xs-padding wow fadeInLeft" data-wow-delay="300ms">
+                        
+                           
+                            <p>Our team of highly trained professionals are experts in their respective fields, and they are passionate about helping our clients achieve their desired look and feel. We use only the highest quality products and the latest techniques to ensure that our clients receive the best possible service.</p>
+
+                            <p>At Empire Salon, we understand that every client is unique, and we strive to provide a personalized experience that meets their individual needs. Whether you are looking for a quick touch-up or a full day of pampering, our team will work with you to create a customized plan that addresses your specific needs and preferences.</p>
+
+                            <p>We are committed to providing a safe and comfortable environment for our clients, and we follow strict protocols to ensure that our salon is clean and hygienic at all times. Our goal is to provide a relaxing and rejuvenating experience that leaves you feeling refreshed and renewed. Thank you for considering Empire Salon for your beauty and wellness needs. We look forward to welcoming you to our salon and helping you look and feel your best.</p>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block">
+                        <div class="about_img">
+                            <img src="img/about/1.JPG" alt="idea-images" class="about_img_1 wow fadeInLeft" data-wow-delay="200ms">
+                            <img src="img/about/IMG_5373.JPG" alt="idea-images" class="about_img_2 wow fadeInRight" data-wow-delay="400ms">
+                            <img src="img/about/reception-with-staff.JPG" alt="idea-images" class="about_img_3 wow fadeInLeft" data-wow-delay="600ms">
+                        </div>
+                    </div>
+                    </div>
+                        
+                    </div>
+                </div>
+
+        </section><!--/. about_section -->
 <!--        <section id="about" class="about_section bd-bottom padding d-none">
             <div class="container">
                <div class="row">

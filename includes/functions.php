@@ -12,6 +12,15 @@ $career_source_references = array('News Paper Advertisement','Google','LinkedIn'
 $rand_byte = random_bytes(12);
 
 
+
+function convertImgToBase64($path){
+//    $path = SITE_BOOK_URL . '/application/uploads/img/agents/' . $agent['agentImage'];
+                    $type = pathinfo($path, PATHINFO_EXTENSION);
+                    $data = file_get_contents($path);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    return $base64; 
+}
+
 // save jobs form ...
 
 function saveJobsForm($form_fields){
