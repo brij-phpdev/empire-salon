@@ -188,8 +188,8 @@
         <!-- Imagesloaded JS -->
         <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
 		<!-- OWL-Carousel JS -->
-		<!--<script src="js/vendor/owl.carousel.min.js"></script>-->
-		<script src="js/owl.carousel.js"></script>
+		<script src="js/vendor/owl.carousel.min.js"></script>
+		<!--<script src="js/owl.carousel.js"></script>-->
 		<!-- isotope JS -->
 		<script src="js/vendor/jquery.isotope.v3.0.2.js"></script>
 		<!-- Smooth Scroll JS -->
