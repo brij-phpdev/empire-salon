@@ -251,7 +251,7 @@ include_once './includes/database.php';
        </section><!--/. product_cta -->
 
 
-       <section id="reviews_head" class="testimonial_section_heading padding">
+       <section id="reviews_head" class="testimonial_section_heading padding-15">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Customer Stories: Experiences Shared</h2>
