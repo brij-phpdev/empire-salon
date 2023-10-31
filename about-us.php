@@ -68,37 +68,15 @@ include_once( './includes/database.php' );
                 </div>
 
         </section><!--/. about_section -->
-<!--        <section id="about" class="about_section bd-bottom padding d-none">
-            <div class="container">
-               <div class="row">
-                   <div class="col-md-6">
-                        <div class="about_content align-center">
-                            <h3 class="wow fadeInUp" data-wow-delay="100ms">Introducing</h3>
-                            <h2 class="wow fadeInUp" data-wow-delay="200ms">The Empire Salon <br>Since 1928</h2>
-                            <img class="wow fadeInUp img-fluid " data-wow-delay="500ms" src="img/about/our_experts.jpeg" alt="about">
-                            <p class="wow fadeInUp" data-wow-delay="600ms">At Empire Salon, we pride ourselves on embracing the latest trends in the industry. We're not just a salon; we're a trendsetter. Step into our eco-conscious world where sustainability meets style. Experience the magic of hybrid hair coloring that's tailor-made to accentuate your individuality. Allow us to transport you to the past with vintage-inspired styles that have found their way back into the limelight. Or let your imagination run wild with fantasy colors that paint your hair like a canvas.</p>
-                            <a href="#" class="default_btn wow fadeInUp" data-wow-delay="600ms">More About Us</a>
-                        </div>        
-                    </div>
-                    <div class="col-md-6 d-none d-md-block">
-                        <div class="about_img">
-                            <img src="img/about/3.JPG" alt="idea-images" class="about_img_1 wow fadeInLeft" data-wow-delay="200ms">
-                            <img src="img/about/2.JPG" alt="idea-images" class="about_img_2 wow fadeInRight" data-wow-delay="400ms">
-                            <img src="img/about/1.JPG" alt="idea-images" class="about_img_3 wow fadeInLeft" data-wow-delay="600ms">
-                        </div>
-                    </div>
-               </div>
-            </div>
-        </section> /.about_section -->
-        
-        <section class="service_section bg-grey padding">
-            <div class="container">
-                <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-                   <h3>Enhance Your Natural Beauty Today</h3>
-                   <h2>Our Services</h2>
-                   
-                </div>
-                <div id="trending_cuts_carousel" class="row ">
+
+        <section class="service_section bg-grey bd-bottom padding">
+    <div class="container">
+        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
+            <h3>Save 10% On your Next</h3>
+            <h2>Our Trending Services</h2>
+            
+        </div>
+        <div id="trending_cuts_carousel_od" class="row ">
             <div class="col-lg-3 col-md-4 sm-padding">
                 <div class="service_content align-center wow fadeInUp" data-wow-delay="200ms">
                     <img src="img/hairstyles/1.jpg" alt="Services">
@@ -156,8 +134,8 @@ include_once( './includes/database.php' );
                 </div>
             </div>
         </div>
-            </div>
-        </section><!--/. service_section -->
+    </div>
+</section><!--/. service_section -->
 
 <?php
 $agent_array = array();
@@ -186,6 +164,7 @@ if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
                 $data_wow_delay = 2;
                 ?>
                 <?php
+                $a=1;
                 foreach ($agent_array as $agent):
 
                    if(!empty($agent['agentImage'])): 
@@ -208,7 +187,12 @@ if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
                         </div>
                     </li>
                     <?php
+                    if($a%4==0){
+                        ?>
+                    </ul><ul class="team_members row">
+                    <?php }
                     $data_wow_delay++;
+                    $a++;
                 endforeach;
             endif;
             ?>
