@@ -22,55 +22,57 @@ include_once './includes/header.php';
                     <li data-filter=".photo">Make UP</li>
                 </ul><!-- /.portfolio_filter -->
                 <ul class="portfolio_items row">
-                	<li class="col-lg-6 col-md-6 padding-15 single_item branding">
-                		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/1.jpg" alt="Portfolio Item">
-                			<figcaption class="overlay">
-                				<a href="img/bridal-makeover/1.jpg" class="img_popup"></a>
-                			</figcaption>
-                		</figure>
-                	</li>
-                	<li class="col-lg-3 col-md-6 padding-15 single_item photo">
-                		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/2-small.jpg" alt="Portfolio Item">
-                			<figcaption class="overlay">
-                                            <a href="img/bridal-makeover/2.jpg" class="img_popup"></a>
-                			</figcaption>
-                		</figure>
-                	</li>
-                	<li class="col-lg-3 col-md-6 padding-15 single_item print branding">
-                		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/3-small.jpg" alt="Portfolio Item">
-                			<figcaption class="overlay">
-                                            <a href="img/bridal-makeover/3.jpg" class="img_popup"></a>
-                			</figcaption>
-                		</figure>
-                	</li>
-                	<li class="col-lg-3 col-md-6 padding-15 single_item website photo">
-                		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/4-small.jpg" alt="Portfolio Item">
-                			<figcaption class="overlay">
-                                            <a href="img/bridal-makeover/4.jpg" class="img_popup"></a>
-                			</figcaption>
-                		</figure>
-                	</li>
-                	<li class="col-lg-3 col-md-6 padding-15 single_item print photo">
-                		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/5-small.jpg" alt="Portfolio Item">
-                			<figcaption class="overlay">
-                                            <a href="img/bridal-makeover/5.jpg" class="img_popup"></a>
-                			</figcaption>
-                		</figure>
-                	</li>
-                	<li class="col-lg-6 col-md-6 padding-15 single_item branding website">
-                		<figure class="portfolio_item">
-                			<img src="img/bridal-makeover/6-small.jpg" alt="Portfolio Item">
-                			<figcaption class="overlay">
-                                            <a href="img/bridal-makeover/6.jpg" class="img_popup"></a>
-                			</figcaption>
-                		</figure>
-                	</li>
-                </ul><!-- /.portfolio_items -->
+
+            <li class="col-lg-6 col-sm-6 padding-15 single_item branding">
+                <figure class="portfolio_item">
+                    <img src="<?php echo convertImgToBase64('img/bridal-makeover/1-small.png') ?>" alt="Portfolio Item">
+                    <figcaption class="overlay">
+                        <a href="img/bridal-makeover/1.png" class="img_popup"></a>
+                    </figcaption>
+                </figure>
+            </li>
+
+            <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
+                <figure class="portfolio_item">
+                    <img src="img/bridal-makeover/6-small.jpg" alt="Portfolio Item">
+                    <figcaption class="overlay">
+                        <a href="img/bridal-makeover/6.jpg" class="img_popup"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
+                <figure class="portfolio_item">
+                    <img src="img/bridal-makeover/3-small.jpg" alt="Portfolio Item">
+                    <figcaption class="overlay">
+                        <a href="img/bridal-makeover/3.jpg" class="img_popup"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
+                <figure class="portfolio_item">
+                    <img src="img/bridal-makeover/4-small.jpg" alt="Portfolio Item">
+                    <figcaption class="overlay">
+                        <a href="img/bridal-makeover/4.jpg" class="img_popup"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="col-lg-3 col-sm-6 padding-15 single_item photo">
+                <figure class="portfolio_item">
+                    <img src="img/bridal-makeover/5-small.jpg" alt="Portfolio Item">
+                    <figcaption class="overlay">
+                        <a href="img/bridal-makeover/5.jpg" class="img_popup"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="col-lg-6 col-sm-6 padding-15 single_item branding website">
+                <figure class="portfolio_item">
+                    <img src="img/bridal-makeover/7-small.jpg" class="img-fluid" alt="Portfolio Item">
+                    <figcaption class="overlay">
+                        <a href="img/bridal-makeover/7.jpg" class="img_popup"></a>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul><!-- /.portfolio_items -->
 			</div>
 		</section><!-- /. gallery_section -->
         
@@ -80,8 +82,8 @@ include_once './includes/header.php';
                    <div class="table-cel">
                        <div class="cta_content align-center wow fadeInUp" data-wow-delay="300ms">
                            <h2>Making You Look Good <br> Is In Our Haritage.</h2>
-                           <p>Barber is a person whose occupation is mainly to cut dress groom <br>style and shave men's and boys hair.</p>
-                           <a href="#" class="default_btn">Make Appointment</a>
+                           <p>We take pride in providing top-notch grooming services that blend classic techniques with modern trends. Step into our warm and inviting space, where you'll find a team of skilled barbers dedicated to enhancing your style and confidence.</p>
+                           <a href="book.php" class="default_btn">Make Appointment</a>
                        </div>
                    </div>
                </div>
