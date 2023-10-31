@@ -142,7 +142,7 @@ $agent_array = array();
 $agenttable_sql = "SELECT * FROM `agents`";
 
 if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
-    var_dump($agenttable_res);
+
     if (@mysqli_num_rows($agenttable_res) > 0) {
         while ($agenttable_row = @mysqli_fetch_assoc($agenttable_res)) {
             $agent_array[] = $agenttable_row;
@@ -158,11 +158,12 @@ if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
                    <h2>Our Stylists</h2>
                    
                 </div>
-                <ul class="team_members row">
+                
                     <?php
             if ($agent_array):
                 $data_wow_delay = 2;
                 ?>
+                <ul class="team_members row">
                 <?php
                 $a=1;
                 foreach ($agent_array as $agent):
@@ -189,7 +190,7 @@ if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
                     <?php
                     if($a%4==0){
                         ?>
-                    </ul><ul class="team_members row">
+                    </ul><ul class="team_members row padding">
                     <?php }
                     $data_wow_delay++;
                     $a++;
