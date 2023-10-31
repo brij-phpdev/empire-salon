@@ -109,77 +109,7 @@
                 
                 
                 
-                <!--SMS implementation start--> 
-    
-    
-    <div class="html-code overlay">
-
-        <div id="test-popup" class="login_popup_ white-popup mfp-hide " style="display: none;">
-   <div id="sms-popup"  >
-
-            <div class='waitSpinner'> </div>
-            <p style="display: block;" class="fancy_msg  alert">
-
-            </p>
-            <div id="mobile_otp_error" class="error"></div>
-            <div class="row">
-            <div class="col-md-12 col-md-offset-4">
-            <div id="popuplogincontainer" >
-                <div class="white-popup" id="divsendmobileotp">
-
-                    <h3>Enter your mobile to get OTP</h3>
-                    <!--<p id="plsreghere"class="title_block">No account yet ? Please enter your mobile here!</p><br />-->
-
-                    <div class="form-group row">
-                        <!--<label for="mobile_otp" class="col-sm-4 hidden control-label" id="mobile_otp" >Mobile Number : </label>-->
-                        <div class="col-sm-12">
-                            <input type="text" class="mobile_otp_input form-control" value="" placeholder="Mobile Number" name="mobile_otp" id="mobile_otp">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p class="sent-otp-fastsms_submit">
-                            <button id="sent-otp-fastsms" class="button btn btn-success" value="Get OTP">Get OTP</button>
-                        </p>
-                    </div>
-
-                    <div class="mobile_sms_otp">
-                        <div class="form-group row">
-                            <!--<label for="mobile_sms" class="col-sm-4 hidden control-label" id="mobile_sms" >Enter OTP: </label>-->
-                            <div class="col-sm-8">
-                                <input type="text" class="mobile_sms_input form-control" placeholder="Enter OTP" value="" name="mobile_sms" id="mobile_sms">                           
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button id="verify-otp-fastsms" class="button btn btn-success" value="Verify OTP">Verify OTP</button>
-                        </div>
-                    </div>    
-
-                </div><br />
-                <div class="clearfix"></div>
-
-            </div>                
-            </div>                
-            </div>  
-            <span class="align-bottom align-right btn-danger" id="close_sms_popup">x</span>
-        <div class="clearfix"></div>
-    </div>
-</div>
-        
-   
-    </div>
-    
-    <!--SMS implementation close-->
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+             
                 
 		<!-- jQuery Lib -->
 		<script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -255,4 +185,8 @@ $(document).ready(function(){
                 
     </body>
 </html>
-<?php // COUCH::invoke(); ?>
+<?php // COUCH::invoke();
+if(isset($link)):
+    @mysqli_close($link);
+endif;
+?>

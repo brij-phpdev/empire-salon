@@ -49,6 +49,7 @@ include_once './includes/database.php';
     if($exe){
     
         $bookingId = mysqli_insert_id($link);
+        mysqli_close($link);
     }else{
         echo "ERROR: Some error occured while booking. "
                                 .mysqli_error($link); 

@@ -254,7 +254,7 @@ include_once './includes/database.php';
 <section id="reviews" class="testimonial_section padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-            <h2>Client Testimonials</h2>
+            <h2>Customer Stories: Experiences Shared</h2>
         </div>
         <ul id="testimonial_carousel" class="testimonial_items owl-carousel">
             <li class="testimonial_item">
