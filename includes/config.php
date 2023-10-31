@@ -1,7 +1,7 @@
 <?php
 
 define('SITE_URL','https://empiresalon.co/');
-define('SITE_BOOK_URL','https://empirebook.theroyal.org.in');
+define('SITE_BOOK_URL','https://salonbooking.empiresalon.co/');
 define('SHOP_URL','https://shop.empiresalon.co/');
 define('WHATSAPP_URL','https://wa.link/ks2xy9');
 

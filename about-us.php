@@ -162,9 +162,11 @@ include_once( './includes/database.php' );
 <?php
 $agent_array = array();
 $agenttable_sql = "SELECT * FROM `agents`";
-if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
-    if (mysqli_num_rows($agenttable_res) > 0) {
-        while ($agenttable_row = mysqli_fetch_assoc($agenttable_res)) {
+
+if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
+    var_dump($agenttable_res);
+    if (@mysqli_num_rows($agenttable_res) > 0) {
+        while ($agenttable_row = @mysqli_fetch_assoc($agenttable_res)) {
             $agent_array[] = $agenttable_row;
         }
     }
@@ -186,7 +188,12 @@ if ($agenttable_res = mysqli_query($link, $agenttable_sql)) {
                 <?php
                 foreach ($agent_array as $agent):
 
-                    $path = SITE_BOOK_URL . '/application/uploads/img/agents/' . $agent['agentImage'];
+                   if(!empty($agent['agentImage'])): 
+                        $path = SITE_BOOK_URL . 'application/uploads/img/agents/' . $agent['agentImage'];
+                    else:
+                        $path = 'img/logo.jpg';
+                    endif;
+
                     $type = pathinfo($path, PATHINFO_EXTENSION);
                     $data = file_get_contents($path);
                     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
