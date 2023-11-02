@@ -71,7 +71,7 @@ include_once( './includes/database.php' );
             </div>
             </div>
         <div class="row d-flex align-items-center">
-            <div class="col-3 offset-9 d-none d-md-block">
+            <div class="col-3 d-none d-md-block">
                 <div class="about_img_">
                     <div class="director-info">
                     <img src="img/about/sign.png" alt="idea-images" class="img-fluid wow fadeInLeft" data-wow-delay="200ms">

@@ -6,6 +6,22 @@ include_once './includes/database.php';
 <section class="slider_section">
             <ul id="main-video-slider" class="owl-carousel main_slider">
                 <li class="main_slide d-flex align-items-center">
+                    <video class="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/service.jpg">
+                        <source src="videos/salon-services.mp4" type="video/mp4">
+                        <source src="videos/salon-services.webm" type="video/webm">
+<!--                        <source src="movie.ogg" type="video/ogg">-->
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="container">
+                        <div class="slider_content">
+                            <h3>Discover modern, trending beauty services for all your unique needs.</h3>
+                            <h1>The modern universe of beauty.</h1>
+                            <p>Dive into a dynamic cosmos of cutting-edge beauty services, where trends <br>converge with innovation to redefine your allure. Explore today!</p>
+                            <a href="book.php" class="default_btn">Book an Appointment</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="main_slide d-flex align-items-center">
                     <video class="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/bride-makeup.jpg">
                         <source src="videos/Bride-Getting-Ready.mp4" type="video/mp4">
                         <source src="videos/Bride-Getting-Ready.webm" type="video/webm">
@@ -14,9 +30,9 @@ include_once './includes/database.php';
                     <div class="container">
                         
                         <div class="slider_content">
-                            <h3>Not merely a salon, but a sanctuary of bridal beauty transformations.</h3>
-                            <h1>Elevating Elegance: <br>Where Bridal Beauty Blossoms</h1>
-                            <p>Indulge in the epitome of bridal beauty at our salon. From radiant makeup to exquisite hair styling, we're dedicated to making your special day simply perfect.</p>
+                            <h3>Elevating beauty for brides, creating timeless moments with flawless artistry.</h3>
+                            <h1>Exquisite bridal beauty,<br>makeup services par excellence.</h1>
+                            <p>Elevate your bridal beauty with our expert makeup artists and beauty services. <br>Radiate confidence on your special day. Book now!</p>
                             <a href="bride-gallery.php" class="default_btn">Explore Bridal Packages</a>
                         </div>
                     </div>
@@ -30,29 +46,14 @@ include_once './includes/database.php';
                     </video>
                     <div class="container">
                         <div class="slider_content">
-                            <h3>Classic Salon Services.</h3>
-                            <h1>Our hair styles<br>enhances your smile.</h1>
-                            <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
+                            <h3>Elevating weddings with unparalleled groom services, our salon fosters timeless elegance.</h3>
+                            <h1>Top-notch groom's services<br>for exceptional elegance</h1>
+                            <p>Experience the finest Indian groom services at our salon, expert grooming, <br>traditional attire styling, and a touch of luxury for your special day.</p>
                             <a href="bride-gallery.php" class="default_btn">Explore Groom Packages</a>
                         </div>
                     </div>
                 </li>
-                <li class="main_slide d-flex align-items-center">
-                    <video class="background-video" muted loop="loop" autoplay="autoplay" poster="img/headers/service.jpg">
-                        <source src="videos/salon-services.mp4" type="video/mp4">
-                        <source src="videos/salon-services.webm" type="video/webm">
-<!--                        <source src="movie.ogg" type="video/ogg">-->
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="container">
-                        <div class="slider_content">
-                            <h3>Its Not Just a Salon, Its an Experience.</h3>
-                            <h1>Where mens want  <br>to look there very best.</h1>
-                            <p>Our barbershop is the territory created purely for males who appreciate<br> premium quality, time and flawless look.</p>
-                            <a href="book.php" class="default_btn">Book an Appointment</a>
-                        </div>
-                    </div>
-                </li>
+                
             </ul>
         </section><!-- /.slider_section -->
         
@@ -251,18 +252,18 @@ include_once './includes/database.php';
        </section><!--/. product_cta -->
 
 
-       <section id="reviews_head" class="testimonial_section_heading padding-15">
+<!--       <section id="reviews_head" class="testimonial_section_heading padding-15">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Customer Stories: Experiences Shared</h2>
         </div>
     </div>
-       </section>
+       </section>-->
 <section id="reviews" class="testimonial_section padding">
     <div class="container">
-<!--        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-            <h2>Customer Stories: Experiences Shared</h2>
-        </div>-->
+        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
+            <h2 class="text-white">Customer Stories: Experiences Shared</h2>
+        </div>
         <ul id="testimonial_carousel" class="testimonial_items owl-carousel">
             <li class="testimonial_item">
                 <p>"It was amazing visiting Empire salon in my home town. all the services were amazing. Shama was superb in massage , manicure, pedicure, foot massage in all ways . can’t wait to come again . amazing team of people so coordinated together to make your experience worth."</p>
