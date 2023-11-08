@@ -1,6 +1,6 @@
-<<?php
+<?php
 include_once( './includes/header.php' );
-//include_once( './includes/database.php' );
+include_once( './includes/database.php' );
 ?>
 
 <section class="page_header d-flex align-items-center">
@@ -77,141 +77,73 @@ include_once( './includes/header.php' );
     </div>
 </section><!-- /. gallery_section -->
 
+
+<?php
+$package_array = array();
+$packagetable_sql = "SELECT * FROM `service_cat_table`";
+
+if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
+
+    if (@mysqli_num_rows($packagetable_res) > 0) {
+        while ($packagetable_row = @mysqli_fetch_assoc($packagetable_res)) {
+            $package_array[] = $packagetable_row;
+        }
+    }
+}
+?>
+
 <section class="pricing_section bg-grey bd-bottom padding">
     <div class="container">
         <div class="row">
+            <?php if(!empty($package_array)): 
+                
+                foreach($package_array as $package):
+                
+                $package_services = array();
+            
+                if(!empty($package)):
+
+                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`=".$package['id'];
+//                    echo $package_service_table_sql;
+                    if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
+
+                        if (@mysqli_num_rows($package_servicetable_res) > 0) {
+                            while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+                                $package_services[] = $package_servicetable_row;
+                            }
+                        }
+                    }
+                    endif;
+                ?>
+            
             <div class="col-lg-6 col-md-6 sm-padding">
                 <div class="price_wrap">
-                    <h3>Bride Packages</h3>
+                    <h3><?php echo $package['cName'] ?></h3>
                     <ul class="price_list">
+                        <?php 
+                        foreach($package_services as $package_service):
+                            
+                        ?>
                         <li>
-                            <h4>RUBY BLISS</h4>
+                            <h4><?php echo strtoupper($package_service['title']) ?></h4>
                             <p>
-                                <?php echo nl2br('Pre Wedding first Session
-                                Hair Shape Up / Threading Eye Brows / Root Hair
-                                Colour Enhancement / Enrich Hair Spa
-                                Pre Wedding Second Session
-                                Tan Removal Treatment /
-                                Perfection Brightening Face
-                                Treatments / Liposoluble
-                                Flavoured Wax / Pedipei
-                                Manicure & Pedicure
-                                On Wedding Makeup') ?>
+                                <?php echo html_entity_decode($package_service['description']) ?>
                             </p>
-                            <span class="price">₹ 21000/-</span>
+                            <span class="price">₹ <?php echo $package_service['price'] ?>/-</span>
                         </li>
                         <li>
-                            <h4>EMERALD LIFE</h4>
-                            <p>
-                                <?php echo nl2br('Pre Wedding first Session
-                                Hair Shape Up & Rescue Repair / Threading Eye
-                                Brows / Root Hair Colour Enhancement /
-                                Liposoluble Flavoured Wax
-                                Pre Wedding Second Session
-                                Tan Removal Treatment /
-                                Moroccanoil Hair Spa
-                                Treatment / Power
-                                Essencious Face Mask /
-                                Hydra Face Treatment
-                                Pre Wedding Third Session
-                                Stem Cellogist Face
-                                Treatment Intenso
-                                Cocoa Body Polishing /
-                                Alga Manicure & Pedicure
-                                On Wedding MakeUP') ?></p>
-                            <span class="price">₹ 31000/-</span>
+                            <a href="book.php?packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package_service['title']) ?>" class="default_btn">Book an Appointment</a>
                         </li>
-                        <li>
-                            <h4>SAPPHIRE PRADISE</h4>
-                            <p><?php echo nl2br('Pre Wedding first Session
-                                Hair Shape Up & Liss Ten Treatments / Threading
-                                Eye Brows / Root Hair Colour Enhancement / Alga
-                                Manicure & Pedicure
-                                Pre Wedding Second Session
-                                Tan Removal Treatment /
-                                Intense Alchemy Moroccanoil
-                                Hair S p a Treatment / P o w e r
-                                Essencious Face Mask /
-                                Express Glow Face Treatment
-                                with Gold Mask
-                                Pre Wedding Third Session
-                                Perfection Brightening
-                                Face Treatment /
-                                Liposoluble Flavoured
-                                Wax / B - Wax
-                                Pre Wedding Fourth Session
-                                Signature Treatment
-                                (German) / Intenso
-                                Cocoa Body Polishing
-                                On Wedding Makeup') ?></p>
-                            <span class="price">₹ 41000/-</span>
-                        </li>
+                        <?php 
+                        endforeach;
+                        ?>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 sm-padding">
-                <div class="price_wrap">
-                    <h3>Groom Packages</h3>
-                    <ul class="price_list">
-                        <li>
-                            <h4>FINER LIFE</h4>
-                            <p>
-                                <?php echo nl2br('Pre Wedding first Session
-                                Hair Styling / Royal Shave or
-                                Beard Trim / Root Hair Colour
-                                Enhancement / Pedipei
-                                Manicure & Pedicure / Tan
-                                Removal Treatment / Enrich
-                                Hair Spa / Perfection
-                                Brightening Face
-                                Treatments
-                                On Wedding Makeup') ?>
-                            </p>
-                            <span class="price">₹ 6999/-</span>
-                        </li>
-                        <li>
-                            <h4>LUXE LIVING</h4>
-                            <p>
-                                <?php echo nl2br('Pre Wedding first Session
-                                Hair styling / root hair colour
-                                enhancement / alga manicure
-                                & pedicure / tan removal
-                                treatment / Moroccanoil hair
-                                spa treatment / stem cellogist
-                                facetreatment
-                                Pre Wedding Second Session
-                                Royal shave or beard trim /
-                                Power essencious face mask / hydra face
-                                treatment
-                                On Wedding MakeUP') ?></p>
-                            <span class="price">₹ 9999/-</span>
-                        </li>
-                        <li>
-                            <h4>LUXE LIVING</h4>
-                            <p><?php echo nl2br('Pre Wedding First Session
-                                Hair styling & Rescue Repair
-                                Treatment / Root Hair Colour
-                                Enhancement / Perfection
-                                Brightening Face Treatment
-                                Pre Wedding Second Session
-                                Royal Shave or Beard Trim /
-                                Tan Removal Treatment /
-                                Intense Alchemy Moroccanoil Hair Sp \a
-                                Treatment / Express
-                                Glow Face Treatment
-                                With Gold Mask
-                                Pre Wedding Third Session
-                                Signature Treatment
-                                (German) / Alga Manicure
-                                & Pedicure / Tan Removal Treatment
-                                On Wedding
-                                Power essencious face Mask / Makeup') ?>
-                            </p>
-                            <span class="price">₹ 14999/-</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <?php 
+            endforeach;
+            endif; ?>
+            
             
 <!--            <div class="col-lg-4 col-md-12 sm-padding">
                 <div class="price_wrap">

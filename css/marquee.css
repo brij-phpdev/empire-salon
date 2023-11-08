@@ -182,3 +182,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .appointment_form .book_content h2{
     font-size: 160%;
 }
+.error{display: none;}
+.mb25{margin-bottom: 25px}

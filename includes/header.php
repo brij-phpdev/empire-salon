@@ -52,9 +52,9 @@ require_once( 'functions.php' );
     </head>
     <body>
 
-        <div id='preloader' class="d-none-">
+        <div id='preloader' class="d-none">
             <div class='loader' >
-                <img src="img/logo.jpg" width="180" alt="">
+                <img src="img/logo.jpg" width="90" alt="Empire Salon">
             </div>
         </div> 
         <!--        Preloader -->

@@ -249,15 +249,15 @@
 /*=========================================================================
     Trending cuts Carousel
 =========================================================================*/
-	$('#trending_cuts_carousel').owlCarousel({
-        loop: true,
-        autoplay: true,
-        smartSpeed: 500,
-        items: 4,
-        dots: false,
-        nav:false,
-        navText: ['<i class="arrow_carrot-left"></i>', '<i class="arrow_carrot-right"></i>']
-    });
+//	$('#trending_cuts_carousel').owlCarousel({
+//        loop: true,
+//        autoplay: true,
+//        smartSpeed: 500,
+//        items: 4,
+//        dots: false,
+//        nav:false,
+//        navText: ['<i class="arrow_carrot-left"></i>', '<i class="arrow_carrot-right"></i>']
+//    });
 
 $('.login_popup').venobox({
 //		numeratio: true,

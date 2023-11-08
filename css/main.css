@@ -2309,3 +2309,8 @@ blockquote span{
 }
 .section_heading h3{font-size: 36px!important;}
 .d-sch-table {font-size: 14px;}
+
+.selected_service_btn{
+    background-color: #000!important;
+    color:#fff!important;
+}

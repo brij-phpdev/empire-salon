@@ -69,7 +69,7 @@
                         <div class="footer_widget">
                             <h3>Connect on WhatsApp</h3>
                             <div class="subscribe_form mt-5">
-                                <a target="_blank" href="<?php echo WHATSAPP_URL ?>"><img src="img/wa.link.png" class="img-fluid img-responsive" width="60%"></a>
+                                <a target="_blank" href="<?php echo WHATSAPP_URL ?>"><img src="img/wa.link_ez80jh.png" class="img-fluid img-responsive" width="90%"></a>
                             </div><!-- Subscribe Form -->
                         </div>
                     </div>
@@ -148,6 +148,7 @@
                 <script src="js/plugins.js"></script>
                 
 		<script src="js/callSendSMS.js"></script>
+		<script src="js/checkUser.js"></script>
 
                 <script>
 $(document).ready(function(){
@@ -249,11 +250,105 @@ $(document).ready(function(){
 //			});
 //		});
 //		
-        
+   
+   
+   $(".book-service").on("click",function(){
+       //
+       $(this).addClass('selected_service_btn');
+   });
         
 });
 </script>
                 
+<!-- <script type="text/javascript">
+
+            
+
+            $('body').on('click', '#validate_email', function (e) {
+                $('.success-email-update').html('');
+                $('.error-email-update').html('');
+                var student_mobile = $("#mobile").val();
+                var student_email = $("#email").val();
+                if (student_mobile == '') {
+                    alert('Mobile cannot be empty!');
+                    $("#mobile").focus();
+                    return false;
+                }
+                if (student_email == '') {
+                    alert('Kindly enter your email first!');
+                    $("#email").focus();
+                    return false;
+                } else {
+                    //send OTP
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        method: "POST",
+                        url: "{{url('/')}}/sendMailOTP",
+                        data: {"student_email": student_email, "student_mobile": student_mobile},
+                    }).done(function (json) {
+                        var msg = jQuery.parseJSON(json);
+                        console.log(msg);
+                        console.log(msg.status_code);
+                        console.log(msg.message);
+                        if (msg.status_code == 'success') {
+                            $('.success-email-update').addClass('text-' + msg.status_code).html(msg.message);
+//                            alert(msg.message);
+                            // now open textbox to validate..
+                            $("#validate_email").addClass('disabled');
+                            $("#validate_email").hide();
+                            $("#mail_otp").show();
+                            $("#validate_mail_otp").show();
+                            $("#validate_mail_otp").on('click', function () {
+                                $('.success-email-update').html('');
+                                $('.error-email-update').html('');
+                                var email_otp = $("#mail_otp").val();
+                                if (email_otp == "") {
+                                    $("#mail_otp").focus();
+                                    return false;
+                                }
+                                $.ajax({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                    method: "POST",
+                                    url: "{{url('/')}}/validateMailOTP",
+                                    data: {"student_email": student_email, "email_otp": email_otp},
+                                }).done(function (json) {
+                                    var msg = jQuery.parseJSON(json);
+                                    console.log(msg);
+                                    if (msg.status_code == 'success') {
+                                        $('.success-email-update').addClass('text-' + msg.status_code).html(msg.message);
+                                        alert(msg.message);
+                                        // now open textbox to validate..
+                                        $("#mail_otp").hide();
+                                        $("#validate_email").addClass('disabled');
+                                        $("#validate_mail_otp").hide();
+                                        $("#email").prop("readonly", true);
+                                        $("#is_email_verified").val('1');
+
+
+                                    } else {
+//                                        alert(msg.message);
+                                        $('.error-email-update').addClass('text-' + msg.status_code).html(msg.message);
+                                    }
+                                });
+                            });
+
+
+                        } else {
+
+//                            alert(msg.status_code);
+//                            alert(msg.message);
+
+                            $('.error-email-update').addClass('text-' + msg.status_code).html(msg.message);
+                        }
+                    });
+                }
+            });
+        </script>-->
+
     </body>
 </html>
 <?php // COUCH::invoke();

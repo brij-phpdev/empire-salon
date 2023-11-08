@@ -33,7 +33,7 @@ include_once './includes/database.php';
                             <h3>Elevating beauty for brides, creating timeless moments with flawless artistry.</h3>
                             <h1>Exquisite bridal beauty,<br>makeup services par excellence.</h1>
                             <p>Elevate your bridal beauty with our expert makeup artists and beauty services. <br>Radiate confidence on your special day. Book now!</p>
-                            <a href="bride-gallery.php" class="default_btn">Explore Bridal Packages</a>
+                            <a href="packages.php" class="default_btn">Explore Bridal Packages</a>
                         </div>
                     </div>
                 </li>
@@ -49,7 +49,7 @@ include_once './includes/database.php';
                             <h3>Elevating weddings with unparalleled groom services, our salon fosters timeless elegance.</h3>
                             <h1>Top-notch groom's services<br>for exceptional elegance</h1>
                             <p>Experience the finest Indian groom services at our salon, expert grooming, <br>traditional attire styling, and a touch of luxury for your special day.</p>
-                            <a href="bride-gallery.php" class="default_btn">Explore Groom Packages</a>
+                            <a href="packages.php" class="default_btn">Explore Groom Packages</a>
                         </div>
                     </div>
                 </li>

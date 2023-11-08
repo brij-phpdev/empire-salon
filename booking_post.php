@@ -11,8 +11,10 @@ include_once './includes/database.php';
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $phone = trim($_POST['phone']);
-$serviceId = trim($_POST['serviceId']);
-$other_services = serialize($_POST['other_services']);
+$couponId = base64_decode(trim($_POST['couponId']));
+$serviceIds = $_POST['serviceId'];
+$serviceId = base64_decode($serviceIds[0]);
+$other_services = serialize(array_shift($_POST['serviceId']));
 $agentId = trim($_POST['agentId']);
 $adults = trim($_POST['serviceAdult']);
 $childrens = trim($_POST['serviceChildren']);
@@ -63,10 +65,10 @@ mysqli_free_result($res);
 
 // now insert into booking table..
 $insert_booking_sql = "INSERT INTO `bookingtbl` "
-        . "(`id`,`serviceId`,`agentId`,`adults`,`childrens`,`date`,`timing`,`message`,`serviceBill`,`paymentStatus`,"
-        . "`orderId`,`serviceStatus`,`userId`,`upload_date`) "
-        . " VALUES (NULL,'$serviceId','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','$paymentStatus',"
-        . "'$orderId','$serviceStatus','$userId','$upload_date') "
+        . "(`id`,`serviceId`,`other_services`,`agentId`,`adults`,`childrens`,`date`,`timing`,`message`,`serviceBill`,`paymentStatus`,"
+        . "`orderId`,`serviceStatus`,`couponId`,`userId`,`upload_date`) "
+        . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','$paymentStatus',"
+        . "'$orderId','$serviceStatus','$userId','$couponId','$upload_date') "
         . " ";
 
 $exe = mysqli_query($link, $insert_booking_sql);
@@ -80,6 +82,7 @@ if ($exe) {
 }
 if ($bookingId) {
     echo "An appointment is fixed";
+    // send email to the user
 //        echo json_encode(['result'=>'success']);
     die;
 }

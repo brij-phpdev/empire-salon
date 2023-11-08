@@ -70,11 +70,11 @@ include_once( './includes/database.php' );
                 <p>We are committed to providing a safe and comfortable environment for our clients, and we follow strict protocols to ensure that our salon is clean and hygienic at all times. Our goal is to provide a relaxing and rejuvenating experience that leaves you feeling refreshed and renewed. Thank you for considering Empire Salon for your beauty and wellness needs. We look forward to welcoming you to our salon and helping you look and feel your best.</p>
             </div>
             </div>
-        <div class="row d-flex align-items-center">
-            <div class="col-3 d-none d-md-block">
+        <div class="row d-flex align-items-center padding-10">
+            <div class="col-3 d-md-block">
                 <div class="about_img_">
                     <div class="director-info">
-                    <img src="img/about/sign.png" alt="idea-images" class="img-fluid wow fadeInLeft" data-wow-delay="200ms">
+                    <img src="img/about/sign.png" alt="signature" class="img-fluid wow fadeInLeft" data-wow-delay="200ms">
                     <h3>Shadab Ahmed</h3>
                     </div>
                 </div>
@@ -184,8 +184,9 @@ if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
                 $a = 1;
                 foreach ($agent_array as $agent):
 
-                    if (!empty($agent['agentImage'])):
+                    if (!empty($agent['agentImage']) && file_exists(SITE_BOOK_URL . 'application/uploads/img/agents/' . $agent['agentImage'])):
                         $path = SITE_BOOK_URL . 'application/uploads/img/agents/' . $agent['agentImage'];
+                    
                     else:
                         $path = 'img/logo.jpg';
                     endif;
@@ -196,10 +197,10 @@ if ($agenttable_res = @mysqli_query($link, $agenttable_sql)) {
                     ?>
                     <li class="col-lg-3 col-md-6 sm-padding wow fadeInUp" data-wow-delay="<?php echo $data_wow_delay ?>00ms">
                         <div class="team_member">
-                            <img src="<?php echo $base64 ?>" alt="Stylist <?php echo $agent['agentName'] ?>">
+                            <img class="border" src="<?php echo $base64 ?>" alt="Stylist <?php echo $agent['agentName'] ?>">
                             <div class="overlay">
                                 <h3><?php echo $agent['agentName'] ?></h3>
-                                <p><?php echo substr(html_entity_decode($agent['agentDetail']), 0, 30) ?>...</p>
+                                <p><?php echo substr(html_entity_decode($agent['agentDetail']), 0, 30) ?></p>
                             </div>
                         </div>
                     </li>
