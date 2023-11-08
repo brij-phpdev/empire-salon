@@ -49,7 +49,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     <div class="price_wrap">
                         <h3 class="s2">Choosen Package/Services</h3>
                         <div class="text-success bg-grey padding-10"><?php echo $_GET['packageName'] ?></div>
-                        <input type="text" name="serviceId[]" value="<?php echo $_GET['packageId'] ?>" />
+                        <input type="hidden" name="serviceId[]" value="<?php echo $_GET['packageId'] ?>" />
                     <br>
                     </div>
                     <?php
@@ -96,7 +96,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         </li>
                         <li>
                             <div class="radio-img">
-                                <input class="" id="radio-1a-<?php echo $package_service['id'] ?>" name="serviceId[]" type="checkbox" value="<?php echo base64_encode($package_service['id']) ?>">
+                                <input class="d-none" id="radio-1a-<?php echo $package_service['id'] ?>" name="serviceId[]" type="checkbox" value="<?php echo base64_encode($package_service['id']) ?>">
                                 <label style="" for="radio-1a-<?php echo $package_service['id'] ?>" class="default_btn book-service">Book Service</label>
                             </div>
                         </li>

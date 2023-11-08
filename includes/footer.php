@@ -254,7 +254,16 @@ $(document).ready(function(){
    
    $(".book-service").on("click",function(){
        //
+       var btn_text = $(this).first().text();
+       
        $(this).addClass('selected_service_btn');
+       if(btn_text== 'Service Selected'){
+           $(this).text('Book Service');
+           $(this).removeClass('selected_service_btn');
+       }
+       else{
+            $(this).text('Service Selected');
+        }
    });
         
 });
