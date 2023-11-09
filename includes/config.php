@@ -16,7 +16,7 @@ define('YOUTUBE_SOCIAL','https://youtube.com/@empiresalon?si=jEPZiowF0ShNjs8g');
 
 define('DB_HOST','62.72.28.103');
 define('DB_USER_NAME','u963541063_salon_bkng_usr');
-define('DB_USER_PASSWORD','8}_!.)%%Atnh65@11Oct23');
+define('DB_USER_PASSWORD','0is+wkAI@l8');
 define('DB_NAME','u963541063_salon_booking');
 
 define('FAST2SMS_API_KEY','KI80VaOYdrLA5Tm1ZyqucxW6ifsoXRNSD2CBPhtJpkw7Q9bGHFpLIyMKFiASc09DgbdH7wtoWOTU8keZ');
