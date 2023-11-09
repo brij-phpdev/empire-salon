@@ -1,5 +1,5 @@
 <?php
-//error_reporting(E_ALL);
+error_reporting(E_ALL);
 include_once './includes/config.php';
 include_once './includes/database.php';
 
@@ -42,25 +42,25 @@ include_once './includes/database.php';
     $your_budget = trim($_POST['your_budget']);
     $message = trim($_POST['message']);
     
-    // now insert into job_applications table..
-    $insert_job_application_sql = "INSERT INTO `franchise_enquiry` "
-            . "(`id`, `name`, `email`, `phone`, `experience_year`, `experience_month`, `expertise`, "
-            . "`reference`, `source`, `cadidate_resume`, `created_at`) "
-            . "VALUES (NULL, '$name', '$email', '$phone', '$experience_year', '$experience_month', '$expertise',"
-            . " '$reference', '$source', '$cadidate_resume', current_timestamp());";
+    // now insert into franchise_enquirys table..
+    $insert_franchise_enquiry_sql = "INSERT INTO `franchise_enquiry` "
+            . "(`id`, `type`, `name`, `email`, `phone`, `team_size`, `area`, `property_type`, "
+            . "`experience`, `other_business`, `need_products`, `required_training`, `hiring_stylist`, `your_budget`, `message`,`timestamp`) "
+            . "VALUES (NULL, '$type', '$name', '$email', '$phone', '$team_size', '$area', '$property_type',"
+            . " '$experience', '$other_business', '$need_products', '$required_training', '$hiring_stylist', '$your_budget', '$message', current_timestamp());";
          
-        
-    $exe = mysqli_query($link,$insert_job_application_sql);
+//    echo $insert_franchise_enquiry_sql;die;    
+    $exe = mysqli_query($link,$insert_franchise_enquiry_sql);
     if($exe){
     
-        $bookingId = mysqli_insert_id($link);
+        $enquiryId = mysqli_insert_id($link);
         mysqli_close($link);
     }else{
-        echo "ERROR: Some error occured while booking. "
+        echo "ERROR: Some error occured while making an enquiry. "
                                 .mysqli_error($link); 
     }
-    if($bookingId){
-        echo "Successfully applied for the job";
+    if($enquiryId){
+        echo "Successfully applied for the Franchise. Our team will get to you shortly!";
 //        echo json_encode(['result'=>'success']);
         die;
     }
