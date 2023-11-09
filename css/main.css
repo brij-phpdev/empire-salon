@@ -1187,7 +1187,7 @@ select.form-control:not([size]):not([multiple]){
    9.0 Testimonial Section
    ========================================================================== */
 .testimonial_section{
-    background-image: url(../img/post-single.jpg);
+    background-image: url(../img/hero-1.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 0 0;

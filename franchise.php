@@ -68,7 +68,7 @@ include_once './includes/header.php';
                         </p>
 
                         <div class="contact-form">
-                        <form name="franchiseForm" id="franchise_form" class="form-border position-relative z1000" method="post" action="#">
+                            <form name="franchiseForm" id="ajax_form" class="form-border position-relative z1000" method="post" action="franchise_post.php">
                             <div class="form-group row">
                                     <div class="col-md-12">
                                         <select name='type' id='type' class="form-control" required="">
@@ -185,6 +185,7 @@ include_once './includes/header.php';
                             <div id="error_message" class='error'>
                                 Sorry there was an error sending your form.
                             </div>
+                            <div id="form-messages" class="alert" role="alert"></div>
                         </form>
                 </div>
                 </div>

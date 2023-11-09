@@ -74,9 +74,16 @@ require_once( 'functions.php' );
                                 <!--<li><a data-scroll href="#header" class="verifyOTP open-popup-link" data-link="<?php echo SHOP_URL ?>" target="_blank" >Shop</a></li>-->
                                 <li><a href="services.php">Services</a>
                                 </li>
-                                <li><a href="makeover-gallery.php">Makeover</a></li>
+                                <!--<li><a href="makeover-gallery.php">Makeover</a></li>-->
+                                <li><a href="#">Packages</a>
+                                    <ul>
+                                       <li><a href="bride-packages.php">Bride Packages</a></li>
+                                       <li><a href="groom-packages.php">Groom Packages</a></li>
+                                       <li><a href="book.php">Standard Packages</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="franchise.php">Franchise</a></li>
-                                <li><a href="blog-grid.php">Blog</a>
+                                <!--<li><a href="blog-grid.php">Blog</a>-->
                                 </li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
