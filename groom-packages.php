@@ -13,7 +13,7 @@ include_once( './includes/database.php' );
     </div>
 </section><!--/. page_header -->
 
-<section id="gallery" class="gallery_section bg-grey bd-bottom padding">
+<section id="gallery" class="gallery_section bg-grey bd-bottom padding d-none">
     <div class="container">
         
         <ul class="portfolio_items row">
