@@ -69,7 +69,7 @@
                         <div class="footer_widget">
                             <h3>Connect on WhatsApp</h3>
                             <div class="subscribe_form mt-5">
-                                <a target="_blank" href="<?php echo WHATSAPP_URL ?>"><img src="img/wa.link_ez80jh.png" class="img-fluid img-responsive" width="90%"></a>
+                                <a target="_blank" href="<?php echo WHATSAPP_URL ?>"><img src="img/wa.link_tkepmx.png" class="img-fluid img-responsive" width="90%"></a>
                             </div><!-- Subscribe Form -->
                         </div>
                     </div>
