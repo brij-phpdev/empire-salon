@@ -14,7 +14,7 @@ include_once './includes/database.php';
 
 <?php
 $package_array = array();
-$packagetable_sql = "SELECT * FROM `service_cat_table` WHERE id=3 ORDER BY id DESC";
+$packagetable_sql = "SELECT * FROM `service_cat_table` ORDER BY id DESC";//WHERE id=3
 
 if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
 

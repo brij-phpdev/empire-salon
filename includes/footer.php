@@ -51,7 +51,7 @@
                         <div class="footer_widget">
                             <h3>Headquater</h3>
                             <p class="text-justify mt-5"><?php echo html_entity_decode(ADDRESS) ?></p>
-                            <p><?php echo EMAIL ?> <br><?php echo PHONE ?></p>
+                            <p><a class="mail_call" href="mailto:<?php echo EMAIL ?>"><?php echo EMAIL ?></a> <br><a class="mail_call" href="tel:<?php echo PHONE ?>"><?php echo PHONE ?></a></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 sm-padding">
