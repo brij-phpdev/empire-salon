@@ -50,7 +50,7 @@ include_once './includes/header.php';
                                     <div class="c-item">                            
                                         <a href="#">
                                             <span class="c-item_info">
-                                                <span class="c-item_title">CUT & STYLE</span>
+                                                <span class="c-item_title">Cut & Style</span>
                                                 <span class="c-item_wm">#1</span>
                                             </span>
                                         
@@ -103,7 +103,7 @@ include_once './includes/header.php';
                                     <div class="c-item">                            
                                         <a href="#">
                                             <span class="c-item_info">
-                                                <span class="c-item_title">COLORING</span>
+                                                <span class="c-item_title">Coloring</span>
                                                 <span class="c-item_wm">#5</span>
                                             </span>
                                             
@@ -188,7 +188,7 @@ include_once './includes/header.php';
                 </div>   
 
                 <div class="col-6 mt-auto mb-auto text-justify">
-                                                <h2>CUT & STYLE</h2>
+                                                <h2>Cut & Style</h2>
                     <p class="lead">Experience the uniqueness of hair cutting & styling in Agra. Our expert team uses signature techniques to craft a personalized style that perfectly matches your personality, lifestyle, and hair type.</p>
                     <a class="default_btn" href="book.php">Book Service</a>
                 </div>
@@ -228,7 +228,7 @@ include_once './includes/header.php';
                 </div>   
                 <div class="col-4">
                     <img src="img/hairstyles/5.jpg" class="lazy img-fluid" alt="">
-                    <h2>COLORING</h2>
+                    <h2>Coloring</h2>
                     <p class="lead text-justify">Our color specialist will tune in to your color aspirations and requirements, all while evaluating your skin tone, eye shade, and hair texture. This personalized approach leads to the ideal EMPIRE signature hue for you in Agra.</p>
                 </div>   
                 
