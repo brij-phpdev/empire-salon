@@ -14,20 +14,25 @@ include_once './includes/database.php';
 
 <?php
 $package_array = array();
-$packagetable_sql = "SELECT * FROM `service_cat_table` ORDER BY id DESC";//WHERE id=3
+$packagetable_sql = "SELECT * FROM `service_cat_table` WHERE id NOT IN (1,2) ORDER BY id DESC";//WHERE id=3
 
 if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
 
     if (@mysqli_num_rows($packagetable_res) > 0) {
         while ($packagetable_row = @mysqli_fetch_assoc($packagetable_res)) {
-            $package_array[] = $packagetable_row;
+            $package_array[$packagetable_row['id']] = $packagetable_row['cName'];
         }
     }
 }
 $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
 ?>
 
-<section class="service_section pricing_section bg-grey padding">
+                    
+<!--<section id="gallery" class="gallery_section bg-grey bd-bottom padding">
+    
+</section>-->
+<!--<section class="service_section pricing_section bg-grey padding">-->
+<section id="gallery" class="gallery_section bg-grey bd-bottom padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Book our Services</h2>
@@ -59,80 +64,81 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     <h3 class="s2">Choose Services</h3>
                     <div class="row">
             <?php if(!empty($package_array)): 
-
-                foreach($package_array as $package):
-
+     
+                ?>
+            
+                        
+                        
+                        
+                        <div class="container pricing_section" >
+                <ul class="gallery_filter mb-30">
+                    <!--<li class="active" data-filter="*">All</li>-->
+                    <?php
+                foreach($package_array as $p => $package):
+//                    print_r(reset($package_array));
                 $package_services = array();
 
                 if(!empty($package)):
+                    
+                    ?>
+                    <li <?php echo (reset($package_array)==$package) ? 'class="active"' : '' ?> data-filter=".<?php echo str_replace(" ", "_",strtolower($package)) ?>"><?php echo $package ?></li>
+                    <?php
+                    endif;
+                endforeach;
 
-                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`=".$package['id'];
+                ?>
+
+                </ul><!-- /.portfolio_filter -->
+                <div class="price_wrap">
+                <ul class="portfolio_items price_list row">
+                    
+                    <?php if(!empty($package_array)): 
+     
+                        
+                        foreach($package_array as $p => $package):
+                            
+
+                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`=".$p;
 //                    echo $package_service_table_sql;
                     if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
 
                         if (@mysqli_num_rows($package_servicetable_res) > 0) {
-                            while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
-                                $package_services[] = $package_servicetable_row;
-                            }
-                        }
-                    }
-                    endif;
-                ?>
-            
-            <div class="col-lg-6 col-md-6 sm-padding">
-                <div class="price_wrap">
-                    <h3><?php echo $package['cName'] ?></h3>
-                    <ul class="price_list">
-                        <?php 
-                        foreach($package_services as $package_service):
-                            
+                            while ($package_service = @mysqli_fetch_assoc($package_servicetable_res)) {
+                                
+                            $category_name = $package_array[$p];
                         ?>
-                        <li>
-                            <h4><?php echo strtoupper($package_service['title']) ?></h4>
-                            <p>
-                                <?php echo html_entity_decode($package_service['description']) ?>
-                            </p>
-                            <span class="price">₹ <?php echo $package_service['price'] ?>/-</span>
-                        </li>
-                        <li>
+                	<li class="col-lg-4 col-md-4 padding-15 offset-1 single_item <?php echo str_replace(" ", "_",strtolower($category_name)) ?>">
+                            
+                            <h5><?php echo html_entity_decode($package_service['title']) ?></h5>
+                            <p class="padding-10"></p>
+                            <!--<p><?php echo html_entity_decode($package_service['description']) ?></p>-->
+                        
+                                                    <span class="price">₹ <?php echo $package_service['price'] ?>/-</span>
+                        
                             <div class="radio-img">
                                 <input class="d-none" id="radio-1a-<?php echo $package_service['id'] ?>" name="serviceId[]" type="checkbox" value="<?php echo base64_encode($package_service['id']) ?>">
                                 <label style="" for="radio-1a-<?php echo $package_service['id'] ?>" class="default_btn book-service">Book Service</label>
                             </div>
                         </li>
-                        <?php 
+                        
+                        <?php
+                        }
+                        }
+                    }
                         endforeach;
-                        ?>
-                    </ul>
-                </div>
-            </div>
+
+                        endif; ?>
+                </ul>
+                        </div>
+                        </div>
+                        
+                        
+            
             <?php 
-            endforeach;
+//            endforeach;
             endif; ?>
             
             
-<!--            <div class="col-lg-4 col-md-12 sm-padding">
-                <div class="price_wrap">
-                    <h3>Face Masking</h3>
-                    <ul class="price_list">
-                        <li>
-                            <h4>White Facial</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$8</span>
-                        </li>
-                        <li>
-                            <h4>Face Cleaning</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$9</span>
-                        </li>
-                        <li>
-                            <h4>Bright Tuning</h4>
-                            <p>Barber is a person whose occupation is mainly to cut dress groom style and shave men.</p>
-                            <span class="price">$10</span>
-                        </li>
-                    </ul>
-                </div> 
-            </div>-->
         </div>
                     </div>
                     <?php } ?>

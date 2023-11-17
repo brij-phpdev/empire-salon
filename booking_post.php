@@ -14,8 +14,9 @@ $phone = trim($_POST['phone']);
 $couponId = base64_decode(trim($_POST['couponId']));
 $serviceIds = $_POST['serviceId'];
 $serviceId = base64_decode($serviceIds[0]);
-$other_services = serialize(array_shift($_POST['serviceId']));
-$agentId = trim($_POST['agentId']);
+$other_services = serialize($_POST['serviceId']);
+//$agentId = trim($_POST['agentId']);
+$agentId = 0;
 $adults = trim($_POST['serviceAdult']);
 $childrens = trim($_POST['serviceChildren']);
 $date = date('m-d-Y', strtotime(trim($_POST['date'])));
@@ -26,7 +27,7 @@ $paymentStatus = '0';
 $orderId = '';
 $serviceStatus = '';
 $upload_date = date('Y-m-d H:i:s');
-
+//print_r($other_services);die;
 //
 //$name = 'client1';
 //$email = 'client1@mail.com';
@@ -35,7 +36,7 @@ $upload_date = date('Y-m-d H:i:s');
 
 $check_user_sql = "SELECT * FROM `logintbl` WHERE `email`='$email' AND `phone`='$phone' ORDER BY `id` DESC"; // `fullName`='$name' AND  removed name as it may be changed later
 //$res = mysqli_query($link, $check_user_sql);
-//var_dump($res);die;
+//echo $check_user_sql;echo "<br/>";var_dump($res);die;
 if ($res = mysqli_query($link, $check_user_sql)) {
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_assoc($res)) {
@@ -70,7 +71,7 @@ $insert_booking_sql = "INSERT INTO `bookingtbl` "
         . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','$paymentStatus',"
         . "'$orderId','$serviceStatus','$userId','$couponId','$upload_date') "
         . " ";
-
+//echo $insert_booking_sql;die;
 $exe = mysqli_query($link, $insert_booking_sql);
 if ($exe) {
 

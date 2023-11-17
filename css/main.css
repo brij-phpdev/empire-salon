@@ -1265,9 +1265,11 @@ select.form-control:not([size]):not([multiple]){
     position: relative;
 }
 .pricing_section .price_wrap .price_list li h4{
+    font-family: "Work Sans",sans-serif;
     position: relative;
     color: #333;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 600;
     letter-spacing: 0.5px;
     margin: 0 0 6px;
     overflow: hidden;
@@ -1276,8 +1278,8 @@ select.form-control:not([size]):not([multiple]){
 .pricing_section .price_wrap .price_list li h4:after{
     color: #bbb;
     content: "--------------------"
-    "--------------------" "--------------------"
-    "--------------------";
+    "--------------------" 
+    ;
     font-weight: normal;
     margin-left: 10px;
     position: absolute;
@@ -1286,10 +1288,10 @@ select.form-control:not([size]):not([multiple]){
     width: 0;
 }
 .pricing_section .price_wrap .price_list li span.price{
-    font-family: "Prata",sans-serif;
-    font-size: 24px;
+    font-family: "Work Sans",sans-serif;
+    font-size: 16px;
     color: #9e8a78;
-    font-weight: 700;
+    font-weight: 600;
     position: absolute;
     top: 0;
     right: 0;
@@ -2317,4 +2319,20 @@ blockquote span{
 a.mail_call{
     color: #9e8a78;
     text-decoration: none;
+}
+.book-service{
+    line-height: 41px!important;
+    font-weight: 400!important;
+}
+.pricing_section .gallery_filter li{
+    font-size: 15px!important;
+}
+.pricing_section .price_wrap .price_list li h5:after{
+    color: #bbb;
+    font-weight: normal;
+    margin-left: 10px;
+    position: absolute;
+    top: -2px;
+    white-space: nowrap;
+    width: 0;
 }
