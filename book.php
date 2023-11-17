@@ -307,7 +307,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
     
     <div class="html-code overlay">
 
-        <div id="test-popup" class="login_popup_ white-popup mfp-hide " style="display: none;">
+        <div id="test-popup" class="login_popup white-popup mfp-hide " style="display: none;">
    <div id="sms-popup"  >
 
             <div class='waitSpinner'> </div>

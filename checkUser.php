@@ -47,9 +47,57 @@ if ($res = mysqli_query($link, $check_user_sql)) {
           /**
                 **/
 
+                $page_id = $_SERVER['HTTP_REFERER'];
+                $ip_address = get_client_ip();
+                $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+                // ========================================================
+                // curl to send OTP via POST method using API...
+                // ========================================================
+
+
+
+                $otp = rand(1111,9999);
+
+
+                /***
+                 * 
+                 uncomment this to send SMS 
+                 * 
+                 */
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2?authorization=".$api_key."&variables_values=".$otp."&route=otp&numbers=".urlencode($mobile),
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => "",
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 30,
+                  CURLOPT_SSL_VERIFYHOST => 0,
+                  CURLOPT_SSL_VERIFYPEER => 0,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => "GET",
+                  CURLOPT_HTTPHEADER => array(
+                    "cache-control: no-cache"
+                  ),
+                ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+
+                curl_close($curl);
+
+                if ($err) {
+                  $err = "cURL Error #:" . $err;
+    //            } else {
+    //              echo $response;
+                }
+        
+        
 //                $response = '{"return":true,"request_id":"up0i26z4hndv8ms","message":["SMS sent successfully."]}';
 
-                if(empty($err)){$err = 'NULL';}
+//                if(empty($err)){$err = 'NULL';}
 
                 ###############################################
                 // save the OTP to verify in database...
