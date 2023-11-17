@@ -2314,3 +2314,7 @@ blockquote span{
     background-color: #000!important;
     color:#fff!important;
 }
+a.mail_call{
+    color: #9e8a78;
+    text-decoration: none;
+}
