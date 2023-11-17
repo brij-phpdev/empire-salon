@@ -122,7 +122,7 @@ include_once './includes/database.php';
             <div class="col-lg-3 col-md-4 sm-padding wow fadeInUp" data-wow-delay="500ms">
                 <div class="service_content align-center">
                     <img src="img/hairstyles/5.jpg" alt="Services">
-                    <h3>COLORING</h3>
+                    <h3>Coloring</h3>
                     <P class="text-justify">Our color specialist will tune in to your color aspirations and requirements, all while evaluating your skin tone, eye shade, and hair texture. This personalized approach leads to the ideal EMPIRE signature hue for you in Agra.</P>
                 </div>
             </div>
