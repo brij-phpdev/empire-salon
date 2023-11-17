@@ -82,7 +82,6 @@ function sendFastSMSOTP($smsLinkHref) {
             $("#verify-otp-fastsms").show();
             $(".sent-otp-fastsms_submit").hide();
             $("#sent-otp-fastsms").hide();
-
             $("#verify-otp-fastsms").on("click", function () {
                 verifyMobileOTP($smsLinkHref);
 

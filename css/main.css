@@ -2336,3 +2336,4 @@ a.mail_call{
     white-space: nowrap;
     width: 0;
 }
+.sent-otp-fastsms_submit,.mobile_sms_otp,.mobile_otp_input{display:none;}

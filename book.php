@@ -271,11 +271,47 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             <div class="mb25">
                                 <input type='text' name='phone' id='phone' class="form-control" placeholder="Your Phone" required>
                             </div>
+                            
+                            <div class="white-popup" id="divsendmobileotp">
+
+                    <!--<h3>Enter your mobile to get OTP</h3>-->
+                    <!--<p id="plsreghere"class="title_block">No account yet ? Please enter your mobile here!</p><br />-->
+
+                    <div class="form-group row">
+                        <!--<label for="mobile_otp" class="col-sm-4 hidden control-label" id="mobile_otp" >Mobile Number : </label>-->
+                        <div class="col-sm-12">
+                            <input type="text" class="mobile_otp_input form-control" value="" placeholder="Mobile Number" name="mobile_otp" id="mobile_otp">
+                            <div class="success-mobile-update"></div>
+                            <div class="error-mobile-update"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="sent-otp-fastsms_submit">
+                            <button id="sent-otp-fastsms" class="button btn btn-success" value="Get OTP">Get OTP</button>
+                        </p>
+                    </div>
+
+                    <div class="mobile_sms_otp">
+                        <div class="form-group row">
+                            <!--<label for="mobile_sms" class="col-sm-4 hidden control-label" id="mobile_sms" >Enter OTP: </label>-->
+                            <div class="col-sm-8">
+                                <input type="text" class="mobile_sms_input form-control" placeholder="Enter OTP" value="" name="mobile_sms" id="mobile_sms">                           
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button id="verify-otp-fastsms" class="button btn btn-success" value="Verify OTP">Verify OTP</button>
+                        </div>
+                    </div>    
+
+                </div>
+                            
                             <div id='name_error' class='error'>Please enter your name.</div>
                             <div class="mb25">
                                 <input type='text' name='name' id='name' class="form-control" placeholder="Your Name" required>
                             </div>
 
+                            
+                            
                             <div id='email_error' class='error'>Please enter your valid E-mail ID.</div>
                             <div class="mb25">
                                 <input type='email' name='email' id='email' class="form-control" placeholder="Your Email" required>
