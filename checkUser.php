@@ -89,7 +89,7 @@ if (isset($mobile)) {
             if ($err) {
                 $err = "cURL Error #:" . $err;
                 } else {
-                  echo $response;
+//                  echo $response;
             }
 
 
