@@ -1132,8 +1132,12 @@ select.form-control:not([size]):not([multiple]){
     cursor: pointer;
 }
 .gallery_section .gallery_filter li.active{
-    color: #9e8a78;
+    background-color: #9e8a78;
     transition: all 0.5s ease-in-out;
+    padding: 5px 15px;
+    color: #fff;
+/*    color: #9e8a78;
+    transition: all 0.5s ease-in-out;*/
 }
 
 /* ==========================================================================
@@ -2337,3 +2341,10 @@ a.mail_call{
     width: 0;
 }
 .sent-otp-fastsms_submit,.mobile_sms_otp,.mobile_otp_input{display:none;}
+
+.sub_category_gallery_filter{
+    color: black;
+}
+/*.pricing_section .sub_category_gallery_filter li{
+    background-color: blue;
+}*/

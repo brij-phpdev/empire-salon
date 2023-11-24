@@ -81,7 +81,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                 if(!empty($package)):
                     
                     ?>
-                    <li <?php echo (reset($package_array)==$package) ? 'class="active"' : '' ?> data-filter=".<?php echo str_replace(" ", "_",strtolower($package)) ?>"><?php echo $package ?></li>
+                    <li id="<?php echo str_replace(" ", "_",strtolower($package)) ?>" <?php echo (reset($package_array)==$package) ? 'class="active"' : '' ?> data-filter=".<?php echo str_replace(" ", "_",strtolower($package)) ?>"><?php echo $package ?></li>
                     <?php
                     endif;
                 endforeach;
@@ -89,7 +89,43 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                 ?>
 
                 </ul><!-- /.portfolio_filter -->
+                
                 <div class="price_wrap">
+                    
+                    <ul class="sub_category_gallery_filter gallery_filter mb-30">
+                        <?php 
+                        if(!empty($package_array)): 
+//                         print_r(reset($package_array));
+//                                    print_r($package_array);
+                        foreach($package_array as $p => $package):
+                        
+                        $package_service_table_sql = "SELECT `servicetable`.`sub_category` FROM `servicetable` WHERE `category_id`=".$p . ' GROUP BY `servicetable`.`sub_category` ASC;';
+//                    echo $package_service_table_sql;die;
+                        if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
+
+                            if (@mysqli_num_rows($package_servicetable_res) > 0) {
+                                while ($package_service = @mysqli_fetch_assoc($package_servicetable_res)) {
+//                                    print_r($package_service);
+                                    $category_name = $package_array[$p];
+                                    $sub_category_name = $package_service['sub_category'];
+//                                    echo $package;
+                            if(reset($package_array)==$package):
+                            ?>
+                            <li data-parent="<?php echo str_replace(" ", "_",strtolower($package)) ?>" class=" <?php echo str_replace(" ", "_",strtolower($package)) ?>" data-filter=".<?php echo str_replace(" ", "_",strtolower($sub_category_name)) ?>"><?php echo $sub_category_name ?></li>
+                            <?php 
+                            else:
+                                ?>
+                            <li style="display: none;" data-parent="<?php echo str_replace(" ", "_",strtolower($package)) ?>" class="<?php echo str_replace(" ", "_",strtolower($package)) ?>" data-filter=".<?php echo str_replace(" ", "_",strtolower($sub_category_name)) ?>"><?php echo $sub_category_name ?></li>
+                            <?php 
+                            endif;
+                                }
+                            }
+                        }
+                        endforeach; 
+                        endif;
+                        ?>
+                    </ul>
+                    
                 <ul class="portfolio_items price_list row">
                     
                     <?php if(!empty($package_array)): 
@@ -106,8 +142,9 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             while ($package_service = @mysqli_fetch_assoc($package_servicetable_res)) {
                                 
                             $category_name = $package_array[$p];
+                            $sub_category_name = $package_service['sub_category'];
                         ?>
-                	<li class="col-lg-4 col-md-4 padding-15 offset-1 single_item <?php echo str_replace(" ", "_",strtolower($category_name)) ?>">
+                	<li class="col-lg-4 col-md-4 padding-15 offset-1 single_item <?php echo str_replace(" ", "_",strtolower($sub_category_name)) ?>">
                             
                             <h5><?php echo html_entity_decode($package_service['title']) ?></h5>
                             <p class="padding-10"></p>
@@ -174,8 +211,10 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                                                 </div>
                                                             </div>-->
 
-                    <div class="form-group row">
-
+                    <hr class="padding-10" width="100%">
+                        
+                    <div class="mt-10 form-group row">
+                            <!--<legend >Preferred time</legend>-->
                         <div class="col-lg-6">
                             <h3 class="s2">Select Date</h3>
                             <input type="date" name="date" id="date" class="form-control" min="<?php echo date('Y-m-d') ?>" required />
@@ -238,6 +277,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
 
                         </div>
                     </div>
+                        
                     <!--</div>-->
 
                     <div class="spacer-single"></div>

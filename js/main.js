@@ -88,14 +88,31 @@
 /*=========================================================================
     Isotope Active
 =========================================================================*/
+//    $(".sub_category_gallery_filter li").hide();
 	$('.portfolio_items').imagesLoaded( function() {
 
 		 // Add isotope click function
 		$('.gallery_filter li').on( 'click', function(){
+                    
 	        $(".gallery_filter li").removeClass("active");
+	        $(".sub_category_gallery_filter li").removeClass("active");
+	        $(".sub_category_gallery_filter li").hide();
+	        
 	        $(this).addClass("active");
-	 
+//                
+
 	        var selector = $(this).attr('data-filter');
+//                alert(selector);
+                $(".sub_category_gallery_filter li"+selector).show();
+                var parent_selector = $(this).attr('data-parent');
+//                    alert(parent_selector);
+                    if(parent_selector!==undefined){
+                        // now enable all li 
+//                        alert('yes m here' + parent_selector);
+                        $('#'+parent_selector).addClass("active");
+                        $('.'+parent_selector).show();
+                    }
+                
 	        $(".portfolio_items").isotope({
 	            filter: selector,
 	            animationOptions: {
