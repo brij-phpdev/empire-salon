@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 include_once './includes/config.php';
 include_once './includes/functions.php';

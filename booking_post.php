@@ -196,7 +196,7 @@ Team Empire Salon
         $mail->Subject = $customer_mail_subject;
         $mail->Body    = $custoomer_mail_message;
         $mail->msgHTML($custoomer_mail_message);
-        $mail->SMTPDebug = 2;
+//        $mail->SMTPDebug = 2;
         $customer_mail_sent = $mail->send(); 
         
         
