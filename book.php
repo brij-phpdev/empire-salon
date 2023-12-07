@@ -309,7 +309,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <div class="col-lg-6">
                             <div id='phone_error' class='error'>Please enter your phone number.</div>
                             <div class="mb25">
-                                <input type='number' min="10" max="10" name='phone' id='phone' class="form-control" placeholder="Your Phone" required>
+                                <input type='number' name='phone' id='phone' class="form-control" placeholder="Your Phone" required>
                             </div>
                             
                             
