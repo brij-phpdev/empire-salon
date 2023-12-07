@@ -309,13 +309,10 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <div class="col-lg-6">
                             <div id='phone_error' class='error'>Please enter your phone number.</div>
                             <div class="mb25">
-                                <input type='text' name='phone' id='phone' class="form-control" placeholder="Your Phone" required>
+                                <input type='number' min="10" max="10" name='phone' id='phone' class="form-control" placeholder="Your Phone" required>
                             </div>
                             
-                            <div class="white-popup" id="divsendmobileotp">
-
-                    <!--<h3>Enter your mobile to get OTP</h3>-->
-                    <!--<p id="plsreghere"class="title_block">No account yet ? Please enter your mobile here!</p><br />-->
+                            
 
                     <div class="form-group row">
                         <!--<label for="mobile_otp" class="col-sm-4 hidden control-label" id="mobile_otp" >Mobile Number : </label>-->
@@ -339,11 +336,11 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             </div>
                         </div>
                         <div class="form-group">
-                            <button id="verify-otp-fastsms" class="button btn btn-success" value="Verify OTP">Verify OTP</button>
+                            <a id="verify-otp-fastsms" class="default_btn" value="Verify OTP">Verify OTP</a>
                         </div>
                     </div>    
 
-                </div>
+                
                             
                             <div id='name_error' class='error'>Please enter your name.</div>
                             <div class="mb25">
@@ -421,7 +418,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             </div>
                         </div>
                         <div class="form-group">
-                            <button id="verify-otp-fastsms" class="button btn btn-success" value="Verify OTP">Verify OTP</button>
+                            <a id="verify-otp-fastsms" class="default_btn" value="Verify OTP">Verify OTP</a>
                         </div>
                     </div>    
 

@@ -1,6 +1,7 @@
 <?php
 
 define('SITE_URL','https://empiresalon.co/');
+define('SITE_TITLE','Empire Salon');
 define('SITE_BOOK_URL','https://salonbooking.empiresalon.co/');
 define('SHOP_URL','https://shop.empiresalon.co/');
 define('WHATSAPP_URL','https://wa.link/tkepmx');
@@ -26,3 +27,10 @@ define('DB_NAME','u963541063_salon_booking');
 define('FAST2SMS_API_KEY','KI80VaOYdrLA5Tm1ZyqucxW6ifsoXRNSD2CBPhtJpkw7Q9bGHFpLIyMKFiASc09DgbdH7wtoWOTU8keZ');
 define('RECAPTCHA_SITE_KEY','6LdzJdAoAAAAAK4WMtskrtsExhaMM4zCwslMre6H');
 define('RECAPTCHA_SITE_SECRET','6LdzJdAoAAAAAM4PAdjrbF0zfb7SkUQs13BS1Cxh');
+
+define('EMAIL_USERNAME','mailmaster@theroyal.org.in');
+define('EMAIL_PASSOWRD','Brij098!@#');
+define('EMAIL_HOST','smtp.hostinger.com');
+define('EMAIL_PORT','587');
+
+define('DEBUG',FALSE);

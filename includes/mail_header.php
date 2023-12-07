@@ -11,50 +11,43 @@ require_once( 'functions.php' );
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Empire Salon">
+        <meta name="description" content="<?php echo SITE_TITLE ?>">
         <meta name="author" content="The Royals">
 
-        <title>Empire Salon</title>
+        <title><?php echo SITE_TITLE ?></title>
 
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo SITE_URL ?>img/favicon.png">
 
         <!-- Elegant Font Icons CSS -->
-        <link rel="stylesheet" href="css/elegant-font-icons.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/elegant-font-icons.css">
         <!-- Elegant Line Icons CSS -->
-        <link rel="stylesheet" href="css/elegant-line-icons.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/elegant-line-icons.css">
         <!-- Themify Icon CSS -->
-        <link rel="stylesheet" href="css/themify-icons.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/themify-icons.css">
         <!-- Barber Icons CSS -->
-        <link rel="stylesheet" href="css/barber-icons.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/barber-icons.css">
 		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/bootstrap.min.css">
         <!-- animate CSS -->
-        <link rel="stylesheet" href="css/animate.min.css">
-		<!-- Venobox CSS -->
-        <link rel="stylesheet" href="css/venobox/venobox.css">
-        <!-- Nice Select CSS -->
-        <link rel="stylesheet" href="css/nice-select.css">
-		<!-- OWL-Carousel CSS -->
-        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/animate.min.css">
         <!-- Slick Nav CSS -->
-        <link rel="stylesheet" href="css/slicknav.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/slicknav.min.css">
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/main.css">
 		<!-- Responsive CSS -->
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/responsive.css">
         
-        <link rel="stylesheet" href="css/marquee.css">
-        <!--<link rel="stylesheet" href="css/calendar.css">-->
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/marquee.css">
         
-        <link rel="stylesheet" href="css/book.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL ?>css/book.css">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        
     </head>
     <body>
 
         <div id='preloader' class="d-none">
             <div class='loader' >
-                <img src="img/logo.jpg" width="90" alt="Empire Salon">
+                <img src="<?php echo SITE_URL ?>img/logo.jpg" width="90" alt="Empire Salon">
             </div>
         </div> 
         <!--        Preloader -->

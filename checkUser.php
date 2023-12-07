@@ -3,6 +3,7 @@
 error_reporting(E_ALL);
 include_once './includes/config.php';
 include_once './includes/database.php';
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
@@ -11,11 +12,22 @@ include_once './includes/database.php';
 $mobile = $_POST['mobile'];
 //var_dump($mobile);die;
 $isValidUser = false;
-if (isset($mobile)) {
+
+$is_valid_mob = validate_mobile($mobile);
+
+//var_dump($is_valid_mob); die;
+
+if(!$is_valid_mob){
+    echo
+            json_encode([
+                'success' => false,
+                'message' => 'Invalid mobile number. Kindly enter mobile number first without "0" only 10 digit allowed'
+            ]);
+}
+
+if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
 
     // condition to get OTP on mobile...
-
-
 
     $page_id = $_SERVER['HTTP_REFERER'];
     $last_visit = base64_decode($_POST['last_visit']);
@@ -35,7 +47,7 @@ if (isset($mobile)) {
                 json_encode([
                     'success' => true,
                     'user_details' => $row,
-                    'msg' => 'User already exists!',
+                    'message' => 'User already exists!',
                 ]);
 //            echo json_encode($row);
             }
@@ -64,37 +76,37 @@ if (isset($mobile)) {
              * 
              */
 
-            $curl = curl_init();
+//            $curl = curl_init();
+//
+//            curl_setopt_array($curl, array(
+//                CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2?authorization=" . $api_key . "&variables_values=" . $otp . "&route=otp&numbers=" . urlencode($mobile),
+//                CURLOPT_RETURNTRANSFER => true,
+//                CURLOPT_ENCODING => "",
+//                CURLOPT_MAXREDIRS => 10,
+//                CURLOPT_TIMEOUT => 30,
+//                CURLOPT_SSL_VERIFYHOST => 0,
+//                CURLOPT_SSL_VERIFYPEER => 0,
+//                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//                CURLOPT_CUSTOMREQUEST => "GET",
+//                CURLOPT_HTTPHEADER => array(
+//                    "cache-control: no-cache"
+//                ),
+//            ));
+//
+//            $response = curl_exec($curl);
+//            $err = curl_error($curl);
+//                
+//            curl_close($curl);
+//
+//            if ($err) {
+//                $err = "cURL Error #:" . $err;
+//                } else {
+////                  echo $response;
+//            }
 
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2?authorization=" . $api_key . "&variables_values=" . $otp . "&route=otp&numbers=" . urlencode($mobile),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_SSL_VERIFYHOST => 0,
-                CURLOPT_SSL_VERIFYPEER => 0,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPHEADER => array(
-                    "cache-control: no-cache"
-                ),
-            ));
 
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-                
-            curl_close($curl);
-
-            if ($err) {
-                $err = "cURL Error #:" . $err;
-                } else {
-//                  echo $response;
-            }
-
-
-//                $response = '{"return":true,"request_id":"up0i26z4hndv8ms","message":["SMS sent successfully."]}';
-                if(empty($err)){$err = 'NULL';}
+                $response = '{"return":true,"request_id":"up0i26z4hndv8ms","message":["SMS sent successfully."]}';
+                if(empty($err)){$err = 'NULL';} // always enable this to handle database blank column
             ###############################################
             // save the OTP to verify in database...
             //            //INSERT INTO `pre_fast2sms_api_log` (`id`, `mobile`, `sent_otp`, `shop_id`, `ip_address`, `user_agent`, `api_response`, `error`, `created_at`) VALUES (NULL, '9999887788', '0987', '0', '0921029', 'ahello', '{\"return\":true,\"request_id\":\"up0i26z4hndv8ms\",\"message\":[\"SMS sent successfully.\"]}', NULL, current_timestamp());
@@ -134,7 +146,7 @@ if (isset($mobile)) {
                 }
             }
 
-            echo json_encode(array('return' => $isSMSSent, 'message' => $api_message));
+            echo json_encode(array('return' => $isSMSSent, 'message' => 'New User: '.$api_message));
 
             // ========================================================
             // curl to send OTP via POST method using API ends here...
@@ -238,4 +250,14 @@ function get_client_ip() {
     else
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
+}
+
+function validate_mobile($mobile)
+{
+    return preg_match('/^[0-9]{10}+$/', $mobile);
+}
+
+function validate_email($email)
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }

@@ -2,6 +2,9 @@
 
 include_once './database.php';
 
+require 'vendor/autoload.php';
+use PHPMailer;
+
 $experience_months = range(0, 12);
 $experience_years = range(0, 25);
 $career_source_references = array('News Paper Advertisement','Google','LinkedIn','Facebook');
@@ -82,4 +85,11 @@ function saveJobsForm($form_fields){
 //    foreach($form_fields as $field):
 //        
 //    endforeach;
+}
+
+function sanitizeInput($input) {
+   $input = strip_tags(trim($input));
+   $input = stripslashes($input);
+   $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+   return $input;
 }

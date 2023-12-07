@@ -10,7 +10,7 @@ include_once './includes/functions.php';
 
         // Update this to your desired email address.
         $name = 'Brij Raj Singh';
-        $recipient = ADMIN_EMAIL;
+        $recipient = EMAIL_USERNAME;
         $email = $emailTo = ADMIN_EMAIL;
 	$subject = "Message from $name";
         $$message = 'demo mail';
@@ -29,7 +29,7 @@ include_once './includes/functions.php';
           <title>Contact Request Reminder</title>
         </head>
         <body>
-          <p><a href="index.php" class="navbar-brand"><img class="main_logo" src="img/logo.png" alt="Empire Salon"></a></p>
+          <p><a href="'.SITE_URL.'" class="navbar-brand"><img class="main_logo" src="'.convertImgToBase64(SITE_URL.'img/logo.png').'" alt="'.SITE_TITLE.'"></a></p>
           <table style="display: none;">
             <tr>
               <th>Case title</th><th>Category</th><th>Status</th><th>Due date</th>
@@ -64,14 +64,24 @@ $mail->Port = EMAIL_PORT;
 $mail->SMTPAuth = true;
 $mail->Username = EMAIL_USERNAME;
 $mail->Password = EMAIL_PASSOWRD;
-$mail->setFrom(EMAIL_USERNAME);
-$mail->addAddress($emailTo);
+$mail->setFrom(EMAIL_USERNAME,SITE_TITLE);
+$mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
+$mail->addAddress($emailTo, $name);
 $mail->Subject = $subject;
 $mail->Body    = $mail_message;
+$mail->msgHTML($mail_message);
+$mail->SMTPDebug = 2;
 $mail_sent = $mail->send();
-print_r($mail);
-var_dump($mail_sent);die;
+//print_r($mail);
+//var_dump($mail_sent);die;
         
+if (!$mail->send()) {
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+}else{
+    echo 'The email message was sent!';
+}
+die;
+
         // Send the email.
         if ($mail_sent) {
             

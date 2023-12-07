@@ -1,5 +1,11 @@
 jQuery(document).ready(function ($) {
     
+    
+    function isValidMobileNumber(mobileNumber) {
+        var mobileNumberPattern = /^[0-9]{10}$/;
+        return mobileNumberPattern.test(mobileNumber);
+    }
+    
 $('body').on('keyup', '#phone', function (e) {
                 $('.success-mobile-update').html('');
                 $('.error-mobile-update').html('');
@@ -11,13 +17,26 @@ $('body').on('keyup', '#phone', function (e) {
 //                    $("#name").focus();
 //                    return false;
 //                }
+                
+                
                 if (mobile == '') {
 //                    alert('Kindly enter mobile number first');
 //                    console.log('Kindly enter mobile number first without "0" only 10 digit');
                     $("#phone_error").addClass('text-danger').text('Kindly enter mobile number first without "0" only 10 digit');
                     $("#phone").focus();
                     return false;
-                } else {
+                } else if(mobile.length >= 10){
+//                    alert(mobile.length);
+//                    alert(mobile);
+                    // lets check if number length is 10..
+//                    if(mobile.length >= 10){
+                        if(!isValidMobileNumber(mobile)){
+//                            alert('invalid mobile number');
+                            $("#phone_error").addClass('text-danger').text('Kindly enter mobile number first without "0" only 10 digit');
+                            return false;
+                        }
+                    
+                    
                     //validate user
                     
                     $.ajax({
@@ -26,25 +45,27 @@ $('body').on('keyup', '#phone', function (e) {
                         },
                         method: "POST",
                         url: "checkUser.php",
-                        data: {"mobile": mobile, "last_visit": last_visit}
+                        data: {"mobile": mobile, "last_visit": last_visit, "action":"check_user"}
                     }).done(function (json) {
                         msg = jQuery.parseJSON(json);
                         console.log(msg);
                         
-                        if (msg.success == true) {
+                        if (msg.success === true && msg.success!==undefined) {
                             var user_details = msg.user_details;
-                            $('.success-mobile-update').addClass('text-success').html(msg.status + '! ' + msg.msg);
+                            $('.success-mobile-update').addClass('text-success').html( msg.message);
                             // means user already exists..
-                            alert(msg.msg);
+//                            alert(msg.message);
                             // now set variable
                             $("#name").val(user_details.fullName);
                             $("#email").val(user_details.email);
                             $("#unique_id").val(user_details.unique_id);
 //                            alert(msg.message);
 
-                        }else if (msg.return == true) {
+                        }else if (msg.return === true) {
                             // open OTP 
+                            console.log('i m herer');
                             $(".mobile_sms_otp").show();
+                            $('.success-mobile-update').addClass('text-success').html( msg.message);
                             $("#verify-otp-fastsms").show();
                             $(".sent-otp-fastsms_submit").hide();
                             $("#sent-otp-fastsms").hide();
@@ -56,7 +77,7 @@ $('body').on('keyup', '#phone', function (e) {
                         } else {
 //                            alert(msg.status_code);
                             alert(msg.message);
-                            $('.error-mobile-update').addClass('text-danger').html(msg.status + '! ' + msg.msg);
+                            $('.error-mobile-update').addClass('text-danger').html( msg.message);
                         }
                     });
                 }
@@ -103,53 +124,57 @@ function getCoupons(){
 
 
 function verifyMobileOTP() {
-//        alert('sending SMSM');
-//        alert($smsLinkHref);
-//        alert($("a.verifyOTP").attr("data-link"));
+//        alert('verifying SMS');
     $(".fancy_msg").hide();
     $(".fancy_msg").slideUp();
-    var mobile = $(".mobile_otp_input").val();
+    var mobile = $("#phone").val();
     var mobile_otp = $(".mobile_sms_input").val();
 //        alert(mobile);
+//        alert(mobile_otp);
     $.ajax({
-        url:  'sendSMS.php',
-        dataType: 'json',
+        url:  'checkUser.php',
         type:'POST',
         data: {
             action: 'verify_mobile_otp',
             mobile: mobile,
             mobile_otp: mobile_otp,
-            ajax: true,
+            ajax: true
         },
         beforeSend: function () {
             $(".waitSpinner").show();
         },
-        success: function (data)
+        success: function (json)
         {
+            var data = jQuery.parseJSON(json);
             console.log(data);
-
+            alert(data.success);
 //            $(".waitSpinner").hide();
-            if (data.success == 'true' || data.success == true) {
-                $(".fancy_msg").removeClass('alert-*');
-                $(".fancy_msg").slideDown();
-                $(".fancy_msg").show();
-                $(".fancy_msg").addClass('alert-success');
-                $(".fancy_msg").text(data.message+'. Redirecting in 3 seconds');
-
-                createCookie('otppopup', 'no', 30);
-                $("#popupLogin").stop().slideToggle('slow');
+            if (data.success === true && data.success!==undefined) {
+                $(".error-mobile-update").hide();
+                $('.success-mobile-update').show().addClass('text-success').text( data.message);
+                $("#is_mobile_verified").val('1');
+                $(".error-mobile-update").hide();
+                $(".mobile_sms_input").hide();
+                $(".mobile_sms_input").hide();
+                $("#verify-otp-fastsms").hide();
+                alert('we are here');
+//                $(".fancy_msg").text(data.message+'. Redirecting in 3 seconds');
+                return false;
+//                createCookie('otppopup', 'no', 30);
+//                $("#popupLogin").stop().slideToggle('slow');
                 // redirect to the href 
-                setTimeout(function () {
-                    window.location.href = 'payscript.php';
-                }, 3000); //will call the function after 3 secs.
+//                setTimeout(function () {
+//                    window.location.href = 'payscript.php';
+//                }, 3000); //will call the function after 3 secs.
 
 //                window.location.href = $smsLinkHref;
 
 
             } else {
-                $(".fancy_msg").removeClass('alert-success');
-                $(".fancy_msg").addClass('alert-danger');
-                $(".fancy_msg").text(data.message);
+//                $(".fancy_msg").removeClass('alert-success');
+//                $(".fancy_msg").addClass('alert-danger');
+                $('.success-mobile-update').hide();
+                $(".error-mobile-update").addClass('text-danger').text(data.message);
             }
         }
     });

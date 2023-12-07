@@ -1,32 +1,57 @@
 <?php
 
 //error_reporting(E_ALL);
+//ini_set('display_errors',1);
 include_once './includes/config.php';
+include_once './includes/functions.php';
 include_once './includes/database.php';
 
 //print_r($_POST);
 //die;
 // lets check if user exists if not then create user first... to pick the id
 
-$name = trim($_POST['name']);
-$email = trim($_POST['email']);
-$phone = trim($_POST['phone']);
-$couponId = base64_decode(trim($_POST['couponId']));
-$serviceIds = $_POST['serviceId'];
-$serviceId = base64_decode($serviceIds[0]);
-$other_services = serialize($_POST['serviceId']);
-//$agentId = trim($_POST['agentId']);
-$agentId = 0;
-$adults = trim($_POST['serviceAdult']);
-$childrens = trim($_POST['serviceChildren']);
-$date = date('m-d-Y', strtotime(trim($_POST['date'])));
-$timing = trim($_POST['select_time']);
-$message = trim($_POST['message']);
-$serviceBill = '0';
-$paymentStatus = '0';
-$orderId = '';
-$serviceStatus = '';
-$upload_date = date('Y-m-d H:i:s');
+if(DEBUG==TRUE){
+    $name = 'Brij Raj Singh';
+    $email = ADMIN_EMAIL;
+    $phone = '7618565004';
+    $couponId = 1;
+//    $serviceIds = '143';
+    $serviceId = '118';
+    $other_services = 'a:1:{i:0;s:4:"MTE4";}';
+    //$agentId = trim($_POST['agentId']);
+    $agentId = 0;
+    $adults = 2;
+    $childrens = 0;
+    $date = '12-10-2023';
+    $timing = '11:00 AM';
+    $message = 'do your best';
+    $serviceBill = '0';
+    $paymentStatus = '0';
+    $orderId = '';
+    $serviceStatus = '';
+    $upload_date = date('Y-m-d H:i:s');
+}else{
+
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $couponId = base64_decode(trim($_POST['couponId']));
+    $serviceIds = $_POST['serviceId'];
+    $serviceId = base64_decode($serviceIds[0]);
+    $other_services = serialize($_POST['serviceId']);
+    //$agentId = trim($_POST['agentId']);
+    $agentId = 0;
+    $adults = trim($_POST['serviceAdult']);
+    $childrens = trim($_POST['serviceChildren']);
+    $date = date('m-d-Y', strtotime(trim($_POST['date'])));
+    $timing = trim($_POST['select_time']);
+    $message = trim($_POST['message']);
+    $serviceBill = '0';
+    $paymentStatus = '0';
+    $orderId = '';
+    $serviceStatus = '';
+    $upload_date = date('Y-m-d H:i:s');
+}
 //print_r($other_services);die;
 //
 //$name = 'client1';
@@ -73,6 +98,7 @@ $insert_booking_sql = "INSERT INTO `bookingtbl` "
         . " ";
 //echo $insert_booking_sql;die;
 $exe = mysqli_query($link, $insert_booking_sql);
+
 if ($exe) {
 
     $bookingId = mysqli_insert_id($link);
@@ -80,38 +106,113 @@ if ($exe) {
     
     
     mysqli_close($link);
+      
+    
+    // customer email ...
+    $customer_mail_subject = 'Empire Salon | Booking Confirmation | '. $date .' | '.$name;
+    
+    $custoomer_mail_message = '
+        <html>
+        <head>
+          <title>Order Booking</title>
+        </head>
+        <body>
+          <p><a href="'.SITE_URL.'" class="navbar-brand"><img class="main_logo" src="'.convertImgToBase64(SITE_URL.'img/logo.png').'" alt="'.SITE_TITLE.'"></a></p>
+              <p>Dear '.ucfirst($name).',</p>
+              <p>Congratulations on taking the first step towards a fresh and fabulous look! We are delighted to confirm that your Hair Salon Service at '.SITE_TITLE.' has been successfully booked through our online platform.
+</p>
+<p><b>Booking Details:</b>
+          <table style="display: block;">
+            <tr>
+              <th>Name</th><td>'.$name.'</td>
+            </tr>
+            <tr>
+              <th>Date</th><td>'.$date.'</td>
+            </tr>
+            <tr>
+              <th>Time</th><td>'.$timing.'</td>
+            </tr>
+            <tr>
+              <th>Email</th><td>'.$email.'</td>
+            </tr>
+            <tr>
+              <th>Phone</th><td>'.$phone.'</td>
+            </tr>
+            <tr>
+              <th>No. of Adults</th><td>'.$adults.'</td>
+            </tr>
+            
+          </table>
+          
+<p>
+<b>What to Expect:</b><br/>
+At '.SITE_TITLE.', we are committed to providing a personalized and enjoyable experience. Here\'s a glimpse of what awaits you:
+</p>
+<p>
+1. <b>Expert Stylists:</b><br/>
+   Our team of skilled stylists is dedicated to bringing your vision to life. Be ready to receive personalized attention and expert advice tailored to your unique style.
+<br/>
+2. <b>Relaxing Atmosphere:</b><br>
+   Immerse yourself in a welcoming and stylish atmosphere designed for your comfort. Your visit is not just a haircut; it\'s a moment of self-care and rejuvenation.
+<br>
+3. <b>Quality Products:</b><br>
+   We use premium hair care products to ensure your hair looks stunning and feels healthy after every visit.
+<br>
+<br>
+<b>Next Steps:</b><br>
+If you have any specific requests or questions before your appointment, feel free to reach out to us at ' . EMAIL . ' or <a href="tel:'.PHONE.'" > ' . PHONE .' </a>  . We are here to make your experience seamless and enjoyable.
+<br>
+</p>
+<p>
+We are genuinely excited to welcome you to '.SITE_TITLE.' and to create a hairstyle that perfectly complements your personality.
+</p>
+<p>
+Thank you for choosing us for your hair care needs. We can\'t wait to see the amazing transformation!
+</p>
+<br><br><br>
+<i>Best Regards,</i>
+<br/>      
+Team Empire Salon
+        </body>
+        </html>
+        ';
     
     
-    $subject = 'New Booking by Client'; // Subject of your email
-    $to = ADMIN_EMAIL;  //Recipient's E-mail
-    $emailTo = $_POST['email'];
-    //$opt = Trim(stripslashes(implode(",", $_POST['services'])));
+    
+          $mail = new PHPMailer();
 
-    $headers = "MIME-Version: 1.1";
-    $headers .= "Content-type: text/html; charset=iso-8859-1";
-    $headers .= "From: " . $emailTo . "\r\n"; // Sender's E-mail
-    $headers .= "Return-Path:". $emailTo;
-
-    $message = 'Name : ' . $_POST['name'] . "\n";
-    $message .= 'Email : ' . $_POST['email'] . "\n";
-    $message .= 'Phone : ' . $_POST['phone'] . "\n";
-    //$message .= 'Services : ' .$opt . "\n";
-    //$message .= 'Stylist : ' . $_POST['stylist'] . "\n";
-    $message .= 'Date : ' . $_POST['date'] . "\n";
-    $message .= 'Time : ' . $_POST['time'] . "\n";
-    $message .= 'Message : ' . $_POST['message'];
-
-    if (@mail($to, $subject, $message, $headers))
+        $mail->isSMTP();
+        $mail->Host = EMAIL_HOST;
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = EMAIL_PORT;
+        $mail->SMTPAuth = true;
+        $mail->Username = EMAIL_USERNAME;
+        $mail->Password = EMAIL_PASSOWRD;
+        $mail->setFrom(EMAIL_USERNAME,SITE_TITLE);
+        $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
+        $mail->addAddress($email,$name);
+        $mail->AddCC(EMAIL, SITE_TITLE);
+        $mail->AddCC(ADMIN_EMAIL, 'The Royal');
+        $mail->Subject = $customer_mail_subject;
+        $mail->Body    = $custoomer_mail_message;
+        $mail->msgHTML($custoomer_mail_message);
+        $mail->SMTPDebug = 2;
+        $customer_mail_sent = $mail->send(); 
+        
+        
+    if ($customer_mail_sent)
     {
             // Transfer the value 'sent' to ajax function for showing success message.
-            echo 'sent';
+        http_response_code(200);
+            echo 'Thank You! Your booking information has been sent to your email.';
     }
     else
     {
-            // Transfer the value 'failed' to ajax function for showing error message.
-            echo 'failed';
+            // Set a 500 (internal server error) response code.
+            http_response_code(500);
+            echo 'Oops! Something went wrong and we couldn\'t send your message.';
     }
-
+    
 } else {
     echo "ERROR: Some error occured while booking. "
     . mysqli_error($link);

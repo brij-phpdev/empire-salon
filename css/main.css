@@ -2281,13 +2281,13 @@ blockquote span{
 }
 
 .white-popup {
-  position: relative;
+  /*position: relative;*/
   background: #FFF;
   padding: 20px;
   width: auto;
   max-width: 500px;
-  margin: 20px auto;
-  top:0;
+  /*margin: 20px auto;*/
+  /*top:0;*/
 }
 
 #popuplogincontainer{
