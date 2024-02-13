@@ -89,7 +89,7 @@ require_once( 'functions.php' );
                             </ul>
                        </div>
                        <div class="header-btn">
-                           <a href="book.php" class="menu-btn">Make Appointment</a>
+                           <a href="offers.php" class="menu-btn">Offers</a>
                        </div>
                     </div>
                 </nav>
