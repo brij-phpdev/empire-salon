@@ -84,6 +84,20 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     <br>
                     </div>
                     <?php
+                                // price logic
+                                $amt = base64_decode($_GET['rndId']);
+                                $price_to_pay = 5000;
+                                if($amt<10000){
+                                    // less than 10,000
+                                    $price_to_pay = ceil(($amt * 25 )/100);
+                                }
+                                if($amt<5000){
+                                    $price_to_pay = $amt;
+                                }
+//                                $price_to_pay = $package_price;
+//                                echo $price_to_pay;
+                                ?>
+                    <?php
                     }else{
                      ?>
                     <input type="hidden" id="rnIdVal" name="rnId" value="" />
@@ -492,6 +506,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     <div class="form-group row">
                         <div class="col-md-12">
                                 <!--<div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>-->
+                            <p><small>Please pay a token amount to secure your slot: </small>₹ <?php echo $price_to_pay ?>.00/-</p>
                             <p id='submit' class="mt20">
                                 <input type='submit' id='send_message' value='Book & Pay' class="default_btn">
                             </p>
