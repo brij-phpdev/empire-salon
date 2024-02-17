@@ -70,7 +70,7 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
                             
                         </li>
                         <li>
-                            <a href="book.php?rndId=<?php echo base64_encode($package_service['price'])?>&packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package['cName']. ' - ' .$package_service['title']) ?>&rndId=<?php echo base64_encode(ceil($package_service['price']/2)) ?>" class="default_btn">Book an Appointment</a>
+                            <a href="book.php?rndId=<?php echo base64_encode($package_service['member_price'])?>&packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package['cName']. ' - ' .$package_service['title']) ?>&rndId=<?php echo base64_encode(ceil($package_service['member_price']/2)) ?>" class="default_btn">Book an Appointment</a>
                         </li>
                         <?php 
                         endforeach;
