@@ -53,7 +53,7 @@ if(empty($_lastUrl))
                             
                             <div class="form-field">
                                 <label for="productinfo">Product Information<sup>*</sup></label>
-                                <input id="productinfo" class="productinfo" name="productinfo" value="<?php echo $_GET['packageName'] ?>">
+                                <input id="productinfo" class="productinfo" name="productinfo" value="<?php echo preg_replace('/[^a-z0-9]/i', ' ', $_GET['packageName']) ?>">
                             </div>
                     
                             <div class="form-field">
