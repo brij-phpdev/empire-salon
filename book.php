@@ -1,6 +1,10 @@
 <?php
 include_once './includes/header.php';
 include_once './includes/database.php';
+//$_lastUrl='';
+//print_r($_SERVER);
+//echo $_lastUrl='';
+//die;
 ?>
 <section class="page_header d-flex align-items-center">
     <div class="container">
@@ -38,15 +42,35 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
             <h2>Book our Services</h2>
             
         </div>
-
+        
+        
+        
+        
 
         <div id="step-1" >
 
 
 
             <div class="contact-form">
-                <form name="bookForm" id="ajax_form" class="form-horizontal" method="post" action="booking_post.php">
+                
+                <?php if(isset($_GET['msg'])): ?>
+        <div class="row">
+            <div class="col-12 mb-20">
+                <div class="padding-10 bg-grey text-<?php echo isset($_GET['type']) ? $_GET['type'] : 'success' ?>">
+                    <script type="text/javascript">
+                        alert("<?php echo isset($_GET['msg']) ? $_GET['msg'] : '' ?>");
+                        </script>
+                    <?php echo isset($_GET['msg']) ? $_GET['msg'] : '' ?>
+            </div>
+                </div>
+                </div>
+                <hr/>
+        <?php endif; ?>
+                
+                <form name="bookForm" id="ajax_form_1" class="form-horizontal" method="post" action="booking_post.php">
 
+                    
+                    
                     <?php 
                     if(isset($_GET['packageId']) && isset($_GET['packageName'])){
                         ?>
@@ -55,11 +79,16 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <h3 class="s2">Choosen Package/Services</h3>
                         <div class="text-success bg-grey padding-10"><?php echo $_GET['packageName'] ?></div>
                         <input type="hidden" name="serviceId[]" value="<?php echo $_GET['packageId'] ?>" />
+                        <input type="hidden" name="rnId" value="<?php echo ($_GET['rndId']) ?>" />
+                        <input type="hidden" name="packageName" value="<?php echo $_GET['packageName'] ?>" />
                     <br>
                     </div>
                     <?php
                     }else{
                      ?>
+                    <input type="hidden" id="rnIdVal" name="rnId" value="" />
+                    <input type="hidden" id="rnKId" name="rnKId" value="0" />
+                    <input type="hidden" name="packageName" id="packageName" value="" />
                     <div class="price_wrap_">
                     <h3 class="s2">Choose Services</h3>
                     <div class="row">
@@ -153,8 +182,24 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                                     <span class="price">₹ <?php echo $package_service['price'] ?>/-</span>
                         
                             <div class="radio-img">
+
+                                <?php
+                                // price logic
+                                
+                                $price_to_pay = 5000;
+                                if($package_service['price']<10000){
+                                    // less than 10,000
+                                    $price_to_pay = ceil(($package_service['price'] * 25 )/100);
+                                }
+                                if($package_service['price']<5000){
+                                    $price_to_pay = $package_service['price'];
+                                }
+//                                $price_to_pay = $package_price;
+//                                echo $price_to_pay;
+                                ?>
+                                
                                 <input class="d-none" id="radio-1a-<?php echo $package_service['id'] ?>" name="serviceId[]" type="checkbox" value="<?php echo base64_encode($package_service['id']) ?>">
-                                <label style="" for="radio-1a-<?php echo $package_service['id'] ?>" class="default_btn book-service">Book Service</label>
+                                <label style="" fo adio-1a-<?php echo $package_service['id'] ?>" data-mid="<?php echo $price_to_pay ?>" data-package="<?php echo html_entity_decode($package_service['title']) ?>" class="default_btn book-service">Book Service</label>
                             </div>
                         </li>
                         
@@ -227,7 +272,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             <div class="custom_radio">
                                 <div class="row">
                                     <div class="col-6">
-                                    <div class="radio-opt">
+<!--                                    <div class="radio-opt">
                                         <input type="radio" id="choose_8AM" value="8:00 AM" name="select_time" checked><label for="choose_8AM">8:00 AM</label>
                                     </div>
                                     <div class="radio-opt">
@@ -235,7 +280,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                     </div>
                                     <div class="radio-opt">
                                         <input type="radio" id="choose_10AM" value="10:00 AM" name="select_time"><label for="choose_10AM">10:00 AM</label>
-                                    </div>
+                                    </div>-->
                                     <div class="radio-opt">
                                         <input type="radio" id="choose_11AM" value="11:00 AM" name="select_time"><label for="choose_11AM">11:00 AM</label>
                                     </div>
@@ -248,14 +293,15 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                     <div class="radio-opt">
                                         <input type="radio" id="choose_2PM" value="2:00 PM" name="select_time"><label for="choose_2PM">2:00 PM</label>
                                     </div>
-                                    </div>
-                                    <div class="col-6">
+                                    
                                     <div class="radio-opt">
                                         <input type="radio" id="choose_3PM" value="2:00 PM" name="select_time"><label for="choose_3PM">2:00 PM</label>
                                     </div>
                                     <div class="radio-opt">
                                         <input type="radio" id="choose_4PM" value="3:00 PM" name="select_time"><label for="choose_4PM">3:00 PM</label>
                                     </div>
+</div>
+                                    <div class="col-6">
                                     <div class="radio-opt">
                                         <input type="radio" id="choose_5PM" value="4:00 PM" name="select_time"><label for="choose_5PM">4:00 PM</label>
                                     </div>
@@ -285,7 +331,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     <div class="form-group row">
                             <div class="col-md-6">
                                 <label for="adultsVal">Adults</label>
-                                <input id="adultsVal" class="form-control" type="number" value="0" min="1" step="1" name="serviceAdult" >
+                                <input id="adultsVal" class="form-control" type="number" value="1" min="1" step="1" name="serviceAdult" >
                             </div>
                             <div class="col-md-6">
                                     <label for="childVal">Childrens</label>
@@ -447,7 +493,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <div class="col-md-12">
                                 <!--<div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>-->
                             <p id='submit' class="mt20">
-                                <input type='submit' id='send_message' value='Book' class="default_btn">
+                                <input type='submit' id='send_message' value='Book & Pay' class="default_btn">
                             </p>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors',1);
 include_once './includes/config.php';
-include_once './includes/functions.php';
+//include_once './includes/functions.php';
 include_once './includes/database.php';
 
 //print_r($_POST);
@@ -15,6 +15,8 @@ if(DEBUG==TRUE){
     $email = ADMIN_EMAIL;
     $phone = '7618565004';
     $couponId = 1;
+    $packageName = 'RUBY BLISS';
+    $amount = 'MjEwMDA='; // $_POST['rnId'];
 //    $serviceIds = '143';
     $serviceId = '118';
     $other_services = 'a:1:{i:0;s:4:"MTE4";}';
@@ -30,6 +32,12 @@ if(DEBUG==TRUE){
     $orderId = '';
     $serviceStatus = '';
     $upload_date = date('Y-m-d H:i:s');
+    
+    // sending to payment page
+    header('Location: initiate_payment.php?firstname='.$name.'&rnAmt='.$amount.'&email='.$email.'&phone='.$phone.'&packageName='.$packageName);
+    
+    exit;
+    
 }else{
 
     $name = trim($_POST['name']);
@@ -51,6 +59,11 @@ if(DEBUG==TRUE){
     $orderId = '';
     $serviceStatus = '';
     $upload_date = date('Y-m-d H:i:s');
+    $amount = $_POST['rnId'];
+    $packageName = trim($_POST['packageName']);
+    
+       
+ //
 }
 //print_r($other_services);die;
 //
@@ -60,7 +73,7 @@ if(DEBUG==TRUE){
 
 
 $check_user_sql = "SELECT * FROM `logintbl` WHERE `email`='$email' AND `phone`='$phone' ORDER BY `id` DESC"; // `fullName`='$name' AND  removed name as it may be changed later
-//$res = mysqli_query($link, $check_user_sql);
+$res = mysqli_query($link, $check_user_sql);
 //echo $check_user_sql;echo "<br/>";var_dump($res);die;
 if ($res = mysqli_query($link, $check_user_sql)) {
     if (mysqli_num_rows($res) > 0) {
@@ -87,6 +100,7 @@ if ($res = mysqli_query($link, $check_user_sql)) {
         }
     }
 }
+//var_dump($userId);die;
 mysqli_free_result($res);
 
 // now insert into booking table..
@@ -94,7 +108,7 @@ $insert_booking_sql = "INSERT INTO `bookingtbl` "
         . "(`id`,`serviceId`,`other_services`,`agentId`,`adults`,`childrens`,`date`,`timing`,`message`,`serviceBill`,`paymentStatus`,"
         . "`orderId`,`serviceStatus`,`couponId`,`userId`,`upload_date`) "
         . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','$paymentStatus',"
-        . "'$orderId','$serviceStatus','$userId','$couponId','$upload_date') "
+        . "'$orderId','$serviceStatus','$couponId','$userId','$upload_date') "
         . " ";
 //echo $insert_booking_sql;die;
 $exe = mysqli_query($link, $insert_booking_sql);
@@ -102,10 +116,17 @@ $exe = mysqli_query($link, $insert_booking_sql);
 if ($exe) {
 
     $bookingId = mysqli_insert_id($link);
+
     
-    
-    
+//let us redirect to payment before sending mail...
+
     mysqli_close($link);
+    // sending to payment page
+    header('Location: initiate_payment.php?firstname='.$name.'&rnAmt='.$amount.'&email='.$email.'&phone='.$phone.'&packageName='.$packageName.'&booking='.$bookingId);
+    die;
+    
+        
+    
       
     
     // customer email ...

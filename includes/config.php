@@ -34,3 +34,6 @@ define('EMAIL_HOST','smtp.hostinger.com');
 define('EMAIL_PORT','587');
 
 define('DEBUG',FALSE);
+
+define('MERCHANT_KEY','YPYWPN6NZH');
+define('MERCHANT_SALT','PAXDQVWNAX');

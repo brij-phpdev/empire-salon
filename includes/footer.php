@@ -181,6 +181,8 @@ $(document).ready(function(){
    $(".book-service").on("click",function(){
        //
        var btn_text = $(this).first().text();
+       var rnKId = $("#rnKId").val();
+//       alert(rnKId);
        
        $(this).addClass('selected_service_btn');
        if(btn_text== 'Service Selected'){
@@ -189,6 +191,13 @@ $(document).ready(function(){
        }
        else{
             $(this).text('Service Selected');
+            
+//            alert($(this).attr('data-mid'));
+            $("#rnIdVal").val( btoa($(this).attr('data-mid')));
+            $("#rnKId").val( $(this).attr('data-mid'));
+            $("#packageName").val( $(this).attr('data-package'));
+//            $("#rnIdVal").val(rnKId+$(this).attr('data-mid'));
+//            console.log($(this).attr('data-mid'));
         }
    });
         

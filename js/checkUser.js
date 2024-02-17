@@ -112,6 +112,7 @@ function getCoupons(){
                     var selected_coupon = $(this).attr('id');
                     $("#couponId").val(selected_coupon);
                     $("#coupons_applied").addClass('text-success').text('Coupon applied successfully!');
+                    
                 });
 
             } else {
