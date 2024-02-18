@@ -77,7 +77,8 @@ Team Empire Salon
         $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
 //        $mail->addAddress(EMAIL_USERNAME,SITE_TITLE);
         $mail->addAddress(EMAIL, SITE_TITLE);
-        $mail->AddCC(ADMIN_EMAIL, 'The Royal');
+        $mail->AddCC(ADMIN_EMAIL, 'MB');
+        $mail->AddCC(PARAS_EMAIL, 'The Royal');
         $mail->Subject = $subject;
         $mail->Body    = $mail_message;
         $mail->msgHTML($mail_message);
