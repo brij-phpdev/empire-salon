@@ -6,11 +6,11 @@ include_once './includes/config.php';
 //include_once './includes/functions.php';
 include_once './includes/database.php';
 
-//print_r($_POST);
+print_r($_POST);
 //die;
 // lets check if user exists if not then create user first... to pick the id
 
-if(DEBUG==TRUE){
+if (DEBUG == TRUE) {
     $name = 'Brij Raj Singh';
     $email = ADMIN_EMAIL;
     $phone = '7618565004';
@@ -27,18 +27,18 @@ if(DEBUG==TRUE){
     $date = '12-10-2023';
     $timing = '11:00 AM';
     $message = 'do your best';
-    $serviceBill = '0';
     $paymentStatus = '0';
     $orderId = '';
     $serviceStatus = '';
     $upload_date = date('Y-m-d H:i:s');
-    
+    $total_amount_to_be_paid = getServicesAndTotalAmount($other_services, $link, true);
+    $serviceBill = $total_amount_to_be_paid;
+//    echo 
     // sending to payment page
-    header('Location: initiate_payment.php?firstname='.$name.'&rnAmt='.$amount.'&email='.$email.'&phone='.$phone.'&packageName='.$packageName);
-    
+    header('Location: initiate_payment.php?firstname=' . $name . '&rnAmt=' . $amount . '&email=' . $email . '&phone=' . $phone . '&packageName=' . $packageName);
+
     exit;
-    
-}else{
+} else {
 
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
@@ -54,18 +54,20 @@ if(DEBUG==TRUE){
     $date = date('m-d-Y', strtotime(trim($_POST['date'])));
     $timing = trim($_POST['select_time']);
     $message = trim($_POST['message']);
-    $serviceBill = '0';
+    
     $paymentStatus = '0';
     $orderId = '';
     $serviceStatus = '';
     $upload_date = date('Y-m-d H:i:s');
     $amount = $_POST['rnId'];
+//    var_dump(base64_decode($amount));die;
+    $total_amount_to_be_paid = getServicesAndTotalAmount($other_services, $link, true);
+    $serviceBill = $total_amount_to_be_paid;
     $packageName = trim($_POST['packageName']);
-    
-       
- //
+
+    //
 }
-//print_r($other_services);die;
+
 //
 //$name = 'client1';
 //$email = 'client1@mail.com';
@@ -105,9 +107,9 @@ mysqli_free_result($res);
 
 // now insert into booking table..
 $insert_booking_sql = "INSERT INTO `bookingtbl` "
-        . "(`id`,`serviceId`,`other_services`,`agentId`,`adults`,`childrens`,`date`,`timing`,`message`,`serviceBill`,`paymentStatus`,"
+        . "(`id`,`serviceId`,`other_services`,`agentId`,`adults`,`childrens`,`date`,`timing`,`message`,`serviceBill`,`booking_amount`,`paymentStatus`,"
         . "`orderId`,`serviceStatus`,`couponId`,`userId`,`upload_date`) "
-        . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','$paymentStatus',"
+        . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','".base64_decode($amount)."','$paymentStatus',"
         . "'$orderId','$serviceStatus','$couponId','$userId','$upload_date') "
         . " ";
 //echo $insert_booking_sql;die;
@@ -117,57 +119,52 @@ if ($exe) {
 
     $bookingId = mysqli_insert_id($link);
 
-    
 //let us redirect to payment before sending mail...
 
     mysqli_close($link);
     // sending to payment page
-    header('Location: initiate_payment.php?firstname='.$name.'&rnAmt='.$amount.'&email='.$email.'&phone='.$phone.'&packageName='.$packageName.'&booking='.$bookingId);
+    header('Location: initiate_payment.php?firstname=' . $name . '&rnAmt=' . $amount . '&email=' . $email . '&phone=' . $phone . '&packageName=' . $packageName . '&booking=' . $bookingId);
     die;
-    
-        
-    
-      
-    
+
     // customer email ...
-    $customer_mail_subject = 'Empire Salon | Booking Confirmation | '. $date .' | '.$name;
-    
+    $customer_mail_subject = 'Empire Salon | Booking Confirmation | ' . $date . ' | ' . $name;
+
     $custoomer_mail_message = '
         <html>
         <head>
           <title>Order Booking</title>
         </head>
         <body>
-          <p><a href="'.SITE_URL.'" class="navbar-brand"><img class="main_logo" src="'.convertImgToBase64(SITE_URL.'img/logo.png').'" alt="'.SITE_TITLE.'"></a></p>
-              <p>Dear '.ucfirst($name).',</p>
-              <p>Congratulations on taking the first step towards a fresh and fabulous look! We are delighted to confirm that your Hair Salon Service at '.SITE_TITLE.' has been successfully booked through our online platform.
+          <p><a href="' . SITE_URL . '" class="navbar-brand"><img class="main_logo" src="' . convertImgToBase64(SITE_URL . 'img/logo.png') . '" alt="' . SITE_TITLE . '"></a></p>
+              <p>Dear ' . ucfirst($name) . ',</p>
+              <p>Congratulations on taking the first step towards a fresh and fabulous look! We are delighted to confirm that your Hair Salon Service at ' . SITE_TITLE . ' has been successfully booked through our online platform.
 </p>
 <p><b>Booking Details:</b>
           <table style="display: block;">
             <tr>
-              <th>Name</th><td>'.$name.'</td>
+              <th>Name</th><td>' . $name . '</td>
             </tr>
             <tr>
-              <th>Date</th><td>'.$date.'</td>
+              <th>Date</th><td>' . $date . '</td>
             </tr>
             <tr>
-              <th>Time</th><td>'.$timing.'</td>
+              <th>Time</th><td>' . $timing . '</td>
             </tr>
             <tr>
-              <th>Email</th><td>'.$email.'</td>
+              <th>Email</th><td>' . $email . '</td>
             </tr>
             <tr>
-              <th>Phone</th><td>'.$phone.'</td>
+              <th>Phone</th><td>' . $phone . '</td>
             </tr>
             <tr>
-              <th>No. of Adults</th><td>'.$adults.'</td>
+              <th>No. of Adults</th><td>' . $adults . '</td>
             </tr>
             
           </table>
           
 <p>
 <b>What to Expect:</b><br/>
-At '.SITE_TITLE.', we are committed to providing a personalized and enjoyable experience. Here\'s a glimpse of what awaits you:
+At ' . SITE_TITLE . ', we are committed to providing a personalized and enjoyable experience. Here\'s a glimpse of what awaits you:
 </p>
 <p>
 1. <b>Expert Stylists:</b><br/>
@@ -181,11 +178,11 @@ At '.SITE_TITLE.', we are committed to providing a personalized and enjoyable ex
 <br>
 <br>
 <b>Next Steps:</b><br>
-If you have any specific requests or questions before your appointment, feel free to reach out to us at ' . EMAIL . ' or <a href="tel:'.PHONE.'" > ' . PHONE .' </a>  . We are here to make your experience seamless and enjoyable.
+If you have any specific requests or questions before your appointment, feel free to reach out to us at ' . EMAIL . ' or <a href="tel:' . PHONE . '" > ' . PHONE . ' </a>  . We are here to make your experience seamless and enjoyable.
 <br>
 </p>
 <p>
-We are genuinely excited to welcome you to '.SITE_TITLE.' and to create a hairstyle that perfectly complements your personality.
+We are genuinely excited to welcome you to ' . SITE_TITLE . ' and to create a hairstyle that perfectly complements your personality.
 </p>
 <p>
 Thank you for choosing us for your hair care needs. We can\'t wait to see the amazing transformation!
@@ -197,43 +194,37 @@ Team Empire Salon
         </body>
         </html>
         ';
-    
-    
-    
-          $mail = new PHPMailer();
 
-        $mail->isSMTP();
-        $mail->Host = EMAIL_HOST;
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = EMAIL_PORT;
-        $mail->SMTPAuth = true;
-        $mail->Username = EMAIL_USERNAME;
-        $mail->Password = EMAIL_PASSOWRD;
-        $mail->setFrom(EMAIL_USERNAME,SITE_TITLE);
-        $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
-        $mail->addAddress($email,$name);
-        $mail->AddCC(EMAIL, SITE_TITLE);
-        $mail->AddCC(ADMIN_EMAIL, 'The Royal');
-        $mail->Subject = $customer_mail_subject;
-        $mail->Body    = $custoomer_mail_message;
-        $mail->msgHTML($custoomer_mail_message);
+    $mail = new PHPMailer();
+
+    $mail->isSMTP();
+    $mail->Host = EMAIL_HOST;
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = EMAIL_PORT;
+    $mail->SMTPAuth = true;
+    $mail->Username = EMAIL_USERNAME;
+    $mail->Password = EMAIL_PASSOWRD;
+    $mail->setFrom(EMAIL_USERNAME, SITE_TITLE);
+    $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
+    $mail->addAddress($email, $name);
+    $mail->AddCC(EMAIL, SITE_TITLE);
+    $mail->AddCC(ADMIN_EMAIL, 'MB');
+    $mail->AddCC(PARAS_EMAIL, 'The Royal');
+    $mail->Subject = $customer_mail_subject;
+    $mail->Body = $custoomer_mail_message;
+    $mail->msgHTML($custoomer_mail_message);
 //        $mail->SMTPDebug = 2;
-        $customer_mail_sent = $mail->send(); 
-        
-        
-    if ($customer_mail_sent)
-    {
-            // Transfer the value 'sent' to ajax function for showing success message.
+    $customer_mail_sent = $mail->send();
+
+    if ($customer_mail_sent) {
+        // Transfer the value 'sent' to ajax function for showing success message.
         http_response_code(200);
-            echo 'Thank You! Your booking information has been sent to your email.';
+        echo 'Thank You! Your booking information has been sent to your email.';
+    } else {
+        // Set a 500 (internal server error) response code.
+        http_response_code(500);
+        echo 'Oops! Something went wrong and we couldn\'t send your message.';
     }
-    else
-    {
-            // Set a 500 (internal server error) response code.
-            http_response_code(500);
-            echo 'Oops! Something went wrong and we couldn\'t send your message.';
-    }
-    
 } else {
     echo "ERROR: Some error occured while booking. "
     . mysqli_error($link);
@@ -245,6 +236,12 @@ if ($bookingId) {
     die;
 }
 
+/**
+ * 
+ * @param type $length
+ * @return type
+ */
+
 function generatePassword($length = 8) {
     $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     $count = mb_strlen($chars);
@@ -255,5 +252,6 @@ function generatePassword($length = 8) {
     }
     return $result;
 }
+
 
 ?>

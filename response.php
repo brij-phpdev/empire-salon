@@ -4,7 +4,9 @@
     // include file
     include './includes/config.php';
     include './includes/database.php';
+    
     require 'vendor/autoload.php';
+    
 use PHPMailer;
 
     include_once('easebuzz-lib/easebuzz_payment_gateway.php');
@@ -106,6 +108,10 @@ use PHPMailer;
             }
             
             
+            // let us generate the invoice & attach the same..
+            
+            $invoice_generate_link = SITE_URL.'includes/generateInvoice.php?orderId='.$bookingId;
+            $ch = file_get_contents($invoice_generate_link);
             
         //let us redirect to payment before sending mail...
 
@@ -204,10 +210,12 @@ use PHPMailer;
                 $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
                 $mail->addAddress($email,$name);
                 $mail->AddCC(EMAIL, SITE_TITLE);
-                $mail->AddCC(ADMIN_EMAIL, 'The Royal');
+                $mail->AddCC(ADMIN_EMAIL, 'MB');
+                $mail->AddCC(PARAS_EMAIL, 'The Royal');
                 $mail->Subject = $customer_mail_subject;
                 $mail->Body    = $custoomer_mail_message;
                 $mail->msgHTML($custoomer_mail_message);
+                $mail->addAttachment($invoice_generate_link);
         //        $mail->SMTPDebug = 2;
                 $customer_mail_sent = $mail->send(); 
 

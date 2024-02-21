@@ -1,21 +1,57 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-/**
- * Creates an example PDF TEST document using TCPDF
- * @package com.tecnick.tcpdf
- * @abstract TCPDF - Example: Default Header and Footer
- * @author Nicola Asuni
- * @since 2008-03-04
- */
-include './config.php';
-include './database.php';
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 
-require '../libraries/dompdf-master/src/Dompdf.php';
 
-use Dompdf\Dompdf;
-//use Dompdf\Options;
+require('./config.php');
+require('./database.php');
+require('../libraries/fpdf.php');
 
+class PDF extends FPDF
+{
+    public $font_family = 'times';
+    public $line_height = 7;
+    public $huge_gap = 15;
+// Page header
+function Header()
+{
+    // Logo
+    $this->Image(SITE_URL.'img/logo.jpg',90,6,30);
+    // Arial bold 15
+    $this->SetFont($this->font_family);
+    // Move to the right
+    $this->Cell(80);
+    // Title
+//    $this->Cell(30,60,SITE_TITLE,1,0,'C');
+    $this->SetFont($this->font_family,'B',22);
+    $this->Cell(30,60,SITE_TITLE,0,0,'C');
+    // Line break
+    $this->Ln($this->line_height);
+    $this->SetFont($this->font_family,'',14);
+    $this->Cell(190,60, strip_tags(nl2br(INVOICE_ADDRESS)),20,0,'C');
+    $this->Ln($this->line_height);
+    $this->Cell(190,60, strip_tags(nl2br(OFFICE_CITY)),20,0,'C');
+    // Line break
+    $this->Ln($this->line_height);
+    $this->SetFont($this->font_family,'B');
+    $this->Cell(153,60,'Tel. : ',0,0,'C');
+    $this->SetFont($this->font_family);
+    $this->Cell(-102,60,LANDLINE,0,0,'C');
+    // Line break
+    $this->Ln($this->huge_gap);
+}
+
+// Page footer
+function Footer()
+{
+    // Position at 1.5 cm from bottom
+    $this->SetY(-15);
+    // Arial italic 8
+    $this->SetFont('Arial','I',8);
+    // Page number
+    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+}
+}
 
 
 $bookingId = $_GET['orderId'];
@@ -29,6 +65,130 @@ if ($res = mysqli_query($link, $select_booking_sql)) {
         }
     }
 }
+
+
+//print_r($booking_data_array);die;
+$other_services = $booking_data_array['other_services'];
+
+$listitems = getServicesAndTotalAmount($other_services, $link);
+
+
+
+setlocale(LC_MONETARY, 'en_IN');
+define('TAX_PERCENTAGE',18);
+// Instanciation of inherited class
+$pdf = new PDF();
+$pdf->AliasNbPages();
+$pdf->AddPage();
+
+$pdf->Ln($pdf->huge_gap);
+
+$pdf->Ln($pdf->line_height);
+$pdf->SetFont($pdf->font_family,'B');
+    $pdf->Cell(0,10,'Invoice No.: ');
+    $pdf->Ln($pdf->line_height);
+    $pdf->SetFont($pdf->font_family,'B');
+    $pdf->Cell(0,10,'Date: ');
+    $pdf->SetFont($pdf->font_family);
+    $pdf->Cell(-290,10,date('d-m-Y h:i:s'),0,0,'C');
+    $pdf->Ln($pdf->huge_gap);
+    $pdf->SetFont($pdf->font_family,'B');
+    $pdf->Cell(0,5,'Walk in Emporio - '.LANDLINE);
+    $pdf->SetFont($pdf->font_family);
+    
+    
+    $pdf->Ln($pdf->huge_gap);
+    
+        for($i=0;$i<=95;$i++):
+            $pdf->Cell(2,0,'-');
+        endfor;
+    
+    $pdf->Ln(1);
+    $pdf->SetFont($pdf->font_family,'B');
+    $pdf->Cell(70,10,'Service');
+    $pdf->Cell(40,10,'Rate');
+    $pdf->Cell(40,10,'Qty');
+    $pdf->Cell(20,10,'Disc');
+    $pdf->Cell(24,10,'Total Amount',0,0,'R');
+    $pdf->SetFont($pdf->font_family);
+    $pdf->Ln(3);
+    
+    $pdf->Ln($pdf->line_height);
+        for($i=0;$i<=95;$i++):
+            $pdf->Cell(2,0,'-');
+        endfor;
+    $sub_total = 0;
+    foreach($listitems as $listitem):
+//        print_r ($listitem);die;
+        $pdf->Ln(0);
+//        $pdf->Ln($pdf->line_height);
+        $pdf->Cell(70,10,$listitem['title']);
+        $pdf->Cell(40,10,$listitem['price']);
+        $qty = 1;
+        $pdf->Cell(40,10,$qty);
+        $discount = $listitem['member_price']-$listitem['price'];
+        $pdf->Cell(40,10,($discount));
+        $amount = ($listitem['member_price']*$qty);
+        $sub_total += $amount;
+        $amount = number_format($amount,2);
+        $pdf->Cell(0,10,$amount,0,0,'R');
+        $pdf->Ln($pdf->line_height);
+
+    endforeach;
+    $pdf->Ln($pdf->line_height);
+    
+        $pdf->Ln(3);
+    
+    $pdf->Ln($pdf->line_height);
+        for($i=0;$i<=95;$i++):
+            $pdf->Cell(2,0,'-');
+        endfor;
+        
+    $pdf->Ln(3);
+    $pdf->SetFont($pdf->font_family,'B');
+    $pdf->Cell(0,10,'Sub Total');
+    $pdf->SetFont($pdf->font_family);
+    $pdf->Cell(0,10,format($sub_total),0,0,'R');
+    
+    $total_tax = $sub_total*(TAX_PERCENTAGE/100);
+//    $sgst = ($sub_total*(TAX_PERCENTAGE/100))/2;
+//    echo "<br/>$sub_total";
+//    echo "<br/>$cgst";
+//    echo "<br/>$sgst<br/>s";
+//    echo $sub_total+$cgst+$sgst;die;
+    $pdf->Ln(8);
+    $pdf->SetFont($pdf->font_family,'B');
+    $pdf->Cell(0,10,'Total Tax');
+    $pdf->SetFont($pdf->font_family);
+    $pdf->Cell(0,10,format($total_tax),0,0,'R');
+//    $pdf->Ln(8);
+//    $pdf->Cell(0,10,'CGST');
+//    $pdf->Cell(10,10,'');
+//    $pdf->Cell(10,10,'');
+//    $pdf->Cell(10,10,'');
+//    $pdf->Cell(10,10,format($cgst));
+
+        $pdf->Ln(10);
+        for($i=0;$i<=95;$i++):
+            $pdf->Cell(2,0,'-');
+        endfor;
+    $total_payable_amount = $sub_total + $total_tax;
+    $pdf->Ln(8);
+    $pdf->SetFont($pdf->font_family,'B');
+    $pdf->Cell(0,10,'Total amount');
+    $pdf->SetFont($pdf->font_family);
+    $pdf->Cell(0,10,format($total_payable_amount),0,0,'R');
+    $pdf->Ln(3);
+    
+    $pdf->Ln($pdf->line_height);
+        for($i=0;$i<=95;$i++):
+            $pdf->Cell(2,0,'-');
+        endfor;
+//$pdf->Output();
+$pdf->Output('F','../invoices/invoice-'.$bookingId.'.pdf');
+//print_r($pdf);
+die;
+
 
 
 
@@ -352,3 +512,81 @@ $pdf->Output('example_006.pdf', 'I');
 //============================================================+
 // END OF FILE
 //============================================================+
+
+
+
+
+/**
+ * 
+ * @param type $other_services
+ * @param type $link
+ * @param type $only_amount
+ * @return type
+ */
+
+function getServicesAndTotalAmount($other_services, $link, $only_amount = false) {
+    /**
+     * getting total price of selected services..
+     */
+    $services_amount_list = array();
+
+    $other_services_array = unserialize($other_services);
+    $service_str = '';
+    foreach ($other_services_array as $other_services_arr):
+
+        $service_str .= (base64_decode($other_services_arr)) . ",";
+    endforeach;
+
+    $service_str = substr($service_str, 0, -1);
+
+    $service_amount_qry = "SELECT title, service_id, service_code, price, member_price FROM `servicetable` WHERE `id` IN ($service_str) ORDER BY `id` DESC";
+    $res = mysqli_query($link, $service_amount_qry);
+//    echo $service_amount_qry;echo "<br/>";var_dump($res);die;
+    if ($res = mysqli_query($link, $service_amount_qry)) {
+        if (mysqli_num_rows($res) > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+                $services_amount_list[] = $row;
+            }
+        }
+    }
+
+    if ($only_amount == true) {
+//        echo "<pre>";print_r($services_amount_list);echo "</pre>";
+        $member_price_total = array_sum(array_column($services_amount_list, 'member_price'));
+        $price_total = array_sum(array_column($services_amount_list, 'price'));
+        // for now we are applying simple logic which means.. if the offer price is present.. then total will be offer price otherwise actual price
+        if ($member_price_total < $price_total) {
+            return $member_price_total;
+        } else {
+            return $price_total;
+        }
+    }
+
+    return $services_amount_list;
+}
+
+function moneyFormat($amount){
+    echo number_format($amount,2);
+    die;
+}
+
+
+function format($amount): string
+{
+    list ($number, $decimal) = explode('.', sprintf('%.2f', floatval($amount)));
+
+    $sign = $number < 0 ? '-' : '';
+
+    $number = abs($number);
+
+    for ($i = 3; $i < strlen($number); $i += 3)
+    {
+        $number = substr_replace($number, ',', -$i, 0);
+    }
+
+    return ($sign ? $sign : 'Rs. ') . $number . '.' . $decimal;
+
+}
+
+
+
