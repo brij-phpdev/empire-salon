@@ -1,6 +1,6 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
     // include file
     include './includes/config.php';
     include './includes/database.php';
@@ -43,7 +43,7 @@ use PHPMailer;
  
     $responseArray = json_decode($result,true);
 //    echo '<pre>';
-//    print_r($responseArray);
+//    print_r($responseArray);die;
     $transaction_status = $responseArray['data']['status'];
    
     
@@ -51,7 +51,7 @@ use PHPMailer;
         // redirect back to the site with a message of failure transaction 
         
 //        header('Location: book.php');
-        header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.');
+        header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
     
     exit;
         
@@ -61,7 +61,17 @@ use PHPMailer;
         
 //        header('Location: book.php');
         
-        header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.');
+        header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
+    
+    exit;
+        
+    }
+    if($transaction_status=='userCancelled'){
+        // redirect back to the site with a message of failure transaction 
+        
+//        header('Location: book.php');
+        
+        header('Location: book.php?type=warning&msg=Transaction cancelled by user.#gallery');
     
     exit;
         
@@ -224,7 +234,7 @@ use PHPMailer;
             {
                     // Transfer the value 'sent' to ajax function for showing success message.
 //                http_response_code(200);
-                header('Location: book.php?msg=Thank You! Your booking information has been sent to your email.');
+                header('Location: book.php?msg=Thank You! Your booking information has been sent to your email.#gallery');
 //                    echo 'Thank You! Your booking information has been sent to your email.';
             }
             else
@@ -232,7 +242,7 @@ use PHPMailer;
                     // Set a 500 (internal server error) response code.
 //                    http_response_code(500);
 //                    echo 'Oops! Something went wrong and we couldn\'t send your message.';
-                    header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.');
+                    header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
             }
 
         } else {
