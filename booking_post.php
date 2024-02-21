@@ -1,11 +1,10 @@
 <?php
 
-//error_reporting(E_ALL);
-//ini_set('display_errors',1);
+error_reporting(E_ALL);
+ini_set('display_errors',1);
 include_once './includes/config.php';
-//include_once './includes/functions.php';
 include_once './includes/database.php';
-
+include_once './includes/function.php';
 //print_r($_POST);
 //die;
 // lets check if user exists if not then create user first... to pick the id
@@ -52,7 +51,7 @@ if (DEBUG == TRUE) {
     $adults = trim($_POST['serviceAdult']);
     $childrens = trim($_POST['serviceChildren']);
     $date = date('m-d-Y', strtotime(trim($_POST['date'])));
-    $timing = trim($_POST['select_time']);
+    $timing = isset($_POST['select_time']) ? trim($_POST['select_time']) : '10:00 AM' ;
     $message = trim($_POST['message']);
     
     $paymentStatus = '0';
