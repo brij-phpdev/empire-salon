@@ -1,6 +1,6 @@
 <?php
 
-define('SITE_URL','http://localhost/barber-shop/');
+define('SITE_URL','https://empiresalon.co/');
 define('SITE_TITLE','Empire Salon');
 define('SITE_BOOK_URL','https://salonbooking.empiresalon.co/');
 define('SHOP_URL','https://shop.empiresalon.co/');

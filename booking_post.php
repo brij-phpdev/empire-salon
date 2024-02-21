@@ -6,7 +6,7 @@ include_once './includes/config.php';
 //include_once './includes/functions.php';
 include_once './includes/database.php';
 
-print_r($_POST);
+//print_r($_POST);
 //die;
 // lets check if user exists if not then create user first... to pick the id
 
