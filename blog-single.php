@@ -1,6 +1,21 @@
 <?php
-
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 include_once './includes/header.php';
+include_once './includes/config.php';
+include_once './includes/database.php';
+
+$blogtable_sql = "SELECT * FROM `blog` WHERE status=1 AND permalink='". strip_tags($_GET['title'])."'";
+
+if ($blogtable_res = @mysqli_query($link, $blogtable_sql)) {
+
+    if (@mysqli_num_rows($blogtable_res) > 0) {
+        while ($blogtable_row = @mysqli_fetch_assoc($blogtable_res)) {
+            $blog = $blogtable_row;
+        }
+    }
+}
+
 ?>
 		
 		<section class="page_header d-flex align-items-center">
@@ -16,33 +31,30 @@ include_once './includes/header.php';
 		<section class="blog-section padding">
 		    <div class="container">
 		        <div class="blog-wrap row">
-		            <div class="col-lg-8 sm-padding">
+		            <div class="col-lg-12 sm-padding">
 		                <div class="blog-single-wrap">
 		                    <div class="blog-thumb">
-		                        <img src="img/post-single.jpg" alt="img">
+                                        <?php
+                                        $blog_img = SITE_BOOK_URL . 'application/uploads/img/blog/'.$blog['image'];
+                                        ?>
+                                        <img src="<?php echo $blog_img ?>" alt="img">
 		                    </div>
 		                    <div class="blog-single-content">
-		                        <h2><a href="#">Minimalist trending in modern architecture 2019</a></h2>
+		                        <h2><a href="#"><?php echo $blog['title'] ?></a></h2>
 		                        <ul class="single-post-meta">
-                                    <li><i class="fa fa-user"></i> <a href="#">Admin</a></li>
-                                    <li><i class="fa fa-calendar"></i> <a href="#">19 Feb, 2019</a></li>
-                                    <li><i class="fa fa-comments"></i> <a href="#">2 Comments</a></li>
+                                    <li><i class="fa fa-user"></i> <a href="#">The Empire Agra</a></li>
+                                    <li><i class="fa fa-calendar"></i> <a href="#"><?php echo date('d M, Y',strtotime($blog['datetime_updated'])) ?></a></li>
+                                    <!--<li><i class="fa fa-comments"></i> <a href="#">2 Comments</a></li>-->
                                 </ul>
-                                <p>Architectural phenomenology is a movement within architecture that began in the 1950s, reaching a wide audience in the late 1970s and 1980s, and continuing until today. Architectural phenomenology focuses on human experience, background, intention and historical reflection, interpretation as well as poetic and ethical considerations with authors such as Gaston Bachelard.[21]</p>
-                                <p>Islamic architecture began in the 7th century CE, incorporating architectural forms from the ancient Middle East and Byzantium, but also developing features to suit the religious and social needs of the society. Examples can be found throughout the Middle East, North Africa, Spain and the Indian Sub-continent.</p>
-                                <blockquote>
-                                   <div class="dots"></div>
-                                    <p>“Architecture is really about well-being. I think that people want to feel good in a space… On the one hand it’s about shelter, but it’s also about pleasure.”</p>
-                                    <span class="quoter">- Dr. Anders Ericsson</span>
-                                </blockquote>
-                                <p>The most important aspect of beauty was, therefore, an inherent part of an object, rather than something applied superficially, and was based on universal, recognisable truths. The notion of style in the arts was not developed until the 16th century, with the writing of Vasari:[11] by the 18th century, his Lives of the Most Excellent Painters, Sculptors, and Architects had been translated into Italian, French, Spanish, and English.</p>
+                                        <?php echo nl2br(html_entity_decode($blog['description'])) ?>
+
                                 <ul class="post-tags">
-                                    <li><a href="#">architecture</a></li>
-                                    <li><a href="#">building</a></li>
+                                    <li><a href="#">saloon</a></li>
+<!--                                    <li><a href="#">building</a></li>
                                     <li><a href="#">interior</a></li>
-                                    <li><a href="#">design</a></li>
+                                    <li><a href="#">design</a></li>-->
                                 </ul><!--/.post-tags-->
-                                <div class="author-box bg-grey">
+<!--                                <div class="author-box bg-grey">
                                     <img src="img/comment-3.png" alt="img">
                                     <div class="author-info">
                                         <h3>Albert Nouwen</h3>
@@ -55,7 +67,7 @@ include_once './includes/header.php';
                                             <li><a href="#"><i class="ti-youtube"></i></a></li>
                                         </ul>
                                     </div>
-                                </div><!--/.author-box-->
+                                </div>/.author-box-->
                                 <div class="post-navigation row">
                                     <div class="col prev-post">
                                         <a href="#"><i class="ti-arrow-left"></i>Prev Post</a>
@@ -64,7 +76,7 @@ include_once './includes/header.php';
                                         <a href="#">Next Post <i class="ti-arrow-right"></i></a>
                                     </div>
                                 </div><!--.post-navigation-->
-                                <div class="comments-area">
+                                <div class="comments-area" style="display: none;">
                                     <div class="comments-section">
                                         <h3 class="comments-title">Posts Comments</h3>
                                         <ol class="comments">
@@ -176,7 +188,7 @@ include_once './includes/header.php';
 		                    </div>
 		                </div><!--/.blog-single-->
 		            </div><!--/.col-lg-8-->
-		            <div class="col-lg-4 sm-padding">
+                            <div class="col-lg-4 sm-padding" style="display: none;">
 		                <div class="sidebar-wrap">
                             <div class="widget-content">
                                 <form action="" class="search-form">

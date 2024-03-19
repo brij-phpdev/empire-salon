@@ -447,6 +447,21 @@ if(!empty($coupons)):
     </div>
 </section><!--/.content_section -->
 
+<?php
+
+$blogs = array();
+$blogtable_sql = "SELECT * FROM `blog` WHERE status=1";
+
+if ($blogtable_res = @mysqli_query($link, $blogtable_sql)) {
+
+    if (@mysqli_num_rows($blogtable_res) > 0) {
+        while ($blogtable_row = @mysqli_fetch_assoc($blogtable_res)) {
+            $blogs[] = $blogtable_row;
+        }
+    }
+}
+if(!empty($blogs)):
+?>
 <section class="blog-section bd-bottom padding">
     <div class="container">
         <div class="section-heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
@@ -454,47 +469,30 @@ if(!empty($coupons)):
             <h2>A Good Newspaper Is A <br> Nation Talking To Itself</h2>
         </div><!--/.section-heading-->
         <div class="row blog-wrap">
+            <?php 
+            foreach($blogs as $blog):
+                $blog_img = SITE_BOOK_URL . 'application/uploads/img/blog/'.$blog['image'];
+            ?>
             <div class="col-lg-4 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="200ms">
                 <div class="blog-item">
                     <div class="blog-thumb">
-                        <img src="img/post-1.jpg" alt="post">
-                        <span class="category"><a href="#">interior</a></span>
+                        
+                        <img src="<?php echo $blog_img ?>" alt="<?php echo $blog['title'] ?>">
+                        <span class="category"><a href="<?php echo $blog['permalink'] ?>">Saloon</a></span>
                     </div>
                     <div class="blog-content">
-                        <h3><a href="#">Minimalist trending in modern architecture 2019</a></h3>
-                        <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                        <a href="blog-single.php" class="read-more">Read More</a>
+                        <h3><a href="<?php echo $blog['permalink'] ?>"><?php echo $blog['title'] ?></a></h3>
+                        <p><?php echo substr($blog['description'],0,150) ?>...</p>
+                        <a href="blog-single.php?title=<?php echo $blog['permalink'] ?>" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="300ms">
-                <div class="blog-item">
-                    <div class="blog-thumb">
-                        <img src="img/post-2.jpg" alt="post">
-                        <span class="category"><a href="#">Architecture</a></span>
-                    </div>
-                    <div class="blog-content">
-                        <h3><a href="#">Terrace in the town yamazaki kentaro design workshop.</a></h3>
-                        <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                        <a href="blog-single.php" class="read-more">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="400ms">
-                <div class="blog-item">
-                    <div class="blog-thumb">
-                        <img src="img/post-3.jpg" alt="post">
-                        <span class="category"><a href="#">Design</a></span>
-                    </div>
-                    <div class="blog-content">
-                        <h3><a href="#">W270 house são paulo arquitetos fabio jorge architeqture.</a></h3>
-                        <p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-                        <a href="blog-single.php" class="read-more">Read More</a>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section><!--/.blog-section-->
+<?php
+endif;
+?>
 
 <?php include_once( './includes/footer.php' ); ?>
