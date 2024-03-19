@@ -68,7 +68,7 @@ if ($blogtable_res = @mysqli_query($link, $blogtable_sql)) {
                                         </ul>
                                     </div>
                                 </div>/.author-box-->
-                                <div class="post-navigation row">
+                                <div class="post-navigation row" style="display: none;">
                                     <div class="col prev-post">
                                         <a href="#"><i class="ti-arrow-left"></i>Prev Post</a>
                                     </div>

@@ -482,7 +482,7 @@ if(!empty($blogs)):
                     </div>
                     <div class="blog-content">
                         <h3><a href="<?php echo $blog['permalink'] ?>"><?php echo $blog['title'] ?></a></h3>
-                        <p><?php echo substr($blog['description'],0,150) ?>...</p>
+                        <p><?php echo substr(html_entity_decode($blog['description']),0,150) ?>...</p>
                         <a href="blog-single.php?title=<?php echo $blog['permalink'] ?>" class="read-more">Read More</a>
                     </div>
                 </div>
