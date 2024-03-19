@@ -15,7 +15,7 @@ include_once( './includes/database.php' );
 
 <?php
 $package_array = array();
-$packagetable_sql = "SELECT * FROM `service_cat_table` WHERE cName ='Valentine Offers' "; // fixed on 9th Nov to call only bride gallery
+$packagetable_sql = "SELECT * FROM `service_cat_table` WHERE id ='43' "; // fixed on 9th Nov to call only bride gallery
 
 if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
 

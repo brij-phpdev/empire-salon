@@ -81,6 +81,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             <input type="hidden" name="serviceId[]" value="<?php echo $_GET['packageId'] ?>" />
                             <input type="hidden" name="rnId" value="<?php echo ($_GET['rndId']) ?>" />
                             <input type="hidden" name="packageName" value="<?php echo $_GET['packageName'] ?>" />
+                            
                             <br>
                         </div>
                         <?php
@@ -97,6 +98,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
 //                                $price_to_pay = $package_price;
 //                                echo $price_to_pay;
                         ?>
+                    <p><small>Please pay a token amount to <i><u>secure your slot</u></i>: </small>₹ <?php echo $price_to_pay ?>.00/-</p>
                         <?php
                     } else {
                         ?>
@@ -275,6 +277,8 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
 
                     <hr class="padding-10" width="100%">
 
+                    <p><small>Please pay a token amount to <i><u>secure your slot</u></i>: </small>₹ <?php echo $price_to_pay ?>.00/-</p>
+                    <hr class="padding-10" width="100%">
                     <div class="mt-10 form-group row">
                         <!--<legend >Preferred time</legend>-->
                         <div class="col-lg-6">
@@ -509,7 +513,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     <div class="form-group row">
                         <div class="col-md-12">
                                 <!--<div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>-->
-                            <p><small>Please pay a token amount to secure your slot: </small>₹ <?php echo $price_to_pay ?>.00/-</p>
+<!--                            <p><small>Please pay a token amount to secure your slot: </small>₹ <?php echo $price_to_pay ?>.00/-</p>-->
                             <p id='submit' class="mt20">
                                 <input type='submit' id='send_message' value='Book & Pay' class="default_btn">
                             </p>

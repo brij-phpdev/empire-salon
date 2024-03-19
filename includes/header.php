@@ -75,9 +75,8 @@ require_once( 'functions.php' );
                                 <li><a href="services.php">Services</a>
                                 </li>
                                 <!--<li><a href="makeover-gallery.php">Makeover</a></li>-->
-                                <li><a class="text-danger" href="#">Packages</a>
+                                <li><a class="" href="#">Packages</a>
                                     <ul>
-                                       <li><a href="offer-packages.php" class="bg-danger">Offer Packages</a></li>
                                        <li><a href="bride-packages.php">Bride Packages</a></li>
                                        <li><a href="groom-packages.php">Groom Packages</a></li>
                                        <li><a href="book.php">Standard Packages</a></li>
