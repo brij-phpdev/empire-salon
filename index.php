@@ -478,7 +478,7 @@ if(!empty($blogs)):
                     <div class="blog-thumb">
                         
                         <img src="<?php echo $blog_img ?>" alt="<?php echo $blog['title'] ?>">
-                        <span class="category"><a href="<?php echo $blog['permalink'] ?>">Saloon</a></span>
+                        <span class="category"><a href="blog-single.php?title=<?php echo $blog['permalink'] ?>">Saloon</a></span>
                     </div>
                     <div class="blog-content">
                         <h3><a href="<?php echo $blog['permalink'] ?>"><?php echo $blog['title'] ?></a></h3>
