@@ -30,19 +30,13 @@ if(!empty($coupons)):
 ?>
     <section id="section-trending" class="why_section padding bg-grey">
                 <div class="container-fluid">
-<!--                    <div class="row hide">
-                        <div class="col-lg-8 offset-lg-2 text-center">
-                            <h2 class="wow fadeIn text-white">Trending Offers</h2>
-                            <div class="de-separator"></div>
-                            <div class="spacer-single"></div>
-                        </div>
-                    </div>-->
+<div class="spacer-single"></div>
                     <div class="row">
-                        <div class="spacer-single"></div>
+                        
                         <?php 
+                        $i=1;
                         foreach($coupons as $coupon):
-                        ?>
-                        <?php 
+                        
 //                            echo $coupon['offer_img_front'];
                         
                         // check if coupon is expirin or not..
@@ -63,7 +57,6 @@ if(!empty($coupons)):
 //                            var_dump(file_exists($file_path));
                             ?>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
-                        <!--<div class="col-6">-->
                         
                             <div class="thumbnail">
                                     <div class="picture1">
@@ -74,29 +67,18 @@ if(!empty($coupons)):
                                     </div>
                             </div>
                         
-                            
+                             </div>
+                             
+                        
                             
                             <?php
-                            
+                            echo $break_row = ($i%2==0) ? '</div><div class="padding-15"></div><div class="row">' : '' ;    
                         }
-                        
-                        
-                           
-//                            if (!empty($coupon['offer_img_front']) && is_file($file_path)):
-//                                echo 'here';
-//                                $path = $file_path;
-//                                $type = pathinfo($path, PATHINFO_EXTENSION);
-//                                $data = file_get_contents($path);
-//                                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                                ?>
-<!--                            <img class="border" src="<?php // echo $base64 ?>" alt="Offer <?php // echo $coupon['name'] ?>">-->
-                            <?php
-//                            endif;
 
-                            
+                            $i++;
                             ?>
                             
-                        </div>
+                       
                         <?php endforeach; ?>
                         
                     </div>
