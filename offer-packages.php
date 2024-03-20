@@ -28,8 +28,8 @@ if ($coupontable_res = @mysqli_query($link, $coupontable_sql)) {
 }
 if(!empty($coupons)):
 ?>
-    <section id="section-trending" class="why_section padding bg-grey">
-                <div class="container-fluid">
+    <section id="section-trending" class="why_section padding bg-grey  d-flex align-items-center">
+                <div class="container">
 <div class="spacer-single"></div>
                     <div class="row">
                         
@@ -60,10 +60,10 @@ if(!empty($coupons)):
                         
                             <div class="thumbnail">
                                     <div class="picture1">
-                                        <img class="img-responsive" src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                        <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
                                     </div>
                                     <div class="picture2">
-                                        <img class="img-responsive" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                        <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
                                     </div>
                             </div>
                         
