@@ -14,6 +14,97 @@ include_once( './includes/database.php' );
 </section><!--/. page_header -->
 
 <?php
+
+$coupons = array();
+$coupontable_sql = "SELECT * FROM `coupons`";
+
+if ($coupontable_res = @mysqli_query($link, $coupontable_sql)) {
+
+    if (@mysqli_num_rows($coupontable_res) > 0) {
+        while ($coupontable_row = @mysqli_fetch_assoc($coupontable_res)) {
+            $coupons[] = $coupontable_row;
+        }
+    }
+}
+if(!empty($coupons)):
+?>
+    <section id="section-trending" class="why_section padding bg-grey">
+                <div class="container-fluid">
+<!--                    <div class="row hide">
+                        <div class="col-lg-8 offset-lg-2 text-center">
+                            <h2 class="wow fadeIn text-white">Trending Offers</h2>
+                            <div class="de-separator"></div>
+                            <div class="spacer-single"></div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="spacer-single"></div>
+                        <?php 
+                        foreach($coupons as $coupon):
+                        ?>
+                        <?php 
+//                            echo $coupon['offer_img_front'];
+                        
+                        // check if coupon is expirin or not..
+                        $today = date('Y-m-d');
+                        $start_date = $coupon['starts_at'];
+                        $start_date = date('Y-m-d', strtotime($start_date));
+                        
+                        $end_date = $coupon['expires_at'];
+                        $end_date = date('Y-m-d', strtotime($end_date));
+                        
+                        if (($start_date <= $today) && ($end_date >= $today)){
+                            // than only show because the offer has expired.
+                            
+                             $file_path = SITE_BOOK_URL . 'application/uploads/coupons/' . $coupon['offer_img_front'];
+                            $file_img_back_path = SITE_BOOK_URL . 'application/uploads/coupons/' . $coupon['offer_img_back'];
+//                            echo $file_path;
+//                            var_dump(is_file($file_path));
+//                            var_dump(file_exists($file_path));
+                            ?>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
+                        <!--<div class="col-6">-->
+                        
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                  <div class="flip-box-front">
+                                      <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                  </div>
+                                  <div class="flip-box-back">
+                                    <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                  </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <?php
+                            
+                        }
+                        
+                        
+                           
+//                            if (!empty($coupon['offer_img_front']) && is_file($file_path)):
+//                                echo 'here';
+//                                $path = $file_path;
+//                                $type = pathinfo($path, PATHINFO_EXTENSION);
+//                                $data = file_get_contents($path);
+//                                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                                ?>
+<!--                            <img class="border" src="<?php // echo $base64 ?>" alt="Offer <?php // echo $coupon['name'] ?>">-->
+                            <?php
+//                            endif;
+
+                            
+                            ?>
+                            
+                        </div>
+                        <?php endforeach; ?>
+                        
+                    </div>
+                </div>
+            </section>
+<?php endif; ?>
+<?php
 $package_array = array();
 $packagetable_sql = "SELECT * FROM `service_cat_table` WHERE id ='43' "; // fixed on 9th Nov to call only bride gallery
 
@@ -27,7 +118,7 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
 }
 ?>
 
-<section class="pricing_section bg-grey bd-bottom padding">
+<section class="pricing_section bg-grey bd-bottom padding" style="display: none;">
     <div class="container contact-form" id="">
         <div class="row">
             <?php if(!empty($package_array)): 
