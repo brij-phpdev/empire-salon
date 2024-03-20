@@ -109,7 +109,7 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
     </div>
 </section><!-- /. pricing_section -->
 
-<section class="booking_term_condition padding single_item small">
+<section class="booking_term_condition padding single_item small" style="display: none;">
         <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h4>CONDITION & INFORMATION</h4>
