@@ -642,4 +642,6 @@ h4.s1 {
 }
 .thumbnail:hover .picture2 {
     display: block;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
 }
