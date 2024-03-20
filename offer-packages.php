@@ -65,16 +65,15 @@ if(!empty($coupons)):
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
                         <!--<div class="col-6">-->
                         
-                            <div class="flip-box">
-                                <div class="flip-box-inner">
-                                  <div class="flip-box-front">
-                                      <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
-                                  </div>
-                                  <div class="flip-box-back">
-                                    <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
-                                  </div>
-                                </div>
+                            <div class="thumbnail">
+                                    <div class="picture1">
+                                        <img class="img-responsive" src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                    </div>
+                                    <div class="picture2">
+                                        <img class="img-responsive" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                    </div>
                             </div>
+                        
                             
                             
                             <?php
