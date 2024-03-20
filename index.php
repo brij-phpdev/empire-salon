@@ -132,7 +132,7 @@ if(!empty($coupons)):
 //                            var_dump(is_file($file_path));
 //                            var_dump(file_exists($file_path));
                             ?>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-4">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
                         <!--<div class="col-6">-->
                         
                             <div class="flip-box">
