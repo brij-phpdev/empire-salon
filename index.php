@@ -86,7 +86,7 @@ include_once './includes/database.php';
 <?php
 
 $coupons = array();
-$coupontable_sql = "SELECT * FROM `coupons`";
+$coupontable_sql = "SELECT * FROM `coupons` LIMIT 2";
 
 if ($coupontable_res = @mysqli_query($link, $coupontable_sql)) {
 
