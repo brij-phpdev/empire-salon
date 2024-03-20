@@ -98,7 +98,7 @@ if ($coupontable_res = @mysqli_query($link, $coupontable_sql)) {
 }
 if(!empty($coupons)):
 ?>
-    <section id="section-trending" class="about_section padding bg-dark">
+    <section id="section-trending" class="why_section padding bg-grey">
                 <div class="container-fluid">
 <!--                    <div class="row hide">
                         <div class="col-lg-8 offset-lg-2 text-center">
@@ -132,16 +132,16 @@ if(!empty($coupons)):
 //                            var_dump(is_file($file_path));
 //                            var_dump(file_exists($file_path));
                             ?>
-                        <!--<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-4">-->
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-4">
+                        <!--<div class="col-6">-->
                         
                             <div class="flip-box">
                                 <div class="flip-box-inner">
                                   <div class="flip-box-front">
-                                    <img src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                      <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
                                   </div>
                                   <div class="flip-box-back">
-                                    <img src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
+                                    <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
                                   </div>
                                 </div>
                             </div>
