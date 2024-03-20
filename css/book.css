@@ -633,7 +633,8 @@ h4.s1 {
     }
 }
 
-/* CSS for switch*/
+/* CSS for switch starts here*/
+
 .picture2 {
     display: none;
 }
@@ -645,3 +646,5 @@ h4.s1 {
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
+
+/* CSS for switch ends here */
