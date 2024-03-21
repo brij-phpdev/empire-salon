@@ -16,7 +16,7 @@ include_once( './includes/database.php' );
 <?php
 
 $coupons = array();
-$coupontable_sql = "SELECT * FROM `coupons`";
+$coupontable_sql = "SELECT * FROM `coupons` ORDER BY `id` DESC";
 
 if ($coupontable_res = @mysqli_query($link, $coupontable_sql)) {
 
@@ -73,9 +73,10 @@ if(!empty($coupons)):
                             
                             <?php
                             echo $break_row = ($i%2==0) ? '</div><div class="padding-15"></div><div class="row">' : '' ;    
+                                $i++;
                         }
 
-                            $i++;
+                        
                             ?>
                             
                        
