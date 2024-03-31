@@ -106,7 +106,7 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
 
 
 //                $response = '{"return":true,"request_id":"up0i26z4hndv8ms","message":["SMS sent successfully."]}';
-//                if(empty($err)){$err = 'NULL';} // always enable this to handle database blank column
+                if(empty($err)){$err = 'NULL';} // always enable this to handle database blank column
             ###############################################
             // save the OTP to verify in database...
             //            //INSERT INTO `pre_fast2sms_api_log` (`id`, `mobile`, `sent_otp`, `shop_id`, `ip_address`, `user_agent`, `api_response`, `error`, `created_at`) VALUES (NULL, '9999887788', '0987', '0', '0921029', 'ahello', '{\"return\":true,\"request_id\":\"up0i26z4hndv8ms\",\"message\":[\"SMS sent successfully.\"]}', NULL, current_timestamp());
