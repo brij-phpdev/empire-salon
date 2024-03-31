@@ -127,7 +127,8 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
                             <span class="price">₹ <?php echo $package_service['price'] ?>/-</span>
                         </li>
                         <li>
-                            <a href="book.php?packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package['cName']. ' - ' .$package_service['title']) ?>&rndId=<?php echo base64_encode(ceil($package_service['price']/2)) ?>" class="default_btn">Book an Appointment</a>
+                            <a href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" class="default_btn">Book an Appointment</a>
+                            <!--<a href="book.php?packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package['cName']. ' - ' .$package_service['title']) ?>&rndId=<?php echo base64_encode(ceil($package_service['price']/2)) ?>" class="default_btn">Book an Appointment</a>-->
                         </li>
                         <?php 
                         endforeach;
