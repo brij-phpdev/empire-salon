@@ -273,15 +273,15 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             <input id="childVal" class="form-control" type="number" value="0" min="0" step="1" name="serviceChildren" >
                         </div>
                     </div>
-<!--                    <div class="form-group row" >
+                    <div class="form-group row" >
                         <div class="col-md-12">
-                            <label for="adultsVal">Apply Coupon</label>
-                            <a id="getCoupons" class="default_btn">Find Coupons</a>
+                            <!--<label for="adultsVal">Apply Coupon</label>-->
+                            <a id="getCoupons" class="default_btn" style="cursor: pointer; color: #fff;">Find Coupons</a>
                             <div id="coupons_applied" class=""></div>
                             <div id="coupons_data" class="table-responsive"></div>
                         </div>
 
-                    </div>-->
+                    </div>
 
                     <h3 class="s2">Your details</h3>
 
