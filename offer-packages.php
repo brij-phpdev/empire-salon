@@ -31,10 +31,11 @@ if ($package_servicetable_res = @mysqli_query($link, $package_servicetable_sql))
 if(!empty($package_array)):
 ?>
     <section id="section-trending" class="why_section padding bg-grey  d-flex align-items-center">
+        <div class="spacer-single"></div>
                 <div class="container">
-<div class="spacer-single"></div>
 
-                    <div class="row">
+
+
                         
                         
                         
@@ -61,12 +62,11 @@ if(!empty($package_array)):
                     endif;
                 ?>
             
-            
-<!--            <div class="col-lg-8 offset-2 col-md-6 sm-padding">
-                <div class="price_wrap">-->
-                    <!--<h3><?php echo $package['cName'] ?></h3>-->
-<!--                    <ul class="price_list">-->
+                <div class="row">
+
+
                         <?php 
+                        $i=1;
                         foreach($package_services as $package_service):
                             
 //                                 echo $package_service['offer_img_front'];
@@ -104,7 +104,7 @@ if(!empty($package_array)):
                         
                             
                             <?php
-                            echo $break_row = ($i%2==0) ? '</div><div class="padding-15"></div><div class="row">' : '' ;    
+                            echo $break_row = ($i%2==0) ? '</div><div class="padding-15"></div><div class="row kk">' : '' ;    
                                 $i++;
                         }
 
@@ -114,7 +114,6 @@ if(!empty($package_array)):
                         <?php 
                         endforeach;
                         ?>
-                    <!--</ul>-->
                 </div>
             </div>
             <?php 
