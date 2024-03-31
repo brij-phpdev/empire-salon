@@ -60,10 +60,14 @@ if (DEBUG == TRUE) {
     $upload_date = date('Y-m-d H:i:s');
     $amount = $_POST['rnId'];
 //    var_dump(base64_decode($amount));die;
+//    echo "<pre>";
+//    print_r($_POST);
+//    echo "</pre>";
+//    die;
     $total_amount_to_be_paid = getServicesAndTotalAmount($other_services, $link, true);
     $serviceBill = $total_amount_to_be_paid;
     $packageName = trim($_POST['packageName']);
-
+//echo $total_amount_to_be_paid;die;
     //
 }
 

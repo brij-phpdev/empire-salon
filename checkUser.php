@@ -47,7 +47,7 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
                 json_encode([
                     'success' => true,
                     'user_details' => $row,
-                    'message' => 'User already exists!',
+                    'message' => 'You are already a registered user!',
                 ]);
 //            echo json_encode($row);
             }

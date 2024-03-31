@@ -11,30 +11,30 @@
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/callSendSMS.js</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/libraries/writehtml/WriteHTML.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/generateInvoice.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/function.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/config.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/easebuzz-lib/easebuzz_payment_gateway.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/franchise.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/header.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/responsive.css</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/INSTALL.md</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/responsive.css</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/checkUser.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/footer.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/payscript.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/easebuzz.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/offer-packages_1.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/contact_post.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/index.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/contact.js</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/booking_post.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/contact.js</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/bride-packages.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/getCoupons.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/checkout.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/sql/update.sql</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/getCoupons.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/book.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/pricing.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/about-us.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/groom-packages.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/book.css</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/job_post.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/functions.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/index-2.html</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/database.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/initiate_payment.php</file>
@@ -46,7 +46,7 @@
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/main.css</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/makeover-gallery.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/checkUser.js</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/check-invoice.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/cart.php</file>
         </group>
     </open-files>
 </project-private>

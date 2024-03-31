@@ -11,13 +11,14 @@ function getServicesAndTotalAmount($other_services, $link, $only_amount = false)
     $other_services_array = unserialize($other_services);
     $service_str = '';
     foreach ($other_services_array as $other_services_arr):
-
+        if(!empty($other_services_arr))
         $service_str .= (base64_decode($other_services_arr)) . ",";
     endforeach;
 
     $service_str = substr($service_str, 0, -1);
 
     $service_amount_qry = "SELECT title, service_id, service_code, price, member_price FROM `servicetable` WHERE `id` IN ($service_str) ORDER BY `id` DESC";
+//    echo $service_amount_qry;die;
     $res = mysqli_query($link, $service_amount_qry);
 //    echo $service_amount_qry;echo "<br/>";var_dump($res);die;
     if ($res = mysqli_query($link, $service_amount_qry)) {

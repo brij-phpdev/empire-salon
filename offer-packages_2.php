@@ -89,7 +89,7 @@ if(!empty($package_array)):
 //                            var_dump(file_exists($file_path));
                             ?>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
-                                <a href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" >
+                                <a href="book.php?action=add&rndId=<?php echo base64_encode($package_service['member_price'])?>&packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package['cName']. ' - ' .$package_service['title']) ?>&rndId=<?php echo base64_encode(ceil($package_service['member_price']/2)) ?>" >
                                     <div class="thumbnail">
                                             <div class="picture1">
                                                 <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $package_service['name'] ?>">
@@ -190,7 +190,7 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
                             
                         </li>
                         <li>
-                            <a href="cart.php?rndId=<?php echo base64_encode($package_service['member_price'])?>&packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package['cName']. ' - ' .$package_service['title']) ?>&rndId=<?php echo base64_encode(ceil($package_service['member_price']/2)) ?>" class="default_btn">Book an Appointment</a>
+                            <a href="book.php?rndId=<?php echo base64_encode($package_service['member_price'])?>&packageId=<?php echo base64_encode($package_service['id']) ?>&packageName=<?php echo urlencode($package['cName']. ' - ' .$package_service['title']) ?>&rndId=<?php echo base64_encode(ceil($package_service['member_price']/2)) ?>" class="default_btn">Book an Appointment</a>
                         </li>
                         <?php 
                         endforeach;

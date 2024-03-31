@@ -178,7 +178,8 @@ $(document).ready(function(){
   
    
    
-   $(".book-service").on("click",function(){
+   $(".book-service").on("click",function(e){
+       e.preventDefault();
        //
        var btn_text = $(this).first().text();
        var rnKId = $("#rnKId").val();
@@ -188,6 +189,25 @@ $(document).ready(function(){
        if(btn_text== 'Service Selected'){
            $(this).text('Book Service');
            $(this).removeClass('selected_service_btn');
+           $(".cart_div").html();
+           // remove from cart..
+            $.ajax({
+                    dataType: "text",
+                    data: {'action':'remove','ajax':true,'packageId':$(this).attr('data-pid')},
+                    url: 'cart.php'
+                }).done(function( data ) {
+//                    alert(data);
+                    var json_obj = JSON.parse(data);
+//                    alert(json_obj.status);
+                    if( json_obj.status == "success" ){
+                        alert(json_obj.msg);
+                        $(".checkout_btn_div").show();
+                        updateCart();
+                    }
+                    else{
+                        alert(data.msg);
+                    }
+                });
        }
        else{
             $(this).text('Service Selected');
@@ -198,10 +218,40 @@ $(document).ready(function(){
             $("#packageName").val( $(this).attr('data-package'));
 //            $("#rnIdVal").val(rnKId+$(this).attr('data-mid'));
 //            console.log($(this).attr('data-mid'));
+            // add it to cart..
+            $(".cart_div").html();
+            $.ajax({
+                    dataType: "text",
+                    data: {'action':'add','ajax':true,'packageId':$(this).attr('data-pid')},
+                    url: 'cart.php'
+                }).done(function( data ) {
+//                    alert(data);
+                    var json_obj = JSON.parse(data);
+//                    alert(json_obj.status);
+                    if( json_obj.status == "success" ){
+                        alert(json_obj.msg);
+                        $(".checkout_btn_div").show();
+                        updateCart();
+                    }
+                    else{
+                        alert(data.msg);
+                    }
+                });
         }
+        
+        
+        
+        
    });
         
 });
+function updateCart(){
+$.ajax({
+                    url: 'ajax_cart.php'
+                }).done(function( data ) {
+                    $(".cart_div").html(data);
+                });
+}
 </script>
                 
 <!-- <script type="text/javascript">

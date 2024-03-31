@@ -44,3 +44,5 @@ define('MERCHANT_SALT','PAXDQVWNAX');
 
 define('SGST',10);
 define('CGST',10);
+
+define('CURRENCY','₹');
