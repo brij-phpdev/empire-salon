@@ -62,7 +62,7 @@ include_once './includes/database.php';
         <div class="row d-flex align-items-center">
             <div class="col-md-6 xs-padding">
                 <div class="section_heading">
-                    <h3>Mordern & Trending</h3>
+                    <h3>Modern & Trending</h3>
                     <h2>Where Style Meets<br>Sustainability and<br/> Innovation in Agra </h2>
                     <p>Where Hair Meets Artistry - Unveil Your Unique Beauty Narrative with Us</p>
                     <a href="about-us.php" class="default_btn">More About Us</a>
