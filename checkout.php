@@ -136,7 +136,8 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             <td class="align-right"><?php echo CURRENCY . " " . $item_price; ?></td>
                             <td class="align-right"><?php echo CURRENCY . " " . number_format($item_price, 2); ?></td>
                             <td class="align-center">
-                                <a href="cart.php?action=remove&code=<?php echo base64_encode($item["id"]); ?>" class="remove-service btn btn-danger">Remove</a>
+                                <label data-pid="<?php echo base64_encode($item['id']) ?>" data-mid="<?php echo $item_price ?>" class="default_btn remove-service">Remove</label>
+<!--                                <a href="cart.php?action=remove&code=<?php echo base64_encode($item["id"]); ?>" class="remove-service btn btn-danger">Remove</a>-->
                                 <input type="hidden" name="serviceId[]" value="<?php echo base64_encode($item["id"]); ?>" />
                             </td>
                         </tr>
