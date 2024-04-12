@@ -108,9 +108,8 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <input type="hidden" id="rnIdVal" name="rnId" value="" />
                         <input type="hidden" id="rnKId" name="rnKId" value="0" />
                         <input type="hidden" name="packageName" id="packageName" value="" />
-                        <div class="price_wrap_">
-                            <h3 class="s2">Choose Services</h3>
-                            <div class="row">
+                        <div class="row">
+                            <h3>Shopping Cart</h3>
                             <div class="col-12">
                                 <?php 
 //                                                        print_r($_SESSION['cart_item']);
@@ -118,19 +117,31 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                 <div class="cart_div">
                                     <?php include_once './ajax_cart.php'; ?>
                                 </div>
+                    <?php else: ?>
+                                <p>Your cart is empty</p>
                     <?php endif; ?>
                             </div>
-                                <?php if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
+                                </div>
+                            <?php if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
                                 <br/>
-                                
-                    <div class="checkout_btn_div">
-                        
-                        <a href="checkout.php" class="default_btn">Proceed to checkout</a>
-                    <!--<hr class="padding-10" width="100%">-->    
-                    </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="checkout_btn_div float-right">
+
+                                            <a href="checkout.php" class="default_btn">Proceed to checkout</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="padding-10" width="100%">    
                     <?php endif; ?>
                                 
-                            </div>
+                            
+                        
+                        
+                        <div class="price_wrap_">
+                            <h3 class="s2">Choose Services</h3>
+                            
                             <div class="row">
                                 <?php if (!empty($package_array)):
                                     ?>
@@ -240,8 +251,8 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             ?>
 
                                                                             <input class="d-none" id="radio-1a-<?php echo $package_service['id'] ?>" name="serviceId[]" type="checkbox" value="<?php echo base64_encode($package_service['id']) ?>">
-                                                                            <!--<label style="" for="radio-1a-<?php echo $package_service['id'] ?>" data-pid="<?php echo base64_encode($package_service['id']) ?>" data-mid="<?php echo $price_to_pay ?>" data-package="<?php echo html_entity_decode($package_service['title']) ?>" class="default_btn book-service">Book Service</label>-->
-                                                                            <a class="default_btn" href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" >Book Service</a>
+                                                                            <label style="" for="radio-1a-<?php echo $package_service['id'] ?>" data-pid="<?php echo base64_encode($package_service['id']) ?>" data-mid="<?php echo $price_to_pay ?>" data-package="<?php echo html_entity_decode($package_service['title']) ?>" class="default_btn book-service">Book Service</label>
+                                                                            <!--<a class="default_btn" href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" >Book Service</a>-->
                                                                         </div>
                                                                     </li>
 

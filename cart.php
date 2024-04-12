@@ -17,6 +17,7 @@ if(isset($_GET['action']) && !empty($_GET['action'])){
 //    print_r($_SESSION);  
 //    die;
     if($action=='remove'){
+//        $remove_code = base64_decode($_GET['packageId']);
         // remove items from cart..
         if(!empty($_SESSION["cart_item"])) {
 		foreach($_SESSION["cart_item"] as $k => $v) {
@@ -48,12 +49,16 @@ if(isset($_GET['action']) && !empty($_GET['action'])){
                 $package_array[] = $package_servicetable_row;
             }
         }
-//        print_r($package_array);die;
-        
-//        print_r(array_keys($_SESSION["cart_item"]));die;
+//        print_r($package_array);
+//        die;
+        $cart_code_arr = array_column($_SESSION['cart_item'],'code');
+//        print_r($cart_code_arr);
+//        print_r($_SESSION["cart_item"]);
+//        die;
 
         if(!empty($_SESSION["cart_item"])) {
-                if(in_array($package_array["code"],array_keys($_SESSION["cart_item"]))) {
+                if(in_array($package_array["code"],$cart_code_arr)) {
+                    echo "in case of existing";
                         foreach($_SESSION["cart_item"] as $k => $v) {
 //                            echo $k;
 //                            var_dump($v);
@@ -77,12 +82,14 @@ if(isset($_GET['action']) && !empty($_GET['action'])){
                 $_SESSION["cart_item"] = $package_array;
         }
 //        print_r($_SESSION);
+//        die;
         $status = 'success';
         $msg = "Item added to the cart successfully!";
     }
 }
 //echo "</pre>";
 if(!empty($_GET['ajax']) && $_GET['ajax']=="true"){
+//    die('yes we are here brok.. where we are returning ajax response');
     echo json_encode(array('status'=>$status,'msg'=>$msg));
     die;
 }

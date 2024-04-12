@@ -175,9 +175,39 @@ $(document).ready(function(){
 		}
 	});
         
-  
+  function removeFromCart(data_id,ajax){
+      // remove from cart..
+            $.ajax({
+                    dataType: "text",
+                    data: {'action':'remove','ajax':ajax,'code':data_id},
+                    url: 'cart.php'
+                }).done(function( data ) {
+//                    alert(data);
+                    var json_obj = JSON.parse(data);
+                    
+//                    alert(json_obj.status);
+                    if( json_obj.status == "success" ){
+                        alert(json_obj.msg);
+                        $(".checkout_btn_div").show();
+                        updateCart();
+                    }
+                    else{
+                        alert(data.msg);
+                    }
+                });
+  }
    
    
+   $(".remove-service").on("click",function(e){
+       //
+       
+       
+       e.preventDefault();
+       if (confirm('Are you sure you want to delete this item? This action cannot be undone.')){
+            removeFromCart($(this).attr('data-pid'),true);
+        }
+       
+   });
    $(".book-service").on("click",function(e){
        e.preventDefault();
        //
@@ -190,24 +220,7 @@ $(document).ready(function(){
            $(this).text('Book Service');
            $(this).removeClass('selected_service_btn');
            $(".cart_div").html();
-           // remove from cart..
-            $.ajax({
-                    dataType: "text",
-                    data: {'action':'remove','ajax':true,'packageId':$(this).attr('data-pid')},
-                    url: 'cart.php'
-                }).done(function( data ) {
-//                    alert(data);
-                    var json_obj = JSON.parse(data);
-//                    alert(json_obj.status);
-                    if( json_obj.status == "success" ){
-                        alert(json_obj.msg);
-                        $(".checkout_btn_div").show();
-                        updateCart();
-                    }
-                    else{
-                        alert(data.msg);
-                    }
-                });
+           removeFromCart($(this).attr('data-pid'),true);
        }
        else{
             $(this).text('Service Selected');
@@ -225,11 +238,11 @@ $(document).ready(function(){
                     data: {'action':'add','ajax':true,'packageId':$(this).attr('data-pid')},
                     url: 'cart.php'
                 }).done(function( data ) {
-//                    alert(data);
+                    console.log(data);
                     var json_obj = JSON.parse(data);
 //                    alert(json_obj.status);
                     if( json_obj.status == "success" ){
-                        alert(json_obj.msg);
+//                        alert(json_obj.msg);
                         $(".checkout_btn_div").show();
                         updateCart();
                     }
@@ -250,6 +263,7 @@ $.ajax({
                     url: 'ajax_cart.php'
                 }).done(function( data ) {
                     $(".cart_div").html(data);
+//                    alert('updated cart');
                 });
 }
 </script>
