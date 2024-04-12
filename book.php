@@ -119,6 +119,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                 </div>
                     <?php else: ?>
                                 <p>Your cart is empty</p>
+                                <hr class="padding-10" width="100%">    
                     <?php endif; ?>
                             </div>
                                 </div>
