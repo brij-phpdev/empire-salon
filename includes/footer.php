@@ -177,6 +177,7 @@ $(document).ready(function(){
         
   function removeFromCart(data_id,ajax){
       // remove from cart..
+      alert(ajax);
             $.ajax({
                     dataType: "text",
                     data: {'action':'remove','ajax':ajax,'code':data_id},
@@ -190,6 +191,9 @@ $(document).ready(function(){
                         alert(json_obj.msg);
                         $(".checkout_btn_div").show();
                         updateCart();
+                        if(ajax==="false"){
+                            window.location.href = window.location.href;
+                        }
                     }
                     else{
                         alert(data.msg);

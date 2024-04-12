@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include_once './includes/config.php';
 include_once './includes/database.php';
 
@@ -50,13 +52,13 @@ if(isset($_GET['action']) && !empty($_GET['action'])){
             }
         }
 //        print_r($package_array);
-//        die;
-        $cart_code_arr = array_column($_SESSION['cart_item'],'code');
+//        die;       
 //        print_r($cart_code_arr);
 //        print_r($_SESSION["cart_item"]);
 //        die;
 
         if(!empty($_SESSION["cart_item"])) {
+            $cart_code_arr = array_column($_SESSION['cart_item'],'code');
                 if(in_array($package_array["code"],$cart_code_arr)) {
                     echo "in case of existing";
                         foreach($_SESSION["cart_item"] as $k => $v) {
