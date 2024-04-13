@@ -177,7 +177,7 @@ $(document).ready(function(){
         
   function removeFromCart(data_id,ajax){
       // remove from cart..
-      alert(ajax);
+//      alert(ajax);
             $.ajax({
                     dataType: "text",
                     data: {'action':'remove','ajax':ajax,'code':data_id},
@@ -209,6 +209,14 @@ $(document).ready(function(){
        e.preventDefault();
        if (confirm('Are you sure you want to delete this item? This action cannot be undone.')){
             removeFromCart($(this).attr('data-pid'),true);
+        }
+       
+   });
+   $(".remove-service-checkout").on("click",function(e){
+       //
+       e.preventDefault();
+       if (confirm('Are you sure you want to delete this item? This action cannot be undone.')){
+            removeFromCart($(this).attr('data-pid'),false);
         }
        
    });
@@ -246,7 +254,7 @@ $(document).ready(function(){
                     var json_obj = JSON.parse(data);
 //                    alert(json_obj.status);
                     if( json_obj.status == "success" ){
-//                        alert(json_obj.msg);
+                        alert(json_obj.msg);
                         $(".checkout_btn_div").show();
                         updateCart();
                     }

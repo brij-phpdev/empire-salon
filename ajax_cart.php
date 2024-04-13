@@ -77,7 +77,7 @@ if (isset($_SESSION["cart_item"])) {
                         // price logic
                         $amt = $total_price;
                         $price_to_pay = 5000;
-                        if ($amt < 10000) {
+                        if ($amt <> 10000) {
                             // less than 10,000
                             $price_to_pay = ceil(($amt * 25 ) / 100);
                         }
@@ -92,7 +92,11 @@ if (isset($_SESSION["cart_item"])) {
             </table>
             <input type="hidden" name="serviceId[]" value="<?php echo $_GET['packageId'] ?>" />
             <input type="hidden" name="rnId" value="<?php echo ($_GET['rndId']) ?>" />
+            <?php if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
+            <input type="hidden" name="packageName" value="<?php echo $_SESSION['cart_item'][0]['title'] ?>" />
+            <?php else: ?>
             <input type="hidden" name="packageName" value="<?php echo $_GET['packageName'] ?>" />
+            <?php endif; ?>
         </div>
 <hr class="padding-10" width="100%">
         <?php

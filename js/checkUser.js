@@ -118,7 +118,7 @@ function getCoupons(){
             } else {
 //                            alert(msg.status_code);
                 alert(msg.message);
-                $('.error-mobile-update').addClass('text-danger').html(msg.status + '! ' + msg.msg);
+                $('.error-mobile-update').addClass('text-danger').html( msg.msg);//msg.status + '! ' +
             }
         });
 }
