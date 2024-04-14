@@ -53,7 +53,7 @@ if (isset($_SESSION["cart_item"])) {
                             <td class="align-right"><?php echo CURRENCY . " " . $item_price; ?></td>
                             <td class="align-right"><?php echo CURRENCY . " " . number_format($item_price, 2); ?></td>
                             <td class="align-center">
-                                <label data-pid="<?php echo base64_encode($item['id']) ?>" data-mid="<?php echo $item_price ?>" class="default_btn remove-service">Remove</label>
+                                <label data-pid="<?php echo base64_encode($item['id']) ?>" data-mid="<?php echo $item_price ?>" style="cursor: pointer" class="default_btn remove-service">Remove</label>
                                 <!--<a href="cart.php?action=remove&code=<?php echo base64_encode($item["id"]); ?>" class="remove-service btn btn-danger">Remove</a>-->
                             </td>
                         </tr>

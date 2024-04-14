@@ -202,19 +202,15 @@ $(document).ready(function(){
   }
    
    
-   $(".remove-service").on("click",function(e){
+   $(".cart_div").on("click", 'label',function(){
        //
-       
-       
-       e.preventDefault();
        if (confirm('Are you sure you want to delete this item? This action cannot be undone.')){
             removeFromCart($(this).attr('data-pid'),true);
         }
        
    });
-   $(".remove-service-checkout").on("click",function(e){
+    $(".cart_div").on("click", 'label.',function(){
        //
-       e.preventDefault();
        if (confirm('Are you sure you want to delete this item? This action cannot be undone.')){
             removeFromCart($(this).attr('data-pid'),false);
         }
