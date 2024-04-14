@@ -89,7 +89,7 @@ if(!empty($package_array)):
 //                            var_dump(file_exists($file_path));
                             ?>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
-                                <a href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" >
+                                
                                     <div class="thumbnail">
                                             <div class="picture1">
                                                 <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $package_service['name'] ?>">
@@ -98,6 +98,7 @@ if(!empty($package_array)):
                                                 <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $package_service['name'] ?>">
                                             </div>
                                     </div>
+                                <a href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" class="default_btn align-center" style="margin-top: 2px;width:100%" >Click to book
                                 </a>
                             </div>
                              
