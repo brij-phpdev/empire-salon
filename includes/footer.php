@@ -152,6 +152,9 @@
 
                 <script>
 $(document).ready(function(){
+    
+    $(".portfolio_items").hide();
+    
 	$('#main-video-slider').owlCarousel({
 		items:1,
 		merge:true,
@@ -209,13 +212,13 @@ $(document).ready(function(){
         }
        
    });
-    $(".cart_div").on("click", 'label.',function(){
-       //
-       if (confirm('Are you sure you want to delete this item? This action cannot be undone.')){
-            removeFromCart($(this).attr('data-pid'),false);
-        }
-       
-   });
+//    $(".cart_div").on("click", 'label.',function(){
+//       //
+//       if (confirm('Are you sure you want to delete this item? This action cannot be undone.')){
+//            removeFromCart($(this).attr('data-pid'),false);
+//        }
+//       
+//   });
    $(".book-service").on("click",function(e){
        e.preventDefault();
        //

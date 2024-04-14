@@ -2345,6 +2345,6 @@ a.mail_call{
 .sub_category_gallery_filter{
     color: black;
 }
-/*.pricing_section .sub_category_gallery_filter li{
-    background-color: blue;
-}*/
+.pricing_section .sub_category_gallery_filter li{
+    background-color: wheat; padding: 0 10px;
+}

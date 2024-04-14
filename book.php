@@ -113,18 +113,18 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             <div class="col-12">
                                 <?php 
 //                                                        print_r($_SESSION['cart_item']);
-                                if(!empty($_SESSION['cart_item']) && count($_SESSION['cart_item'])): ?>
+//                                if(!empty($_SESSION['cart_item']) && count($_SESSION['cart_item'])): ?>
                                 <div class="cart_div">
-                                    <?php include_once './ajax_cart.php'; ?>
+                                    <?php // include_once './ajax_cart.php'; ?>
                                 </div>
-                    <?php else: ?>
+                    <?php if(empty($_SESSION['cart_item'])): ?>
                                 <p>Your cart is empty</p>
                                 <hr class="padding-10" width="100%">    
                     <?php endif; ?>
                             </div>
                                 </div>
-                            <?php if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
-                                <br/>
+                            <?php // if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
+<!--                                <br/>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="checkout_btn_div float-right">
@@ -134,10 +134,9 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                         </div>
                                     </div>
                                 </div>
-                                <hr class="padding-10" width="100%">    
-                    <?php endif; ?>
+                                <hr class="padding-10" width="100%">    -->
+                    <?php // endif; ?>
                                 
-                            
                         
                         
                         <div class="price_wrap_">

@@ -111,6 +111,7 @@
 //                        alert('yes m here' + parent_selector);
                         $('#'+parent_selector).addClass("active");
                         $('.'+parent_selector).show();
+                        $(".portfolio_items").show();
                     }
                 
 	        $(".portfolio_items").isotope({

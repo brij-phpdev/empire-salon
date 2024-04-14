@@ -85,8 +85,9 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                
                                
                                <div class="row">
-                            <h3 class="s2">Shopping Cart</h3>
+                            
                             <div class="col-12">
+                                <h3 class="s2">Shopping Cart</h3>
                                 <?php 
 //                                                        print_r($_SESSION['cart_item']);
                                 if(!empty($_SESSION['cart_item']) && count($_SESSION['cart_item'])): ?>
@@ -94,32 +95,18 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                     <?php include_once './ajax_cart.php'; ?>
                                 </div>
                     <?php else: ?>
-                                <p>Your cart is empty</p>
+                                <div class="flex-wrap text-warning no-records">Your Cart is Empty. Checkout our running offers </div><a href="offer-packages.php" class="default_btn text-white">Click here</a>
                                 <hr class="padding-10" width="100%">    
                     <?php endif; ?>
                             </div>
                                 </div>
                                
-                               
-    <div class="txt-heading">Shopping Cart</div>
-
-    <!--<a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>-->
-    <?php
-    if (isset($_SESSION["cart_item"])) {
-        $total_quantity = 0;
-        $total_price = 0;
-        
-    } else {
-        ?>
-    <div class="flex-wrap text-warning no-records">Your Cart is Empty. Checkout our running offers </div><a href="offer-packages.php" class="btn btn-success text-white">Click here</a>
-        <?php
-    }
-    ?>
+    
 </div>
                             
                            
 
-                    <div class="spacer-single"></div>
+                    <!--<div class="spacer-single"></div>-->
 
                     <hr class="padding-10" width="100%">
                     <div class="mt-10 form-group row">

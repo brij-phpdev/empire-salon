@@ -100,4 +100,8 @@ if (isset($_SESSION["cart_item"])) {
         </div>
 <hr class="padding-10" width="100%">
         <?php
+    } else {
+        ?>
+    <div class="flex-wrap text-warning no-records">Your Cart is Empty. Checkout our running offers </div><a href="offer-packages.php" class="default_btn text-white">Click here</a>
+        <?php
     }
