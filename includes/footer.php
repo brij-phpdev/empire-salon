@@ -253,7 +253,7 @@ $(document).ready(function(){
                     var json_obj = JSON.parse(data);
 //                    alert(json_obj.status);
                     if( json_obj.status == "success" ){
-                        alert(json_obj.msg);
+//                        alert(json_obj.msg);
                         $(".checkout_btn_div").show();
                         updateCart();
                     }
