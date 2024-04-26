@@ -88,8 +88,10 @@ require_once( 'functions.php' );
                                 </li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
+                           
                        </div>
                        <div class="header-btn">
+                           <a href="checkout.php"><img src="img/shopping-icon.png" class="menu-btn img-responsive" style="padding:3px!important" title="shopping bag"></a>
                            <a href="offer-packages.php" class="menu-btn">Offers</a>
                        </div>
                     </div>

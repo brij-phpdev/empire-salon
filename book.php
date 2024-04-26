@@ -82,40 +82,40 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             
                             
                            <?php 
-                                include_once 'cart.php';
+//                                include_once 'cart.php';
                            ?> 
                             
                             <br>
                         </div>
                         <?php
                         // price logic
-                        $amt = base64_decode($_GET['rndId']);
-                        $price_to_pay = 5000;
-                        if ($amt < 10000) {
-                            // less than 10,000
-                            $price_to_pay = ceil(($amt * 25 ) / 100);
-                        }
-                        if ($amt < 5000) {
-                            $price_to_pay = $amt;
-                        }
-//                                $price_to_pay = $package_price;
-//                                echo $price_to_pay;
+//                        $amt = base64_decode($_GET['rndId']);
+//                        $price_to_pay = 5000;
+//                        if ($amt < 10000) {
+//                            // less than 10,000
+//                            $price_to_pay = ceil(($amt * 25 ) / 100);
+//                        }
+//                        if ($amt < 5000) {
+//                            $price_to_pay = $amt;
+//                        }
+////                                $price_to_pay = $package_price;
+////                                echo $price_to_pay;
                         ?>
-                    <p><small>Please pay a token amount to <i><u>secure your slot</u></i>: </small>₹ <?php echo $price_to_pay ?>.00/-</p>
+                    <!--<p><small>Please pay a token amount to <i><u>secure your slot</u></i>: </small>₹ <?php echo $price_to_pay ?>.00/-</p>-->
                         <?php
                     } else {
                         ?>
                         <input type="hidden" id="rnIdVal" name="rnId" value="" />
                         <input type="hidden" id="rnKId" name="rnKId" value="0" />
                         <input type="hidden" name="packageName" id="packageName" value="" />
-                        <div class="row">
+                        <div class="row" style="display: none;">
                             <h3>Shopping Cart</h3>
                             <div class="col-12">
                                 <?php 
 //                                                        print_r($_SESSION['cart_item']);
 //                                if(!empty($_SESSION['cart_item']) && count($_SESSION['cart_item'])): ?>
                                 <div class="cart_div">
-                                    <?php include_once './ajax_cart.php'; ?>
+                                    <?php // include_once './ajax_cart.php'; ?>
                                 </div>
                     <?php if(!empty($_SESSION['cart_item'])): ?>
 <!--                                <p>Your cart is empty</p>
@@ -125,7 +125,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                 </div>
                             <?php // if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
                                 <br/>
-                                <div class="row">
+                                <div class="row" style="display: none;">
                                     <div class="col-12">
                                         <div class="checkout_btn_div float-right">
 
@@ -134,7 +134,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                         </div>
                                     </div>
                                 </div>
-                                <hr class="padding-10" width="100%">    
+                                <!--<hr class="padding-10" width="100%">-->    
                     <?php endif; ?>
 
                                 
