@@ -110,7 +110,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <input type="hidden" id="rnIdVal" name="rnId" value="" />
                         <input type="hidden" id="rnKId" name="rnKId" value="0" />
                         <input type="hidden" name="packageName" id="packageName" value="" />
-                        <div class="row" style="display: block;">
+                        <div class="row" style="display: none;">
                             <!--<h3>Shopping Cart</h3>-->
                             <div class="col-12">
                                 <?php 
