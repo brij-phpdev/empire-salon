@@ -116,7 +116,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                 <?php 
 //                                                        print_r($_SESSION['cart_item']);
 //                                if(!empty($_SESSION['cart_item']) && count($_SESSION['cart_item'])): ?>
-                                <div class="cart_div">
+                                <div class="cart_div_no_more_ajax_call">
                                     <?php // include_once './ajax_cart.php'; ?>
                                 </div>
                     <?php if(!empty($_SESSION['cart_item'])): ?>
