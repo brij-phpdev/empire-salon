@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors',1);
+//error_reporting(E_ALL);
+//ini_set('display_errors',0);
 include_once './includes/header.php';
 include_once './includes/database.php';
 
@@ -110,34 +110,6 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <input type="hidden" id="rnIdVal" name="rnId" value="" />
                         <input type="hidden" id="rnKId" name="rnKId" value="0" />
                         <input type="hidden" name="packageName" id="packageName" value="" />
-                        <div class="row" style="display: none;">
-                            <!--<h3>Shopping Cart</h3>-->
-                            <div class="col-12">
-                                <?php 
-//                                                        print_r($_SESSION['cart_item']);
-//                                if(!empty($_SESSION['cart_item']) && count($_SESSION['cart_item'])): ?>
-                                <div class="cart_div_no_more_ajax_call">
-                                    <?php // include_once './ajax_cart.php'; ?>
-                                </div>
-                    <?php if(!empty($_SESSION['cart_item'])): ?>
-<!--                                <p>Your cart is empty</p>
-                                <hr class="padding-10" width="100%">    -->
-                    <?php // endif; ?>
-                            </div>
-                                </div>
-                            <?php // if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
-                                <br/>
-                                <div class="row" style="display: none;">
-                                    <div class="col-12">
-                                        <div class="checkout_btn_div float-right">
-
-                                            <a href="checkout.php" class="default_btn">Proceed to checkout</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--<hr class="padding-10" width="100%">-->    
-                    <?php endif; ?>
 
                                 
                         
