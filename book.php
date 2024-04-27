@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 include_once './includes/header.php';
-include_once 'includes/database.php';
+include_once './includes/database.php';
 
 //$_lastUrl='';
 //print_r($_SERVER);
@@ -110,8 +110,8 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                         <input type="hidden" id="rnIdVal" name="rnId" value="" />
                         <input type="hidden" id="rnKId" name="rnKId" value="0" />
                         <input type="hidden" name="packageName" id="packageName" value="" />
-                        <div class="row" style="display: none;">
-                            <h3>Shopping Cart</h3>
+                        <div class="row" style="display: block;">
+                            <!--<h3>Shopping Cart</h3>-->
                             <div class="col-12">
                                 <?php 
 //                                                        print_r($_SESSION['cart_item']);
