@@ -1300,7 +1300,7 @@ select.form-control:not([size]):not([multiple]){
     font-weight: 600;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 25px;
 }
 .pricing_section .price_wrap .price_list li p{
     margin: 0;
@@ -2348,5 +2348,5 @@ a.mail_call{
     color: black;
 }
 .pricing_section .sub_category_gallery_filter li{
-    background-color: wheat; padding: 0 10px;
+    background-color: wheat; padding: 0 10px; margin: 7px;
 }
