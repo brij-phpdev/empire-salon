@@ -1300,7 +1300,7 @@ select.form-control:not([size]):not([multiple]){
     font-weight: 600;
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 75px;
 }
 .pricing_section .price_wrap .price_list li p{
     margin: 0;
