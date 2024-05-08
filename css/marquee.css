@@ -177,6 +177,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .slider_content{
     position: relative;
+    background-color: black;
+    opacity: 0.6;
+    padding: 40%;
 }
 .product_cta{overflow: hidden;}
 .appointment_form .book_content h2{
