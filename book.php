@@ -288,8 +288,11 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
 
                     <hr class="padding-10" width="100%">
                     
-                    
-                    <a href="checkout.php" id="book_checkout_btn" class="default_btn <?php echo (isset($_SESSION['cart_item']) && count($_SESSION['cart_item'])) ? '' : 'disabled_btn' ?> float-right" data-count="0">Checkout</a>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <a href="checkout.php" id="book_checkout_btn" style="width: 40%;" class="default_btn <?php echo (isset($_SESSION['cart_item']) && count($_SESSION['cart_item'])) ? '' : 'disabled_btn' ?> " data-count="0">Checkout</a>
+                        </div>
+                    </div>
                     <?php // print_r($_SESSION['cart_item']); ?>
                     
                     <input type="hidden" class="show_checkout" name="show_checkout" value="<?php echo (isset($_SESSION['cart_item']) && count($_SESSION['cart_item'])) ? count($_SESSION['cart_item']) : 0; ?>" />

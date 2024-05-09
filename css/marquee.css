@@ -179,7 +179,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     position: relative;
     background-color: black;
     opacity: 0.6;
-    padding: 21% 9% 5% 10%;
+    padding: 10%;
 }
 .product_cta{overflow: hidden;}
 .appointment_form .book_content h2{
@@ -187,3 +187,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 .error{display: none;}
 .mb25{margin-bottom: 25px}
+/*.slider_content .default_btn{z-index: 999!important; opacity: 1!important; background-color: #9e8a78!important;}*/
+
+.btn_bg{background-color: #000!important; float: left;margin-top: -77px; margin-left: 112px; height: 45px;}
+@media (max-width: 767px) {
+    .btn_bg{
+        margin-left: 50px;
+    }
+    .slider_content{
+            padding: 13.5%;
+    }
+}

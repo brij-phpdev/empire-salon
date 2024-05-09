@@ -17,8 +17,9 @@ include_once './includes/database.php';
                             <h3>Discover modern, trending beauty services for all your unique needs.</h3>
                             <h1>The modern universe of beauty.</h1>
                             <p>Dive into a dynamic cosmos of cutting-edge beauty services, where trends <br>converge with innovation to redefine your allure. Explore today!</p>
-                            <a href="book.php" class="default_btn">Book an Appointment</a>
+                            
                         </div>
+                        <div class="btn_bg"><a href="book.php" class="default_btn">Book an Appointment</a></div>
                     </div>
                 </li>
                 <li class="main_slide d-flex align-items-center">
@@ -33,8 +34,9 @@ include_once './includes/database.php';
                             <h3>Elevating beauty for brides, creating timeless moments with flawless artistry.</h3>
                             <h1>Exquisite bridal beauty,<br>makeup services par excellence.</h1>
                             <p>Elevate your bridal beauty with our expert makeup artists and beauty services. <br>Radiate confidence on your special day. Book now!</p>
-                            <a href="bride-packages.php" class="default_btn">Explore Bridal Packages</a>
+                            
                         </div>
+                        <div class="btn_bg"><a href="bride-packages.php" class="default_btn">Explore Bridal Packages</a></div>
                     </div>
                 </li>
                 <li class="main_slide d-flex align-items-center">
@@ -49,8 +51,9 @@ include_once './includes/database.php';
                             <h3>Elevating weddings with unparalleled groom services, our salon fosters timeless elegance.</h3>
                             <h1>Top-notch groom's services<br>for exceptional elegance</h1>
                             <p>Experience the finest Indian groom services at our salon, expert grooming, <br>traditional attire styling, and a touch of luxury for your special day.</p>
-                            <a href="groom-packages.php" class="default_btn">Explore Groom Packages</a>
+                            
                         </div>
+                        <div class="btn_bg"><a href="groom-packages.php" class="default_btn">Explore Groom Packages</a></div>
                     </div>
                 </li>
                 
