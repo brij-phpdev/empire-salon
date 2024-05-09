@@ -153,6 +153,28 @@
                 <script>
 $(document).ready(function(){
     
+    function enableCheckoutButton(){
+        
+        $("#book_checkout_btn").show().removeClass('disabled_btn');
+        var a = $(".show_checkout").val();
+        a++;
+        $(".show_checkout").val(a);
+        if (a && a >= 1) {
+            $("#book_checkout_btn").removeClass("disabled_btn");
+        }
+    }
+    function disableCheckoutButton(){
+        $("#book_checkout_btn").show().addClass('disabled_btn');
+        var a = $(".show_checkout").val();
+        a--;
+        $(".show_checkout").val(a);
+    }
+    
+    //display checkout button
+    <?php if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
+//        enableCheckoutButton();
+    <?php endif; ?>
+    
     $(".portfolio_items").hide();
     
 	$('#main-video-slider').owlCarousel({
@@ -202,6 +224,7 @@ $(document).ready(function(){
                         alert(data.msg);
                     }
                 });
+                disableCheckoutButton();
   }
    
    
@@ -242,6 +265,7 @@ $(document).ready(function(){
             $("#packageName").val( $(this).attr('data-package'));
 //            $("#rnIdVal").val(rnKId+$(this).attr('data-mid'));
 //            console.log($(this).attr('data-mid'));
+            enableCheckoutButton();
             // add it to cart..
             $(".cart_div").html();
             $.ajax({

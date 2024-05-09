@@ -2350,3 +2350,9 @@ a.mail_call{
 .pricing_section .sub_category_gallery_filter li{
     background-color: wheat; padding: 0 10px; margin: 7px;
 }
+.disabled_btn{
+    background-color: #888!important;
+}
+.disabled_btn:hover{
+    background-color: #888!important;
+}
