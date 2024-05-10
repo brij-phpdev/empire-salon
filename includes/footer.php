@@ -162,6 +162,7 @@ $(document).ready(function(){
         if (a && a >= 1) {
             $("#book_checkout_btn").removeClass("disabled_btn");
         }
+        $("#book_checkout_btn").attr('href','checkout.php');
     }
     function disableCheckoutButton(){
         $("#book_checkout_btn").show().addClass('disabled_btn');
