@@ -114,7 +114,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                 
                         
                         <div class="price_wrap_">
-                            <h3 class="s2">Choose Services</h3>
+                            <h2 class="s2 text-center">Choose Services</h2>
                             
                             <div class="row">
                                 <?php if (!empty($package_array)):
@@ -290,7 +290,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     
                     <div class="row">
                         <div class="col-12 text-center">
-                            <a href="checkout.php" id="book_checkout_btn" style="width: 40%;" class="default_btn <?php echo (isset($_SESSION['cart_item']) && count($_SESSION['cart_item'])) ? '' : 'disabled_btn' ?> " data-count="0">Checkout</a>
+                            <a href="<?php echo (isset($_SESSION['cart_item']) && count($_SESSION['cart_item'])) ? 'checkout.php' : '#' ?>" id="book_checkout_btn" style="width: 40%;" class="default_btn <?php echo (isset($_SESSION['cart_item']) && count($_SESSION['cart_item'])) ? '' : 'disabled_btn' ?> " data-count="0">Checkout</a>
                         </div>
                     </div>
                     <?php // print_r($_SESSION['cart_item']); ?>
