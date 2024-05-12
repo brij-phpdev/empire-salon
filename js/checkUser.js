@@ -158,7 +158,7 @@ function verifyMobileOTP() {
                 $(".mobile_sms_input").hide();
                 $(".mobile_sms_input").hide();
                 $("#verify-otp-fastsms").hide();
-                alert('we are here');
+//                alert('we are here');
 //                $(".fancy_msg").text(data.message+'. Redirecting in 3 seconds');
                 return false;
 //                createCookie('otppopup', 'no', 30);
