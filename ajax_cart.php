@@ -6,6 +6,7 @@ include_once './includes/database.php';
 if (isset($_SESSION["cart_item"])) {
         $total_quantity = 0;
         $total_price = 0;
+        $cartPackageName = '';
         ?>	
         <div class="table-responsive">
             <table class="table-bordered table table-striped tbl-cart" cellpadding="10" cellspacing="1">
@@ -60,6 +61,7 @@ if (isset($_SESSION["cart_item"])) {
                         <?php
                         $total_quantity += $quantity;
                         $total_price += ($item_price * $quantity);
+                        $cartPackageName = $item["title"];
                     }
                     ?>
 
@@ -91,9 +93,9 @@ if (isset($_SESSION["cart_item"])) {
                 <tr><td><small>Please pay a token amount to <i><u>secure your slot</u></i>: </small></td><td class="align-right"><?php echo CURRENCY . " " . number_format($price_to_pay, 2); ?></td></tr>
             </table>
             <input type="hidden" name="serviceId[]" value="<?php echo $_GET['packageId'] ?>" />
-            <input type="hidden" name="rnId" value="<?php echo ($_GET['rndId']) ?>" />
+            <input type="hidden" name="rnId" value="<?php echo base64_encode($price_to_pay) ?>" />
             <?php if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
-            <input type="hidden" name="packageName" value="<?php echo $_SESSION['cart_item'][0]['title'] ?>" />
+            <input type="hidden" name="packageName" value="<?php echo !empty($_SESSION['cart_item'][0]['title']) ? $_SESSION['cart_item'][0]['title'] : $cartPackageName; ?>" />
             <?php else: ?>
             <input type="hidden" name="packageName" value="<?php echo $_GET['packageName'] ?>" />
             <?php endif; ?>
