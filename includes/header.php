@@ -1,5 +1,6 @@
 <?php 
-session_start();
+session_start(); // Start the session
+require_once 'checklogin.php';
 require_once( 'config.php' );
 require_once( 'functions.php' );
 //require_once( './couch-admin/cms.php' );
@@ -92,7 +93,18 @@ require_once( 'functions.php' );
                        </div>
                        <div class="header-btn">
                            <a href="checkout.php"><img src="img/shopping-icon.png" class="menu-btn img-responsive" style="padding:3px!important" title="shopping bag"></a>
+                           <?php
+                           if(DISABLE_LINKS && in_array('Offers', $package_links)):
+                               // it means redirect to login
+                               ?>
+                           <a href="login.php" style="color: cornsilk;" class="menu-btn">Offers</a>
+                           <?php
+                               else:
+                           ?>
                            <a href="offer-packages.php" class="menu-btn">Offers</a>
+                           <?php
+                           endif;
+                           ?>
                        </div>
                     </div>
                 </nav>

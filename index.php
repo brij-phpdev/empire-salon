@@ -19,7 +19,22 @@ include_once './includes/database.php';
                             <p>Dive into a dynamic cosmos of cutting-edge beauty services, where trends <br>converge with innovation to redefine your allure. Explore today!</p>
                             
                         </div>
-                        <div class="btn_bg"><a href="book.php" class="default_btn">Book an Appointment</a></div>
+                        <div class="btn_bg">
+                            <?php
+                           $link = 'Book an Appointment';
+//                           var_dump($link);var_dump(DISABLE_LINKS);var_dump(in_array($link, $package_links));die;
+                           if(DISABLE_LINKS && in_array($link, $package_links)):
+                               // it means redirect to login
+                               ?>
+                           <a href="login.php" class="default_btn"><?php echo htmlspecialchars($link) ?></a>
+                           <?php
+                               else:
+                           ?>
+                            <a href="book.php" class="default_btn">Book an Appointment</a>
+                            <?php
+                            endif;
+                            ?>
+                        </div>
                     </div>
                 </li>
                 <li class="main_slide d-flex align-items-center">
@@ -36,7 +51,23 @@ include_once './includes/database.php';
                             <p>Elevate your bridal beauty with our expert makeup artists and beauty services. <br>Radiate confidence on your special day. Book now!</p>
                             
                         </div>
-                        <div class="btn_bg"><a href="bride-packages.php" class="default_btn">Explore Bridal Packages</a></div>
+                        <div class="btn_bg">
+                            <?php
+                           $link = 'Explore Bridal Packages';
+//                           var_dump($link);var_dump(DISABLE_LINKS);var_dump(in_array($link, $package_links));die;
+                           if(DISABLE_LINKS && in_array($link, $package_links)):
+                               // it means redirect to login
+                               ?>
+                           <a href="login.php" class="default_btn"><?php echo $link ?></a>
+                           <?php
+                               else:
+                           ?>
+                            <a href="bride-packages.php" class="default_btn">Explore Bridal Packages</a>
+                            <?php
+                            endif;
+                            ?>
+
+                            </div>
                     </div>
                 </li>
                 <li class="main_slide d-flex align-items-center">
@@ -53,7 +84,25 @@ include_once './includes/database.php';
                             <p>Experience the finest Indian groom services at our salon, expert grooming, <br>traditional attire styling, and a touch of luxury for your special day.</p>
                             
                         </div>
-                        <div class="btn_bg"><a href="groom-packages.php" class="default_btn">Explore Groom Packages</a></div>
+                        <div class="btn_bg">
+
+                            <?php
+                           $link = 'Explore Groom Packages';
+//                           var_dump($link);var_dump(DISABLE_LINKS);var_dump(in_array($link, $package_links));die;
+                           if(DISABLE_LINKS && in_array($link, $package_links)):
+                               // it means redirect to login
+                               ?>
+                           <a href="login.php" class="default_btn"><?php echo $link ?></a>
+                           <?php
+                               else:
+                           ?>
+                            <a href="groom-packages.php" class="default_btn">Explore Groom Packages</a>
+                            <?php
+                            endif;
+                            ?>
+
+                            
+                        </div>
                     </div>
                 </li>
                 
@@ -88,95 +137,123 @@ include_once './includes/database.php';
 
 <?php
 
-$coupons = array();
-$coupontable_sql = "SELECT * FROM `coupons`  ORDER BY `id` DESC LIMIT 2";
+$package_array = array();
+$package_servicetable_sql = "SELECT * FROM `service_cat_table` WHERE cName ='Offers' ORDER BY `id` DESC";
 
-if ($coupontable_res = @mysqli_query($link, $coupontable_sql)) {
+//$packagetable_sql = "SELECT * FROM `service_cat_table` WHERE cName ='Valentine Offers' "; // fixed on 9th Nov to call only bride gallery
+//echo $package_servicetable_sql;
+if ($package_servicetable_res = @mysqli_query($link, $package_servicetable_sql)) {
 
-    if (@mysqli_num_rows($coupontable_res) > 0) {
-        while ($coupontable_row = @mysqli_fetch_assoc($coupontable_res)) {
-            $coupons[] = $coupontable_row;
+    if (@mysqli_num_rows($package_servicetable_res) > 0) {
+        while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+            $package_array[] = $package_servicetable_row;
         }
     }
 }
-if(!empty($coupons)):
+
+if(!empty($package_array)):
 ?>
     <section id="section-trending" class="why_section padding bg-grey">
                 <div class="container-fluid">
-<!--                    <div class="row hide">
-                        <div class="col-lg-8 offset-lg-2 text-center">
-                            <h2 class="wow fadeIn text-white">Trending Offers</h2>
-                            <div class="de-separator"></div>
-                            <div class="spacer-single"></div>
-                        </div>
-                    </div>-->
-                    <div class="row">
-                        <div class="spacer-single"></div>
+                        
+                        
+                        
+                        
+                        <?php if(!empty($package_array)): 
+                
+                foreach($package_array as $package):
+                
+                $package_services = array();
+            
+                if(!empty($package)):
+
+                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`='".$package['id']. "'  ORDER BY `id` DESC";
+//                    echo $package_service_table_sql;
+                    if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
+
+                        if (@mysqli_num_rows($package_servicetable_res) > 0) {
+                            while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+                                $package_services[] = $package_servicetable_row;
+                            }
+                        }
+                    }
+                    endif;
+                ?>
+            
+                <div class="row">
+
+
                         <?php 
-                        foreach($coupons as $coupon):
-                        ?>
-                        <?php 
-//                            echo $coupon['offer_img_front'];
+                        $i=1;
+                        foreach($package_services as $package_service):
+                            
+//                                 echo $package_service['offer_img_front'];
                         
                         // check if coupon is expirin or not..
                         $today = date('Y-m-d');
-                        $start_date = $coupon['starts_at'];
+                        $start_date = $package_service['starts_at'];
                         $start_date = date('Y-m-d', strtotime($start_date));
                         
-                        $end_date = $coupon['expires_at'];
+                        $end_date = $package_service['expires_at'];
                         $end_date = date('Y-m-d', strtotime($end_date));
                         
                         if (($start_date <= $today) && ($end_date >= $today)){
                             // than only show because the offer has expired.
                             
-                             $file_path = SITE_BOOK_URL . 'application/uploads/coupons/' . $coupon['offer_img_front'];
-                            $file_img_back_path = SITE_BOOK_URL . 'application/uploads/coupons/' . $coupon['offer_img_back'];
+                             $file_path = SITE_BOOK_URL . 'application/uploads/package-offers/' . $package_service['offer_img_front'];
+                            $file_img_back_path = SITE_BOOK_URL . 'application/uploads/package-offers/' . $package_service['offer_img_back'];
 //                            echo $file_path;
 //                            var_dump(is_file($file_path));
 //                            var_dump(file_exists($file_path));
                             ?>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
-                        <!--<div class="col-6">-->
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xl-6">
+                        
                         
                             <div class="flip-box">
                                 <div class="flip-box-inner">
                                   <div class="flip-box-front">
-                                      <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
-                                  </div>
-                                  <div class="flip-box-back">
-                                    <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $coupon['name'] ?>">
-                                  </div>
-                                </div>
+                                      <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $package_service['name'] ?>">
+                                            </div>
+                                            <div class="picture2">
+                                                <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $package_service['name'] ?>">
+                                            </div>
+                                    </div>
+                                <a href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" class="default_btn align-center" style="margin-top: 2px;width:100%" >Click to book
+                                </a>
                             </div>
-                            
+                             
+                        
                             
                             <?php
-                            
+                            echo $break_row = ($i%2==0) ? '</div><div class="padding-15"></div><div class="row kk">' : '' ;    
+                                $i++;
                         }
-                        
-                        
-                           
-//                            if (!empty($coupon['offer_img_front']) && is_file($file_path)):
-//                                echo 'here';
-//                                $path = $file_path;
-//                                $type = pathinfo($path, PATHINFO_EXTENSION);
-//                                $data = file_get_contents($path);
-//                                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                                ?>
-<!--                            <img class="border" src="<?php // echo $base64 ?>" alt="Offer <?php // echo $coupon['name'] ?>">-->
-                            <?php
-//                            endif;
 
-                            
+                        
                             ?>
-                            
-                        </div>
-                        <?php endforeach; ?>
+                        
+                        <?php 
+                        endforeach;
+                        ?>
+                </div>
+            </div>
+            <?php 
+            endforeach;
+            endif; ?>
+            
+                        
+                        
+                        
+                        
+                        
+                        
+                       
                         
                     </div>
-                </div>
             </section>
 <?php endif; ?>
+
+
 <section class="service_section bg-grey bd-bottom padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
