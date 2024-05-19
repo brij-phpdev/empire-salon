@@ -21,12 +21,12 @@ include_once './includes/database.php';
                         </div>
                         <div class="btn_bg">
                             <?php
-                           $link = 'Book an Appointment';
+                           $slider_btn_link = 'Book an Appointment';
 //                           var_dump($link);var_dump(DISABLE_LINKS);var_dump(in_array($link, $package_links));die;
-                           if(DISABLE_LINKS && in_array($link, $package_links)):
+                           if(DISABLE_LINKS && in_array($slider_btn_link, $package_links)):
                                // it means redirect to login
                                ?>
-                           <a href="login.php" class="default_btn"><?php echo htmlspecialchars($link) ?></a>
+                           <a href="login.php" class="default_btn"><?php echo htmlspecialchars($slider_btn_link) ?></a>
                            <?php
                                else:
                            ?>
@@ -53,12 +53,12 @@ include_once './includes/database.php';
                         </div>
                         <div class="btn_bg">
                             <?php
-                           $link = 'Explore Bridal Packages';
+                           $slider_btn_link = 'Explore Bridal Packages';
 //                           var_dump($link);var_dump(DISABLE_LINKS);var_dump(in_array($link, $package_links));die;
-                           if(DISABLE_LINKS && in_array($link, $package_links)):
+                           if(DISABLE_LINKS && in_array($slider_btn_link, $package_links)):
                                // it means redirect to login
                                ?>
-                           <a href="login.php" class="default_btn"><?php echo $link ?></a>
+                           <a href="login.php" class="default_btn"><?php echo htmlspecialchars($slider_btn_link) ?></a>
                            <?php
                                else:
                            ?>
@@ -87,12 +87,12 @@ include_once './includes/database.php';
                         <div class="btn_bg">
 
                             <?php
-                           $link = 'Explore Groom Packages';
+                           $slider_btn_link = 'Explore Groom Packages';
 //                           var_dump($link);var_dump(DISABLE_LINKS);var_dump(in_array($link, $package_links));die;
-                           if(DISABLE_LINKS && in_array($link, $package_links)):
+                           if(DISABLE_LINKS && in_array($slider_btn_link, $package_links)):
                                // it means redirect to login
                                ?>
-                           <a href="login.php" class="default_btn"><?php echo $link ?></a>
+                           <a href="login.php" class="default_btn"><?php echo htmlspecialchars($slider_btn_link) ?></a>
                            <?php
                                else:
                            ?>
@@ -167,7 +167,7 @@ if(!empty($package_array)):
             
                 if(!empty($package)):
 
-                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`='".$package['id']. "'  ORDER BY `id` DESC";
+                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`='".$package['id']. "'  ORDER BY `id` DESC limit 2";
 //                    echo $package_service_table_sql;
                     if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
 
@@ -214,14 +214,15 @@ if(!empty($package_array)):
                                   <div class="flip-box-front">
                                       <img class="img-fluid" src="<?php echo $file_path ?>" alt="Offer <?php echo $package_service['name'] ?>">
                                             </div>
-                                            <div class="picture2">
+                                            <div class="flip-box-back">
                                                 <img class="img-fluid" src="<?php echo $file_img_back_path ?>" alt="Offer <?php echo $package_service['name'] ?>">
                                             </div>
                                     </div>
-                                <a href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" class="default_btn align-center" style="margin-top: 2px;width:100%" >Click to book
-                                </a>
+                                
+<!--                                <a href="cart.php?action=add&packageId=<?php echo base64_encode($package_service['id']) ?>" title="Click to reveal" class="default_btn align-center" style="margin-top: 2px;width:100%" >Click to book
+                                </a>-->
                             </div>
-                             
+                            </div>
                         
                             
                             <?php
