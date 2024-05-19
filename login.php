@@ -31,17 +31,24 @@ include_once './includes/functions.php';
 
                             <div class="d-sch-table">
                                 <!--<h2 class="wow fadeIn text-center">Login</h2>-->
+                                <h2 class="wow fadeIn text-center" style="font-size: 22px!important;">
+                                    Enter your registered credentials to unlock offers</h2>
                                 <div class="de-separator"></div>
                                 <p class="lead text-center">
-                                Enter your registered credentials to unlock offers
+
                                 </p>
                                 <div class="contact-form">
-                                    <form name="jobForm" id="ajax_form" class="form-border form-horizontal position-relative z1000" method="post" action="login_post.php">
-                                        <div class="form-group row">
-                                    <div class="col-md-12">
+                                    <form name="jobForm" id="ajax_form_1" class="form-border form-horizontal position-relative z1000" method="post" action="">
+                                        
+<!--                                        <div class="form-group row">
+                                            <div class="col-md-12">
                                                 <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
                                             </div>
-                                        </div>
+                                            <br/>
+                                            <span class="text-center">Or</span>
+                                            <br/>
+                                        </div>-->
+                                        
 <!--                                    <div class="form-group row">
                                     <div class="col-md-12">
                                                 <input type='text' name='name' id='name' class="form-control" placeholder="Your Name" required="">
@@ -50,6 +57,11 @@ include_once './includes/functions.php';
                                         <div class="form-group row">
                                     <div class="col-md-12">
                                                 <input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                    <div class="col-md-12">
+                                                <input type="password" name="password" id="password" class="form-control" placeholder="Your Password" required>
                                             </div>
                                         </div>
                                         

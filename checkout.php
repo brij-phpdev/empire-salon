@@ -201,6 +201,22 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
 
                     <h3 class="s2">Your details</h3>
 
+                    <?php
+                    if($_SESSION['user_info']):
+                    ?>
+                    <div class="form-group row">
+                        <div id='name_error' class='error'>Your name.</div>
+                            <div class="mb25">
+                                <input type='text' readonly="readonly" name='name' id='name' value="<?php echo $_SESSION['user_info']['fullName'] ?>" class="form-control" placeholder="Your Name" required>
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div id='name_error' class='error'>Your name.</div>
+                            <div class="mb25">
+                                <input type='text' readonly="readonly" name='phone' id='phone' value="<?php echo $_SESSION['user_info']['phone'] ?>" class="form-control" placeholder="Your Name" required>
+                            </div>
+                    </div>
+                        <?php else: ?>
                     <div class="form-group row">
 
                         <div class="col-lg-6">
@@ -267,7 +283,7 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                             </div>
                         </div>
                     </div>
-
+                        <?php endif; ?>
 
 
 
