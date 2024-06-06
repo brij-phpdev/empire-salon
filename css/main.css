@@ -2356,3 +2356,6 @@ a.mail_call{
 .disabled_btn:hover{
     background-color: #888!important;
 }
+ul.right_user_nav {}
+ul.right_user_nav li {padding: 5px 0;}
+ul.right_user_nav li a{background-color: white; color:#888}

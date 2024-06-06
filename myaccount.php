@@ -41,13 +41,13 @@ include_once './includes/functions.php';
                                 <p class="lead text-center">
 
                                 </p>
-                                <div class="contact-form">
+                                <div class="contact-form row">
                                     
                                 <div class="right_user_menu col-lg-4">
-                                <ul>
-                                <li><a href="myaccount.php">My Account</a></li>
-                                <li><a href="myorders.php">My Orders</a></li>
-                                <li><a href="logout.php">Logout</a></li>
+                                    <ul class="right_user_nav">
+                                    <li><a class="mail_call" href="myaccount.php">My Account</a></li>
+                                    <li><a class="mail_call" href="myorders.php">My Orders</a></li>
+                                    <li><a class="mail_call" href="logout.php">Logout</a></li>
                             </ul>
                             </div>
                                     
@@ -55,7 +55,7 @@ include_once './includes/functions.php';
                                         <?php
                                         $user_info=$_SESSION['user_info'];
                                         ?>
-    <h1>My Account</h1>
+    <h3>My Account</h3>
     <p><strong>Mobile:</strong> <?php echo htmlspecialchars($user_info['phone']); ?></p>
     <p><strong>Email:</strong> <?php echo htmlspecialchars($user_info['email']); ?></p>
     <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user_info['fullName']); ?></p>
