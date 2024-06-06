@@ -2357,5 +2357,5 @@ a.mail_call{
     background-color: #888!important;
 }
 ul.right_user_nav {}
-ul.right_user_nav li {padding: 5px 0;}
+ul.right_user_nav li {padding: 5px 0;border-bottom: #9e8a78 1px dashed;}
 ul.right_user_nav li a{background-color: white; color:#888}
