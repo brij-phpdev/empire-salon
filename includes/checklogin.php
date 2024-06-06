@@ -14,6 +14,15 @@ $package_links = [
         'checkout.php' => 'Checkout',
     ];
 $GLOBALS['offer_links'] = $package_links;
+
+// Check if the logout_success parameter is set
+$logout_success = isset($_GET['logout_success']) && $_GET['logout_success'] == 1;
+
+// Display the logout success message if the parameter is set
+if ($logout_success) {
+    echo '<div class="alert alert-success">You have been successfully logged out.</div>';
+}
+
 // Common function to check if the user is logged in
 function check_login() {
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
