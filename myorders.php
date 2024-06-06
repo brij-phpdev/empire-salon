@@ -66,7 +66,7 @@ if ($ordertable_res = @mysqli_query($link, $ordertable_sql)) {
 }            
 //print_r($orders_array);die;
                                         ?>
-    <h1>My Orders</h1>
+    <h3>My Orders</h3>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
