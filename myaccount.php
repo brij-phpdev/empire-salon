@@ -28,15 +28,19 @@ include_once './includes/functions.php';
                 <div class="container position-relative z1000">
                     <div class="row gx-5">
 
-                        <div class="col-lg-4">
-                            <u>
+<!--                        <div class="col-lg-4">
+                            
+                        </div>-->
+                        <div class="col-lg-12 offset-lg-2">
+
+                            <div class="right_user_menu">
+                                <u>
                                 <li><a href="myaccount.php">My Account</a></li>
                                 <li><a href="myorders.php">My Orders</a></li>
                                 <li><a href="logout.php">Logout</a></li>
                             </u>
-                        </div>
-                        <div class="col-lg-8 offset-lg-2">
-
+                            </div>
+                            
                             <div class="d-sch-table">
                                 <!--<h2 class="wow fadeIn text-center">Login</h2>-->
                                 <h2 class="wow fadeIn text-center" style="font-size: 22px!important;">Welcome!</h2>
