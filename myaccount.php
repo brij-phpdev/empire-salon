@@ -33,13 +33,6 @@ include_once './includes/functions.php';
                         </div>-->
                         <div class="col-lg-12">
 
-                            <div class="right_user_menu">
-                                <u>
-                                <li><a href="myaccount.php">My Account</a></li>
-                                <li><a href="myorders.php">My Orders</a></li>
-                                <li><a href="logout.php">Logout</a></li>
-                            </u>
-                            </div>
                             
                             <div class="d-sch-table">
                                 <!--<h2 class="wow fadeIn text-center">Login</h2>-->
@@ -49,7 +42,16 @@ include_once './includes/functions.php';
 
                                 </p>
                                 <div class="contact-form">
-                                    <div class="account-info">
+                                    
+                                <div class="right_user_menu col-lg-4">
+                                <ul>
+                                <li><a href="myaccount.php">My Account</a></li>
+                                <li><a href="myorders.php">My Orders</a></li>
+                                <li><a href="logout.php">Logout</a></li>
+                            </ul>
+                            </div>
+                                    
+                                    <div class="account-info  col-lg-8">
                                         <?php
                                         $user_info=$_SESSION['user_info'];
                                         ?>
