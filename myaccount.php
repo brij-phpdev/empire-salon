@@ -31,7 +31,7 @@ include_once './includes/functions.php';
 <!--                        <div class="col-lg-4">
                             
                         </div>-->
-                        <div class="col-lg-12 offset-lg-2">
+                        <div class="col-lg-12">
 
                             <div class="right_user_menu">
                                 <u>
