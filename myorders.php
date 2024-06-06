@@ -89,8 +89,8 @@ if ($ordertable_res = @mysqli_query($link, $ordertable_sql)) {
                     <td><?php echo $order_array['id']; ?></td>
                     <td><?php echo $order_array['title']; ?></td>
                     <td><?php echo $order_array['date']; ?></td>
-                    <td><?php echo $order_array['serviceBill']; ?></td>
-                    <td><?php echo number_format($order_array['booking_amount'],2); ?></td>
+                    <td><?php echo CURRENCY . ' ' . number_format($order_array['serviceBill'],2); ?></td>
+                    <td><?php echo CURRENCY . ' ' . number_format($order_array['booking_amount'],2); ?></td>
                 </tr>
                 <?php endforeach;
                 endif;
