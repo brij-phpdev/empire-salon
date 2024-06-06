@@ -28,15 +28,12 @@ include_once './includes/functions.php';
                 <div class="container position-relative z1000">
                     <div class="row gx-5">
 
-                        <div class="col-lg-4">
-                            <u>
-                                <li><a href="myaccount.php">My Account</a></li>
-                                <li><a href="myorders.php">My Orders</a></li>
-                                <li><a href="logout.php">Logout</a></li>
-                            </u>
-                        </div>
-                        <div class="col-lg-8 offset-lg-2">
+<!--                        <div class="col-lg-4">
+                            
+                        </div>-->
+                        <div class="col-lg-12">
 
+                            
                             <div class="d-sch-table">
                                 <!--<h2 class="wow fadeIn text-center">Login</h2>-->
                                 <h2 class="wow fadeIn text-center" style="font-size: 22px!important;">Welcome!</h2>
@@ -44,10 +41,30 @@ include_once './includes/functions.php';
                                 <p class="lead text-center">
 
                                 </p>
-                                <div class="contact-form">
+                                <div class="contact-form row">
+                                    
+                                <div class="right_user_menu col-lg-4">
+                                    <ul class="right_user_nav">
+                                    <li><a class="mail_call" href="myaccount.php">My Account</a></li>
+                                    <li><a class="mail_call" href="myorders.php">My Orders</a></li>
+                                    <li><a class="mail_call" href="logout.php">Logout</a></li>
+                            </ul>
+                            </div>
                                     <div class="account-info">
                                         <?php
                                         $user_info=$_SESSION['user_info'];
+
+$ordertable_sql = "SELECT bt.*, st.title, st.member_price FROM `bookingtbl` as bt, servicetable as st WHERE bt.`userId` = 163 AND st.id = bt.serviceId ORDER BY bt.`userId` DESC;";
+
+if ($ordertable_res = @mysqli_query($link, $ordertable_sql)) {
+
+    if (@mysqli_num_rows($ordertable_res) > 0) {
+        while ($ordertable_row = @mysqli_fetch_assoc($ordertable_res)) {
+            $orders_array[] = $ordertable_row;
+        }
+    }
+}            
+print_r($orders_array);die;
                                         ?>
     <h1>My Orders</h1>
     <div class="table-responsive">
@@ -62,9 +79,17 @@ include_once './includes/functions.php';
                 </tr>
             </thead>
             <tbody>
+                <?php if(!empty($orders_array) && count($orders_array)): ?>
+                <?php 
+                $i=0;
+                foreach($orders_array as $order_array): ?>
                 <tr>
-                    <td></td>
+                    <td><?php echo ++$i; ?></td>
+                    <td><?php echo $order_array['bt.id']; ?></td>
                 </tr>
+                <?php endforeach;
+                endif;
+                ?>
             </tbody>
             
         </table>
