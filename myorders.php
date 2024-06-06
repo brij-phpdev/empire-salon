@@ -64,7 +64,7 @@ if ($ordertable_res = @mysqli_query($link, $ordertable_sql)) {
         }
     }
 }            
-print_r($orders_array);die;
+//print_r($orders_array);die;
                                         ?>
     <h1>My Orders</h1>
     <div class="table-responsive">
@@ -75,7 +75,8 @@ print_r($orders_array);die;
                     <th>Order Number</th>
                     <th>Service</th>
                     <th>Date</th>
-                    <th>Total</th>
+                    <th>Bill Amount</th>
+                    <th>Amount paid</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,7 +86,11 @@ print_r($orders_array);die;
                 foreach($orders_array as $order_array): ?>
                 <tr>
                     <td><?php echo ++$i; ?></td>
-                    <td><?php echo $order_array['bt.id']; ?></td>
+                    <td><?php echo $order_array['id']; ?></td>
+                    <td><?php echo $order_array['title']; ?></td>
+                    <td><?php echo $order_array['date']; ?></td>
+                    <td><?php echo $order_array['serviceBill']; ?></td>
+                    <td><?php echo $order_array['booking_amount']; ?></td>
                 </tr>
                 <?php endforeach;
                 endif;
