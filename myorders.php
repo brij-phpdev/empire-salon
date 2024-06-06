@@ -13,7 +13,7 @@ include_once './includes/functions.php';
     <section class="page_header d-flex align-items-center">
 		    <div class="container">
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-                   <h3>My Account</h3>
+                   <h3>My Orders</h3>
 <!--                   <h2>Career at Empire</h2>-->
                    
                 </div>
@@ -49,10 +49,26 @@ include_once './includes/functions.php';
                                         <?php
                                         $user_info=$_SESSION['user_info'];
                                         ?>
-    <h1>My Account</h1>
-    <p><strong>Mobile:</strong> <?php echo htmlspecialchars($user_info['phone']); ?></p>
-    <p><strong>Email:</strong> <?php echo htmlspecialchars($user_info['email']); ?></p>
-    <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user_info['fullName']); ?></p>
+    <h1>My Orders</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Serial No</th>
+                    <th>Order Number</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
 </div>
 
 <!-- You can add more account management features here -->
