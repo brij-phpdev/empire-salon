@@ -46,7 +46,7 @@ include_once './includes/functions.php';
                                 <div class="right_user_menu col-lg-4">
                                     <ul class="right_user_nav">
                                     <li><a class="mail_call" href="myaccount.php">My Account</a></li>
-                                    <li><a class="mail_call" href="myorders.php">My Orders</a></li>
+                                    <li class="<?php echo ($_SERVER["REQUEST_URI"]=='/myorders.php') ? 'active' : '' ?>"><a class="mail_call" href="myorders.php">My Orders</a></li>
                                     <li><a class="mail_call" href="logout.php">Logout</a></li>
                             </ul>
                             </div>
