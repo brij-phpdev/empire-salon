@@ -87,9 +87,9 @@ if (isset($_POST['register'])) {
                            $mail->setFrom(EMAIL_USERNAME, SITE_TITLE);
                            $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
                            $mail->addAddress($email, $name);
-                           $mail->AddCC(EMAIL, SITE_TITLE);
-                           $mail->AddCC(ADMIN_EMAIL, 'MB');
-                           $mail->AddCC(PARAS_EMAIL, 'The Royal');
+//                           $mail->AddCC(EMAIL, SITE_TITLE);
+//                           $mail->AddCC(ADMIN_EMAIL, 'MB');
+//                           $mail->AddCC(PARAS_EMAIL, 'The Royal');
                            $mail->Subject = $customer_mail_subject;
                            $mail->Body = $custoomer_mail_message;
                            $mail->msgHTML($custoomer_mail_message);
