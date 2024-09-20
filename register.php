@@ -72,16 +72,7 @@ include_once './includes/functions.php';
                                     <div class="error-mobile-update"></div>
                                 </div>
                             </div>
-                                <div class="form-group row" id="login_link" style="display: none;">
-                                    <div class="col-sm-12">
-                                        <a href="login.php" class="default_btn">Login</a>
-                                    </div>
-                                </div>
-                                <div class="form-group row" id="forgot_link" style="display: none;">
-                                    <div class="col-sm-12">
-                                        <a href="forgot_password.php" class="default_btn">Forgot Password</a>
-                                    </div>
-                                </div>
+                                
                             <div class="form-group">
                                 <p class="sent-otp-fastsms_submit">
                                     <button id="sent-otp-fastsms" class="button btn btn-success" value="Get OTP">Get OTP</button>
@@ -99,7 +90,17 @@ include_once './includes/functions.php';
                                     <a id="verify-otp-fastsms" class="default_btn" value="Verify OTP">Verify OTP</a>
                                 </div>
                             </div>
-                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
+                                <div class="form-group row" id="login_link" style="display: none;">
+                                    <div class="col-sm-12">
+                                        <a href="login.php" class="default_btn">Login</a>
+                                    </div>
+                                </div>
+<!--                                <div class="form-group row" id="forgot_link" style="display: none;">
+                                    <div class="col-sm-12">
+                                        <a href="forgot_password.php" class="default_btn">Forgot Password</a>
+                                    </div>
+                                </div>-->
+                                <input type="hidden" id="csrf_token" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
 
                             </form>
 

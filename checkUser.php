@@ -7,7 +7,7 @@ include_once './includes/database.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
+
     
     if ($_POST['action'] == 'verify_email_otp') {
 

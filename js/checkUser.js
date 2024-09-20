@@ -12,6 +12,7 @@ $('body').on('keyup', '#phone', function (e) {
                 var last_visit = $("#last_visit").val();
                 var name = $("#name").val();
                 var mobile = $("#phone").val();
+                var csrf_token = $("#csrf_token").val();
 //                if (name == '') {
 //                    alert('Kindly enter your name first');
 //                    $("#name").focus();
@@ -41,11 +42,11 @@ $('body').on('keyup', '#phone', function (e) {
                     
                     $.ajax({
                         headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
                         },
                         method: "POST",
                         url: "checkUser.php",
-                        data: {"mobile": mobile, "last_visit": last_visit, "action":"check_user"}
+                        data: {"mobile": mobile, "csrf_token": csrf_token,"last_visit": last_visit, "action":"check_user"}
                     }).done(function (json) {
                         msg = jQuery.parseJSON(json);
                         console.log(msg);
@@ -136,6 +137,7 @@ function verifyMobileOTP() {
     $(".fancy_msg").slideUp();
     var mobile = $("#phone").val();
     var mobile_otp = $(".mobile_sms_input").val();
+    var csrf_token = $("#csrf_token").val();
 //        alert(mobile);
 //        alert(mobile_otp);
     $.ajax({
@@ -145,6 +147,7 @@ function verifyMobileOTP() {
             action: 'verify_mobile_otp',
             mobile: mobile,
             mobile_otp: mobile_otp,
+            csrf_token: csrf_token,
             ajax: true
         },
         beforeSend: function () {
@@ -153,8 +156,8 @@ function verifyMobileOTP() {
         success: function (json)
         {
             var data = jQuery.parseJSON(json);
-            console.log(data);
-            alert(data.success);
+//            console.log(data);
+//            alert(data.success);
 //            $(".waitSpinner").hide();
             if (data.success === true && data.success!==undefined) {
                 $(".error-mobile-update").hide();
