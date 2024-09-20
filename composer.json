@@ -1,0 +1,22 @@
+{
+    "name": "brijrajsingh/barber-shop",
+    "description": "This project is developed for Empire Salon in colaboration with Paras Jain in Agra",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "license": "commercial",
+    "autoload": {
+        "psr-4": {
+            "Brijrajsingh\\BarberShop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "shriradharani",
+            "email": "brij.phpdev@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

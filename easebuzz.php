@@ -1,6 +1,6 @@
 <?php
     // include file
-    include_once './includes/config.php';
+    include_once __DIR__. '/config.php';
     include_once('easebuzz-lib/easebuzz_payment_gateway.php');
 
     /*

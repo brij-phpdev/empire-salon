@@ -1,8 +1,81 @@
 <?php
-
-error_reporting(E_ALL);
-include_once './includes/config.php';
+session_start();
+//error_reporting(E_ALL);
+//include_once 'config.php';
 include_once './includes/database.php';
+
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    
+    if ($_POST['action'] == 'verify_email_otp') {
+
+    $email_otp = $_POST['eowr'];
+
+    $isValidated = false;
+
+    if (isset($email_otp) && isset($email_otp)) {
+
+
+        $db_otp_array = getOTPAgainstEmailInDB($email_otp, $link);
+        if(empty($db_otp_array)){
+            die('invalid token or hack attempt!');
+        }
+//                    print_r($db_otp_array);die;
+        $db_id = $db_otp_array['id'];
+        $db_otp = $db_otp_array['sent_otp'];
+        
+        if ($db_otp == $email_otp) {
+            
+            $verified_time = date('Y-m-d H:i:s');
+            // now update when the details are verified...
+            $updateQuery = 'UPDATE `logintbl` SET ' . " "
+                    . " `verifiedEmail` = '1' "
+                    . " WHERE `id`= '$db_id'";
+//echo $updateQuery;die;
+            $exe = mysqli_query($link, $updateQuery);
+            if ($exe) {
+                $isValidated = true;
+                $msg = "Email verified successfully!";
+                header('location: '.SITE_URL.'/login.php?msg='.$msg.'&type=success');
+                
+            } else {
+                $msg =  "ERROR: Some error occured while OTP Verification. "
+                . mysqli_error($link);
+                
+                header('location: '.SITE_URL.'/login.php?msg='.$msg.'&type=warning');
+            }
+        }
+        
+
+        if (true === $isValidated) {
+
+            // set cookie
+
+            echo
+            json_encode([
+                'success' => true,
+                'message' => 'OTP verified successfully!',
+            ]);
+        } else {
+
+            echo
+            json_encode([
+                'success' => false,
+                'message' => 'Invalid OTP provided!'
+            ]);
+        }
+    }
+}
+
+
+    
+        if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+            die("CSRF token validation failed");
+        }
+     
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,6 +85,45 @@ include_once './includes/database.php';
 $mobile = $_POST['mobile'];
 //var_dump($mobile);die;
 $isValidUser = false;
+
+
+if($_POST['action'] == 'login_attempt'){
+//    print_r($_POST);
+    $mobile = $_POST['mobile'];
+//    $mobile = 'abc@gmail.com';
+    $password = $_POST['password'];
+//    $password = '1234@123';
+    $checkUserLogin = checkAndAllowLogin($mobile, $password, $link);
+//    print_r($checkUserLogin);
+    if(!empty($checkUserLogin)){
+        if(isset($checkUserLogin['status']) && $checkUserLogin['status']==false){
+//            print_r($checkUserLogin);
+            $msg = $checkUserLogin['user_msg'];
+            header('location: '.SITE_URL.'/login.php?msg='.$msg.'&type=warning');
+        }else{
+            //  set session
+            ini_set('session.use_only_cookies', 1); // Prevent session ID from being passed in URLs
+            ini_set('session.cookie_httponly', 1); // Prevent JavaScript access to session cookie
+            ini_set('session.cookie_secure', 1); // Only send the cookie over HTTPS (if your site uses SSL)
+            ini_set('session.use_strict_mode', 1); // Prevent uninitialized session IDs
+
+            $_SESSION['user_info']['devtoken']= $checkUserLogin['devtoken'];
+            $_SESSION['user_info']['phone']= $checkUserLogin['phone'];
+            $_SESSION['user_info']['email']= $checkUserLogin['email'];
+            $_SESSION['user_info']['myname']= $checkUserLogin['myname'];
+            $_SESSION['user_info']['profilepic']= $checkUserLogin['profilepic'];
+            $_SESSION['loggedin'] = true;
+            // Optionally regenerate session ID for security
+            session_regenerate_id(true);
+
+            // Redirect to my account page
+            header("Location: myaccount.php");
+            exit();
+            
+        }
+    }
+    die;
+}
 
 $is_valid_mob = validate_mobile($mobile);
 
@@ -30,7 +142,7 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
     // condition to get OTP on mobile...
 
     $page_id = $_SERVER['HTTP_REFERER'];
-    $last_visit = base64_decode($_POST['last_visit']);
+    $last_visit = @base64_decode($_POST['last_visit']);
 
     // ========================================================
     // check if user is already validated or we need to validate by sending OTP...
@@ -43,6 +155,8 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
     if ($res = mysqli_query($link, $check_user_sql)) {
         if (mysqli_num_rows($res) > 0) {
             while ($row = mysqli_fetch_assoc($res)) {
+                // before sending response .. let us create a session of the user..
+                
                 echo
                 json_encode([
                     'success' => true,
@@ -79,7 +193,7 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2?authorization=" . $api_key . "&variables_values=" . $otp . "&route=otp&numbers=" . urlencode($mobile),
+                CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2?authorization=" . $api_key . "&variables_values=" . $otp . "&route=otp&flash=1&numbers=" . urlencode($mobile),
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -97,6 +211,12 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
             $err = curl_error($curl);
                 
             curl_close($curl);
+ 
+            // check if technical server error..
+            $technical_failure_check = (str_contains($response, ":996"));
+            if($technical_failure_check){
+                echo json_encode(array('return' => false, 'message' => 'Some technical error. Please try again'));die;
+            }
 
             if ($err) {
                 $err = "cURL Error #:" . $err;
@@ -131,7 +251,7 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
 
 
             $obj_response = json_decode($response);
-            //            print_r($obj_response);
+//                        print_r($obj_response);
             $otp_return = $obj_response->return;
             $otp_request_id = $obj_response->request_id;
             $otp_message = $obj_response->message;
@@ -145,7 +265,7 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
                     $api_message .= $err;
                 }
             }
-
+//            print_r($api_message);
             echo json_encode(array('return' => $isSMSSent, 'message' => 'New User: '.$api_message));
 
             // ========================================================
@@ -154,10 +274,6 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
         }
     }
 }
-
-
-
-
 
 
 if ($_POST['action'] == 'verify_mobile_otp') {
@@ -172,13 +288,13 @@ if ($_POST['action'] == 'verify_mobile_otp') {
 //                    print_r($db_otp_array);die;
         $db_id = $db_otp_array['id'];
         $db_otp = $db_otp_array['sent_otp'];
-
+        
         if ($db_otp == $mobile_otp) {
             $isValidated = true;
             $verified_time = date('Y-m-d H:i:s');
             // now update when the details are verified...
             $updateQuery = 'UPDATE `fast2sms_api_log` SET ' . " "
-                    . " `is_verified` = '1' AND `verified_at` = '$verified_time'"
+                    . " `is_verified` = '1' "
                     . " WHERE `id`= '$db_id'";
 
             $exe = mysqli_query($link, $updateQuery);
@@ -190,7 +306,7 @@ if ($_POST['action'] == 'verify_mobile_otp') {
                 . mysqli_error($link);
             }
         }
-
+        
 
         if (true === $isValidated) {
 
@@ -210,6 +326,73 @@ if ($_POST['action'] == 'verify_mobile_otp') {
             ]);
         }
     }
+}
+
+
+
+ }else{
+     die('hack attempt!');
+ }
+
+
+ /**
+  * Associated functions 
+  * @param type $email
+  * @param type $link
+  * @return type
+  */
+ 
+function getOTPAgainstEmailInDB($email_otp, $link) {
+    $query = "SELECT * FROM `logintbl` WHERE `activationCode` = '$email_otp' ORDER BY `id` DESC limit 1;";
+    $returnOTP = array();
+    if ($res = mysqli_query($link, $query)) {
+        if (mysqli_num_rows($res) > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+                $returnOTP['id'] = $row['id'];
+                $returnOTP['sent_otp'] = $row['activationCode'];
+                $returnOTP['email'] = $row['email'];
+            }
+        }
+    }
+    return $returnOTP;
+}
+
+function checkAndAllowLogin($email_or_phone, $password, $link) {
+//    $hashpassword = password_hash($password, PASSWORD_BCRYPT);
+    $query = "SELECT * FROM `logintbl` WHERE `email` = '$email_or_phone' or `phone` = '$email_or_phone' ORDER BY `id` DESC limit 1;";
+    $returnOTP = array();
+    if ($res = mysqli_query($link, $query)) {
+        if (mysqli_num_rows($res) > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+                
+                if($row['verifiedEmail']==0){
+                    $returnOTP['user_msg'] = 'not verified';
+                    $returnOTP['status'] = false;
+                }else{
+
+                    $hashpassword = $row['password'];
+                    if(password_verify($password, $hashpassword)){
+                        $returnOTP['devtoken'] = base64_encode(base64_encode($row['id']));
+                        $returnOTP['phone'] = $row['phone'];
+                        $returnOTP['email'] = $row['email'];
+                        $returnOTP['myname'] = $row['fullName'];
+                        $returnOTP['profilepic'] = $row['photoURL'];
+                    }else{
+                        $returnOTP['user_msg'] = 'incorrect user or password';
+                        $returnOTP['status'] = false;
+                    }
+                }
+            }
+        }else{
+            $returnOTP['user_msg'] = 'No user exists. Kindly register';
+            $returnOTP['status'] = false; 
+        }
+    }else{
+        $returnOTP['user_msg'] = 'Not a registered user';
+        $returnOTP['status'] = false;
+    }
+
+    return $returnOTP;
 }
 
 function getOTPAgainstMobileInDB($mobile, $link) {

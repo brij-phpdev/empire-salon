@@ -56,20 +56,19 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
 
             <div class="contact-form">
 
-                <?php if (isset($_GET['msg'])): ?>
-                    <div class="row">
+                <?php if(!empty($_GET)): ?>
+                                        <div class="row">
                         <div class="col-12 mb-20">
-                            <div class="padding-10 bg-grey text-<?php echo isset($_GET['type']) ? $_GET['type'] : 'success' ?>">
+                            <div class="padding-10 bg-grey text-<?php echo $_GET['type']?>">
                                 <script type="text/javascript">
                                     alert("<?php echo isset($_GET['msg']) ? $_GET['msg'] : '' ?>");
                                 </script>
-                                <?php echo isset($_GET['msg']) ? $_GET['msg'] : '' ?>
-                            </div>
+                                            <?php echo isset($_GET['msg']) ? htmlentities($_GET['msg']) : '' ?>
+                                        </div>
                         </div>
                     </div>
-                    <hr/>
-                <?php endif; ?>
-
+                                    <?php endif; ?>
+                
                 <form name="bookForm" id="ajax_form_1" class="form-horizontal" method="post" action="booking_post.php">
 
 

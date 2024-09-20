@@ -2361,3 +2361,4 @@ ul.right_user_nav li {padding: 5px;border-bottom: #9e8a78 1px dashed;}
 ul.right_user_nav li a{background-color: white; color:#888}
 .right_user_nav li.active{background-color: #9e8a78; color: #ffffff; font-weight: bold;}
 .right_user_nav li.active a{background-color: #9e8a78; color: #ffffff;}
+#register_button, #pwd_cont, #name_cont, #email_cont{display: none;}

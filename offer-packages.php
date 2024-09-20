@@ -68,16 +68,16 @@ if(!empty($package_array)):
                         <?php 
                         $i=1;
                         foreach($package_services as $package_service):
-                            
+
 //                                 echo $package_service['offer_img_front'];
                         
                         // check if coupon is expirin or not..
                         $today = date('Y-m-d');
                         $start_date = $package_service['starts_at'];
-                        $start_date = date('Y-m-d', strtotime($start_date));
+                        $start_date = @date('Y-m-d', strtotime($start_date));
                         
                         $end_date = $package_service['expires_at'];
-                        $end_date = date('Y-m-d', strtotime($end_date));
+                        $end_date = @date('Y-m-d', strtotime($end_date));
                         
                         if (($start_date <= $today) && ($end_date >= $today)){
                             // than only show because the offer has expired.
@@ -119,15 +119,12 @@ if(!empty($package_array)):
             </div>
             <?php 
             endforeach;
-            endif; ?>
+            else: ?>
+        <p>No Offers running right now.</p>
+            
+            <?php endif; ?>
             
                         
-                        
-                        
-                        
-                        
-                        
-                       
                         
                     </div>
                 </div>

@@ -1,8 +1,8 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors',1);
-include_once './includes/config.php';
+@session_start();
+//error_reporting(E_ALL);
+//ini_set('display_errors',1);
+include_once __DIR__.'/config.php';
 include_once './includes/database.php';
 include_once './includes/function.php';
 //print_r($_POST);
@@ -38,21 +38,40 @@ if (DEBUG == TRUE) {
 
     exit;
 } else {
+    
+    //validate if any service is selected..
+    if(!empty($_SESSION['cart_item'])):
+//        echo "<pre>";
+//            print_r($_SESSION['cart_item']);
+            
+            // extract service ids
+            $serviceIds = array_column($_SESSION['cart_item'], 'id');
+//            print_r($serviceIds);
 
+//        print_r($_POST);
+//        echo "</pre>";
+    else:
+        header('location: book.php?type=warning&msg=no service selected yet!');
+    endif;
+    
+
+//die;
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
     $phone = trim($_POST['phone']);
-    $couponId = base64_decode(trim($_POST['couponId']));
-    $serviceIds = $_POST['serviceId'];
-    $serviceId = base64_decode($serviceIds[0]);
-    $other_services = serialize($_POST['serviceId']);
+    $couponId = !empty($_POST['couponId']) ? base64_decode(trim($_POST['couponId'])) : '';
+//    $serviceIds = $_POST['serviceId'];
+//    $serviceId = base64_decode($serviceIds[0]);
+    $serviceId = ($serviceIds[0]);
+//    $other_services = serialize($_POST['serviceId']);
+    $other_services = serialize($serviceIds);
     //$agentId = trim($_POST['agentId']);
     $agentId = 0;
     $adults = trim($_POST['serviceAdult']);
     $childrens = trim($_POST['serviceChildren']);
     $date = date('m-d-Y', strtotime(trim($_POST['date'])));
     $timing = isset($_POST['select_time']) ? trim($_POST['select_time']) : '10:00 AM' ;
-    $message = trim($_POST['message']);
+    $message = !empty($_POST['message']) ? trim($_POST['message']) : '';
     
     $paymentStatus = '0';
     $orderId = '';
@@ -64,13 +83,17 @@ if (DEBUG == TRUE) {
 //    print_r($_POST);
 //    echo "</pre>";
 //    die;
+//    print_r($serviceId);
+//    print_r($serviceIds);
+//    print_r($other_services);
+    
     $total_amount_to_be_paid = getServicesAndTotalAmount($other_services, $link, true);
     $serviceBill = $total_amount_to_be_paid;
     $packageName = trim($_POST['packageName']);
 //echo $total_amount_to_be_paid;die;
     //
 }
-
+//die('asdsad');
 //
 //$name = 'client1';
 //$email = 'client1@mail.com';
@@ -85,25 +108,28 @@ if ($res = mysqli_query($link, $check_user_sql)) {
         while ($row = mysqli_fetch_assoc($res)) {
             $userId = $row['id'];
         }
-    } else {
-        // insert 
-
-        $userPwd = generatePassword();
-        $userLoginPwd = md5($userPwd);
-        $insert_user_sql = "INSERT INTO `logintbl` (`id`,`fullName`,`email`,`password`,`verifiedEmail`,`image`,`photoURL`,"
-                . "`role`,`phone`,`gender`,`bookingId`,`activated`,`google`,`facebook`,`privacy`,`register_date`)  "
-                . "VALUES (NULL,'$name','$email','$userLoginPwd',0,'','',"
-                . "'0','$phone','','0','0','0','0','0','$upload_date') ";
-
-        $exe = mysqli_query($link, $insert_user_sql);
-        if ($exe) {
-
-            $userId = mysqli_insert_id($link);
-        } else {
-            echo "ERROR: Some error occured while registering user. "
-            . mysqli_error($link);
-        }
+//    } else {
+//        // insert 
+//
+//        $userPwd = generatePassword();
+//        $userLoginPwd = md5($userPwd);
+//        $insert_user_sql = "INSERT INTO `logintbl` (`id`,`fullName`,`email`,`password`,`verifiedEmail`,`image`,`photoURL`,"
+//                . "`role`,`phone`,`gender`,`bookingId`,`activated`,`google`,`facebook`,`privacy`,`register_date`)  "
+//                . "VALUES (NULL,'$name','$email','$userLoginPwd',0,'','',"
+//                . "'0','$phone','','0','0','0','0','0','$upload_date') ";
+////echo $insert_user_sql;die;
+//        $exe = mysqli_query($link, $insert_user_sql);
+//        if ($exe) {
+//
+//            $userId = mysqli_insert_id($link);
+//        } else {
+//            echo "ERROR: Some error occured while registering user. "
+//            . mysqli_error($link);
+//        }
     }
+}else{
+    header('location: login.php?type=warning&msg=not a registered user');
+    die;
 }
 //var_dump($userId);die;
 mysqli_free_result($res);
@@ -112,7 +138,7 @@ mysqli_free_result($res);
 $insert_booking_sql = "INSERT INTO `bookingtbl` "
         . "(`id`,`serviceId`,`other_services`,`agentId`,`adults`,`childrens`,`date`,`timing`,`message`,`serviceBill`,`booking_amount`,`paymentStatus`,"
         . "`orderId`,`serviceStatus`,`couponId`,`userId`,`upload_date`) "
-        . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','".base64_decode($amount)."','$paymentStatus',"
+        . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','". base64_decode(base64_decode($amount))."','$paymentStatus',"
         . "'$orderId','$serviceStatus','$couponId','$userId','$upload_date') "
         . " ";
 //echo $insert_booking_sql;die;
@@ -206,7 +232,7 @@ Team Empire Salon
     $mail->Port = EMAIL_PORT;
     $mail->SMTPAuth = true;
     $mail->Username = EMAIL_USERNAME;
-    $mail->Password = EMAIL_PASSOWRD;
+    $mail->Password = EMAIL_PASSWORD;
     $mail->setFrom(EMAIL_USERNAME, SITE_TITLE);
     $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
     $mail->addAddress($email, $name);

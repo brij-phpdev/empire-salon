@@ -1,5 +1,5 @@
 <?php
-include_once './includes/config.php';
+include_once __DIR__.'/config.php';
 
 $_lastUrl=$_SERVER['REQUEST_URI'];
 if(empty($_lastUrl))
@@ -33,7 +33,7 @@ if(empty($_lastUrl))
 
                             <div class="form-field">
                                 <label for="amount">Amount<sup>(should be float)*</sup></label>
-                                <input id="amount" class="amount" name="amount" value="<?php echo number_format( (float)base64_decode($_GET['rnAmt']) ,2, '.', ''); ?>">
+                                <input id="amount" class="amount" name="amount" value="<?php echo number_format( (float)base64_decode(base64_decode($_GET['rnAmt'])) ,2, '.', ''); ?>">
                             </div>  
 
                             <div class="form-field">
@@ -158,7 +158,10 @@ if(empty($_lastUrl))
                     </div>
                 </form>
             </div>
-            
+            <?php
+//            print_r($_GET);
+//            die;
+            ?>
         </div>
         <script type="text/javascript">
     document.getElementById('initiate_payment').submit(); // SUBMIT FORM

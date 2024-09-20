@@ -54,16 +54,22 @@ $('body').on('keyup', '#phone', function (e) {
                             var user_details = msg.user_details;
                             $('.success-mobile-update').addClass('text-success').html( msg.message);
                             // means user already exists..
+//                            alert(' means user already exists..');
 //                            alert(msg.message);
                             // now set variable
-                            $("#name").val(user_details.fullName);
-                            $("#email").val(user_details.email);
-                            $("#unique_id").val(user_details.unique_id);
+//                            $("#email").val(user_details.email);
+                            $("#register_button").hide();
+                            $("#email").hide();
+                            $("#name").hide();
+//                            $("#unique_id").val(user_details.unique_id);
+                            $("#forgot_link").show();
+                            $("#login_link").show();
 //                            alert(msg.message);
 
                         }else if (msg.return === true) {
                             // open OTP 
                             console.log('i m herer');
+//                            alert(' send OTP');
                             $(".mobile_sms_otp").show();
                             $('.success-mobile-update').addClass('text-success').html( msg.message);
                             $("#verify-otp-fastsms").show();
@@ -103,7 +109,7 @@ function getCoupons(){
                 var coupon_details = msg.coupon_details;
                 $('.success-mobile-update').addClass('text-success').html(msg.status + '! ' + msg.msg);
                 // means user already exists..
-                alert(msg.msg);
+//                alert(msg.msg);
                 
                 // now set variable
                 $("#coupons_data").html(msg.coupon_details);
@@ -158,6 +164,10 @@ function verifyMobileOTP() {
                 $(".mobile_sms_input").hide();
                 $(".mobile_sms_input").hide();
                 $("#verify-otp-fastsms").hide();
+                $("#register_button").show();
+                $("#email_cont").show();
+                $("#name_cont").show();
+                $("#pwd_cont").show();
 //                alert('we are here');
 //                $(".fancy_msg").text(data.message+'. Redirecting in 3 seconds');
                 return false;

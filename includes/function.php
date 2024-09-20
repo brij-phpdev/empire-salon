@@ -9,14 +9,16 @@ function getServicesAndTotalAmount($other_services, $link, $only_amount = false)
     $services_amount_list = array();
 
     $other_services_array = unserialize($other_services);
+    
     $service_str = '';
     foreach ($other_services_array as $other_services_arr):
         if(!empty($other_services_arr))
-        $service_str .= (base64_decode($other_services_arr)) . ",";
+//        $service_str .= (base64_decode($other_services_arr)) . ",";
+        $service_str .= ($other_services_arr) . ",";
     endforeach;
 
     $service_str = substr($service_str, 0, -1);
-    print_r($service_str);die;
+//    print_r($service_str);die;
     if(!empty($service_str)){
     $service_amount_qry = "SELECT title, service_id, service_code, price, member_price FROM `servicetable` WHERE `id` IN ($service_str) ORDER BY `id` DESC";
 //    echo $service_amount_qry;die;

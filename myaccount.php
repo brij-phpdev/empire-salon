@@ -58,7 +58,7 @@ include_once './includes/functions.php';
     <h3>My Account</h3>
     <p><strong>Mobile:</strong> <?php echo htmlspecialchars($user_info['phone']); ?></p>
     <p><strong>Email:</strong> <?php echo htmlspecialchars($user_info['email']); ?></p>
-    <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user_info['fullName']); ?></p>
+    <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user_info['myname']); ?></p>
 </div>
 
 <!-- You can add more account management features here -->

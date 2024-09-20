@@ -1,6 +1,6 @@
 <?php
-session_start();
-include_once './includes/config.php';
+@session_start();
+include_once (__DIR__).'/config.php';
 include_once './includes/database.php';
 
 if (isset($_SESSION["cart_item"])) {
@@ -92,8 +92,8 @@ if (isset($_SESSION["cart_item"])) {
             <table class="table-bordered table table-striped tbl-cart" cellpadding="10" cellspacing="1">
                 <tr><td><small>Please pay a token amount to <i><u>secure your slot</u></i>: </small></td><td class="align-right"><?php echo CURRENCY . " " . number_format($price_to_pay, 2); ?></td></tr>
             </table>
-            <input type="hidden" name="serviceId[]" value="<?php echo $_GET['packageId'] ?>" />
-            <input type="hidden" name="rnId" value="<?php echo base64_encode($price_to_pay) ?>" />
+            <input type="hidden" name="serviceId[]" value="<?php echo $_GET['packageId'] ?? '' ?>" />
+            <input type="hidden" name="rnId" value="<?php echo base64_encode(base64_encode($price_to_pay)) ?>" />
             <?php if(isset($_SESSION['cart_item']) && !empty($_SESSION['cart_item'])): ?>
             <input type="hidden" name="packageName" value="<?php echo !empty($_SESSION['cart_item'][0]['title']) ? $_SESSION['cart_item'][0]['title'] : $cartPackageName; ?>" />
             <?php else: ?>

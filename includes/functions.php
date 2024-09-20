@@ -1,9 +1,10 @@
 <?php
+//error_reporting(E_ALL);
+include_once 'database.php';
 
-include_once './database.php';
-
-require 'vendor/autoload.php';
-use PHPMailer;
+//require '../vendor/autoload.php';
+////use PHPMailer;
+//use PHPMailer\PHPMailer\PHPMailer;
 
 $experience_months = range(0, 12);
 $experience_years = range(0, 25);

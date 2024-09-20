@@ -205,15 +205,21 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                     if($_SESSION['user_info']):
                     ?>
                     <div class="form-group row">
-                        <div id='name_error' class='error'>Your name.</div>
+                        <div  class='error'>Your name.</div>
                             <div class="mb25">
-                                <input type='text' readonly="readonly" name='name' id='name' value="<?php echo $_SESSION['user_info']['fullName'] ?>" class="form-control" placeholder="Your Name" required>
+                                <input type='text' readonly="readonly" name='name' id='name' value="<?php echo $_SESSION['user_info']['myname'] ?>" class="form-control" placeholder="Your Name" required>
                             </div>
                     </div>
                     <div class="form-group row">
-                        <div id='name_error' class='error'>Your name.</div>
+                        <div class='error'>Your name.</div>
                             <div class="mb25">
                                 <input type='text' readonly="readonly" name='phone' id='phone' value="<?php echo $_SESSION['user_info']['phone'] ?>" class="form-control" placeholder="Your Name" required>
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class='error'>Your name.</div>
+                            <div class="mb25">
+                                <input type='text' readonly="readonly" name='email' id='email' value="<?php echo $_SESSION['user_info']['email'] ?>" class="form-control" placeholder="Your Email" required>
                             </div>
                     </div>
                         <?php else: ?>

@@ -3,7 +3,7 @@
 //ini_set('display_errors', 1);
 
 
-require('./config.php');
+require(dirname(__DIR__).'/config.php');
 require('./database.php');
 include_once ('./function.php');
 

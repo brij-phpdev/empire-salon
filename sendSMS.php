@@ -1,14 +1,11 @@
 <?php
 include_once './includes/config.php';
 include_once './includes/database.php';
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+
 
         $mobile = $_POST['mobile'];
         $api_key = FAST2SMS_API_KEY;
-        echo $mobile;die;
+//        echo $mobile;die;
         $isSMSSent = false;
         if (isset($mobile) && isset($api_key)) {
             
@@ -58,6 +55,12 @@ include_once './includes/database.php';
                 $err = curl_error($curl);
 
                 curl_close($curl);
+
+                // check if technical server error..
+                $technical_failure_check = (str_contains($response, ":996"));
+                if($technical_failure_check){
+                    echo json_encode(array('return' => false, 'message' => 'Some technical error. Please try again'));die;
+                }
 
                 if ($err) {
                   $err = "cURL Error #:" . $err;

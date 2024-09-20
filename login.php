@@ -13,7 +13,6 @@ include_once './includes/functions.php';
 		    <div class="container">
 		        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
                    <h3>Login</h3>
-<!--                   <h2>Career at Empire</h2>-->
                    
                 </div>
 		    </div>
@@ -25,6 +24,7 @@ include_once './includes/functions.php';
                 <div class="de-gradient-edge-top"></div>
                 
                 <div class="container position-relative z1000">
+                    
                     <div class="row gx-5">
 
                         <div class="col-lg-8 offset-lg-2">
@@ -32,63 +32,55 @@ include_once './includes/functions.php';
                             <div class="d-sch-table">
                                 <!--<h2 class="wow fadeIn text-center">Login</h2>-->
                                 <h2 class="wow fadeIn text-center" style="font-size: 22px!important;">
-                                    Enter your registered credentials to unlock offers</h2>
+                                    Login to unlock offers</h2>
                                 <div class="de-separator"></div>
                                 <p class="lead text-center">
-
+                                    
                                 </p>
                                 <div class="contact-form">
-                                    <form name="jobForm" id="ajax_form_1" class="form-border form-horizontal position-relative z1000" method="post" action="">
-                                        
-<!--                                        <div class="form-group row">
-                                            <div class="col-md-12">
-                                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
-                                            </div>
-                                            <br/>
-                                            <span class="text-center">Or</span>
-                                            <br/>
-                                        </div>-->
-                                        
-<!--                                    <div class="form-group row">
-                                    <div class="col-md-12">
-                                                <input type='text' name='name' id='name' class="form-control" placeholder="Your Name" required="">
-                                            </div>
-                                        </div>-->
-                                        <div class="form-group row">
-                                    <div class="col-md-12">
-                                                <input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                    <div class="col-md-12">
-                                                <input type="password" name="password" id="password" class="form-control" placeholder="Your Password" required>
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                   
-                                    <!--<div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY ?>"></div>-->
-                                    <div id='submit' class="mt-5">
-                                        <input type='submit' id='send_message' value='Login' class="default_btn">
-                                    </div>
                                     
-                                    <input type="hidden" name="ps_str_task" value="<?php echo $ps_str_task ?>" />
+                                    <?php if(!empty($_GET)): ?>
+                                        <div class="row mb-20">
+                                        <div class="col-12 text-<?php echo $_GET['type']?>">
+                                            <?php echo htmlentities($_GET['msg']) ?>
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <form method="post" action="checkUser.php">
+       
 
-                                    <div id="success_message" class='success'>
-                                        Job application submitted successfully. Refresh this page if you want to send more messages.
-                                    </div>
-                                    <div id="error_message" class='error'>
-                                        Sorry there was an error sending your form.
-                                    </div>
-                                    
-                                    <div class="form-group row">
-                                <div id="form-messages" class="alert" role="alert"></div>
+                                    <div class="col-lg-12">
+                            <div id='phone_error' class='error'>Please enter your email/phone number.</div>
+                            <div class="mb25">
+                                <input type='text' name='mobile' id='email_or_phone' class="form-control" placeholder="email/phone number" required>
                             </div>
-                                    
-                                </form>
+
                                 </div>
-                                <div class="d-deco"></div>
+                                    <div class="col-lg-12">
+                            <div id='mypassword_error' class='error'>Please enter your password.</div>
+                            <div class="mb25">
+                                <input type='password' name='password' id='mypassword' class="form-control" placeholder="enter your password" required>
                             </div>
+
+                                </div>
+                                        <div class="row">
+                                    <div class="col-lg-6">
+                            
+                            <div class="mb25">
+                                 <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
+                                 <input type="hidden" name="action" value="login_attempt" />
+                                <input type="submit" class="default_btn" name="login" value="Login">
+                            </div>
+
+                                </div>
+                                            <div class="col-lg-6" style="float: right;">
+                                                <small>Not a registered User? Register Now</small> <a class="mail_call" href="register.php" >Register</a>
+                                </div>
+                                        </div>
+                                <div class="d-deco"></div>
+                                </form>
+                            </div>
+                                
                             </div>
                     </div>
                 </div>
