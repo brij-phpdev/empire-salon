@@ -58,10 +58,10 @@
                         <div class="footer_widget">
                             <h3>Opening Hours</h3>
                             <ul class="opening_time mt-5">
-                                <li>Monday - Friday <br/>11:30am - 2:008pm</li>
-                                <li>Saturday – Monday:<br/> 9am – 8pm</li>
+                                <li>Monday - Sunday:<br/>10:30am to 7:30pm</li>
+<!--                                <li>Saturday – Monday:<br/> 9am – 8pm</li>
                                 <li>Monday - Friday<br/> 5:30am - 11:008pm</li>
-                                <li>Saturday - Sunday <br/>4:30am - 1:00pm</li>
+                                <li>Saturday - Sunday <br/>4:30am - 1:00pm</li>-->
                             </ul>
                         </div>
                     </div>
