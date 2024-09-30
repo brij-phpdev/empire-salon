@@ -64,7 +64,7 @@ include_once './includes/functions.php';
 
                                 </div>
                                         <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                             
                             <div class="mb25">
                                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
@@ -73,7 +73,9 @@ include_once './includes/functions.php';
                             </div>
 
                                 </div>
-                                            <div class="col-lg-6" style="float: right;">
+                                       </div>
+                                        <div class="row">      
+                                            <div class="col-lg-12" style="float: right;">
                                                 <small>Not a registered User? Register Now</small> <a class="default_btn" href="register.php" >Register</a>
                                 </div>
                                         </div>
