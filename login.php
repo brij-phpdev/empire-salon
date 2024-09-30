@@ -74,7 +74,7 @@ include_once './includes/functions.php';
                                 </div>
                                        
                                             <div class="col-lg-12">
-                                                <span style="float: right;"><small>Not a registered User? Register Now</small> <a class="default_btn" style="background-color: gray!important" href="register.php" >Register</a></span>
+                                                <span style="float: right;"><small>Not a registered User? Register Now</small> <a style="background-color: gray!important" class="default_btn" href="register.php" >Register</a></span>
                                 </div>
                                     </div>
                                 <div class="d-deco"></div>
