@@ -62,8 +62,7 @@ include_once './includes/functions.php';
                                 <input type='password' name='password' id='mypassword' class="form-control" placeholder="enter your password" required>
                             </div>
 
-                                </div>
-                                        <div class="row">
+                                
                                     <div class="col-lg-12">
                             
                             <div class="mb25">
@@ -73,12 +72,11 @@ include_once './includes/functions.php';
                             </div>
 
                                 </div>
-                                       </div>
-                                        <div class="row">      
-                                            <div class="col-lg-12" style="float: right;">
-                                                <small>Not a registered User? Register Now</small> <a class="default_btn" href="register.php" >Register</a>
+                                       
+                                            <div class="col-lg-12">
+                                                <span style="float: right;"><small>Not a registered User? Register Now</small> <a style="color: gray" href="register.php" >Register</a></span>
                                 </div>
-                                        </div>
+                                    </div>
                                 <div class="d-deco"></div>
                                 </form>
                             </div>
