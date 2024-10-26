@@ -17,7 +17,7 @@ if (isset($_POST['register'])) {
         }
 
     $phone = $_POST['phone'];
-    $email = $_POST['email'];
+    $email = filter_var(urldecode($_POST['email']), FILTER_SANITIZE_EMAIL);
     $name = $_POST['name'];
     $password = $_POST['password'] ? $_POST['password'] : 'demo@1234';
 

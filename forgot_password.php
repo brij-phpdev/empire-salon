@@ -6,8 +6,8 @@ include_once './includes/functions.php';
 
 <style>
     .sent-otp-fastsms_submit, .mobile_otp_input {
-    display: block;
-}
+        display: block;
+    }
 </style>
 <!-- content begin -->
 <div class="no-bottom no-top" id="content">
@@ -37,45 +37,51 @@ include_once './includes/functions.php';
                         <h2 class="wow fadeIn text-center" style="font-size: 22px!important;">
                             Forgot Password</h2>
                         <div class="de-separator"></div>
-                        <p class="lead text-center">
-
-                        </p>
                         <div class="contact-form">
-                            
-                            <form class="form-border form-horizontal position-relative z1000" method="post" action="#">
-                                
-                                <div class="form-group row">
-                                
-                                <div class="col-sm-12">
-                                    <input type="text" class="mobile_otp_input form-control" value="" placeholder="Mobile Number" name="mobile_otp" id="mobile_otp">
-                                    <div class="success-mobile-update"></div>
-                                    <div class="error-mobile-update"></div>
-                                </div>
-                            </div>
-                                
-                                    
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                <p class="sent-otp-fastsms_submit">
-                                    <a id="sent-otp-fastsms" class="default_btn" value="Get OTP">Get OTP</a>
-                                </p>
-                                </div>
-                            </div>
-
-                            <div class="mobile_sms_otp">
-                                <div class="form-group row">
-                                    <!--<label for="mobile_sms" class="col-sm-4 hidden control-label" id="mobile_sms" >Enter OTP: </label>-->
-                                    <div class="col-sm-8">
-                                        <input type="text" class="mobile_sms_input form-control" placeholder="Enter OTP" value="" name="mobile_sms" id="mobile_sms">                           
+                            <p class="lead text-center">
+                                <?php if (!empty($_GET)): ?>
+                                <div class="row mb-20">
+                                    <div class="col-12 text-<?php echo $_GET['type'] ?>">
+                                        <?php echo htmlentities($_GET['msg']) ?>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <a id="verify-otp-fastsms" class="default_btn" value="Verify OTP">Verify OTP</a>
+                            <?php endif; ?>
+                            </p>
+
+                            <form action="send_reset_link.php" method="POST">
+                                <div class="form-group row">
+
+                                    <div class="col-12">
+                                        <!--        <label for="email">Enter your email:</label>-->
+                                        <input type="email" id="email" class="form-control" placeholder="Enter your email" name="email" required>
+                                    </div>
                                 </div>
-                            </div>    
+                                <div class="form-group row">
 
-
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="default_btn" >Send Reset Link</button>
+                                    </div>
+                                </div>
                             </form>
+
+                            
+
+                            <div style="display: none;">
+                                <h3 class="align-center">OR</h3>
+                            <form action="send_otp.php" method="POST">
+                                <!--<label for="phone">Enter your phone number:</label>-->
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <input class="form-control" placeholder="Enter your phone number" type="text" id="phone" name="phone" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="default_btn" >Send OTP</button>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
 
                         </div>
 

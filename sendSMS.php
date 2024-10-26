@@ -195,7 +195,7 @@ include_once './includes/database.php';
             'FROM `fast2sms_api_log` fal ' .
             'WHERE  fal.`mobile` = \'' . $mobile . '\''
                 . ' ORDER BY fal.id DESC limit 1';
-        echo $query;die;
+//        echo $query;die;
         
             if ($res = mysqli_query($link, $query)) {
                 if (mysqli_num_rows($res) > 0) {

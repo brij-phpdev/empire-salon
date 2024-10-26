@@ -72,9 +72,12 @@ include_once './includes/functions.php';
                             </div>
 
                                 </div>
-                                       
-                                            <div class="col-lg-12">
+                            <div class="row">
+                            <div class="col-lg-4">
+                                <a style="background-color: gray!important;overflow: visible;" class="default_btn" href="forgot_password.php" >Forgot Password</a></div>
+                                            <div class="col-lg-8">
                                                 <div style="float: right;">Not a registered User? Register Now &nbsp;<a style="background-color: gray!important;overflow: visible;" class="default_btn" href="register.php" >Register</a></div>
+                                </div>
                                 </div>
                                     </div>
                                 <div class="d-deco"></div>
