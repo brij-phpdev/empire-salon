@@ -82,8 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                            $mail->msgHTML($custoomer_mail_message);
 //                               $mail->SMTPDebug = 2;
                            $customer_mail_sent = $mail->send();
-                           echo $custoomer_mail_message;
-                           var_dump($customer_mail_sent);die;
+//                           echo $custoomer_mail_message;
+//                           var_dump($customer_mail_sent);die;
                            if ($customer_mail_sent) {
                                // Transfer the value 'sent' to ajax function for showing success message.
                                http_response_code(200);
