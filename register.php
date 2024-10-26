@@ -41,7 +41,14 @@ include_once './includes/functions.php';
                             <form class="form-border form-horizontal position-relative z1000" method="post" action="includes/register.php">
                                 <div class="form-group row">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" id="phone" name="phone" min="10" max="10" placeholder="Enter Phone Number without 0" required="required">
+                                        <input type="text" class="form-control" id="phone" name="phone" 
+                                            pattern="^\d{10}$" 
+                                            placeholder="Enter Phone Number without 0" 
+                                            required 
+                                            maxlength="10" 
+                                            title="Please enter a 10-digit phone number without any spaces or special characters" 
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
                                     </div>
                                 </div>
                                 <div class="form-group row" id="email_cont">
