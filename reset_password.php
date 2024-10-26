@@ -84,7 +84,7 @@ include_once './includes/header.php';
 
                                     <div class="col-12">
                                         <!--        <label for="email">Enter your email:</label>-->
-                                        <input type="email" id="email" class="form-control" placeholder="New Password" name="new_password" required>
+                                        <input type="password" id="password" class="form-control" placeholder="New Password" name="new_password" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
