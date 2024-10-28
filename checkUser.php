@@ -366,7 +366,7 @@ function checkAndAllowLogin($email_or_phone, $password, $link) {
             while ($row = mysqli_fetch_assoc($res)) {
                 
                 if($row['verifiedEmail']==0){
-                    $returnOTP['user_msg'] = 'not verified';
+                    $returnOTP['user_msg'] = 'Your account is not verified. Please check your email for a verification link to activate your account.';
                     $returnOTP['status'] = false;
                 }else{
 
