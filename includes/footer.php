@@ -39,17 +39,17 @@
                             <img class="mb-15" src="img/logo.png" class="footer_logo" alt="Brand">
                             <p class="text-justify">With a legacy since 1928, Empire Salon, Agra, is your go-to for timeless beauty. Experience our exceptional services to emerge as your best self. Contact us now for a pampering transformation!</p>
                             <ul class="widget_social">
-                                <li><a href="<?php echo FB_SOCIAL ?>"><i class="social_facebook"></i></a></li>
+                                <li><a target="_blank" href="<?php echo FB_SOCIAL ?>"><i class="social_facebook"></i></a></li>
                                 <!--<li><a href="#"><i class="social_twitter"></i></a></li>-->
-                                <li><a href="<?php echo YOUTUBE_SOCIAL ?>"><i class="social_youtube"></i></a></li>
-                                <li><a href="<?php echo INSTA_SOCIAL ?>"><i class="social_instagram"></i></a></li>
+                                <li><a target="_blank" href="<?php echo YOUTUBE_SOCIAL ?>"><i class="social_youtube"></i></a></li>
+                                <li><a target="_blank" href="<?php echo INSTA_SOCIAL ?>"><i class="social_instagram"></i></a></li>
                                 <!--<li><a href="#"><i class="social_linkedin"></i></a></li>-->
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 sm-padding">
                         <div class="footer_widget">
-                            <h3>Headquater</h3>
+                            <h3>Headquarter</h3>
                             <p class="text-justify mt-5"><?php echo html_entity_decode(ADDRESS) ?></p>
                             <p><a class="mail_call" href="mailto:<?php echo EMAIL ?>"><?php echo EMAIL ?></a> <br><a class="mail_call" href="tel:<?php echo PHONE ?>"><?php echo PHONE ?></a></p>
                         </div>
@@ -58,9 +58,10 @@
                         <div class="footer_widget">
                             <h3>Opening Hours</h3>
                             <ul class="opening_time mt-5">
-                                <li>Monday - Sunday:<br/>10:30am to 7:30pm</li>
-<!--                                <li>Saturday – Monday:<br/> 9am – 8pm</li>
-                                <li>Monday - Friday<br/> 5:30am - 11:008pm</li>
+                                <li>Monday:<br/>10:30am to 7:30pm<br/></li>
+                                <li class="mail_call">Tuesday: Off<br/></li>
+                                <li>Wednesday - Sunday:<br/>10:30am to 7:30pm</li>
+<!--                                <li>Monday - Friday<br/> 5:30am - 11:008pm</li>
                                 <li>Saturday - Sunday <br/>4:30am - 1:00pm</li>-->
                             </ul>
                         </div>
