@@ -58,41 +58,53 @@
                         <div class="footer_widget">
                             <h3>Opening Hours</h3>
                             <?php
-                                // Define opening times
+                                // Define opening times for each day
                                 $opening_times = [
-                                    'Monday' => '10:30am to 7:30pm',
-                                    'Tuesday' => 'Off',
+                                    'Monday'    => '10:30am to 7:30pm',
+                                    'Tuesday'   => 'Off',
                                     'Wednesday' => '10:30am to 7:30pm',
-                                    'Thursday' => '10:30am to 7:30pm',
-                                    'Friday' => '10:30am to 7:30pm',
-                                    'Saturday' => '10:30am to 7:30pm',
-                                    'Sunday' => '10:30am to 7:30pm'
+                                    'Thursday'  => '10:30am to 7:30pm',
+                                    'Friday'    => '10:30am to 7:30pm',
+                                    'Saturday'  => '10:30am to 7:30pm',
+                                    'Sunday'    => '10:30am to 7:30pm',
                                 ];
 
-                                // Get the current day of the week (0 = Sunday, 6 = Saturday)
+                                // Get the current day of the week (e.g., "Friday")
                                 $current_day = date('l');
 
-                                // Reorder the days array, placing the current day first
+                                // Reorder the days so that the current day comes first
                                 $days_of_week = array_keys($opening_times);
+
+                                // Move the current day to the top of the list
                                 $days_of_week = array_merge(
-                                    array_diff($days_of_week, [$current_day]), // Remove current day
-                                    [$current_day] // Add current day at the end
+                                    array_diff($days_of_week, [$current_day]), // Remove the current day from the list
+                                    [$current_day]                            // Add the current day at the end
                                 );
 
-                                // Generate the opening times HTML
+                                // Output the opening times list
                                 echo '<ul class="opening_time mt-5">';
 
                                 foreach ($days_of_week as $day) {
                                     $time = $opening_times[$day];
-                                    echo "<li";
+
+                                    // Start each <li> tag
+                                    echo "<li>";
+
+                                    // If the day is "Tuesday" and marked as "Off", add a special class
                                     if ($day == 'Tuesday' && $time == 'Off') {
                                         echo ' class="mail_call"'; // Special class for Tuesday "Off"
                                     }
-                                    echo "><b>$day:</b> <span class=\"float-right\">$time</span></li>";
+
+                                    // Output the day name in <strong> tag and the time in <span class="float-right">
+                                    echo "<strong>$day:</strong> <span class='float-right'>$time</span>";
+
+                                    // Close the <li> tag
+                                    echo "</li>";
                                 }
 
                                 echo '</ul>';
                                 ?>
+
 
                         </div>
                     </div>
