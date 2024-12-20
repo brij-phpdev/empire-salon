@@ -57,13 +57,43 @@
                     <div class="col-lg-3 col-md-6 sm-padding">
                         <div class="footer_widget">
                             <h3>Opening Hours</h3>
-                            <ul class="opening_time mt-5">
-                                <li>Monday:<br/>10:30am to 7:30pm<br/></li>
-                                <li class="mail_call">Tuesday: Off<br/></li>
-                                <li>Wednesday - Sunday:<br/>10:30am to 7:30pm</li>
-<!--                                <li>Monday - Friday<br/> 5:30am - 11:008pm</li>
-                                <li>Saturday - Sunday <br/>4:30am - 1:00pm</li>-->
-                            </ul>
+                            <?php
+                                // Define opening times
+                                $opening_times = [
+                                    'Monday' => '10:30am to 7:30pm',
+                                    'Tuesday' => 'Off',
+                                    'Wednesday' => '10:30am to 7:30pm',
+                                    'Thursday' => '10:30am to 7:30pm',
+                                    'Friday' => '10:30am to 7:30pm',
+                                    'Saturday' => '10:30am to 7:30pm',
+                                    'Sunday' => '10:30am to 7:30pm'
+                                ];
+
+                                // Get the current day of the week (0 = Sunday, 6 = Saturday)
+                                $current_day = date('l');
+
+                                // Reorder the days array, placing the current day first
+                                $days_of_week = array_keys($opening_times);
+                                $days_of_week = array_merge(
+                                    array_diff($days_of_week, [$current_day]), // Remove current day
+                                    [$current_day] // Add current day at the end
+                                );
+
+                                // Generate the opening times HTML
+                                echo '<ul class="opening_time mt-5">';
+
+                                foreach ($days_of_week as $day) {
+                                    $time = $opening_times[$day];
+                                    echo "<li";
+                                    if ($day == 'Tuesday' && $time == 'Off') {
+                                        echo ' class="mail_call"'; // Special class for Tuesday "Off"
+                                    }
+                                    echo ">$day:<br/>$time<br/></li>";
+                                }
+
+                                echo '</ul>';
+                                ?>
+
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-12 sm-padding">

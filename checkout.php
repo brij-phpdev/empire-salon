@@ -165,9 +165,6 @@ $last_visit = $_SERVER['HTTP_REFERER'] ?? '';
                                         <div class="radio-opt">
                                             <input type="radio" id="choose_8PM" value="7:00 PM" name="select_time"><label for="choose_8PM">7:00 PM</label>
                                         </div>
-                                        <div class="radio-opt">
-                                            <input type="radio" id="choose_9PM" value="8:00 PM" name="select_time"><label for="choose_9PM">8:00 PM</label>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
