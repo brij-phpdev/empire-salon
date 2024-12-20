@@ -92,7 +92,7 @@
 
                                     // If the day is "Tuesday" and marked as "Off", add a special class
                                     if ($day == 'Tuesday' && $time == 'Off') {
-                                        echo ' class="mail_call"'; // Special class for Tuesday "Off"
+//                                        echo ' class="mail_call"'; // Special class for Tuesday "Off"
                                     }
 
                                     // Output the day name in <strong> tag and the time in <span class="float-right">
