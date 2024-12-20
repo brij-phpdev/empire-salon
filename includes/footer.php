@@ -61,7 +61,7 @@
                                 // Define opening times for each day
                                 $opening_times = [
                                     'Monday'    => '10:30am to 7:30pm',
-                                    'Tuesday'   => 'Off',
+                                    'Tuesday'   => '02:00pm to 6:00pm',
                                     'Wednesday' => '10:30am to 7:30pm',
                                     'Thursday'  => '10:30am to 7:30pm',
                                     'Friday'    => '10:30am to 7:30pm',
@@ -84,8 +84,8 @@
                                 // Output the opening times list
                                 echo '<ul class="opening_time mt-5">';
 
-                                foreach ($days_of_week as $day) {
-                                    $time = $opening_times[$day];
+                                foreach ($opening_times as $day => $time) {
+//                                    $time = $opening_times[$day];
 
                                     // Start each <li> tag
                                     echo "<li>";
