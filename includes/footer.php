@@ -88,7 +88,7 @@
                                     if ($day == 'Tuesday' && $time == 'Off') {
                                         echo ' class="mail_call"'; // Special class for Tuesday "Off"
                                     }
-                                    echo ">$day: $time</li>";
+                                    echo "><b>$day:</b> <span class=\"float-right\">$time</span></li>";
                                 }
 
                                 echo '</ul>';
