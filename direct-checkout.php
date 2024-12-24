@@ -166,8 +166,11 @@ include_once './includes/database.php';
                     </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Book & Pay</button>
+                    <input type="submit" class="default_btn" value="Book & Pay" />
                 </div>
+<!--                <div class="form-group">
+                    <button type="submit" class="default_btn">Book & Pay</button>
+                </div>-->
             </form>
         </div>
     </div>
