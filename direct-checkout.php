@@ -16,10 +16,15 @@ include_once './includes/database.php';
     <div class="container">
         <h2>Limited Time Offer!</h2>
         <p>Use Promo Code <strong>EMPIRE20</strong> to get 20% off your first appointment.</p>
+        
+        <!-- Promo Image -->
+        <img src="img/promo/bliss-offer.jpeg" alt="Promo Banner" style="max-width: 100%; height: auto; margin: 20px 0;">
+
         <div id="countdown-timer" style="font-size: 20px; margin: 10px 0;"></div>
         <a href="#booking-form" class="default_btn">Book Now</a>
     </div>
 </section>
+
 
 <script>
     // Countdown Timer
