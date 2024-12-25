@@ -15,7 +15,7 @@ include_once './includes/database.php';
 <section id="promo-banner" class="promo_section bg-promo padding text-center">
     <div class="container">
         <h2>Limited Time Offer!</h2>
-        <p>Use Promo Code <strong>EMPIRE20</strong> to get 20% off your first appointment.</p>
+        <!--<p>Use Promo Code <strong>EMPIRE20</strong> to get 20% off your first appointment.</p>-->
         
         <!-- Promo Image -->
         <div class="about_video">
@@ -105,7 +105,7 @@ include_once './includes/database.php';
 
 
 
-<section id="first-time-user" class="user_section bg-white padding">
+<!--<section id="first-time-user" class="user_section bg-white padding">
     <div class="container contact-form">
         <h2>Book Your First Appointment</h2>
         <p>Fill in your details to proceed.</p>
@@ -124,12 +124,13 @@ include_once './includes/database.php';
             </div>
         </form>
     </div>
-</section>
+</section>-->
 
 <section id="booking" class="booking_section padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Book Your Appointment</h2>
+            <p>Fill in your details to proceed.</p>
         </div>
         <div class="booking-form contact-form">
             <form method="post" action="booking_post.php">
