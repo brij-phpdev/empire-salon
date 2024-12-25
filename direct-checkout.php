@@ -18,9 +18,11 @@ include_once './includes/database.php';
         <p>Use Promo Code <strong>EMPIRE20</strong> to get 20% off your first appointment.</p>
         
         <!-- Promo Image -->
-        <img src="img/promo/bliss-offer.jpeg" alt="Promo Banner" style="max-width: 100%; height: auto; margin: 20px 0;">
+        <div class="about_video">
+            <img src="img/promo/bliss-offer.jpeg" alt="Promo Banner" style="max-width: 100%; height: auto;">
+        </div>
 
-        <div id="countdown-timer" style="font-size: 20px; margin: 10px 0;"></div>
+        <div id="countdown-timer" style="font-size: 20px; margin: 50px 0;"></div>
         <a href="#booking-form" class="default_btn">Book Now</a>
     </div>
 </section>
@@ -45,19 +47,28 @@ include_once './includes/database.php';
     }, 1000);
 </script>
 
-
-<!--<section id="reviews" class="reviews_section bg-grey padding">
+<section id="featured-videos" class="videos_section bg-grey padding">
     <div class="container">
-        <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
-            <h2>Customer Reviews</h2>
+        <div class="section_heading text-center mb-40">
+            <h2>Our Featured Services</h2>
+            <p>Watch the magic happen!</p>
         </div>
-        <div class="google-reviews">
-            <script src="https://platform.google.com/reviews/embed.js"></script>
-            
-
+        <div class="row">
+            <div class="col-md-6">
+                <iframe 
+                    src="https://www.youtube.com/embed/z7mLHrf91DY" 
+                    style="width:100%; height:300px; border:0;" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="col-md-6">
+                <iframe src="https://www.instagram.com/reel/ANOTHER_CODE/embed" 
+                        style="width:100%; height:300px; border:0;" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
-</section>-->
+</section>
+
 <section id="google-reviews" class="reviews_section bg-grey padding">
     <div class="container">
         <div class="section_heading text-center mb-40">
@@ -92,25 +103,7 @@ include_once './includes/database.php';
     </div>
 </section>
 
-<section id="instagram-feed" class="instagram_section bg-white padding">
-    <div class="container">
-        <div class="section_heading text-center mb-40">
-            <h2>Follow Us on Instagram</h2>
-            <p>See our latest updates, offers, and transformations!</p>
-        </div>
-        <div class="row">
-            <!-- Embed Instagram posts using iframe or dynamic fetching -->
-            <div class="col-12">
-                <div class="instagram-widget">
-                    <iframe src="https://www.instagram.com/empiresalonofficial/embed" 
-                            style="border:0; width:100%; height:500px;" 
-                            scrolling="no" 
-                            allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <section id="first-time-user" class="user_section bg-white padding">
     <div class="container">
@@ -163,6 +156,7 @@ include_once './includes/database.php';
                         <option value="12:00 PM">12:00 PM</option>
                         <option value="1:00 PM">1:00 PM</option>
                         <option value="2:00 PM">2:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -175,24 +169,29 @@ include_once './includes/database.php';
         </div>
     </div>
 </section>
-<section id="featured-videos" class="videos_section bg-grey padding">
+
+<section id="instagram-feed" class="instagram_section bg-white padding">
     <div class="container">
         <div class="section_heading text-center mb-40">
-            <h2>Our Featured Services</h2>
-            <p>Watch the magic happen!</p>
+            <h2>Follow Us on Instagram</h2>
+            <p>See our latest updates, offers, and transformations!</p>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <iframe src="https://www.instagram.com/reel/CODE/embed" 
-                        style="width:100%; height:300px; border:0;" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-6">
-                <iframe src="https://www.instagram.com/reel/ANOTHER_CODE/embed" 
-                        style="width:100%; height:300px; border:0;" allowfullscreen></iframe>
+             Embed Instagram posts using iframe or dynamic fetching 
+            <div class="col-12">
+                <div class="instagram-widget">
+                    <iframe src="https://www.instagram.com/empiresalonofficial/embed" 
+                            style="border:0; width:100%; height:500px;" 
+                            scrolling="no" 
+                            allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
 
 <?php
 include_once './includes/footer.php';
