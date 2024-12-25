@@ -106,7 +106,7 @@ include_once './includes/database.php';
 
 
 <section id="first-time-user" class="user_section bg-white padding">
-    <div class="container">
+    <div class="container contact-form">
         <h2>Book Your First Appointment</h2>
         <p>Fill in your details to proceed.</p>
         <form method="post" action="save_user.php" id="firstTimeUserForm">
@@ -131,7 +131,7 @@ include_once './includes/database.php';
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Book Your Appointment</h2>
         </div>
-        <div class="booking-form">
+        <div class="booking-form contact-form">
             <form method="post" action="booking_post.php">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -176,8 +176,8 @@ include_once './includes/database.php';
             <h2>Follow Us on Instagram</h2>
             <p>See our latest updates, offers, and transformations!</p>
         </div>
-        <div class="row">
-             Embed Instagram posts using iframe or dynamic fetching 
+        <div class="row about_video">
+<!--             Embed Instagram posts using iframe or dynamic fetching -->
             <div class="col-12">
                 <div class="instagram-widget">
                     <iframe src="https://www.instagram.com/empiresalonofficial/embed" 
