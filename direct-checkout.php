@@ -1,6 +1,17 @@
 <?php
 include_once './includes/header.php';
 include_once './includes/database.php';
+$static_id = 478;
+$package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$static_id. "'  ORDER BY `id` DESC";
+//                    echo $package_service_table_sql;
+                    if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
+
+                        if (@mysqli_num_rows($package_servicetable_res) > 0) {
+                            while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+                                $package_service = $package_servicetable_row;
+                            }
+                        }
+                    }
 ?>
 <section class="page_header d-flex align-items-center">
     <div class="container">
@@ -228,6 +239,7 @@ include_once './includes/database.php';
                 </div>
                 <div class="form-group hidden-md">
                     <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
+                    <input type="hidden" name="direct_serviceId" id="serviceId" value="<?php echo $static_id ?>" />
                 </div>
 <!--                <div class="form-group">
                     <button type="submit" class="default_btn">Book & Pay</button>

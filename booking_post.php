@@ -50,7 +50,12 @@ if (DEBUG == TRUE) {
 
 //        print_r($_POST);
 //        echo "</pre>";
+    elseif(isset($_POST['direct_serviceId'])):
+        $serviceIds[0] = $_POST['direct_serviceId'];
+    $adults = 1;
+    $childrens = 0;
     else:
+        
         header('location: book.php?type=warning&msg=no service selected yet!');
     endif;
     
