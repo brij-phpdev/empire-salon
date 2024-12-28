@@ -8,7 +8,8 @@ ini_set('display_errors', 1);
     
     require './vendor/autoload.php';
     
-use PHPMailer;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
     include_once('easebuzz-lib/easebuzz_payment_gateway.php');
 
@@ -216,7 +217,7 @@ use PHPMailer;
                 $mail->Port = EMAIL_PORT;
                 $mail->SMTPAuth = true;
                 $mail->Username = EMAIL_USERNAME;
-                $mail->Password = EMAIL_PASSOWRD;
+                $mail->Password = EMAIL_PASSWORD;
                 $mail->setFrom(EMAIL_USERNAME,SITE_TITLE);
                 $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
                 $mail->addAddress($email,$name);
