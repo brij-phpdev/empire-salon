@@ -147,7 +147,7 @@ $insert_booking_sql = "INSERT INTO `bookingtbl` "
         . " VALUES (NULL,'$serviceId','$other_services','$agentId','$adults','$childrens','$date','$timing','$message','$serviceBill','". base64_decode(base64_decode($amount))."','$paymentStatus',"
         . "'$orderId','$serviceStatus','$couponId','$userId','$upload_date') "
         . " ";
-//echo $insert_booking_sql;die;
+echo $insert_booking_sql;die;
 $exe = mysqli_query($link, $insert_booking_sql);
 
 if ($exe) {

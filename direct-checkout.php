@@ -227,7 +227,7 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
                 </div>
                 <div class="form-group">
                     <label for="time">Preferred Time</label>
-                    <select id="time" name="time" class="form-control" required>
+                    <select id="time" name="select_time" class="form-control" required>
                         <option value="11:00 AM">11:00 AM</option>
                         <option value="12:00 PM">12:00 PM</option>
                         <option value="1:00 PM">1:00 PM</option>
@@ -241,6 +241,8 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
                 <div class="form-group hidden-md">
                     <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
                     <input type="hidden" name="direct_serviceId" id="serviceId" value="<?php echo $static_id ?>" />
+                    <input type="hidden" name="serviceAdult" id="serviceAdult" value="1" />
+                    <input type="hidden" name="serviceChildren" id="serviceChildren" value="0serviceChildren" />
                     <input type="hidden" name="rnId" value="<?php echo base64_encode(base64_encode($price_to_pay)) ?>" />
                 </div>
 <!--                <div class="form-group">
