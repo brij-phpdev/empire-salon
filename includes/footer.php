@@ -198,7 +198,7 @@
         $("#email_label, #name_label").text('');
 
         // Hide the elements
-        $("#email_label, #name_label").hide();
+//        $("#email_label, #name_label").hide();
     });
 </script>
 
