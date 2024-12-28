@@ -103,7 +103,8 @@ use PHPMailer\PHPMailer\Exception;
 
             $bookingId= $serviceId;
 //            die;
-
+$package_info_title = 'Some Package';
+$total_to_be_paid = '';
             // get booking details for customer offer..
             $select_booking_sql = "SELECT * FROM `bookingtbl` WHERE `id` = $bookingId ";
 
@@ -111,13 +112,57 @@ use PHPMailer\PHPMailer\Exception;
                 if (mysqli_num_rows($res) > 0) {
                     while ($row = mysqli_fetch_assoc($res)) {
 //                        print_r($row);die;
+                        $package_info_id = $row['serviceId'];
                         $date = $row['date'];
                         $timing = $row['timing'];
                         $adults = $row['adults'];
                         $childrens = $row['childrens'];
                     }
+                    
+                    // get package info... 
+                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$package_info_id. "'  ORDER BY `id` DESC";
+                    if ($res2 = mysqli_query($link, $package_service_table_sql)) {
+                        if (mysqli_num_rows($res2) > 0) {
+                            while ($row_ser = mysqli_fetch_assoc($res2)) {
+        //                        print_r($row);die;
+                                $package_info_title = $row_ser['title'];
+                                $total_to_be_paid = $row_ser['member_price'];
+
+                            }
+                        }
+                    }
                 }
             }
+            
+            
+            // prepare & send SMS for booking confirmation..
+            // 
+            // 
+            
+                // Define the phone number and other details
+                $phone = '9012099666'; // Recipient's phone number
+
+                // These values should be dynamically set based on user input or your data
+//                $package = 'Premium Package';  // Example package name
+//                $amount_paid = 499;            // Amount paid by the user (in INR, USD, etc.)
+//                $date = date('Y-m-d');         // Current date
+//                $time = date('H:i:s');         // Current time
+
+
+                // Construct the message with the relevant details
+                $msg = "Dear $name,%0A";
+                $msg .= "Thank you for purchasing the $package_info_title.%0A";
+                $msg .= "You have paid an amount of ₹".$responseArray['data']['net_amount_debit'].".%0A";
+                $msg .= "Package Activation Date: $date%0A";
+                $msg .= "Activation Time: $timing%0A";
+                $msg .= "Thank you for choosing our service.%0A";
+                $msg .= "We look forward to serving you!";
+                
+                sendBookingconfimationSMS($phone, $msg);
+                
+            // 
+            // 
+            // prepare & send SMS for booking confirmation ends here..
             
             
             // let us generate the invoice & attach the same..
@@ -143,7 +188,7 @@ use PHPMailer\PHPMailer\Exception;
                 <body>
                   <p><a href="'.SITE_URL.'" class="navbar-brand"><img class="main_logo" src="'.convertImgToBase64(SITE_URL.'img/logo.png').'" alt="'.SITE_TITLE.'"></a></p>
                       <p>Dear '.ucfirst($name).',</p>
-                      <p>Congratulations on taking the first step towards a fresh and fabulous look! We are delighted to confirm that your Hair Salon Service at '.SITE_TITLE.' has been successfully booked through our online platform.
+                      <p>Congratulations on taking the first step towards a fresh and fabulous look! We are delighted to confirm that your Salon Service at <b>'.SITE_TITLE.' has been successfully booked</b> through our online platform.
         </p>
         <p><b>Booking Details:</b>
                   <table style="display: block;">
@@ -160,7 +205,14 @@ use PHPMailer\PHPMailer\Exception;
                       <th>Email</th><td>'.$email.'</td>
                     </tr>
                     <tr>
+                      <th>Package</th><td>'.$package_info_title.'</td>
+                    </tr>
+                    
+                    <tr>
                       <th>Net amount</th><td>₹ '.$responseArray['data']['net_amount_debit'].'</td>
+                    </tr>
+                    <tr>
+                      <th>Total to be paid</th><td>₹ '.$total_to_be_paid.'</td>
                     </tr>
                     <tr>
                       <th>Transaction ID</th><td>'.$responseArray['data']['txnid'].'</td>
@@ -221,13 +273,13 @@ use PHPMailer\PHPMailer\Exception;
                 $mail->setFrom(EMAIL_USERNAME,SITE_TITLE);
                 $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
                 $mail->addAddress($email,$name);
-                $mail->AddCC(EMAIL, SITE_TITLE);
-                $mail->AddCC(ADMIN_EMAIL, 'MB');
-                $mail->AddCC(PARAS_EMAIL, 'The Royal');
+                $mail->AddBCC(EMAIL, SITE_TITLE);
+                $mail->AddBCC(ADMIN_EMAIL, 'MB');
+                $mail->AddBCC(PARAS_EMAIL, 'The Royal');
                 $mail->Subject = $customer_mail_subject;
                 $mail->Body    = $custoomer_mail_message;
                 $mail->msgHTML($custoomer_mail_message);
-                $mail->addAttachment($invoice_generate_link);
+                $mail->addAttachment($ch);
         //        $mail->SMTPDebug = 2;
                 $customer_mail_sent = $mail->send(); 
 
@@ -236,7 +288,7 @@ use PHPMailer\PHPMailer\Exception;
             {
                     // Transfer the value 'sent' to ajax function for showing success message.
 //                http_response_code(200);
-                header('Location: book.php?msg=Thank You! Your booking information has been sent to your email.#gallery');
+                header('location: book.php?msg=Thank You! Your booking information has been sent to your email.#gallery');
 //                    echo 'Thank You! Your booking information has been sent to your email.';
             }
             else
@@ -244,7 +296,7 @@ use PHPMailer\PHPMailer\Exception;
                     // Set a 500 (internal server error) response code.
 //                    http_response_code(500);
 //                    echo 'Oops! Something went wrong and we couldn\'t send your message.';
-                    header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
+                    header('location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
             }
 
         } else {
@@ -278,6 +330,20 @@ use PHPMailer\PHPMailer\Exception;
         $result .= mb_substr($chars, $index, 1);
     }
     return $result;
+}
+
+function sendBookingconfimationSMS($phone, $msg) {
+    $apiKey = FAST2SMS_API_KEY;
+
+//    $apiKey = 'KI80VaOYdrLA5Tm1ZyqucxW6ifsoXRNSD2CBPhtJpkw7Q9bGHFpLIyMKFiASc09DgbdH7wtoWOTU8keZ'; // Your Fast2SMS API key
+    
+    // API URL with necessary parameters
+    $url = "https://www.fast2sms.com/dev/bulkV2?authorization=$apiKey&route=q&message=" . urlencode($msg) . "&flash=0&numbers=$phone&schedule_time=";
+
+    // Send the request using file_get_contents
+    $response = file_get_contents($url);
+
+    return $response;
 }
 
     
