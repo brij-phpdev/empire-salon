@@ -3,15 +3,18 @@ include_once './includes/header.php';
 include_once './includes/database.php';
 $static_id = 478;
 $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$static_id. "'  ORDER BY `id` DESC";
+//$package_service = array();
 //                    echo $package_service_table_sql;
                     if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
 
                         if (@mysqli_num_rows($package_servicetable_res) > 0) {
                             while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+//                                print_r($package_servicetable_row);die;
                                 $package_service = $package_servicetable_row;
                             }
                         }
                     }
+//                    print_r($package_service);
                     $price_to_pay = 20;
 ?>
 <section class="page_header d-flex align-items-center">
@@ -243,6 +246,7 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
                     <input type="hidden" name="direct_serviceId" id="serviceId" value="<?php echo $static_id ?>" />
                     <input type="hidden" name="serviceAdult" id="serviceAdult" value="1" />
                     <input type="hidden" name="serviceChildren" id="serviceChildren" value="0" />
+                    <input type="hidden" name="packageName" id="packageName" value="<?php echo 'Bridal Package' ?>" />
                     <input type="hidden" name="rnId" value="<?php echo base64_encode(base64_encode($price_to_pay)) ?>" />
                 </div>
 <!--                <div class="form-group">
