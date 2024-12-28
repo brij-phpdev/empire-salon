@@ -53,7 +53,7 @@ use PHPMailer\PHPMailer\Exception;
         // redirect back to the site with a message of failure transaction 
         
 //        header('Location: book.php');
-        header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
+        header('location: thankyou.php?status=failed&type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
     
     exit;
         
@@ -63,7 +63,7 @@ use PHPMailer\PHPMailer\Exception;
         
 //        header('Location: book.php');
         
-        header('Location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
+        header('location: thankyou.php?status=failed&type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
     
     exit;
         
@@ -73,7 +73,7 @@ use PHPMailer\PHPMailer\Exception;
         
 //        header('Location: book.php');
         
-        header('Location: book.php?type=warning&msg=Transaction cancelled by user.#gallery');
+        header('location: thankyou.php?status=failed&type=warning&msg=Transaction cancelled by user.#gallery');
     
     exit;
         
