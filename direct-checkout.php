@@ -151,7 +151,13 @@ $price_to_pay = 15;
             <form method="post" action="booking_post.php">
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="text" id="phone" name="phone" class="form-control" required />
+                    <input type="text" class="form-control" id="phone" name="phone" 
+                                            pattern="^\d{10}$" 
+                                            placeholder="Enter Phone Number without 0" 
+                                            required 
+                                            maxlength="10" 
+                                            title="Please enter a 10-digit phone number without any spaces or special characters" 
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
                 <!--SMS implementation start--> 
 
