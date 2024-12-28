@@ -2,7 +2,7 @@
 @session_start();
 //error_reporting(E_ALL);
 //ini_set('display_errors',1);
-include_once __DIR__.'/config.php';
+//include_once __DIR__.'/config.php';
 include_once './includes/database.php';
 include_once './includes/function.php';
 //print_r($_POST);
@@ -54,6 +54,7 @@ if (DEBUG == TRUE) {
         $serviceIds[0] = $_POST['direct_serviceId'];
     $adults = 1;
     $childrens = 0;
+    $amount = $_POST['rnId'];
 //    $amount = base64_encode(base64_encode(20));
     else:
         
@@ -158,7 +159,7 @@ if ($exe) {
 
     mysqli_close($link);
     // sending to payment page
-    header('Location: initiate_payment.php?firstname=' . $name . '&rnAmt=' . $amount . '&email=' . $email . '&phone=' . $phone . '&packageName=' . $packageName . '&booking=' . $bookingId);
+    header('location: initiate_payment.php?firstname=' . $name . '&rnAmt=' . $amount . '&email=' . $email . '&phone=' . $phone . '&packageName=' . $packageName . '&booking=' . $bookingId);
     die;
 
     // customer email ...
