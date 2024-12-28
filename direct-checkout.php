@@ -15,7 +15,7 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
                         }
                     }
 //                    print_r($package_service);
-                    $price_to_pay = 20;
+$price_to_pay = 10;
 ?>
 <section class="page_header d-flex align-items-center">
     <div class="container">
