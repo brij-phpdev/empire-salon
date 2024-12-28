@@ -242,7 +242,7 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
                     <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
                     <input type="hidden" name="direct_serviceId" id="serviceId" value="<?php echo $static_id ?>" />
                     <input type="hidden" name="serviceAdult" id="serviceAdult" value="1" />
-                    <input type="hidden" name="serviceChildren" id="serviceChildren" value="0serviceChildren" />
+                    <input type="hidden" name="serviceChildren" id="serviceChildren" value="0" />
                     <input type="hidden" name="rnId" value="<?php echo base64_encode(base64_encode($price_to_pay)) ?>" />
                 </div>
 <!--                <div class="form-group">
