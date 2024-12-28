@@ -141,13 +141,13 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
     </div>
 </section>-->
 
-<section id="booking" class="booking_section padding">
+<section id="booking-form" class="booking_section padding">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
             <h2>Book Your Appointment</h2>
             <p>Fill in your details to proceed.</p>
         </div>
-        <div class="booking-form contact-form">
+        <div class="obooking-form contact-form">
             <form method="post" action="booking_post.php">
                 <div class="form-group">
                     <label for="phone">Phone</label>

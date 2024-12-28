@@ -2,10 +2,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
     // include file
-    include './includes/config.php';
+//    include './includes/config.php';
+    include './includes/functions.php';
     include './includes/database.php';
     
-    require 'vendor/autoload.php';
+    require './vendor/autoload.php';
     
 use PHPMailer;
 
