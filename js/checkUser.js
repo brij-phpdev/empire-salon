@@ -49,7 +49,7 @@ $('body').on('keyup', '#phone', function (e) {
                         data: {"mobile": mobile, "csrf_token": csrf_token,"last_visit": last_visit, "action":"check_user"}
                     }).done(function (json) {
                         msg = jQuery.parseJSON(json);
-                        console.log(msg);
+//                        console.log(msg);
                         
                         if (msg.success === true && msg.success!==undefined) {
                             var user_details = msg.user_details;
@@ -60,8 +60,13 @@ $('body').on('keyup', '#phone', function (e) {
                             // now set variable
 //                            $("#email").val(user_details.email);
                             $("#register_button").hide();
-                            $("#email").hide();
-                            $("#name").hide();
+                            // Hide the input fields
+                            $("#email").hide().val(user_details.email); // Hides and sets the email
+                            $("#name").hide().val(user_details.fullName); // Hides and sets the full name
+
+                            // Show the labels with the values from user_details
+                            $("#email_label").show().text(user_details.email);
+                            $("#name_label").show().text(user_details.fullName);
 //                            $("#unique_id").val(user_details.unique_id);
                             $("#forgot_link").show();
                             $("#login_link").show();

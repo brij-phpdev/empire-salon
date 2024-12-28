@@ -192,6 +192,15 @@
                 
 		<script src="js/callSendSMS.js"></script>
 		<script src="js/checkUser.js"></script>
+<script>
+    $(document).ready(function () {
+        // Set the text to empty
+        $("#email_label, #name_label").text('');
+
+        // Hide the elements
+        $("#email_label, #name_label").hide();
+    });
+</script>
 
                 <script>
 $(document).ready(function(){

@@ -135,16 +135,79 @@ include_once './includes/database.php';
         <div class="booking-form contact-form">
             <form method="post" action="booking_post.php">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" class="form-control" required />
+                </div>
+                <!--SMS implementation start--> 
+
+
+                        <div class="html-code overlay">
+
+                            <div id="test-popup" class="login_popup white-popup mfp-hide " style="display: none;">
+                                <div id="sms-popup"  >
+
+                                    <div class='waitSpinner'> </div>
+                                    <p style="display: block;" class="fancy_msg  alert">
+
+                                    </p>
+                                    <div id="mobile_otp_error" class="error"></div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-md-offset-4">
+                                            <div id="popuplogincontainer" >
+                                                <div class="white-popup" id="divsendmobileotp">
+
+                                                    <h3>Enter your mobile to get OTP</h3>
+                                                    <!--<p id="plsreghere"class="title_block">No account yet ? Please enter your mobile here!</p><br />-->
+
+                                                    <div class="form-group row">
+                                                        <!--<label for="mobile_otp" class="col-sm-4 hidden control-label" id="mobile_otp" >Mobile Number : </label>-->
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="mobile_otp_input form-control" value="" placeholder="Mobile Number" name="mobile_otp" id="mobile_otp">
+                                                            <div class="success-mobile-update"></div>
+                                                            <div class="error-mobile-update"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <p class="sent-otp-fastsms_submit">
+                                                            <button id="sent-otp-fastsms" class="button btn btn-success" value="Get OTP">Get OTP</button>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="mobile_sms_otp">
+                                                        <div class="form-group row">
+                                                            <!--<label for="mobile_sms" class="col-sm-4 hidden control-label" id="mobile_sms" >Enter OTP: </label>-->
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="mobile_sms_input form-control" placeholder="Enter OTP" value="" name="mobile_sms" id="mobile_sms">                           
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <a id="verify-otp-fastsms" class="default_btn" value="Verify OTP">Verify OTP</a>
+                                                        </div>
+                                                    </div>    
+
+                                                </div><br />
+                                                <div class="clearfix"></div>
+
+                                            </div>                
+                                        </div>                
+                                    </div>  
+                                    <span class="align-bottom align-right btn-danger" id="close_sms_popup">x</span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!--SMS implementation close-->
+
+                <div class="form-group">
+                    <label for="name">Name</label>&nbsp;&nbsp;<span id="name_label"></span>
                     <input type="text" id="name" name="name" class="form-control" required />
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email</label>&nbsp;&nbsp;<span id="email_label"></span>
                     <input type="email" id="email" name="email" class="form-control" required />
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="text" id="phone" name="phone" class="form-control" required />
                 </div>
                 <div class="form-group">
                     <label for="date">Preferred Date</label>
@@ -162,6 +225,9 @@ include_once './includes/database.php';
                 </div>
                 <div class="form-group">
                     <input type="submit" class="default_btn" value="Book & Pay" />
+                </div>
+                <div class="form-group hidden-md">
+                    <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
                 </div>
 <!--                <div class="form-group">
                     <button type="submit" class="default_btn">Book & Pay</button>

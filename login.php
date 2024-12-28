@@ -48,7 +48,6 @@ include_once './includes/functions.php';
                                     <?php endif; ?>
                                     <form method="post" action="checkUser.php">
        
-
                                     <div class="col-lg-12">
                             <div id='phone_error' class='error'>Please enter your email/phone number.</div>
                             <div class="mb25">
@@ -66,7 +65,7 @@ include_once './includes/functions.php';
                                     <div class="col-lg-12">
                             
                             <div class="mb25">
-                                 <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
+                                <input type="hidden" id="csrf_token" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
                                  <input type="hidden" name="action" value="login_attempt" />
                                 <input type="submit" class="default_btn" name="login" value="Login">
                             </div>
