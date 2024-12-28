@@ -54,6 +54,7 @@ if (DEBUG == TRUE) {
         $serviceIds[0] = $_POST['direct_serviceId'];
     $adults = 1;
     $childrens = 0;
+    $amount = base64_encode(base64_encode(20));
     else:
         
         header('location: book.php?type=warning&msg=no service selected yet!');
