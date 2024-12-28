@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(E_ALL);
+error_reporting(E_ALL);
 //include_once 'config.php';
 include_once './includes/database.php';
 
