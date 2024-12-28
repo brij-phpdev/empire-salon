@@ -87,6 +87,7 @@ use PHPMailer\PHPMailer\Exception;
         $name = $responseArray['data']['firstname'];
         $email = $responseArray['data']['email'];
         $phone = $responseArray['data']['phone'];
+        $productinfo = $responseArray['data']['productinfo'];
         $net_amount_debit = $responseArray['data']['net_amount_debit'];
         $serviceId = $responseArray['data']['udf1'];
         $transaction_msg = $responseArray['data']['error_Message'];
@@ -103,8 +104,8 @@ use PHPMailer\PHPMailer\Exception;
 
             $bookingId= $serviceId;
 //            die;
-$package_info_title = 'Some Package';
-$total_to_be_paid = '';
+////$package_info_title = 'Salon Package';
+//$total_to_be_paid = '';
             // get booking details for customer offer..
             $select_booking_sql = "SELECT * FROM `bookingtbl` WHERE `id` = $bookingId ";
 
@@ -120,6 +121,7 @@ $total_to_be_paid = '';
                     }
                     
                     // get package info... 
+                    /**
                     $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$package_info_id. "'  ORDER BY `id` DESC";
                     if ($res2 = mysqli_query($link, $package_service_table_sql)) {
                         if (mysqli_num_rows($res2) > 0) {
@@ -131,6 +133,8 @@ $total_to_be_paid = '';
                             }
                         }
                     }
+                    */
+                    
                 }
             }
             
@@ -140,7 +144,7 @@ $total_to_be_paid = '';
             // 
             
                 // Define the phone number and other details
-                $phone = '9012099666'; // Recipient's phone number
+//                $phone = '9012099666'; // Recipient's phone number
 
                 // These values should be dynamically set based on user input or your data
 //                $package = 'Premium Package';  // Example package name
@@ -151,7 +155,7 @@ $total_to_be_paid = '';
 
                 // Construct the message with the relevant details
                 $msg = "Dear $name,%0A";
-                $msg .= "Thank you for purchasing the $package_info_title.%0A";
+                $msg .= "Thank you for purchasing the $productinfo.%0A";
                 $msg .= "You have paid an amount of ₹".$responseArray['data']['net_amount_debit'].".%0A";
                 $msg .= "Package Activation Date: $date%0A";
                 $msg .= "Activation Time: $timing%0A";
@@ -288,7 +292,7 @@ $total_to_be_paid = '';
             {
                     // Transfer the value 'sent' to ajax function for showing success message.
 //                http_response_code(200);
-                header('location: book.php?msg=Thank You! Your booking information has been sent to your email.#gallery');
+                header('location: thankyou.php?status=success&msg=Thank You! Your booking information has been sent to your email.#gallery');
 //                    echo 'Thank You! Your booking information has been sent to your email.';
             }
             else
@@ -296,7 +300,7 @@ $total_to_be_paid = '';
                     // Set a 500 (internal server error) response code.
 //                    http_response_code(500);
 //                    echo 'Oops! Something went wrong and we couldn\'t send your message.';
-                    header('location: book.php?type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
+                    header('location: thankyou.php?status=failed&type=warning&msg=Oops! Something went wrong and we couldn\'t send your message.#gallery');
             }
 
         } else {
@@ -307,7 +311,7 @@ $total_to_be_paid = '';
             echo "An appointment is fixed";
             // send email to the user
         //        echo json_encode(['result'=>'success']);
-            header('Location: book.php?msg=Thank You! An appointment is fixed');
+            header('Location: thankyou.php?status=success&msg=Thank You! An appointment is fixed');
             die;
         }
 
