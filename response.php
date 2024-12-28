@@ -2,7 +2,7 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
     // include file
-    include './includes/config.php';
+    include 'config.php';
     include './includes/functions.php';
     include './includes/database.php';
     
@@ -121,19 +121,20 @@ use PHPMailer\PHPMailer\Exception;
                     }
                     
                     // get package info... 
-                    /**
+                    
                     $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$package_info_id. "'  ORDER BY `id` DESC";
+                    $package_info_title = 'Offer Package';
                     if ($res2 = mysqli_query($link, $package_service_table_sql)) {
                         if (mysqli_num_rows($res2) > 0) {
                             while ($row_ser = mysqli_fetch_assoc($res2)) {
-        //                        print_r($row);die;
+//                                print_r($row_ser);die;
                                 $package_info_title = $row_ser['title'];
                                 $total_to_be_paid = $row_ser['member_price'];
 
                             }
                         }
                     }
-                    */
+                    
                     
                 }
             }
@@ -155,7 +156,7 @@ use PHPMailer\PHPMailer\Exception;
 
                 // Construct the message with the relevant details
                 $msg = "Dear $name,%0A";
-                $msg .= "Thank you for purchasing the $productinfo.%0A";
+                $msg .= "Thank you for purchasing the $package_info_title.%0A";
                 $msg .= "You have paid an amount of ₹".$responseArray['data']['net_amount_debit'].".%0A";
                 $msg .= "Package Activation Date: $date%0A";
                 $msg .= "Activation Time: $timing%0A";
@@ -170,9 +171,12 @@ use PHPMailer\PHPMailer\Exception;
             
             
             // let us generate the invoice & attach the same..
-            
             $invoice_generate_link = SITE_URL.'includes/generateInvoice.php?orderId='.$bookingId;
+            $current_directory = __DIR__; 
+            $invoice_file_path = $current_directory . '/invoices/invoice-' . $bookingId . '.pdf';
+
             $ch = file_get_contents($invoice_generate_link);
+            file_put_contents($invoice_file_path, $ch);
             
         //let us redirect to payment before sending mail...
 
@@ -283,7 +287,11 @@ use PHPMailer\PHPMailer\Exception;
                 $mail->Subject = $customer_mail_subject;
                 $mail->Body    = $custoomer_mail_message;
                 $mail->msgHTML($custoomer_mail_message);
-                $mail->addAttachment($ch);
+                // Check if the file was generated and exists before adding the attachment
+                if (file_exists($invoice_file_path)) {
+                    // Attach the generated file
+                    $mail->addAttachment($invoice_file_path);
+                }
         //        $mail->SMTPDebug = 2;
                 $customer_mail_sent = $mail->send(); 
 
