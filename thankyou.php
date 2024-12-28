@@ -30,18 +30,17 @@ $status = isset($_GET['status']) ? $_GET['status'] : null;
             font-size: 18px;
             margin-top: 20px;
         }
-        .default_btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            font-size: 16px;
+        .default_btn{
+            background-color: #cfa670;
             color: #fff;
-            background-color: #007bff;
-            text-decoration: none;
-            border-radius: 5px;
+            line-height: 45px;
+            display: inline-block;
+            padding: 0 25px;
+            border-radius: 3px;
         }
-        .default_btn:hover {
-            background-color: #0056b3;
+        .default_btn:hover{
+            background-color: #9b7645;
+            color: #fff;
         }
     </style>
 </head>
