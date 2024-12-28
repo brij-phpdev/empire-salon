@@ -12,6 +12,7 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
                             }
                         }
                     }
+                    $price_to_pay = 20;
 ?>
 <section class="page_header d-flex align-items-center">
     <div class="container">
@@ -240,6 +241,7 @@ $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE 
                 <div class="form-group hidden-md">
                     <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
                     <input type="hidden" name="direct_serviceId" id="serviceId" value="<?php echo $static_id ?>" />
+                    <input type="hidden" name="rnId" value="<?php echo base64_encode(base64_encode($price_to_pay)) ?>" />
                 </div>
 <!--                <div class="form-group">
                     <button type="submit" class="default_btn">Book & Pay</button>
