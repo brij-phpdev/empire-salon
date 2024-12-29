@@ -139,6 +139,8 @@ use PHPMailer\PHPMailer\Exception;
                 }
             }
             
+ 
+            /* --------------------------------------------------------------
             
             // prepare & send SMS for booking confirmation..
             // 
@@ -168,7 +170,7 @@ use PHPMailer\PHPMailer\Exception;
             // 
             // 
             // prepare & send SMS for booking confirmation ends here..
-            
+            --------------------------------------------------------------*/
             
             // let us generate the invoice & attach the same..
             $invoice_generate_link = SITE_URL.'includes/generateInvoice.php?orderId='.$bookingId;
