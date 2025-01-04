@@ -58,8 +58,18 @@ if (isset($_GET['offer_id'])) {
 </section>
 
 <script>
-    // Countdown Timer
-    const endTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 hours from now
+    // Check if the start time is already stored in localStorage
+    let startTime = localStorage.getItem('timerStartTime');
+    
+    // If not, set it to the current time and store it
+    if (!startTime) {
+        startTime = new Date().getTime();
+        localStorage.setItem('timerStartTime', startTime);
+    }
+
+    // Countdown Timer: 24 hours (86400000 milliseconds) from the start time
+    const endTime = parseInt(startTime) + (24 * 60 * 60 * 1000); // 24 hours from the start time
+    
     const timer = setInterval(function () {
         const now = new Date().getTime();
         const distance = endTime - now;
