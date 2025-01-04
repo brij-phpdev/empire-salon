@@ -94,3 +94,7 @@ function sanitizeInput($input) {
    $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
    return $input;
 }
+
+function generateHashedID($id, $salt) {
+    return hash('sha256', $id . $salt);  // Hash the ID with the salt
+}

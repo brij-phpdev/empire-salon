@@ -1,25 +1,17 @@
 <?php
-session_start();
-include dirname(__DIR__).'/config.php';
-include 'database.php';
-include 'functions.php';
 
-require '../vendor/autoload.php';
+@session_start();
+include_once 'config.php';
+include_once './includes/database.php';
+include_once './includes/functions.php';
+
+require_once './vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
-// Handle registration
-if (isset($_POST['register'])) {
-    
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-            die("CSRF token validation failed");
-        }
-
-    $phone = $_POST['phone'];
+   $phone = $_POST['phone'];
     $email = filter_var(urldecode($_POST['email']), FILTER_SANITIZE_EMAIL);
     $name = $_POST['name'];
-    $password = $_POST['password'] ? $_POST['password'] : 'demo@1234';
+    $password = $_POST['phone'];
 
     // Generate OTP
     $otp = rand(100000, 999999);
@@ -35,9 +27,9 @@ if (isset($_POST['register'])) {
     
     
 
-    $insert_user_sql = "INSERT INTO `logintbl` (`id`,`fullName`,`email`,`password`,`verifiedEmail`,`image`,`photoURL`,"
+    $insert_user_sql = "INSERT INTO `logintbl` (`id`,`fullName`,`email`,`password`,`verifiedEmail`,`verifiedMobile`,`image`,`photoURL`,"
                 . "`role`,`phone`,`gender`,`bookingId`,`activated`,`activationCode`,`google`,`facebook`,`privacy`,`register_date`)  "
-                . "VALUES (NULL,'$name','$email','$password',0,'','', "
+                . "VALUES (NULL,'$name','$email','$password',0,1,'','', "
                 . "'0','$phone','','0','0','$encryptedOtp','0','0','0','$date') ";
 //echo $insert_user_sql;die;
         $exe = mysqli_query($link, $insert_user_sql);
@@ -88,8 +80,8 @@ if (isset($_POST['register'])) {
                            $mail->addReplyTo(EMAIL_USERNAME, SITE_TITLE);
                            $mail->addAddress($email, $name);
 //                           $mail->AddCC(EMAIL, SITE_TITLE);
-//                           $mail->AddCC(ADMIN_EMAIL, 'MB');
-//                           $mail->AddCC(PARAS_EMAIL, 'The Royal');
+                           $mail->AddBCC(ADMIN_EMAIL, 'MB');
+                           $mail->AddBCC(PARAS_EMAIL, 'The Royal');
                            $mail->Subject = $customer_mail_subject;
                            $mail->Body = $custoomer_mail_message;
                            $mail->msgHTML($custoomer_mail_message);
@@ -112,13 +104,4 @@ if (isset($_POST['register'])) {
                // 
                // -----------------------------------------
 
-        } else {
-            $msg = "ERROR: Some error occured while registering user. "
-            . mysqli_error($link);
-            header('location: '.SITE_URL.'/register.php?msg='.$msg.'&type=warning');
         }
-die;
-}
-}
-echo 'how come here';
-die;

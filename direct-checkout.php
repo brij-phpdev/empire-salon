@@ -1,22 +1,37 @@
 <?php
 include_once './includes/header.php';
 include_once './includes/database.php';
-$static_id = 478;
-$package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$static_id. "'  ORDER BY `id` DESC";
-//$package_service = array();
-//                    echo $package_service_table_sql;
-                    if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
 
-                        if (@mysqli_num_rows($package_servicetable_res) > 0) {
-                            while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+// Existing logic for processing offer ID
+if (isset($_GET['offer_id'])) {
+    $hashed_id_from_url = $_GET['offer_id'];
+    $salt = AUTH_SALT;
+    $static_id = 478;
+    $expected_hash = generateHashedID($static_id, $salt);
+
+    if ($hashed_id_from_url === $expected_hash) {
+        $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$static_id."' ORDER BY `id` DESC";
+        if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
+            if (@mysqli_num_rows($package_servicetable_res) > 0) {
+                while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
 //                                print_r($package_servicetable_row);die;
-                                $package_service = $package_servicetable_row;
-                            }
-                        }
-                    }
-//                    print_r($package_service);
-$price_to_pay = 15;
+                    $package_service = $package_servicetable_row;
+                }
+            } else {
+                header('location: index.php');
+            }
+        }
+        $price_to_pay = 1000;
+    } else {
+        echo "Invalid Offer ID";
+        exit;
+    }
+} else {
+    echo "No Offer ID provided or hack attempt!";
+    exit;
+}
 ?>
+
 <section class="page_header d-flex align-items-center">
     <div class="container">
         <div class="section_heading text-center mb-40 wow fadeInUp" data-wow-delay="300ms">
@@ -34,14 +49,13 @@ $price_to_pay = 15;
         
         <!-- Promo Image -->
         <div class="about_video">
-            <img src="img/promo/bliss-offer.jpeg" alt="Promo Banner" style="max-width: 100%; height: auto;">
+            <img src="img/promo/<?php echo $package_service['image'] ?>" alt="<?php echo $package_service['title'] ?>" style="max-width: 100%; height: auto;">
         </div>
 
         <div id="countdown-timer" style="font-size: 20px; margin: 50px 0;"></div>
         <a href="#booking-form" class="default_btn">Book Now</a>
     </div>
 </section>
-
 
 <script>
     // Countdown Timer
@@ -68,23 +82,25 @@ $price_to_pay = 15;
             <h2>Our Featured Services</h2>
             <p>Watch the magic happen!</p>
         </div>
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row about_video">
+            <div class="col-md-12">
                 <iframe 
                     src="https://www.youtube.com/embed/z7mLHrf91DY" 
-                    style="width:100%; height:300px; border:0;" 
+                    style="width:100%; height:400px; border:0;" 
                     allowfullscreen>
                 </iframe>
             </div>
-            <div class="col-md-6">
-                <iframe src="https://www.instagram.com/reel/ANOTHER_CODE/embed" 
-                        style="width:100%; height:300px; border:0;" allowfullscreen></iframe>
+        </div>
+        <div class="row about_video">
+            <div class="col-md-12">
+                <iframe src="https://www.instagram.com/reel/DEKEtWooYlR/embed" 
+                        style="width:100%; height:600px; border:0;" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </section>
 
-<section id="google-reviews" class="reviews_section bg-grey padding">
+<section id="google-reviews" class="reviews_section bg-grey padding d-none">
     <div class="container">
         <div class="section_heading text-center mb-40">
             <h2>What Our Customers Say</h2>
@@ -147,78 +163,47 @@ $price_to_pay = 15;
             <h2>Book Your Appointment</h2>
             <p>Fill in your details to proceed.</p>
         </div>
-        <div class="obooking-form contact-form">
+        <div class="booking-form contact-form">
             <form method="post" action="booking_post.php">
                 <div class="form-group">
                     <label for="phone">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" 
-                                            pattern="^\d{10}$" 
-                                            placeholder="Enter Phone Number without 0" 
-                                            required 
-                                            maxlength="10" 
-                                            title="Please enter a 10-digit phone number without any spaces or special characters" 
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                           pattern="^\d{10}$" 
+                           placeholder="Enter Phone Number without 0" 
+                           required maxlength="10" 
+                           oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
                 <!--SMS implementation start--> 
 
 
-                        <div class="html-code overlay">
-
-                            <div id="test-popup" class="login_popup white-popup mfp-hide " style="display: none;">
-                                <div id="sms-popup"  >
-
-                                    <div class='waitSpinner'> </div>
-                                    <p style="display: block;" class="fancy_msg  alert">
-
-                                    </p>
-                                    <div id="mobile_otp_error" class="error"></div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-md-offset-4">
-                                            <div id="popuplogincontainer" >
-                                                <div class="white-popup" id="divsendmobileotp">
-
-                                                    <h3>Enter your mobile to get OTP</h3>
-                                                    <!--<p id="plsreghere"class="title_block">No account yet ? Please enter your mobile here!</p><br />-->
-
-                                                    <div class="form-group row">
-                                                        <!--<label for="mobile_otp" class="col-sm-4 hidden control-label" id="mobile_otp" >Mobile Number : </label>-->
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="mobile_otp_input form-control" value="" placeholder="Mobile Number" name="mobile_otp" id="mobile_otp">
-                                                            <div class="success-mobile-update"></div>
-                                                            <div class="error-mobile-update"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <p class="sent-otp-fastsms_submit">
-                                                            <button id="sent-otp-fastsms" class="button btn btn-success" value="Get OTP">Get OTP</button>
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="mobile_sms_otp">
-                                                        <div class="form-group row">
-                                                            <!--<label for="mobile_sms" class="col-sm-4 hidden control-label" id="mobile_sms" >Enter OTP: </label>-->
-                                                            <div class="col-sm-8">
-                                                                <input type="text" class="mobile_sms_input form-control" placeholder="Enter OTP" value="" name="mobile_sms" id="mobile_sms">                           
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <a id="verify-otp-fastsms" class="default_btn" value="Verify OTP">Verify OTP</a>
-                                                        </div>
-                                                    </div>    
-
-                                                </div><br />
-                                                <div class="clearfix"></div>
-
-                                            </div>                
-                                        </div>                
-                                    </div>  
-                                    <span class="align-bottom align-right btn-danger" id="close_sms_popup">x</span>
-                                    <div class="clearfix"></div>
+                        
+                                    <div class="form-group row">
+                                
+                                <div class="col-sm-12">
+                                    <input type="text" class="mobile_otp_input form-control" value="" placeholder="Mobile Number" name="mobile_otp" id="mobile_otp">
+                                    <div class="success-mobile-update"></div>
+                                    <div class="error-mobile-update"></div>
                                 </div>
                             </div>
+                                
+                            <div class="form-group">
+                                <p class="sent-otp-fastsms_submit">
+                                    <button id="sent-otp-fastsms" class="button btn btn-success" value="Get OTP">Get OTP</button>
+                                </p>
+                            </div>
 
-
-                        </div>
+                            <div class="mobile_sms_otp">
+                                <div class="form-group row">
+                                    <!--<label for="mobile_sms" class="col-sm-4 hidden control-label" id="mobile_sms" >Enter OTP: </label>-->
+                                    <div class="col-sm-8">
+                                        <input type="text" class="mobile_sms_input form-control" placeholder="Enter OTP" value="" name="mobile_sms" id="mobile_sms">                           
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <a id="verify-otp-fastsms" class="default_btn" value="Verify OTP">Verify OTP</a>
+                                </div>
+                            </div>
+                                    
 
                         <!--SMS implementation close-->
 
@@ -244,8 +229,23 @@ $price_to_pay = 15;
                         <option value="4:00 PM">4:00 PM</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="default_btn" value="Book & Pay" />
+                
+<!--                <div class="form-group">
+                    <button type="submit" class="default_btn">Book & Pay</button>
+                </div>-->
+            
+            <div class="terms-and-conditions mt-10">
+                <br/>
+                <br/>
+            <h3>Terms and Conditions</h3>
+            <ul>
+                <li>In case of cancellation, you will be charged the transaction fees.</li>
+                <li>This form is for appointment confirmation purposes. Booking will be confirmed once our representative contacts you and finalizes the appointment.</li>
+            </ul>
+            <br/>
+        </div>
+            <div class="form-group">
+                    <input type="submit" class="default_btn" value="Secure My Spot" />
                 </div>
                 <div class="form-group hidden-md">
                     <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
@@ -254,13 +254,11 @@ $price_to_pay = 15;
                     <input type="hidden" name="serviceChildren" id="serviceChildren" value="0" />
                     <input type="hidden" name="packageName" id="packageName" value="<?php echo 'Bridal Package' ?>" />
                     <input type="hidden" name="rnId" value="<?php echo base64_encode(base64_encode($price_to_pay)) ?>" />
+                    <input type="hidden" name="reg_user" id="reg_user" value="" />
                 </div>
-<!--                <div class="form-group">
-                    <button type="submit" class="default_btn">Book & Pay</button>
-                </div>-->
             </form>
         </div>
-    </div>
+        
 </section>
 
 <section id="instagram-feed" class="instagram_section bg-white padding">
@@ -268,7 +266,7 @@ $price_to_pay = 15;
         <div class="section_heading text-center mb-40">
             <h2>Follow Us on Instagram</h2>
             <p>See our latest updates, offers, and transformations!</p>
-        </div>
+    </div>
         <div class="row about_video">
 <!--             Embed Instagram posts using iframe or dynamic fetching -->
             <div class="col-12">

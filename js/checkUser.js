@@ -75,11 +75,15 @@ $('body').on('keyup', '#phone', function (e) {
                         }else if (msg.return === true) {
                             // open OTP 
                             console.log('i m herer');
-//                            alert(' send OTP');
+                            alert(' send OTP');
                             $(".mobile_sms_otp").show();
                             $('.success-mobile-update').addClass('text-success').html( msg.message);
                             $("#verify-otp-fastsms").show();
                             $(".sent-otp-fastsms_submit").hide();
+                            $("#email_label").hide();
+                            $("#name_label").hide();
+                            $("#email,#name").show();
+                            $("#email,#name").val();
                             $("#sent-otp-fastsms").hide();
                             $("#verify-otp-fastsms").on("click", function () {
                                 verifyMobileOTP();
@@ -168,6 +172,7 @@ function verifyMobileOTP() {
                 $(".error-mobile-update").hide();
                 $('.success-mobile-update').show().addClass('text-success').text( data.message);
                 $("#is_mobile_verified").val('1');
+                $("#reg_user").val('one_time'); // for direct
                 $(".error-mobile-update").hide();
                 $(".mobile_sms_input").hide();
                 $(".mobile_sms_input").hide();
@@ -176,6 +181,8 @@ function verifyMobileOTP() {
                 $("#email_cont").show();
                 $("#name_cont").show();
                 $("#pwd_cont").show();
+                $("#name_label").hide();
+                $("#email_label").hide();
 //                alert('we are here');
 //                $(".fancy_msg").text(data.message+'. Redirecting in 3 seconds');
                 return false;

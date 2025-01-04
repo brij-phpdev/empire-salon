@@ -184,49 +184,57 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
 
             $otp = rand(1111, 9999);
 
-            /*             * *
-             * 
-              uncomment this to send SMS
-             * 
-             */
-
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2?authorization=" . $api_key . "&variables_values=" . $otp . "&route=otp&flash=1&numbers=" . urlencode($mobile),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_SSL_VERIFYHOST => 0,
-                CURLOPT_SSL_VERIFYPEER => 0,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPHEADER => array(
-                    "cache-control: no-cache"
-                ),
-            ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
+            if(SMS_DEBUG==true){
+    
+                $response = '{"return":true,"request_id":"qBifaPScjNCdy2z","message":["SMS sent successfully. '.$otp.'"]};';
                 
-            curl_close($curl);
- 
-            // check if technical server error..
-            $technical_failure_check = (str_contains($response, ":996"));
-            if($technical_failure_check){
-                echo json_encode(array('return' => false, 'message' => 'Some technical error. Please try again'));die;
+            }else{
+            
+            
+                    /*             * *
+                     * 
+                      uncomment this to send SMS
+                     * 
+                     */
+
+                    $curl = curl_init();
+
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2?authorization=" . $api_key . "&variables_values=" . $otp . "&route=otp&flash=1&numbers=" . urlencode($mobile),
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => "",
+                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_TIMEOUT => 30,
+                        CURLOPT_SSL_VERIFYHOST => 0,
+                        CURLOPT_SSL_VERIFYPEER => 0,
+                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                        CURLOPT_CUSTOMREQUEST => "GET",
+                        CURLOPT_HTTPHEADER => array(
+                            "cache-control: no-cache"
+                        ),
+                    ));
+
+                    $response = curl_exec($curl);
+                    $err = curl_error($curl);
+
+                    curl_close($curl);
+
+                    // check if technical server error..
+                    $technical_failure_check = (str_contains($response, ":996"));
+                    if($technical_failure_check){
+                        echo json_encode(array('return' => false, 'message' => 'Some technical error. Please try again'));die;
+                    }
+
+                    if ($err) {
+                        $err = "cURL Error #:" . $err;
+                        } else {
+//                          echo $response;
+                    }
+
+
+        //                $response = '{"return":true,"request_id":"up0i26z4hndv8ms","message":["SMS sent successfully."]}';
             }
-
-            if ($err) {
-                $err = "cURL Error #:" . $err;
-                } else {
-//                  echo $response;
-            }
-
-
-//                $response = '{"return":true,"request_id":"up0i26z4hndv8ms","message":["SMS sent successfully."]}';
-                if(empty($err)){$err = 'NULL';} // always enable this to handle database blank column
+            if(empty($err)){$err = 'NULL';} // always enable this to handle database blank column
             ###############################################
             // save the OTP to verify in database...
             //            //INSERT INTO `pre_fast2sms_api_log` (`id`, `mobile`, `sent_otp`, `shop_id`, `ip_address`, `user_agent`, `api_response`, `error`, `created_at`) VALUES (NULL, '9999887788', '0987', '0', '0921029', 'ahello', '{\"return\":true,\"request_id\":\"up0i26z4hndv8ms\",\"message\":[\"SMS sent successfully.\"]}', NULL, current_timestamp());
@@ -249,21 +257,25 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
             ################################################
 
 
+            if(SMS_DEBUG!=True){
+                $obj_response = json_decode($response);
+    //                        print_r($obj_response);die;
+                $otp_return = $obj_response->return;
+                $otp_request_id = $obj_response->request_id;
+                $otp_message = $obj_response->message;
 
-            $obj_response = json_decode($response);
-//                        print_r($obj_response);
-            $otp_return = $obj_response->return;
-            $otp_request_id = $obj_response->request_id;
-            $otp_message = $obj_response->message;
-
-            if ($otp_return == true && !empty($otp_request_id)) {
-                $isSMSSent = true;
-                $api_message = $otp_message[0];
-            } else {
-                $api_message = $otp_message[0];
-                if (!empty($err)) {
-                    $api_message .= $err;
+                if ($otp_return == true && !empty($otp_request_id)) {
+                    $isSMSSent = true;
+                    $api_message = $otp_message[0];
+                } else {
+                    $api_message = $otp_message[0];
+                    if (!empty($err)) {
+                        $api_message .= $err;
+                    }
                 }
+            }else{
+                $isSMSSent = true;
+                $api_message = 'Please fill your details for registration';
             }
 //            print_r($api_message);
             echo json_encode(array('return' => $isSMSSent, 'message' => 'New User: '.$api_message));

@@ -52,4 +52,10 @@ define('CGST', (int)$_ENV['CGST']);
 
 define('CURRENCY', $_ENV['CURRENCY']);
 
+define('AUTH_SALT', $_ENV['AUTH_SALT']);
+
+define('MY_GOOGLE_BUSINESS_API_KEY', $_ENV['MY_GOOGLE_BUSINESS_API_KEY']);
+
+define('SMS_DEBUG', $_ENV['SMS_DEBUG']);
+
 //define('DISABLE_LINKS', true);
