@@ -156,9 +156,10 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
             endforeach;
             ?>
         </div>
-    </div>
+    
     <div id="countdown-timer" style="font-size: 20px; margin: 50px 0;"></div>
         <a href="#booking-form" class="default_btn">Book Now</a>
+        </div>
 </section><!-- /. pricing_section -->
 
 
