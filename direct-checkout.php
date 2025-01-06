@@ -53,7 +53,7 @@ if (isset($_GET['offer_id'])) {
     <div class="container">
         <h2>Limited Time Offer!</h2>
         <!--<p>Use Promo Code <strong>EMPIRE20</strong> to get 20% off your first appointment.</p>-->
-        
+        <div id="countdown-timer" style="font-size: 20px; margin: 20px 0;"></div>        
         <!-- Promo Image -->
         <div class="about_video">
             <img src="img/promo/<?php echo $package_service['image'] ?>" alt="<?php echo $package_service['title'] ?>" style="max-width: 100%; height: auto;">
@@ -156,9 +156,11 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
             endforeach;
             ?>
         </div>
-    
-    <div id="countdown-timer" style="font-size: 20px; margin: 50px 0;"></div>
+        <div style="" class="text-center">
+            <hr/>
+            
         <a href="#booking-form" class="default_btn">Book Now</a>
+        </div>
         </div>
 </section><!-- /. pricing_section -->
 
