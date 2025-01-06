@@ -355,9 +355,44 @@ $.ajax({
                 });
 }
 </script>
-                
-<!-- <script type="text/javascript">
+<script>
+    $(document).ready(function() {
+        // When a tab is clicked, update the hidden fields with package name and service ID
+        $('.nav-link').click(function() {
+            // Get the data attributes from the clicked tab
+            var packageName = $(this).data('package-name');
+            var serviceId = $(this).data('service-id');
 
+            $('#serviceId').val(serviceId);
+            $('#packageName').val(packageName);
+        });
+    });
+$(document).ready(function() {
+    // Force line breaks to work as expected
+    $('p').each(function() {
+        var content = $(this).html();
+        $(this).html(content.replace(/<br>/g, '<br />'));
+    });
+});
+
+</script>  
+
+<!-- <script type="text/javascript">
+// When "Book Now" or "Buy Now" button is clicked, update hidden fields again if needed
+        $('.book-now, .buy-now').click(function(e) {
+            e.preventDefault(); // Prevent the default action (like form submission)
+            
+            // Get the data attributes from the clicked button
+            var packageName = $(this).data('package-name');
+            var serviceId = $(this).data('service-id');
+
+            // Update the hidden fields with the selected package name and service ID
+            $('#serviceId').val(serviceId);
+            $('#packageName').val(packageName);
+
+            // Optionally, submit the form or redirect as needed (e.g., for booking or checkout)
+            // $('#yourFormId').submit(); // Uncomment this if you want to submit a form
+        });
             
 
             $('body').on('click', '#validate_email', function (e) {

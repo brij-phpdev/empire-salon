@@ -198,3 +198,66 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
             padding: 13.5%;
     }
 }
+
+ul.direct_price_list{}
+.direct_price_list li{
+    margin-bottom: 40px;
+    margin-top: 20px;
+    position: relative;
+}
+.direct_price_list li h4{
+    font-family: "Work Sans",sans-serif;
+    position: relative;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0 0 6px;
+    overflow: hidden;
+    width: 90%;
+}
+/*.direct_price_list li p:before{
+    color: #bbb;
+    content: "--------------------"
+    "--------------------" 
+    "--------------------" 
+    ;
+    font-weight: normal;
+    margin-left: 310px;
+    position: absolute;
+    top: -2px;
+    white-space: nowrap;
+    width: 0;
+}*/
+.direct_price_list li span.price{
+    font-family: "Work Sans",sans-serif;
+    font-size: 16px;
+    color: #9e8a78;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    right: 75px;
+}
+.direct_price_list li p{
+    margin: 0;
+}
+/*.menu_middle_content{}
+.menu_middle_content img{
+    width: 100%;
+    margin-top: -30px;
+    margin-bottom: 15px;
+}*/
+
+/* Ensure line breaks and text wrapping */
+p {
+    white-space: normal;  /* Ensure normal whitespace handling */
+    word-wrap: break-word; /* Ensure long words wrap properly */
+    word-break: break-word; /* Break long words on overflow */
+}
+
+/* Optional: To ensure this applies to mobile devices */
+@media (max-width: 768px) {
+    p {
+        white-space: normal;
+    }
+}

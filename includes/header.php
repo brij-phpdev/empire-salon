@@ -15,7 +15,7 @@ require_once( 'functions.php' );
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Empire Salon">
         <meta name="author" content="The Royals">
 

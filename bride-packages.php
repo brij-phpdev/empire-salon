@@ -199,7 +199,7 @@ Full range of all items are accessible at the reception area of Empire, it would
         <div class="display-table">
             <div class="table-cel">
                 <div class="cta_content align-center wow fadeInUp" data-wow-delay="300ms">
-                    <h2>Making You Look Good <br> Is In Our Haritage.</h2>
+                    <h2>Making You Look Good <br> Is In Our Heritage.</h2>
                     <p>We take pride in providing top-notch grooming services that blend classic techniques with modern trends. Step into our warm and inviting space, where you'll find a team of skilled barbers dedicated to enhancing your style and confidence.</p>
                     <a href="book.php" class="default_btn">Make Appointment</a>
                 </div>

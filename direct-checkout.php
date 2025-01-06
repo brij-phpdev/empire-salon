@@ -2,13 +2,20 @@
 include_once './includes/header.php';
 include_once './includes/database.php';
 
+// RUBY BLISS = 29
+// EMERALD LIFE = 31
+// SAPPHIRE PRADISE = 32
+
+// INSERT INTO `servicetable` (`id`, `service_id`, `service_code`, `category_id`, `sub_category`, `title`, `description`, `offer_img_front`, `offer_img_back`, `search_name`, `price`, `member_price`, `starts_at`, `expires_at`, `servStart`, `servEnd`, `servDuration`, `servSpace`, `image`, `agentIds`, `status`) VALUES (NULL, NULL, NULL, '43', NULL, 'Bride Packages Jan 2025', 'Bride Packages Jan 2025 - RUBY BLISS, EMERALD LIFE, SAPPHIRE PARADISE', 'bride-offers-jn-2025.jpeg', 'bride-offers-jn-2025.jpeg', NULL, '21000', '2100', NULL, NULL, NULL, NULL, NULL, '1', 'bride-offers-jn-2025.jpeg', NULL, 'active');
+
 // Existing logic for processing offer ID
 if (isset($_GET['offer_id'])) {
     $hashed_id_from_url = $_GET['offer_id'];
     $salt = AUTH_SALT;
-    $static_id = 478;
+//    $static_id = 478; // 478 = 0032c8c763a7c0bf9477bc43eac16ffb7e43f4fa978c3613243c8d20a86ead1f
+    $static_id = 479; // 479 = 22bf4b8f629b3638365a8b06cb116cc25dc5d5689c0b2773a8e3adb04aa2e985
     $expected_hash = generateHashedID($static_id, $salt);
-
+//echo $expected_hash;die;
     if ($hashed_id_from_url === $expected_hash) {
         $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `id`='".$static_id."' ORDER BY `id` DESC";
         if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
@@ -53,38 +60,150 @@ if (isset($_GET['offer_id'])) {
         </div>
 
         <div id="countdown-timer" style="font-size: 20px; margin: 50px 0;"></div>
-        <a href="#booking-form" class="default_btn">Book Now</a>
+        <a href="#choose-one" class="default_btn">Book Now</a>
     </div>
 </section>
+<?php
+$package_array = array();
+$packagetable_sql = "SELECT * FROM `service_cat_table` WHERE id ='1' "; // fixed on 9th Nov to call only bride gallery
 
-<script>
-    // Check if the start time is already stored in localStorage
-    let startTime = localStorage.getItem('timerStartTime');
-    
-    // If not, set it to the current time and store it
-    if (!startTime) {
-        startTime = new Date().getTime();
-        localStorage.setItem('timerStartTime', startTime);
-    }
+if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
 
-    // Countdown Timer: 24 hours (86400000 milliseconds) from the start time
-    const endTime = parseInt(startTime) + (24 * 60 * 60 * 1000); // 24 hours from the start time
-    
-    const timer = setInterval(function () {
-        const now = new Date().getTime();
-        const distance = endTime - now;
-        
-        if (distance <= 0) {
-            clearInterval(timer);
-            document.getElementById('countdown-timer').innerText = 'Offer expired!';
-        } else {
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById('countdown-timer').innerText = `${hours}h ${minutes}m ${seconds}s remaining`;
+    if (@mysqli_num_rows($packagetable_res) > 0) {
+        while ($packagetable_row = @mysqli_fetch_assoc($packagetable_res)) {
+            $package_array[] = $packagetable_row;
         }
-    }, 1000);
+    }
+}
+?>
+<?php if(!empty($package_array)):  ?>
+<section class="pricing_section bg-grey bd-bottom padding" id="choose-one">
+    <div class="container contact-form" id="">
+        <div class="row">
+            <!-- Tab Links (Package Service Titles) -->
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="packageTabs" role="tablist">
+                    <?php 
+                    $activeClass = 'active'; // Variable to control the active tab class
+                    foreach($package_array as $package): 
+                        $package_services = array();
+                        if (!empty($package)):
+                            $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`=".$package['id'];
+                            if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
+                                if (@mysqli_num_rows($package_servicetable_res) > 0) {
+                                    while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+                                        $package_services[] = $package_servicetable_row;
+                                    }
+                                }
+                            }
+                        endif;
+                    ?>
+                        <!-- Loop through each package service -->
+                        <?php foreach($package_services as $package_service): ?>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link <?php echo $activeClass; ?>" id="tab-<?php echo $package_service['id']; ?>" data-toggle="tab" href="#content-<?php echo $package_service['id']; ?>" role="tab" aria-controls="content-<?php echo $package_service['id']; ?>" aria-selected="true" data-package-name="<?php echo strtoupper($package_service['title']); ?>" data-service-id="<?php echo $package_service['id']; ?>" data-price="<?php echo $package_service['price']; ?>">
+                                    <h4 style="font-weight: bold;"><?php echo strtoupper($package_service['title']); ?></h4>
+                                </a>
+                            </li>
+                        <?php 
+                        $activeClass = ''; // Remove active class after the first tab
+                        endforeach;
+                    endforeach;
+                    ?>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab Content (Package Details) -->
+        <div class="tab-content" id="packageTabsContent">
+            <?php 
+            $activeClass = 'show active'; // Variable for the first active tab content
+            foreach($package_array as $package): 
+                $package_services = array();
+                if (!empty($package)):
+                    $package_service_table_sql = "SELECT `servicetable`.* FROM `servicetable` WHERE `category_id`=".$package['id'];
+                    if ($package_servicetable_res = @mysqli_query($link, $package_service_table_sql)) {
+                        if (@mysqli_num_rows($package_servicetable_res) > 0) {
+                            while ($package_servicetable_row = @mysqli_fetch_assoc($package_servicetable_res)) {
+                                $package_services[] = $package_servicetable_row;
+                            }
+                        }
+                    }
+                endif;
+            ?>
+
+            <!-- Loop through each package service for content -->
+            <?php foreach($package_services as $package_service): ?>
+                <div class="tab-pane fade <?php echo $activeClass; ?>" id="content-<?php echo $package_service['id']; ?>" role="tabpanel" aria-labelledby="tab-<?php echo $package_service['id']; ?>">
+                    <ul class="direct_price_list">
+                        <li>
+                            <span class="price" style="color: #9e8a78; font-weight: bold;">₹ <?php echo $package_service['price']; ?>/-</span>
+                            <p>
+                                <?php //var_dump(($package_service['description']));die;
+                                echo (html_entity_decode($package_service['description'])); ?>
+                            </p>
+                            
+                        </li>
+<!--                        <li>
+                            <a href="#" class="default_btn book-now" data-package-name="<?php echo strtoupper($package_service['title']); ?>" data-service-id="<?php echo $package_service['id']; ?>" data-price="<?php echo $package_service['price']; ?>">Book an Appointment</a>
+                        </li>
+                        <li>
+                            <a href="#" class="default_btn buy-now" data-package-name="<?php echo strtoupper($package_service['title']); ?>" data-service-id="<?php echo $package_service['id']; ?>" data-price="<?php echo $package_service['price']; ?>">Buy Now</a>
+                        </li>-->
+                    </ul>
+                </div>
+            <?php 
+            $activeClass = ''; // Remove active class after the first content
+            endforeach;
+            endforeach;
+            ?>
+        </div>
+    </div>
+</section><!-- /. pricing_section -->
+
+
+<?php endif; ?>
+<script>
+    // Get the offer_id from the URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const offerId = urlParams.get('offer_id');
+    
+    if (offerId) {
+        // If the offer_id is present in the URL, log it or use it as needed
+        console.log("Offer ID:", offerId);
+
+        // Check if the start time for this offer is already stored in localStorage
+        let startTime = localStorage.getItem(`timerStartTime_${offerId}`);
+        
+        // If not, set it to the current time and store it for this offer
+        if (!startTime) {
+            startTime = new Date().getTime();
+            localStorage.setItem(`timerStartTime_${offerId}`, startTime);
+        }
+
+        // Countdown Timer: 24 hours (86400000 milliseconds) from the start time
+        const endTime = parseInt(startTime) + (24 * 60 * 60 * 1000); // 24 hours from the start time
+        
+        const timer = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+            
+            if (distance <= 0) {
+                clearInterval(timer);
+                document.getElementById('countdown-timer').innerText = 'Offer expired!';
+            } else {
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById('countdown-timer').innerText = `${hours}h ${minutes}m ${seconds}s remaining`;
+            }
+        }, 1000);
+    } else {
+        // If no offer_id is present in the URL, display a message
+        document.getElementById('countdown-timer').innerText = 'No offer found.';
+    }
 </script>
+
 
 <section id="featured-videos" class="videos_section bg-grey padding">
     <div class="container">
@@ -96,15 +215,9 @@ if (isset($_GET['offer_id'])) {
             <div class="col-md-12">
                 <iframe 
                     src="https://www.youtube.com/embed/z7mLHrf91DY" 
-                    style="width:100%; height:400px; border:0;" 
+                    style="width:100%; height:450px; border:0;" 
                     allowfullscreen>
                 </iframe>
-            </div>
-        </div>
-        <div class="row about_video">
-            <div class="col-md-12">
-                <iframe src="https://www.instagram.com/reel/DEKEtWooYlR/embed" 
-                        style="width:100%; height:600px; border:0;" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -259,10 +372,10 @@ if (isset($_GET['offer_id'])) {
                 </div>
                 <div class="form-group hidden-md">
                     <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
-                    <input type="hidden" name="direct_serviceId" id="serviceId" value="<?php echo $static_id ?>" />
+                    <input type="hidden" name="direct_serviceId" id="serviceId" value="<?php echo 29 ?>" />
                     <input type="hidden" name="serviceAdult" id="serviceAdult" value="1" />
                     <input type="hidden" name="serviceChildren" id="serviceChildren" value="0" />
-                    <input type="hidden" name="packageName" id="packageName" value="<?php echo 'Bridal Package' ?>" />
+                    <input type="hidden" name="packageName" id="packageName" value="<?php echo 'RUBY BLISS' ?>" />
                     <input type="hidden" name="rnId" value="<?php echo base64_encode(base64_encode($price_to_pay)) ?>" />
                     <input type="hidden" name="reg_user" id="reg_user" value="" />
                 </div>
