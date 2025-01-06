@@ -59,8 +59,6 @@ if (isset($_GET['offer_id'])) {
             <img src="img/promo/<?php echo $package_service['image'] ?>" alt="<?php echo $package_service['title'] ?>" style="max-width: 100%; height: auto;">
         </div>
 
-        <div id="countdown-timer" style="font-size: 20px; margin: 50px 0;"></div>
-        <a href="#choose-one" class="default_btn">Book Now</a>
     </div>
 </section>
 <?php
@@ -159,6 +157,8 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
             ?>
         </div>
     </div>
+    <div id="countdown-timer" style="font-size: 20px; margin: 50px 0;"></div>
+        <a href="#booking-form" class="default_btn">Book Now</a>
 </section><!-- /. pricing_section -->
 
 
@@ -205,57 +205,7 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
 </script>
 
 
-<section id="featured-videos" class="videos_section bg-grey padding">
-    <div class="container">
-        <div class="section_heading text-center mb-40">
-            <h2>Our Featured Services</h2>
-            <p>Watch the magic happen!</p>
-        </div>
-        <div class="row about_video">
-            <div class="col-md-12">
-                <iframe 
-                    src="https://www.youtube.com/embed/z7mLHrf91DY" 
-                    style="width:100%; height:450px; border:0;" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section id="google-reviews" class="reviews_section bg-grey padding d-none">
-    <div class="container">
-        <div class="section_heading text-center mb-40">
-            <h2>What Our Customers Say</h2>
-            <p>Don't just take our word for it, hear from our happy clients!</p>
-        </div>
-        <div class="row">
-            <?php
-            // Replace with your Google My Business API key and place ID
-            $api_key = 'YOUR_GOOGLE_API_KEY';
-            $place_id = 'YOUR_PLACE_ID';
-            $reviews_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$place_id&fields=reviews&key=$api_key";
-
-            $reviews_response = file_get_contents($reviews_url);
-            $reviews_data = json_decode($reviews_response, true);
-
-            if (!empty($reviews_data['result']['reviews'])) {
-                foreach ($reviews_data['result']['reviews'] as $review) {
-                    echo '<div class="col-md-4">';
-                    echo '<div class="review-box">';
-                    echo '<p><strong>' . htmlspecialchars($review['author_name']) . '</strong></p>';
-                    echo '<p>' . htmlspecialchars($review['text']) . '</p>';
-                    echo '<p>Rating: ' . htmlspecialchars($review['rating']) . ' / 5</p>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-            } else {
-                echo '<p>No reviews available at the moment.</p>';
-            }
-            ?>
-        </div>
-    </div>
-</section>
 
 
 
@@ -389,6 +339,58 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
             </form>
         </div>
         
+</section>
+
+<section id="featured-videos" class="videos_section bg-grey padding">
+    <div class="container">
+        <div class="section_heading text-center mb-40">
+            <h2>Our Featured Services</h2>
+            <p>Watch the magic happen!</p>
+        </div>
+        <div class="row about_video">
+            <div class="col-md-12">
+                <iframe 
+                    src="https://www.youtube.com/embed/z7mLHrf91DY" 
+                    style="width:100%; height:450px; border:0;" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="google-reviews" class="reviews_section bg-grey padding d-none">
+    <div class="container">
+        <div class="section_heading text-center mb-40">
+            <h2>What Our Customers Say</h2>
+            <p>Don't just take our word for it, hear from our happy clients!</p>
+        </div>
+        <div class="row">
+            <?php
+            // Replace with your Google My Business API key and place ID
+            $api_key = 'YOUR_GOOGLE_API_KEY';
+            $place_id = 'YOUR_PLACE_ID';
+            $reviews_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$place_id&fields=reviews&key=$api_key";
+
+            $reviews_response = file_get_contents($reviews_url);
+            $reviews_data = json_decode($reviews_response, true);
+
+            if (!empty($reviews_data['result']['reviews'])) {
+                foreach ($reviews_data['result']['reviews'] as $review) {
+                    echo '<div class="col-md-4">';
+                    echo '<div class="review-box">';
+                    echo '<p><strong>' . htmlspecialchars($review['author_name']) . '</strong></p>';
+                    echo '<p>' . htmlspecialchars($review['text']) . '</p>';
+                    echo '<p>Rating: ' . htmlspecialchars($review['rating']) . ' / 5</p>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo '<p>No reviews available at the moment.</p>';
+            }
+            ?>
+        </div>
+    </div>
 </section>
 
 <section id="instagram-feed" class="instagram_section bg-white padding">
