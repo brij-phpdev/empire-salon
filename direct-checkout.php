@@ -360,13 +360,20 @@ if ($packagetable_res = @mysqli_query($link, $packagetable_sql)) {
             <div class="terms-and-conditions mt-10">
                 <br/>
                 <br/>
-            <h3>Terms and Conditions</h3>
-            <ul>
-                <li>In case of cancellation, you will be charged the transaction fees.</li>
-                <li>This form is for appointment confirmation purposes. Booking will be confirmed once our representative contacts you and finalizes the appointment.</li>
-            </ul>
-            <br/>
-        </div>
+                <h3>Terms and Conditions</h3>
+                <ul>
+                    <li>In case of cancellation, you will be charged the transaction fees.</li>
+                    <li>This form is for appointment confirmation purposes. Booking will be confirmed once our representative contacts you and finalizes the appointment.</li>
+                </ul>
+
+                <!-- Token Amount Information Highlighted -->
+                <div class="highlight-token-amount">
+                    <p><strong>Important:</strong> A token amount of <span class="highlight-amount">₹1000.00</span> is required to confirm your appointment. This amount will be adjusted in the final bill.</p>
+                </div>
+
+                <br/>
+            </div>
+
             <div class="form-group">
                     <input type="submit" class="default_btn" value="Secure My Spot" />
                 </div>
