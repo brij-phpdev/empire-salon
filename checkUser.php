@@ -183,8 +183,8 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
 
 
             $otp = rand(1111, 9999);
-
-            if(SMS_DEBUG==true){
+//var_dump(SMS_DEBUG);die;
+            if(SMS_DEBUG!='FALSE'){
     
                 $response = '{"return":true,"request_id":"qBifaPScjNCdy2z","message":["SMS sent successfully. '.$otp.'"]};';
                 
@@ -257,9 +257,9 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
             ################################################
 
 
-            if(SMS_DEBUG!=True){
+            if(SMS_DEBUG=='FALSE'){
                 $obj_response = json_decode($response);
-    //                        print_r($obj_response);die;
+//                            print_r($obj_response);die;
                 $otp_return = $obj_response->return;
                 $otp_request_id = $obj_response->request_id;
                 $otp_message = $obj_response->message;
@@ -275,7 +275,7 @@ if (isset($mobile) && $is_valid_mob && $_POST['action'] == 'check_user') {
                 }
             }else{
                 $isSMSSent = true;
-                $api_message = 'Please fill your details for registration';
+                $api_message = 'Enter the OTP received on your mobile';
             }
 //            print_r($api_message);
             echo json_encode(array('return' => $isSMSSent, 'message' => 'New User: '.$api_message));

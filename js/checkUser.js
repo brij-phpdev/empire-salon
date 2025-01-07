@@ -74,8 +74,8 @@ $('body').on('keyup', '#phone', function (e) {
 
                         }else if (msg.return === true) {
                             // open OTP 
-                            console.log('i m herer');
-                            alert(' send OTP');
+//                            console.log('i m herer');
+//                            alert(' send OTP');
                             $(".mobile_sms_otp").show();
                             $('.success-mobile-update').addClass('text-success').html( msg.message);
                             $("#verify-otp-fastsms").show();

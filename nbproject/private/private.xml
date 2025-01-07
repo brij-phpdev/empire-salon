@@ -8,7 +8,6 @@
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/gallery.html</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/callSendSMS.js</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/easebuzz-lib/payment.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/generateInvoice.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/checkUser.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/test_mail.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/footer.php</file>
@@ -20,7 +19,6 @@
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/bride-packages.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/checkout.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/pricing.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/login.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/groom-packages.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/about-us.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/book.css</file>
@@ -44,14 +42,13 @@
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/franchise.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/js/appointment.js</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/test.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/header.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/offer-packages_2.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/register.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/header.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/INSTALL.md</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/responsive.css</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/css/marquee.css</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/reset_password.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/process.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/send_otp.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/config.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/contact_post.php</file>
@@ -59,7 +56,6 @@
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/booking_post.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/sql/update.sql</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/getCoupons.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/direct-register.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/book.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/vendor/autoload.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/forgot_password.php</file>
@@ -77,7 +73,6 @@
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/myaccount.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/direct-checkout.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/register.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/barber-shop/includes/hash-pwd.php</file>
         </group>
     </open-files>
 </project-private>
